@@ -33,12 +33,12 @@ public class vistaLogin extends javax.swing.JFrame {
         btnIniciarSesionLogin = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        texto_usuario = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
-        jTextField2 = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
         btnISLogin = new javax.swing.JButton();
+        texto_contra = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -87,17 +87,12 @@ public class vistaLogin extends javax.swing.JFrame {
         btnIniciarSesionLogin.add(jLabel4);
         jLabel4.setBounds(160, 230, 300, 21);
 
-        jTextField1.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jTextField1.setBorder(null);
-        btnIniciarSesionLogin.add(jTextField1);
-        jTextField1.setBounds(160, 160, 300, 20);
+        texto_usuario.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        texto_usuario.setBorder(null);
+        btnIniciarSesionLogin.add(texto_usuario);
+        texto_usuario.setBounds(160, 160, 300, 20);
         btnIniciarSesionLogin.add(jSeparator2);
         jSeparator2.setBounds(160, 280, 300, 10);
-
-        jTextField2.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jTextField2.setBorder(null);
-        btnIniciarSesionLogin.add(jTextField2);
-        jTextField2.setBounds(160, 260, 300, 20);
         btnIniciarSesionLogin.add(jSeparator3);
         jSeparator3.setBounds(160, 180, 300, 10);
 
@@ -116,8 +111,25 @@ public class vistaLogin extends javax.swing.JFrame {
         btnISLogin.setDefaultCapable(false);
         btnISLogin.setFocusPainted(false);
         btnISLogin.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_IniciarSesionMedium.png"))); // NOI18N
+        btnISLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnISLoginActionPerformed(evt);
+            }
+        });
+        btnISLogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnISLoginKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                btnISLoginKeyTyped(evt);
+            }
+        });
         btnIniciarSesionLogin.add(btnISLogin);
         btnISLogin.setBounds(120, 340, 370, 70);
+
+        texto_contra.setBorder(null);
+        btnIniciarSesionLogin.add(texto_contra);
+        texto_contra.setBounds(160, 260, 300, 14);
 
         jPanel2.setBackground(new java.awt.Color(56, 0, 107));
 
@@ -168,6 +180,18 @@ public class vistaLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnISLoginKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnISLoginKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnISLoginKeyTyped
+
+    private void btnISLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnISLoginKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnISLoginKeyPressed
+
+    private void btnISLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnISLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnISLoginActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -217,7 +241,7 @@ public class vistaLogin extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    public javax.swing.JPasswordField texto_contra;
+    public javax.swing.JTextField texto_usuario;
     // End of variables declaration//GEN-END:variables
 }

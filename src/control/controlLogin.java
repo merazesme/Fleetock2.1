@@ -8,6 +8,8 @@ package control;
 import control.administrador.acontrolMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+import modelo.modelologin;
 import vistas.administrador.avistaMenu;
 import vistas.vistaLogin;
 import vistas.vistaPrincipal;
@@ -19,12 +21,20 @@ import vistas.vistaPrincipal;
 public class controlLogin implements ActionListener{
     
     vistaLogin vista;
+    private modelologin modelo;
     vistaPrincipal vistaPrincipal;
     avistaMenu avmMenu;
+    public String usu="";
+    
+       public controlLogin()
+    {
+        this.usu="";
+    }
   
-    public controlLogin(vistaLogin vista, vistaPrincipal vistaPrincipal, avistaMenu avMenu)
+    public controlLogin(vistaLogin vista,modelologin modelo, vistaPrincipal vistaPrincipal, avistaMenu avMenu)
     {
         this.vista=vista;
+        this.modelo=modelo;
         this.vista.btnISLogin.addActionListener(this);
         this.vistaPrincipal=vistaPrincipal;
         this.avmMenu=avMenu;
@@ -38,15 +48,36 @@ public class controlLogin implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        if(vista.btnISLogin == e.getSource())
+        usu = vista.texto_usuario.getText();
+        String contra = new String(vista.texto_contra.getPassword());
+        
+        if(vista.btnISLogin == e.getSource() || vista.texto_usuario == e.getSource() || vista.texto_contra == e.getSource())
         {
-            System.out.println("hola");
-            vista.setVisible(false);
-            vistaPrincipal.setVisible(true);
-            vistaPrincipal.setLocationRelativeTo(null);
-            
-            controlPrincipal controlPrincipal = new controlPrincipal(vistaPrincipal);
-            controlPrincipal.iniciarVista();
+              switch (modelo.ingresar(usu, contra)) 
+            {
+                //SI EL USUARIO ES ADMINISTRADOR SE ABRE ESTE PANEL
+                case 1:
+                    System.out.println("hola");
+                    JOptionPane.showMessageDialog(null, "Bienvenido " + usu);
+                    vista.setVisible(false);
+                    vistaPrincipal.setVisible(true);
+                    vistaPrincipal.setLocationRelativeTo(null);
+                                   
+                    controlPrincipal controlPrincipal = new controlPrincipal(vistaPrincipal);
+                    controlPrincipal.iniciarVista();
+                    break;
+                case 2:
+                    //SI ES USUARIO SE ABRE EL INICIO
+                    JOptionPane.showMessageDialog(null, "Administrador " + usu);
+                    break;
+                case 3:
+                    //MENSAJE 
+                    JOptionPane.showMessageDialog(null, "USUARIO/CONTRASEÑA INCORRECTOS");
+                    break;
+                default:
+
+                    break;
+            }
             
 //            acontrolMenu acMenu = new acontrolMenu(avmMenu);
 //            acMenu.iniciarVista();

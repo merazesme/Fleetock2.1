@@ -7,6 +7,7 @@ package control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import modelo.modelologin;
 import vistas.vistaCalculadora;
 import vistas.vistaInicio;
 import vistas.vistaLogin;
@@ -72,7 +73,8 @@ public class controlPrincipal implements ActionListener{
        {
            this.vista.setVisible(false);
            vistaLogin vistaLogin = new vistaLogin();
-           controlLogin controLogin = new controlLogin(vistaLogin, vista, null);
+           modelologin modelologin = new modelologin();
+           controlLogin controLogin = new controlLogin(vistaLogin,modelologin, vista, null);
            controLogin.iniciarVista();
        }
     
