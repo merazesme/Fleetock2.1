@@ -9,6 +9,7 @@ import control.CambiaPanel;
 import control.controlLogin;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import modelo.modelologin;
 import vistas.administrador.avistaActividades;
 import vistas.administrador.avistaDestino;
 import vistas.administrador.avistaEstiloViaje;
@@ -90,7 +91,8 @@ public class acontrolMenu implements ActionListener{
         if(this.vista.btnSalir == e.getSource())
         {
             vistaLogin vLogin = new vistaLogin();
-            controlLogin cLogin = new controlLogin(vLogin, null, vista);
+            modelologin modelologin = new modelologin();
+            controlLogin cLogin = new controlLogin(vLogin,modelologin, null, vista);
             this.vista.setVisible(false);
             cLogin.iniciarVista();
         }

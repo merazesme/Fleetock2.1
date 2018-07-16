@@ -8,6 +8,7 @@ package control;
 import java.awt.Button;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import modelo.modelologin;
 import vistas.vistaLogin;
 import vistas.vistaLoginRegistrarse;
 import vistas.vistaPrincipal;
@@ -34,7 +35,8 @@ public class controlLoginRegistrarse implements ActionListener{
             vistaLogin.setVisible(true);
             vistaLogin.setLocationRelativeTo(null);
             vistaPrincipal vistaPrincipal = new vistaPrincipal();
-            controlLogin controlLogin = new controlLogin(vistaLogin, vistaPrincipal, null);
+            modelologin modelologin = new modelologin();
+            controlLogin controlLogin = new controlLogin(vistaLogin,modelologin, vistaPrincipal, null);
         }
         
         }
