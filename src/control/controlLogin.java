@@ -36,6 +36,9 @@ public class controlLogin implements ActionListener{
         this.vista=vista;
         this.modelo=modelo;
         this.vista.btnISLogin.addActionListener(this);
+        this.vista.texto_usuario.addActionListener(this);
+        this.vista.texto_contra.addActionListener(this);
+        //this.vista.btnISLogin.addKeyListener(this);
         this.vistaPrincipal=vistaPrincipal;
         this.avmMenu=avMenu;
     }
