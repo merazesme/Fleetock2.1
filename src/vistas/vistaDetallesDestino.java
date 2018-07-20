@@ -30,7 +30,7 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
         panelBase = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblImagenN = new javax.swing.JLabel();
         scrollActividades = new javax.swing.JScrollPane();
         jPanel15 = new javax.swing.JPanel();
         jPanel40 = new javax.swing.JPanel();
@@ -170,12 +170,12 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Candara", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chile_1.png"))); // NOI18N
-        jLabel1.setText("Santiago, Chile.");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblImagenN.setFont(new java.awt.Font("Candara", 0, 36)); // NOI18N
+        lblImagenN.setForeground(new java.awt.Color(255, 255, 255));
+        lblImagenN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblImagenN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chile_1.png"))); // NOI18N
+        lblImagenN.setText("Santiago, Chile.");
+        lblImagenN.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         scrollActividades.setBackground(new java.awt.Color(255, 255, 255));
         scrollActividades.setBorder(null);
@@ -1653,7 +1653,7 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
                                     .addComponent(jButton1)))
                             .addGap(4, 4, 4)
                             .addComponent(scrollOpiniones, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblImagenN, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnActividades)))
                 .addContainerGap())
         );
@@ -1661,7 +1661,7 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblImagenN, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnViaje)
                 .addGap(9, 9, 9)
@@ -1714,7 +1714,7 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
         );
         panelBaseLayout.setVerticalGroup(
             panelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -1940,7 +1940,6 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton23;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
@@ -2067,6 +2066,7 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
+    public javax.swing.JLabel lblImagenN;
     private javax.swing.JPanel panelBase;
     private javax.swing.JScrollPane scrollActividades;
     private javax.swing.JScrollPane scrollOpiniones;
