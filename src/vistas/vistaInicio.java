@@ -29,32 +29,34 @@ public class vistaInicio extends javax.swing.JPanel {
 
         panelInicio = new javax.swing.JPanel();
         txtBusqueda = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        btnTendencias = new javax.swing.JButton();
+        btnSugerencias = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
         scrollDestinos = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        scrollCiudad = new javax.swing.JScrollPane();
-        pnlCiudad = new javax.swing.JPanel();
-        scrollPlaya = new javax.swing.JScrollPane();
-        pnlPlaya = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        scrollMontania = new javax.swing.JScrollPane();
-        pnl_Montania = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        scrollBosque = new javax.swing.JScrollPane();
-        pnlBosque = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        scrollSelva = new javax.swing.JScrollPane();
-        pnlSelva = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
-        scrollDesierto = new javax.swing.JScrollPane();
-        pnlDesierto = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        scrollManglar = new javax.swing.JScrollPane();
-        pnlManglar = new javax.swing.JPanel();
+        scrollDestinos1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        scrollCiudad1 = new javax.swing.JScrollPane();
+        pnlCiudad1 = new javax.swing.JPanel();
+        scrollPlaya1 = new javax.swing.JScrollPane();
+        pnlPlaya1 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        scrollMontania1 = new javax.swing.JScrollPane();
+        pnl_Montania1 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        scrollBosque1 = new javax.swing.JScrollPane();
+        pnlBosque1 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        scrollSelva1 = new javax.swing.JScrollPane();
+        pnlSelva1 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        scrollDesierto1 = new javax.swing.JScrollPane();
+        pnlDesierto1 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        scrollManglar1 = new javax.swing.JScrollPane();
+        pnlManglar1 = new javax.swing.JPanel();
+        pnlBusqueda = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
         panelInicio.setBackground(new java.awt.Color(255, 255, 255));
@@ -65,35 +67,35 @@ public class vistaInicio extends javax.swing.JPanel {
         panelInicio.add(txtBusqueda);
         txtBusqueda.setBounds(90, 20, 310, 39);
 
-        jButton7.setBackground(new java.awt.Color(255, 255, 255));
-        jButton7.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tendencias.png"))); // NOI18N
-        jButton7.setText("Tendencias");
-        jButton7.setToolTipText("");
-        jButton7.setBorder(null);
-        jButton7.setBorderPainted(false);
-        jButton7.setContentAreaFilled(false);
-        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton7.setDefaultCapable(false);
-        jButton7.setFocusable(false);
-        jButton7.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Line_Chart_55px.png"))); // NOI18N
-        panelInicio.add(jButton7);
-        jButton7.setBounds(531, 11, 121, 59);
+        btnTendencias.setBackground(new java.awt.Color(255, 255, 255));
+        btnTendencias.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        btnTendencias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tendencias.png"))); // NOI18N
+        btnTendencias.setText("Tendencias");
+        btnTendencias.setToolTipText("");
+        btnTendencias.setBorder(null);
+        btnTendencias.setBorderPainted(false);
+        btnTendencias.setContentAreaFilled(false);
+        btnTendencias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnTendencias.setDefaultCapable(false);
+        btnTendencias.setFocusable(false);
+        btnTendencias.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Line_Chart_55px.png"))); // NOI18N
+        panelInicio.add(btnTendencias);
+        btnTendencias.setBounds(531, 11, 121, 59);
 
-        jButton8.setBackground(new java.awt.Color(255, 255, 255));
-        jButton8.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/sugerencias.png"))); // NOI18N
-        jButton8.setText("Sugerencias");
-        jButton8.setToolTipText("");
-        jButton8.setBorder(null);
-        jButton8.setBorderPainted(false);
-        jButton8.setContentAreaFilled(false);
-        jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton8.setDefaultCapable(false);
-        jButton8.setFocusPainted(false);
-        jButton8.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Good_Quality_55px.png"))); // NOI18N
-        panelInicio.add(jButton8);
-        jButton8.setBounds(699, 11, 126, 59);
+        btnSugerencias.setBackground(new java.awt.Color(255, 255, 255));
+        btnSugerencias.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        btnSugerencias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/sugerencias.png"))); // NOI18N
+        btnSugerencias.setText("Sugerencias");
+        btnSugerencias.setToolTipText("");
+        btnSugerencias.setBorder(null);
+        btnSugerencias.setBorderPainted(false);
+        btnSugerencias.setContentAreaFilled(false);
+        btnSugerencias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSugerencias.setDefaultCapable(false);
+        btnSugerencias.setFocusPainted(false);
+        btnSugerencias.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Good_Quality_55px.png"))); // NOI18N
+        panelInicio.add(btnSugerencias);
+        btnSugerencias.setBounds(699, 11, 126, 59);
         panelInicio.add(jSeparator2);
         jSeparator2.setBounds(90, 60, 310, 20);
 
@@ -103,247 +105,278 @@ public class vistaInicio extends javax.swing.JPanel {
 
         scrollDestinos.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("Playa");
-        jLabel1.setToolTipText("");
+        scrollDestinos1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel9.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel9.setText("Montaña");
-        jLabel9.setToolTipText("");
+        jLabel3.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel3.setText("Playa");
+        jLabel3.setToolTipText("");
 
-        scrollCiudad.setBackground(new java.awt.Color(255, 255, 255));
-        scrollCiudad.setBorder(null);
-        scrollCiudad.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        jLabel11.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel11.setText("Montaña");
+        jLabel11.setToolTipText("");
 
-        pnlCiudad.setBackground(new java.awt.Color(255, 255, 255));
+        scrollCiudad1.setBackground(new java.awt.Color(255, 255, 255));
+        scrollCiudad1.setBorder(null);
+        scrollCiudad1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        javax.swing.GroupLayout pnlCiudadLayout = new javax.swing.GroupLayout(pnlCiudad);
-        pnlCiudad.setLayout(pnlCiudadLayout);
-        pnlCiudadLayout.setHorizontalGroup(
-            pnlCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlCiudad1.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout pnlCiudad1Layout = new javax.swing.GroupLayout(pnlCiudad1);
+        pnlCiudad1.setLayout(pnlCiudad1Layout);
+        pnlCiudad1Layout.setHorizontalGroup(
+            pnlCiudad1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1366, Short.MAX_VALUE)
         );
-        pnlCiudadLayout.setVerticalGroup(
-            pnlCiudadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlCiudad1Layout.setVerticalGroup(
+            pnlCiudad1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        scrollCiudad.setViewportView(pnlCiudad);
+        scrollCiudad1.setViewportView(pnlCiudad1);
 
-        scrollPlaya.setBackground(new java.awt.Color(255, 255, 255));
-        scrollPlaya.setBorder(null);
-        scrollPlaya.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        scrollPlaya1.setBackground(new java.awt.Color(255, 255, 255));
+        scrollPlaya1.setBorder(null);
+        scrollPlaya1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        pnlPlaya.setBackground(new java.awt.Color(255, 255, 255));
+        pnlPlaya1.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout pnlPlayaLayout = new javax.swing.GroupLayout(pnlPlaya);
-        pnlPlaya.setLayout(pnlPlayaLayout);
-        pnlPlayaLayout.setHorizontalGroup(
-            pnlPlayaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlPlaya1Layout = new javax.swing.GroupLayout(pnlPlaya1);
+        pnlPlaya1.setLayout(pnlPlaya1Layout);
+        pnlPlaya1Layout.setHorizontalGroup(
+            pnlPlaya1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1366, Short.MAX_VALUE)
         );
-        pnlPlayaLayout.setVerticalGroup(
-            pnlPlayaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlPlaya1Layout.setVerticalGroup(
+            pnlPlaya1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        scrollPlaya.setViewportView(pnlPlaya);
+        scrollPlaya1.setViewportView(pnlPlaya1);
 
-        jLabel10.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel10.setText("Ciudad");
-        jLabel10.setToolTipText("");
+        jLabel12.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel12.setText("Ciudad");
+        jLabel12.setToolTipText("");
 
-        scrollMontania.setBackground(new java.awt.Color(255, 255, 255));
-        scrollMontania.setBorder(null);
-        scrollMontania.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        scrollMontania1.setBackground(new java.awt.Color(255, 255, 255));
+        scrollMontania1.setBorder(null);
+        scrollMontania1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        pnl_Montania.setBackground(new java.awt.Color(255, 255, 255));
+        pnl_Montania1.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout pnl_MontaniaLayout = new javax.swing.GroupLayout(pnl_Montania);
-        pnl_Montania.setLayout(pnl_MontaniaLayout);
-        pnl_MontaniaLayout.setHorizontalGroup(
-            pnl_MontaniaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnl_Montania1Layout = new javax.swing.GroupLayout(pnl_Montania1);
+        pnl_Montania1.setLayout(pnl_Montania1Layout);
+        pnl_Montania1Layout.setHorizontalGroup(
+            pnl_Montania1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1366, Short.MAX_VALUE)
         );
-        pnl_MontaniaLayout.setVerticalGroup(
-            pnl_MontaniaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnl_Montania1Layout.setVerticalGroup(
+            pnl_Montania1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 327, Short.MAX_VALUE)
+        );
+
+        scrollMontania1.setViewportView(pnl_Montania1);
+
+        jLabel18.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel18.setText("Bosque");
+        jLabel18.setToolTipText("");
+
+        scrollBosque1.setBackground(new java.awt.Color(255, 255, 255));
+        scrollBosque1.setBorder(null);
+        scrollBosque1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        pnlBosque1.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout pnlBosque1Layout = new javax.swing.GroupLayout(pnlBosque1);
+        pnlBosque1.setLayout(pnlBosque1Layout);
+        pnlBosque1Layout.setHorizontalGroup(
+            pnlBosque1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1366, Short.MAX_VALUE)
+        );
+        pnlBosque1Layout.setVerticalGroup(
+            pnlBosque1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        scrollMontania.setViewportView(pnl_Montania);
+        scrollBosque1.setViewportView(pnlBosque1);
 
-        jLabel14.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel14.setText("Bosque");
-        jLabel14.setToolTipText("");
+        jLabel19.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel19.setText("Selva");
+        jLabel19.setToolTipText("");
 
-        scrollBosque.setBackground(new java.awt.Color(255, 255, 255));
-        scrollBosque.setBorder(null);
-        scrollBosque.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        scrollSelva1.setBackground(new java.awt.Color(255, 255, 255));
+        scrollSelva1.setBorder(null);
+        scrollSelva1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        pnlBosque.setBackground(new java.awt.Color(255, 255, 255));
+        pnlSelva1.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout pnlBosqueLayout = new javax.swing.GroupLayout(pnlBosque);
-        pnlBosque.setLayout(pnlBosqueLayout);
-        pnlBosqueLayout.setHorizontalGroup(
-            pnlBosqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlSelva1Layout = new javax.swing.GroupLayout(pnlSelva1);
+        pnlSelva1.setLayout(pnlSelva1Layout);
+        pnlSelva1Layout.setHorizontalGroup(
+            pnlSelva1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1366, Short.MAX_VALUE)
         );
-        pnlBosqueLayout.setVerticalGroup(
-            pnlBosqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlSelva1Layout.setVerticalGroup(
+            pnlSelva1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        scrollBosque.setViewportView(pnlBosque);
+        scrollSelva1.setViewportView(pnlSelva1);
 
-        jLabel15.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel15.setText("Selva");
-        jLabel15.setToolTipText("");
+        jLabel20.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel20.setText("Desierto");
+        jLabel20.setToolTipText("");
 
-        scrollSelva.setBackground(new java.awt.Color(255, 255, 255));
-        scrollSelva.setBorder(null);
-        scrollSelva.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        scrollDesierto1.setBackground(new java.awt.Color(255, 255, 255));
+        scrollDesierto1.setBorder(null);
+        scrollDesierto1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        pnlSelva.setBackground(new java.awt.Color(255, 255, 255));
+        pnlDesierto1.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout pnlSelvaLayout = new javax.swing.GroupLayout(pnlSelva);
-        pnlSelva.setLayout(pnlSelvaLayout);
-        pnlSelvaLayout.setHorizontalGroup(
-            pnlSelvaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlDesierto1Layout = new javax.swing.GroupLayout(pnlDesierto1);
+        pnlDesierto1.setLayout(pnlDesierto1Layout);
+        pnlDesierto1Layout.setHorizontalGroup(
+            pnlDesierto1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1366, Short.MAX_VALUE)
         );
-        pnlSelvaLayout.setVerticalGroup(
-            pnlSelvaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlDesierto1Layout.setVerticalGroup(
+            pnlDesierto1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        scrollSelva.setViewportView(pnlSelva);
+        scrollDesierto1.setViewportView(pnlDesierto1);
 
-        jLabel16.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel16.setText("Desierto");
-        jLabel16.setToolTipText("");
+        jLabel21.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel21.setText("Manglar");
+        jLabel21.setToolTipText("");
 
-        scrollDesierto.setBackground(new java.awt.Color(255, 255, 255));
-        scrollDesierto.setBorder(null);
-        scrollDesierto.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        scrollManglar1.setBackground(new java.awt.Color(255, 255, 255));
+        scrollManglar1.setBorder(null);
+        scrollManglar1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        pnlDesierto.setBackground(new java.awt.Color(255, 255, 255));
+        pnlManglar1.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout pnlDesiertoLayout = new javax.swing.GroupLayout(pnlDesierto);
-        pnlDesierto.setLayout(pnlDesiertoLayout);
-        pnlDesiertoLayout.setHorizontalGroup(
-            pnlDesiertoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlManglar1Layout = new javax.swing.GroupLayout(pnlManglar1);
+        pnlManglar1.setLayout(pnlManglar1Layout);
+        pnlManglar1Layout.setHorizontalGroup(
+            pnlManglar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1366, Short.MAX_VALUE)
         );
-        pnlDesiertoLayout.setVerticalGroup(
-            pnlDesiertoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlManglar1Layout.setVerticalGroup(
+            pnlManglar1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        scrollDesierto.setViewportView(pnlDesierto);
+        scrollManglar1.setViewportView(pnlManglar1);
 
-        jLabel17.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel17.setText("Manglar");
-        jLabel17.setToolTipText("");
-
-        scrollManglar.setBackground(new java.awt.Color(255, 255, 255));
-        scrollManglar.setBorder(null);
-        scrollManglar.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-
-        pnlManglar.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout pnlManglarLayout = new javax.swing.GroupLayout(pnlManglar);
-        pnlManglar.setLayout(pnlManglarLayout);
-        pnlManglarLayout.setHorizontalGroup(
-            pnlManglarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1366, Short.MAX_VALUE)
+        javax.swing.GroupLayout scrollDestinos1Layout = new javax.swing.GroupLayout(scrollDestinos1);
+        scrollDestinos1.setLayout(scrollDestinos1Layout);
+        scrollDestinos1Layout.setHorizontalGroup(
+            scrollDestinos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(scrollDestinos1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(scrollDestinos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scrollCiudad1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(scrollPlaya1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(scrollMontania1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(scrollBosque1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(scrollSelva1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(scrollDesierto1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(scrollManglar1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(scrollDestinos1Layout.createSequentialGroup()
+                        .addGroup(scrollDestinos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 503, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(scrollDestinos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(scrollDestinos1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(503, Short.MAX_VALUE)))
         );
-        pnlManglarLayout.setVerticalGroup(
-            pnlManglarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        scrollDestinos1Layout.setVerticalGroup(
+            scrollDestinos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(scrollDestinos1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(scrollMontania1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrollPlaya1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel12)
+                .addGap(18, 18, 18)
+                .addComponent(scrollCiudad1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel18)
+                .addGap(18, 18, 18)
+                .addComponent(scrollBosque1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel19)
+                .addGap(18, 18, 18)
+                .addComponent(scrollSelva1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel20)
+                .addGap(18, 18, 18)
+                .addComponent(scrollDesierto1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel21)
+                .addGap(18, 18, 18)
+                .addComponent(scrollManglar1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(scrollDestinos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(scrollDestinos1Layout.createSequentialGroup()
+                    .addGap(21, 21, 21)
+                    .addComponent(jLabel11)
+                    .addContainerGap(2121, Short.MAX_VALUE)))
         );
 
-        scrollManglar.setViewportView(pnlManglar);
+        pnlBusqueda.setBackground(new java.awt.Color(255, 255, 255));
+        pnlBusqueda.setPreferredSize(new java.awt.Dimension(892, 2163));
+
+        javax.swing.GroupLayout pnlBusquedaLayout = new javax.swing.GroupLayout(pnlBusqueda);
+        pnlBusqueda.setLayout(pnlBusquedaLayout);
+        pnlBusquedaLayout.setHorizontalGroup(
+            pnlBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 893, Short.MAX_VALUE)
+        );
+        pnlBusquedaLayout.setVerticalGroup(
+            pnlBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout scrollDestinosLayout = new javax.swing.GroupLayout(scrollDestinos);
         scrollDestinos.setLayout(scrollDestinosLayout);
         scrollDestinosLayout.setHorizontalGroup(
             scrollDestinosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(scrollDestinosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(scrollDestinosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scrollCiudad, javax.swing.GroupLayout.DEFAULT_SIZE, 873, Short.MAX_VALUE)
-                    .addComponent(scrollPlaya, javax.swing.GroupLayout.DEFAULT_SIZE, 873, Short.MAX_VALUE)
-                    .addComponent(scrollMontania, javax.swing.GroupLayout.DEFAULT_SIZE, 873, Short.MAX_VALUE)
-                    .addComponent(scrollBosque, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 873, Short.MAX_VALUE)
-                    .addComponent(scrollSelva, javax.swing.GroupLayout.DEFAULT_SIZE, 873, Short.MAX_VALUE)
-                    .addComponent(scrollDesierto, javax.swing.GroupLayout.DEFAULT_SIZE, 873, Short.MAX_VALUE)
-                    .addGroup(scrollDestinosLayout.createSequentialGroup()
-                        .addGroup(scrollDestinosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(scrollManglar, javax.swing.GroupLayout.DEFAULT_SIZE, 873, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(scrollDestinosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(scrollDestinosLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(503, Short.MAX_VALUE)))
+            .addComponent(pnlBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 893, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(scrollDestinos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         scrollDestinosLayout.setVerticalGroup(
             scrollDestinosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(scrollDestinosLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(scrollMontania, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollPlaya, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10)
-                .addGap(18, 18, 18)
-                .addComponent(scrollCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel14)
-                .addGap(18, 18, 18)
-                .addComponent(scrollBosque, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel15)
-                .addGap(18, 18, 18)
-                .addComponent(scrollSelva, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel16)
-                .addGap(18, 18, 18)
-                .addComponent(scrollDesierto, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel17)
-                .addGap(18, 18, 18)
-                .addComponent(scrollManglar, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(scrollDestinosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(scrollDestinosLayout.createSequentialGroup()
-                    .addGap(21, 21, 21)
-                    .addComponent(jLabel9)
-                    .addContainerGap(2133, Short.MAX_VALUE)))
+            .addComponent(pnlBusqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 2164, Short.MAX_VALUE)
+            .addComponent(scrollDestinos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+
+        pnlBusqueda.getAccessibleContext().setAccessibleParent(scrollDestinos);
 
         jScrollPane2.setViewportView(scrollDestinos);
 
@@ -378,34 +411,36 @@ public class vistaInicio extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    public javax.swing.JLabel jLabel1;
-    public javax.swing.JLabel jLabel10;
-    public javax.swing.JLabel jLabel14;
-    public javax.swing.JLabel jLabel15;
-    public javax.swing.JLabel jLabel16;
-    public javax.swing.JLabel jLabel17;
+    public javax.swing.JButton btnSugerencias;
+    public javax.swing.JButton btnTendencias;
+    public javax.swing.JLabel jLabel11;
+    public javax.swing.JLabel jLabel12;
+    public javax.swing.JLabel jLabel18;
+    public javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    public javax.swing.JLabel jLabel9;
+    public javax.swing.JLabel jLabel20;
+    public javax.swing.JLabel jLabel21;
+    public javax.swing.JLabel jLabel3;
     public javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPanel panelInicio;
-    public javax.swing.JPanel pnlBosque;
-    public javax.swing.JPanel pnlCiudad;
-    public javax.swing.JPanel pnlDesierto;
-    public javax.swing.JPanel pnlManglar;
-    public javax.swing.JPanel pnlPlaya;
-    public javax.swing.JPanel pnlSelva;
-    public javax.swing.JPanel pnl_Montania;
-    public javax.swing.JScrollPane scrollBosque;
-    public javax.swing.JScrollPane scrollCiudad;
-    public javax.swing.JScrollPane scrollDesierto;
+    public javax.swing.JPanel pnlBosque1;
+    public javax.swing.JPanel pnlBusqueda;
+    public javax.swing.JPanel pnlCiudad1;
+    public javax.swing.JPanel pnlDesierto1;
+    public javax.swing.JPanel pnlManglar1;
+    public javax.swing.JPanel pnlPlaya1;
+    public javax.swing.JPanel pnlSelva1;
+    public javax.swing.JPanel pnl_Montania1;
+    public javax.swing.JScrollPane scrollBosque1;
+    public javax.swing.JScrollPane scrollCiudad1;
+    public javax.swing.JScrollPane scrollDesierto1;
     public javax.swing.JPanel scrollDestinos;
-    public javax.swing.JScrollPane scrollManglar;
-    public javax.swing.JScrollPane scrollMontania;
-    public javax.swing.JScrollPane scrollPlaya;
-    public javax.swing.JScrollPane scrollSelva;
+    public javax.swing.JPanel scrollDestinos1;
+    public javax.swing.JScrollPane scrollManglar1;
+    public javax.swing.JScrollPane scrollMontania1;
+    public javax.swing.JScrollPane scrollPlaya1;
+    public javax.swing.JScrollPane scrollSelva1;
     public javax.swing.JTextField txtBusqueda;
     // End of variables declaration//GEN-END:variables
 }

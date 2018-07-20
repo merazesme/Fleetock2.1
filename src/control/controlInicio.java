@@ -48,31 +48,34 @@ public class controlInicio implements ActionListener, KeyListener{
         this.vista = vista;
         this.vPrincipal=vPrincipal;
         this.modelo = modelo;
-        this.vista.txtBusqueda.addKeyListener(this);        
+        this.vista.txtBusqueda.addKeyListener(this);  
+        this.vista.btnSugerencias.addActionListener(this);
+        this.vista.btnTendencias.addActionListener(this);
         principal();
     }
     
     public void activarPrincipal(boolean b){
-        this.vista.scrollDestinos.setVisible(b);
+        vista.pnlBusqueda.setVisible(!b);
         //label
-        this.vista.jLabel9.setVisible(b);
-        this.vista.jLabel1.setVisible(b);
-        this.vista.jLabel10.setVisible(b);
-        this.vista.jLabel14.setVisible(b);
-        this.vista.jLabel15.setVisible(b);
-        this.vista.jLabel16.setVisible(b);
-        this.vista.jLabel17.setVisible(b);
+        this.vista.jLabel11.setVisible(b);
+        this.vista.jLabel3.setVisible(b);
+        this.vista.jLabel12.setVisible(b);
+        this.vista.jLabel18.setVisible(b);
+        this.vista.jLabel19.setVisible(b);
+        this.vista.jLabel20.setVisible(b);
+        this.vista.jLabel21.setVisible(b);
         //scroll
-        this.vista.scrollMontania.setVisible(b);
-        this.vista.scrollPlaya.setVisible(b);
-        this.vista.scrollCiudad.setVisible(b);
-        this.vista.scrollBosque.setVisible(b);
-        this.vista.scrollSelva.setVisible(b);
-        this.vista.scrollDesierto.setVisible(b);
-        this.vista.scrollManglar.setVisible(b);
+        this.vista.scrollMontania1.setVisible(b);
+        this.vista.scrollPlaya1.setVisible(b);
+        this.vista.scrollCiudad1.setVisible(b);
+        this.vista.scrollBosque1.setVisible(b);
+        this.vista.scrollSelva1.setVisible(b);
+        this.vista.scrollDesierto1.setVisible(b);
+        this.vista.scrollManglar1.setVisible(b);
     }
 
-    public void principal(){        
+    public void principal(){ 
+        activarPrincipal(true);
         String[][] playa = this.modelo.datosDestinos(1);
         String[][] desierto = this.modelo.datosDestinos(2);
         String[][] bosque = this.modelo.datosDestinos(3);
@@ -81,14 +84,15 @@ public class controlInicio implements ActionListener, KeyListener{
         String[][] manglar = this.modelo.datosDestinos(13);
         String[][] ciudad = this.modelo.datosDestinos(14);
          
-        destinos(montania, vista.pnl_Montania);
-        destinos(playa, vista.pnlPlaya);
-        destinos(ciudad, vista.pnlCiudad);
-        destinos(bosque, vista.pnlBosque);
-        destinos(selva, vista.pnlSelva);
-        destinos(desierto, vista.pnlDesierto);
-        destinos(manglar, vista.pnlManglar);
+        destinos(montania, vista.pnl_Montania1);
+        destinos(playa, vista.pnlPlaya1);
+        destinos(ciudad, vista.pnlCiudad1);
+        destinos(bosque, vista.pnlBosque1);
+        destinos(selva, vista.pnlSelva1);
+        destinos(desierto, vista.pnlDesierto1);
+        destinos(manglar, vista.pnlManglar1);
     }
+    
     
     public void destinos(String [][] des, JPanel p){
         //limpia el panel
@@ -260,23 +264,49 @@ public class controlInicio implements ActionListener, KeyListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-    
-        JButton selectedButton = (JButton) e.getSource();
-        String letra = selectedButton.getName().substring(0, 1);  
-        String idD = selectedButton.getName().substring(1);  
-        System.out.println("a: " + letra);
-        System.out.println("b: " + idD);
-    //Botón de detalles de destino
-        if(letra.equals("D")){
-            vistaDetallesDestino vDetallesDestino = new vistaDetallesDestino();
-            controlDetalleDestino cDetalleDestino = new controlDetalleDestino(vDetallesDestino, vPrincipal, idD);
-            CambiaPanel cambiar = new CambiaPanel(vPrincipal.panelCambiante, vDetallesDestino);
+        try{
+            JButton selectedButton = (JButton) e.getSource();
+            String letra = selectedButton.getName().substring(0, 1);  
+            String idD = selectedButton.getName().substring(1);  
+            System.out.println("a: " + letra);
+            System.out.println("b: " + idD);
+        //Botón de detalles de destino
+            if(letra.equals("D")){
+                vistaDetallesDestino vDetallesDestino = new vistaDetallesDestino();
+                controlDetalleDestino cDetalleDestino = new controlDetalleDestino(vDetallesDestino, vPrincipal, idD);
+                CambiaPanel cambiar = new CambiaPanel(vPrincipal.panelCambiante, vDetallesDestino);
+            }
+        //Botón de agregar a viaje    
+            if(letra.equals("N")){
+                vistaAgregarViaje vAgregarViaje = new vistaAgregarViaje();
+                controlAgregarViaje cAgregarViaje = new controlAgregarViaje(vAgregarViaje, vPrincipal, idD);
+                CambiaPanel cambiar = new CambiaPanel(vPrincipal.panelCambiante, vAgregarViaje);
+            }
         }
-    //Botón de agregar a viaje    
-        if(letra.equals("N")){
-            vistaAgregarViaje vAgregarViaje = new vistaAgregarViaje();
-            controlAgregarViaje cAgregarViaje = new controlAgregarViaje(vAgregarViaje, vPrincipal, idD);
-            CambiaPanel cambiar = new CambiaPanel(vPrincipal.panelCambiante, vAgregarViaje);
+        catch(NullPointerException ex){}
+
+
+        String[][] bus = null;
+        if(vista.btnTendencias == e.getSource()){
+            System.out.println("a");
+            activarPrincipal(false);
+            bus = modelo.datosBusqueda("select `idDestino`, `nombre`, `foto` from destino INNER JOIN pertenece on idDestino = Destino_idDestino GROUP BY nombre HAVING COUNT(*) > 1;");   
+            destinos(bus, vista.pnlBusqueda);
+            vista.pnlBusqueda.setLayout(new FlowLayout(FlowLayout.CENTER));
+            vista.txtBusqueda.requestFocus();
+        }
+        
+        if(vista.btnSugerencias == e.getSource()){
+            activarPrincipal(false);
+            bus = modelo.datosBusqueda("select destino.idDestino, destino.nombre, destino.foto "
+                    + "FROM destino INNER JOIN sedivideen ON sedivideen.Destino_idDestino = idDestino "
+                    + "INNER JOIN tipositio ON tipositio.idTipoSitio = sedivideen.TipoSitio_idTipoSitio "
+                    + "INNER JOIN prefiere ON tipositio.idTipoSitio = prefiere.TipoSitio_idTipoSitio "
+                    + "INNER JOIN usuario ON prefiere.Usuario_idUsuario = idUsuario "
+                    + "WHERE usuario.idUsuario = " + controlPrincipal.usuario[2] + ";");   
+            destinos(bus, vista.pnlBusqueda);
+            vista.pnlBusqueda.setLayout(new FlowLayout(FlowLayout.CENTER));
+            vista.txtBusqueda.requestFocus();
         }
     
     }
@@ -292,26 +322,19 @@ public class controlInicio implements ActionListener, KeyListener{
     
     @Override
     public void keyReleased(KeyEvent e) {
-//        String[][] bus = null;
-//        if(e.getSource() == vista.txtBusqueda){
-//            //si escribió algo
-//            if(!vista.txtBusqueda.getText().equals("")){
-//                activarPrincipal(false);
-//                System.out.println("pp");
-//                bus = modelo.datosBusqueda("select `idDestino`, `nombre`, `foto` from destino where nombre like '%"+vista.txtBusqueda.getText()+"%';");   
-//                
-//                JPanel panel = new JPanel();
-//                panel = vista.scrollDestinos;
-//                vista.jScrollPane2.add(panel);
-//                panel.setBackground(Color.red);
-//                destinos(bus, panel);
-//                vista.txtBusqueda.requestFocus();
-//            } 
-//            else{
-//                System.out.println("a");
-//                activarPrincipal(true);
-//                principal();
-//            }
-//        }
+        String[][] bus = null;
+        if(e.getSource() == vista.txtBusqueda){
+            //si escribió algo
+            if(!vista.txtBusqueda.getText().equals("")){
+                activarPrincipal(false);
+                bus = modelo.datosBusqueda("select `idDestino`, `nombre`, `foto` from destino where nombre like '%"+vista.txtBusqueda.getText()+"%';");   
+                destinos(bus, vista.pnlBusqueda);
+                vista.pnlBusqueda.setLayout(new FlowLayout(FlowLayout.CENTER));
+                vista.txtBusqueda.requestFocus();
+            } 
+            else{
+                principal();
+            }
+        }
     }
 }
