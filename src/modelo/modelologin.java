@@ -66,4 +66,34 @@ public class modelologin {
         }
          return control;
     }
+    
+    //En esta funcion se usua para obtener informacion del usuario
+    public String[] jalarIdUsuario(String usu, String contra)
+    {
+        ResultSet sql;       
+         try {
+            Connection con = conexion.abrirConexion();
+            Statement s = con.createStatement();
+            sql = s.executeQuery("SELECT idLogin, usuario, Usuario_idUsuario FROM login WHERE usuario='" + usu + "' && contraseña='" + contra + "' ");
+            String [] a = new String [3];
+            int i=0;
+            while(sql.next())
+            {
+                //Aqui se guarda el resultado de la consulta en un array
+                a[0]= sql.getString(1);
+                a[1]= sql.getString(2);
+                a[2]= sql.getString(3);
+            }
+           conexion.cerrarConexion(con);
+           return a;
+        }
+        catch (SQLException ex)
+        {
+            return null;
+        }
+         catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Error al intentar conectar con el servidor.");
+            return null;
+        }
+    }
 }

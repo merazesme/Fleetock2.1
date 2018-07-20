@@ -18,13 +18,14 @@ import vistas.vistaPrincipal;
  */
 public class controlDetalleDestino implements ActionListener{
 
-    vistaDetallesDestino vista;
-    vistaPrincipal vistaPrincipal;
-    
-    public controlDetalleDestino(vistaDetallesDestino vista, vistaPrincipal vistaPrincipal)
+    private vistaDetallesDestino vista;
+    private vistaPrincipal vistaPrincipal;
+    private String idD;
+    public controlDetalleDestino(vistaDetallesDestino vista, vistaPrincipal vistaPrincipal, String idD)
     {
         this.vista=vista;
         this.vistaPrincipal=vistaPrincipal;
+        this.idD = idD;
         this.vista.btnActividades.addActionListener(this);
         this.vista.btnViaje.addActionListener(this);
     }
@@ -43,7 +44,7 @@ public class controlDetalleDestino implements ActionListener{
     if(this.vista.btnViaje == e.getSource())
     {
         vistaAgregarViaje vAgregarViaje = new vistaAgregarViaje();
-        controlAgregarViaje cAgregarViaje = new controlAgregarViaje(vAgregarViaje, vistaPrincipal);
+        controlAgregarViaje cAgregarViaje = new controlAgregarViaje(vAgregarViaje, vistaPrincipal, idD);
         CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vAgregarViaje);
         
     }

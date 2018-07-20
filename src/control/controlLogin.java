@@ -25,8 +25,8 @@ public class controlLogin implements ActionListener{
     vistaPrincipal vistaPrincipal;
     avistaMenu avmMenu;
     public String usu="";
-    
-       public controlLogin()
+        
+    public controlLogin()
     {
         this.usu="";
     }
@@ -55,7 +55,7 @@ public class controlLogin implements ActionListener{
         {
               switch (modelo.ingresar(usu, contra)) 
             {
-                //SI EL USUARIO ES ADMINISTRADOR SE ABRE ESTE PANEL
+                //SI ES USUARIO SE ABRE ESTE PANEL
                 case 1:
                     System.out.println("hola");
                     JOptionPane.showMessageDialog(null, "Bienvenido " + usu);
@@ -63,11 +63,11 @@ public class controlLogin implements ActionListener{
                     vistaPrincipal.setVisible(true);
                     vistaPrincipal.setLocationRelativeTo(null);
                                    
-                    controlPrincipal controlPrincipal = new controlPrincipal(vistaPrincipal);
+                    controlPrincipal controlPrincipal = new controlPrincipal(vistaPrincipal, modelo.jalarIdUsuario(usu, contra));
                     controlPrincipal.iniciarVista();
                     break;
                 case 2:
-                    //SI ES USUARIO SE ABRE EL INICIO
+                    //SI ES ADMINISTRADOR SE ABRE ESTE PANEL
                     JOptionPane.showMessageDialog(null, "Administrador " + usu);
                     break;
                 case 3:
