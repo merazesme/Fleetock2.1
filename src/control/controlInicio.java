@@ -29,6 +29,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import modelo.modeloDetalleDestino;
 import modelo.modeloInicio;
 import vistas.vistaAgregarViaje;
 /**
@@ -76,21 +77,14 @@ public class controlInicio implements ActionListener, KeyListener{
 
     public void principal(){ 
         activarPrincipal(true);
-        String[][] playa = this.modelo.datosDestinos(1);
-        String[][] desierto = this.modelo.datosDestinos(2);
-        String[][] bosque = this.modelo.datosDestinos(3);
-        String[][] montania = this.modelo.datosDestinos(4);
-        String[][] selva = this.modelo.datosDestinos(9);
-        String[][] manglar = this.modelo.datosDestinos(13);
-        String[][] ciudad = this.modelo.datosDestinos(14);
          
-        destinos(montania, vista.pnl_Montania1);
-        destinos(playa, vista.pnlPlaya1);
-        destinos(ciudad, vista.pnlCiudad1);
-        destinos(bosque, vista.pnlBosque1);
-        destinos(selva, vista.pnlSelva1);
-        destinos(desierto, vista.pnlDesierto1);
-        destinos(manglar, vista.pnlManglar1);
+        destinos(this.modelo.datosDestinos(4), vista.pnl_Montania1);
+        destinos(this.modelo.datosDestinos(1), vista.pnlPlaya1);
+        destinos(this.modelo.datosDestinos(14), vista.pnlCiudad1);
+        destinos(this.modelo.datosDestinos(3), vista.pnlBosque1);
+        destinos(this.modelo.datosDestinos(9), vista.pnlSelva1);
+        destinos(this.modelo.datosDestinos(2), vista.pnlDesierto1);
+        destinos(this.modelo.datosDestinos(13), vista.pnlManglar1);
     }
     
     
@@ -114,7 +108,7 @@ public class controlInicio implements ActionListener, KeyListener{
                     image = new ImageIcon(des[i][2]);
                 }
                 else{
-                    image = new ImageIcon(getClass().getResource("../images/icons8-pais-100Mo.png"));
+                    image = new ImageIcon(getClass().getResource("../images/icons8-pais-100.png"));
                     btnImagen.setHorizontalAlignment(SwingConstants.CENTER);
                 }
                 
@@ -255,7 +249,7 @@ public class controlInicio implements ActionListener, KeyListener{
         else
         {
             //Si no se encuentra destino
-            JLabel mensaje = new JLabel("<html><p>No se ha encontrado ningún sitio :(</p></html>");
+            JLabel mensaje = new JLabel("<html><p>No se ha encontrado nada :(</p></html>");
             mensaje.setForeground(new Color(76,2,131));
             mensaje.setFont(new Font("Candara", Font.PLAIN, 14));
             p.add(mensaje);
@@ -268,12 +262,11 @@ public class controlInicio implements ActionListener, KeyListener{
             JButton selectedButton = (JButton) e.getSource();
             String letra = selectedButton.getName().substring(0, 1);  
             String idD = selectedButton.getName().substring(1);  
-            System.out.println("a: " + letra);
-            System.out.println("b: " + idD);
         //Botón de detalles de destino
             if(letra.equals("D")){
                 vistaDetallesDestino vDetallesDestino = new vistaDetallesDestino();
-                controlDetalleDestino cDetalleDestino = new controlDetalleDestino(vDetallesDestino, vPrincipal, idD);
+                modeloDetalleDestino mDetallesDestino = new modeloDetalleDestino();
+                controlDetalleDestino cDetalleDestino = new controlDetalleDestino(vDetallesDestino, vPrincipal, mDetallesDestino, idD);
                 CambiaPanel cambiar = new CambiaPanel(vPrincipal.panelCambiante, vDetallesDestino);
             }
         //Botón de agregar a viaje    
