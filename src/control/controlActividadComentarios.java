@@ -29,17 +29,21 @@ public class controlActividadComentarios {
         this.vPrincipal=vPrincipal;
         this.modelo=modelo;
         this.idA=idA;
-        imagenN();
+        imagenN(idA);
     }
     
-    public void imagenN(){
+    public void imagenN(String idA){
+        System.out.println("función");
         String [] act;
         act=modelo.datosActividades(idA);
         if(act!=null){
+            System.out.println("condicion");
             vista.lblNombre.setText(act[0]);
             ImageIcon imagen = new ImageIcon(act[1]);
             Icon fondo = new ImageIcon(imagen.getImage().getScaledInstance(827, 500, Image.SCALE_DEFAULT));
             vista.lblImagen.setIcon(fondo);
+            vista.lblDescripcion.setText(act[2]);
+            vista.lblLocalizacion.setText(act[3]);
         }
     }
 }

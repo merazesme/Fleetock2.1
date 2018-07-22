@@ -24,16 +24,18 @@ public class modeloActividadComentarios {
          try {
             Connection con = conexion.abrirConexion();
             Statement s = con.createStatement();
-            sql = s.executeQuery("SELECT actividad.nombre, tiene.foto FROM actividad " +
+            sql = s.executeQuery("SELECT actividad.nombre, tiene.foto, actividad.descripcion, tiene.localizacion FROM actividad " +
                     "INNER JOIN tiene ON actividad.idActividad = tiene.Actividad_idActividad " +
                     "where actividad.idActividad = " + idAc + ";");
                         //declaración del array
-            String [] a = new String [3];
+            String [] a = new String [5];
             //copiar del resultset al array
             sql.next();
             
             a[0] = sql.getString(1);
             a[1] = sql.getString(2);
+            a[2] = sql.getString(3);
+            a[3] = sql.getString(4);
 
            conexion.cerrarConexion(con);
            return a;

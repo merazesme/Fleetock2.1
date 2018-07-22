@@ -12,6 +12,7 @@ import vistas.vistaInicio;
 import vistas.vistaPrincipal;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -125,6 +126,8 @@ public class controlInicio implements ActionListener, KeyListener{
                 btnImagen.setFocusable(false);
                 btnImagen.setSize(250, 150);
                 btnImagen.addActionListener(this);
+                btnImagen.setCursor(new Cursor(Cursor.HAND_CURSOR));
+                btnImagen.setToolTipText("Ver Destino");
                     //Sin bordes
                 EmptyBorder border1 = new EmptyBorder(5, 0, 0, 0);
                 btnImagen.setBorder(border1);
@@ -228,6 +231,8 @@ public class controlInicio implements ActionListener, KeyListener{
                 btnNuevoViaje.setFocusable(false);
                 btnNuevoViaje.setSize(250, 150);
                 btnNuevoViaje.addActionListener(this);
+                btnNuevoViaje.setToolTipText("Nuevo Viaje");
+                btnNuevoViaje.setCursor(new Cursor(Cursor.HAND_CURSOR));
                         //añadir el jlabel al panel de información
                 informacion.add(nombreD, BorderLayout.NORTH); 
                 informacion.add(cal, BorderLayout.CENTER);

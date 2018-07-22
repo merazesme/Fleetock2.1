@@ -69,7 +69,6 @@ public class vistaActividadComentarios extends javax.swing.JPanel {
         jRadioButton93 = new javax.swing.JRadioButton();
         jRadioButton94 = new javax.swing.JRadioButton();
         jRadioButton95 = new javax.swing.JRadioButton();
-        jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
@@ -78,6 +77,13 @@ public class vistaActividadComentarios extends javax.swing.JPanel {
         jTextArea2 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         lblImagen = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lblDescripcion = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        lblLocalizacion = new javax.swing.JTextArea();
 
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setBorder(null);
@@ -544,12 +550,6 @@ public class vistaActividadComentarios extends javax.swing.JPanel {
             }
         });
 
-        jLabel17.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel17.setText("(Pésimo, Malo, Regular,  Muy bueno, Excelente)");
-        jLabel17.setToolTipText("");
-
         jLabel18.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(102, 102, 102));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -584,6 +584,59 @@ public class vistaActividadComentarios extends javax.swing.JPanel {
         lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chile_1.png"))); // NOI18N
         lblImagen.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        jLabel13.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-museo-50.png"))); // NOI18N
+        jLabel13.setText("Descripción");
+        jLabel13.setToolTipText("");
+
+        jLabel20.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel20.setText("(Pésimo, Malo, Regular,  Muy bueno, Excelente)");
+        jLabel20.setToolTipText("");
+
+        jLabel14.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-marcador-50.png"))); // NOI18N
+        jLabel14.setText("Ubicación");
+        jLabel14.setToolTipText("");
+
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setEnabled(false);
+
+        lblDescripcion.setEditable(false);
+        lblDescripcion.setColumns(20);
+        lblDescripcion.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        lblDescripcion.setForeground(new java.awt.Color(102, 102, 102));
+        lblDescripcion.setLineWrap(true);
+        lblDescripcion.setRows(5);
+        lblDescripcion.setText("Descripción de la actividad");
+        lblDescripcion.setWrapStyleWord(true);
+        lblDescripcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        lblDescripcion.setCaretColor(new java.awt.Color(255, 255, 255));
+        lblDescripcion.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        lblDescripcion.setSelectionColor(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(lblDescripcion);
+
+        jScrollPane4.setBorder(null);
+        jScrollPane4.setEnabled(false);
+
+        lblLocalizacion.setEditable(false);
+        lblLocalizacion.setColumns(20);
+        lblLocalizacion.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        lblLocalizacion.setForeground(new java.awt.Color(102, 102, 102));
+        lblLocalizacion.setLineWrap(true);
+        lblLocalizacion.setRows(5);
+        lblLocalizacion.setText("Descripción de la ubicación");
+        lblLocalizacion.setWrapStyleWord(true);
+        lblLocalizacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        lblLocalizacion.setCaretColor(new java.awt.Color(255, 255, 255));
+        lblLocalizacion.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        jScrollPane4.setViewportView(lblLocalizacion);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -603,16 +656,12 @@ public class vistaActividadComentarios extends javax.swing.JPanel {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(20, 20, 20)
                                         .addComponent(jRadioButton92)))
-                                .addGap(9, 9, 9)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(40, 40, 40)
-                                        .addComponent(jRadioButton95))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(20, 20, 20)
-                                        .addComponent(jRadioButton94))
-                                    .addComponent(jRadioButton93)))
-                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton93)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton94)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButton95))
                             .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -620,9 +669,22 @@ public class vistaActividadComentarios extends javax.swing.JPanel {
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(210, 210, 210)
-                                .addComponent(jButton1)))
+                                .addComponent(jButton1))
+                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(6, 6, 6)
-                        .addComponent(scrollOpiniones1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(scrollOpiniones1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane4)
+                                .addContainerGap())))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -631,7 +693,15 @@ public class vistaActividadComentarios extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11)
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -644,9 +714,9 @@ public class vistaActividadComentarios extends javax.swing.JPanel {
                             .addComponent(jRadioButton95)
                             .addComponent(jRadioButton94)
                             .addComponent(jRadioButton93))
-                        .addGap(9, 9, 9)
-                        .addComponent(jLabel17)
-                        .addGap(22, 22, 22)
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel20)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel18)
                         .addGap(2, 2, 2)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -658,7 +728,8 @@ public class vistaActividadComentarios extends javax.swing.JPanel {
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton1))
-                    .addComponent(scrollOpiniones1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(scrollOpiniones1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(jPanel1);
@@ -761,10 +832,12 @@ public class vistaActividadComentarios extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
@@ -800,12 +873,16 @@ public class vistaActividadComentarios extends javax.swing.JPanel {
     private javax.swing.JRadioButton jRadioButton93;
     private javax.swing.JRadioButton jRadioButton94;
     private javax.swing.JRadioButton jRadioButton95;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
+    public javax.swing.JTextArea lblDescripcion;
     public javax.swing.JLabel lblImagen;
+    public javax.swing.JTextArea lblLocalizacion;
     public javax.swing.JLabel lblNombre;
     private javax.swing.JScrollPane scrollOpiniones1;
     // End of variables declaration//GEN-END:variables

@@ -7,6 +7,7 @@ package control;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -93,8 +94,6 @@ public class controlDetalleDestino implements ActionListener{
                 
                 Icon fondo = new ImageIcon(image.getImage().getScaledInstance(250, 150, Image.SCALE_DEFAULT));
                 btnImagen = new JButton(fondo);
-                    //id del destino
-                btnImagen.setName("A"+act[i][0]);
                 
                     //Para hacerlo invisible
                 btnImagen.setBorderPainted(false);
@@ -104,6 +103,7 @@ public class controlDetalleDestino implements ActionListener{
                 btnImagen.setFocusable(false);
                 btnImagen.setSize(250, 150);
                 btnImagen.addActionListener(this);
+                
                     //Sin bordes
                 EmptyBorder border1 = new EmptyBorder(5, 0, 0, 0);
                 btnImagen.setBorder(border1);
@@ -120,6 +120,11 @@ public class controlDetalleDestino implements ActionListener{
                 nombreD.setSize(250, 15);
                 
                 if(img.equals("museo")){
+                    //id de la actividad
+                    btnImagen.setName("A"+act[i][0]);
+                    btnImagen.setCursor(new Cursor(Cursor.HAND_CURSOR));
+                    btnImagen.setToolTipText("Ver Actividad");
+                    
                      //Calificación
                     JPanel cal = new JPanel();
                     cal.setLayout(new BoxLayout(cal, BoxLayout.X_AXIS));
@@ -231,8 +236,8 @@ public class controlDetalleDestino implements ActionListener{
             System.out.println("b: " + idD);
         //Botón de detalles de actividad
             if(letra.equals("A")){
-                 vistaActividadComentarios vActividadComentarios = new vistaActividadComentarios();
-                 modeloActividadComentarios mActividadComentarios = new modeloActividadComentarios();
+                vistaActividadComentarios vActividadComentarios = new vistaActividadComentarios();
+                modeloActividadComentarios mActividadComentarios = new modeloActividadComentarios();
                 controlActividadComentarios comentarios = new controlActividadComentarios(vActividadComentarios, vistaPrincipal, mActividadComentarios, idA);
                 CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vActividadComentarios);
             }
