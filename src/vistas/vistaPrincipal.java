@@ -47,15 +47,18 @@ public class vistaPrincipal extends javax.swing.JFrame {
 
         btnInico.setBackground(new java.awt.Color(56, 0, 107));
         btnInico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo_50px.png"))); // NOI18N
+        btnInico.setToolTipText("Inicio");
         btnInico.setBorder(null);
         btnInico.setBorderPainted(false);
         btnInico.setContentAreaFilled(false);
+        btnInico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInico.setFocusPainted(false);
         btnInico.setFocusable(false);
         btnInico.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo_55px.png"))); // NOI18N
 
         btnViaje.setBackground(new java.awt.Color(56, 0, 107));
         btnViaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Briefcase_50px_4.png"))); // NOI18N
+        btnViaje.setToolTipText("Nuevo Viaje");
         btnViaje.setBorder(null);
         btnViaje.setBorderPainted(false);
         btnViaje.setContentAreaFilled(false);
@@ -67,6 +70,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
 
         btnAyuda.setBackground(new java.awt.Color(56, 0, 107));
         btnAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/help.png"))); // NOI18N
+        btnAyuda.setToolTipText("Ayuda");
         btnAyuda.setBorder(null);
         btnAyuda.setBorderPainted(false);
         btnAyuda.setContentAreaFilled(false);
@@ -77,6 +81,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
 
         btnLogout.setBackground(new java.awt.Color(56, 0, 107));
         btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logout.png"))); // NOI18N
+        btnLogout.setToolTipText("Cerrar Sesión");
         btnLogout.setBorder(null);
         btnLogout.setBorderPainted(false);
         btnLogout.setContentAreaFilled(false);
@@ -88,6 +93,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
 
         btnPerfil.setBackground(new java.awt.Color(56, 0, 107));
         btnPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/profile.png"))); // NOI18N
+        btnPerfil.setToolTipText("Perfil");
         btnPerfil.setBorder(null);
         btnPerfil.setBorderPainted(false);
         btnPerfil.setContentAreaFilled(false);
@@ -98,6 +104,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
 
         btnCalculadora.setBackground(new java.awt.Color(56, 0, 107));
         btnCalculadora.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/calculator.png"))); // NOI18N
+        btnCalculadora.setToolTipText("Calculadora");
         btnCalculadora.setBorder(null);
         btnCalculadora.setBorderPainted(false);
         btnCalculadora.setContentAreaFilled(false);

@@ -7,6 +7,7 @@ package control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import modelo.modeloInicio;
 import modelo.modelologin;
 import vistas.vistaCalculadora;
 import vistas.vistaInicio;
@@ -21,10 +22,13 @@ import vistas.vistaPrincipal;
  */
 public class controlPrincipal implements ActionListener{
     
-    vistaPrincipal vista;
-    public controlPrincipal(vistaPrincipal vista)
+    private vistaPrincipal vista;
+    public static String [] usuario;
+    public controlPrincipal(vistaPrincipal vista, String [] usuario)
     {
         this.vista=vista;
+        //idLogin-nombreUsuario-idUsuario
+        this.usuario = usuario;
         this.vista.btnInico.addActionListener(this);
         this.vista.btnPerfil.addActionListener(this);
         this.vista.btnViaje.addActionListener(this);
@@ -36,7 +40,8 @@ public class controlPrincipal implements ActionListener{
     public void iniciarVista()
     {
         vistaInicio vistaInicio = new vistaInicio();
-        controlInicio controlInicio = new controlInicio(vistaInicio, vista);
+        modeloInicio modeloInicio = new modeloInicio();
+        controlInicio controlInicio = new controlInicio(vistaInicio, vista, modeloInicio);
         CambiaPanel cambiar = new CambiaPanel(vista.panelCambiante, vistaInicio);
     }
 

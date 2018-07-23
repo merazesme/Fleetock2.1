@@ -16,14 +16,15 @@ import vistas.vistaPrincipal;
  */
 public class controlAgregarViaje implements ActionListener{
 
+    private vistaAgregarViaje vista;
+    private vistaPrincipal vPrincipal;
+    private String idD;
     
-    vistaAgregarViaje vista;
-    vistaPrincipal vPrincipal;
-    
-    public controlAgregarViaje(vistaAgregarViaje vista, vistaPrincipal vPrincipal)
+    public controlAgregarViaje(vistaAgregarViaje vista, vistaPrincipal vPrincipal, String idD)
     {
         this.vista=vista;
         this.vPrincipal=vPrincipal;
+        this.idD = idD;
     }
     @Override
     public void actionPerformed(ActionEvent e) {
