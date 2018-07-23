@@ -33,11 +33,9 @@ public class controlActividadComentarios {
     }
     
     public void imagenN(String idA){
-        System.out.println("función");
         String [] act;
         act=modelo.datosActividades(idA);
         if(act!=null){
-            System.out.println("condicion");
             vista.lblNombre.setText(act[0]);
             ImageIcon imagen = new ImageIcon(act[1]);
             Icon fondo = new ImageIcon(imagen.getImage().getScaledInstance(827, 500, Image.SCALE_DEFAULT));

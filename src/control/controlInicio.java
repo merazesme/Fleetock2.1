@@ -88,6 +88,12 @@ public class controlInicio implements ActionListener, KeyListener{
         destinos(this.modelo.datosDestinos(13), vista.pnlManglar1);
     }
     
+    public void busquedas(String sentencia){
+        activarPrincipal(false); 
+        destinos(modelo.datosBusqueda(sentencia) , vista.pnlBusqueda);
+        vista.pnlBusqueda.setBorder(new EmptyBorder(5, 40, 0, 0));
+        vista.txtBusqueda.requestFocus();
+    }
     
     public void destinos(String [][] des, JPanel p){
         //limpia el panel
@@ -104,13 +110,9 @@ public class controlInicio implements ActionListener, KeyListener{
                 principal.setSize(250,200);
         
                 //Imagen
-                ImageIcon image;
+                ImageIcon image = new ImageIcon(getClass().getResource("../images/icons8-pais-100.png"));
                 if(des[i][2] != null){
                     image = new ImageIcon(des[i][2]);
-                }
-                else{
-                    image = new ImageIcon(getClass().getResource("../images/icons8-pais-100.png"));
-                    btnImagen.setHorizontalAlignment(SwingConstants.CENTER);
                 }
                 
                 Icon fondo = new ImageIcon(image.getImage().getScaledInstance(250, 150, Image.SCALE_DEFAULT));
@@ -129,8 +131,7 @@ public class controlInicio implements ActionListener, KeyListener{
                 btnImagen.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 btnImagen.setToolTipText("Ver Destino");
                     //Sin bordes
-                EmptyBorder border1 = new EmptyBorder(5, 0, 0, 0);
-                btnImagen.setBorder(border1);
+                btnImagen.setBorder(new EmptyBorder(5, 0, 0, 0));
                 
                 
                 //Panel de información
@@ -139,15 +140,14 @@ public class controlInicio implements ActionListener, KeyListener{
                     //Nombre del destino
                 JLabel nombreD = new JLabel(des[i][1]);
                 nombreD.setFont(new Font("Candara", Font.PLAIN, 14));
-                EmptyBorder border2 = new EmptyBorder(10, 5, 0, 0);
-                nombreD.setBorder(border2);
+                nombreD.setBorder(new EmptyBorder(10, 5, 0, 0));
                 nombreD.setSize(250, 15);
                 
                     //Calificación
                 JPanel cal = new JPanel();
                 cal.setLayout(new BoxLayout(cal, BoxLayout.X_AXIS));
                 cal.setBackground(new java.awt.Color(156,255,87));
-                cal.setBorder(border2);
+                cal.setBorder(new EmptyBorder(10, 5, 0, 0));
                 
                     //si tiene calificación que cree los radiobutton              
                 if(modelo.destinoCal(des[i][0]) != null){
@@ -208,7 +208,7 @@ public class controlInicio implements ActionListener, KeyListener{
                     mensajec.setForeground(new Color(76,2,131));
                     mensajec.setFont(new Font("Candara", Font.PLAIN, 14));
                     mensajec.setHorizontalAlignment(SwingConstants.LEFT);
-                    mensajec.setBorder(border2);
+                    mensajec.setBorder(new EmptyBorder(10, 5, 0, 0));
                     cal.add(mensajec);
                 }
                 
@@ -241,9 +241,9 @@ public class controlInicio implements ActionListener, KeyListener{
                 //Agregar la imagen y la información
                 principal.add(btnImagen);
                 principal.add(informacion);
+                principal.setPreferredSize(new Dimension(250, 250));
                 //Agregar el panel principal al scroll
                 p.add(principal);
-                principal.setSize(250,200);
                 //separación en blanco
                 JPanel separacion = new JPanel();
                 separacion.setBackground(new java.awt.Color(255,255,255));
@@ -283,28 +283,17 @@ public class controlInicio implements ActionListener, KeyListener{
         }
         catch(NullPointerException ex){}
 
-
-        String[][] bus = null;
         if(vista.btnTendencias == e.getSource()){
-            System.out.println("a");
-            activarPrincipal(false);
-            bus = modelo.datosBusqueda("select `idDestino`, `nombre`, `foto` from destino INNER JOIN pertenece on idDestino = Destino_idDestino GROUP BY nombre HAVING COUNT(*) > 1;");   
-            destinos(bus, vista.pnlBusqueda);
-            vista.pnlBusqueda.setLayout(new FlowLayout(FlowLayout.CENTER));
-            vista.txtBusqueda.requestFocus();
+            busquedas("select `idDestino`, `nombre`, `foto` from destino INNER JOIN pertenece on idDestino = Destino_idDestino GROUP BY nombre HAVING COUNT(*) > 1;");
         }
         
         if(vista.btnSugerencias == e.getSource()){
-            activarPrincipal(false);
-            bus = modelo.datosBusqueda("select destino.idDestino, destino.nombre, destino.foto "
+            busquedas("select destino.idDestino, destino.nombre, destino.foto "
                     + "FROM destino INNER JOIN sedivideen ON sedivideen.Destino_idDestino = idDestino "
                     + "INNER JOIN tipositio ON tipositio.idTipoSitio = sedivideen.TipoSitio_idTipoSitio "
                     + "INNER JOIN prefiere ON tipositio.idTipoSitio = prefiere.TipoSitio_idTipoSitio "
                     + "INNER JOIN usuario ON prefiere.Usuario_idUsuario = idUsuario "
-                    + "WHERE usuario.idUsuario = " + controlPrincipal.usuario[2] + ";");   
-            destinos(bus, vista.pnlBusqueda);
-            vista.pnlBusqueda.setLayout(new FlowLayout(FlowLayout.CENTER));
-            vista.txtBusqueda.requestFocus();
+                    + "WHERE usuario.idUsuario = " + controlPrincipal.usuario[2] + ";");
         }
     
     }
@@ -320,15 +309,10 @@ public class controlInicio implements ActionListener, KeyListener{
     
     @Override
     public void keyReleased(KeyEvent e) {
-        String[][] bus = null;
         if(e.getSource() == vista.txtBusqueda){
             //si escribió algo
             if(!vista.txtBusqueda.getText().equals("")){
-                activarPrincipal(false);
-                bus = modelo.datosBusqueda("select `idDestino`, `nombre`, `foto` from destino where nombre like '%"+vista.txtBusqueda.getText()+"%';");   
-                destinos(bus, vista.pnlBusqueda);
-                vista.pnlBusqueda.setLayout(new FlowLayout(FlowLayout.CENTER));
-                vista.txtBusqueda.requestFocus();
+                busquedas("select `idDestino`, `nombre`, `foto` from destino where nombre like '%"+vista.txtBusqueda.getText()+"%';");
             } 
             else{
                 principal();

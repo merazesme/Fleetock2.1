@@ -24,6 +24,7 @@ import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import modelo.modeloActividadComentarios;
+import modelo.modeloActividades;
 import modelo.modeloDetalleDestino;
 import vistas.vistaActividadComentarios;
 import vistas.vistaActividades;
@@ -52,8 +53,9 @@ public class controlDetalleDestino implements ActionListener{
         this.vista.btnActividades.addActionListener(this);
         this.vista.btnViaje.addActionListener(this);
         imagenN();
-        actTrans(modelo.datosActividades(this.idD), vista.pnlActividades, "museo");
+       
         actTrans(modelo.datosTransportes(this.idD), vista.pnlTransportes, "autobus");
+        actTrans(modelo.datosActividades(this.idD), vista.pnlActividades, "museo");
     }
     
     public void imagenN(){
@@ -82,16 +84,11 @@ public class controlDetalleDestino implements ActionListener{
                 principal.setSize(250,200);
         
                 //Imagen
-                ImageIcon image;
-                System.out.println("nombre:"+act[i][1]);
+                ImageIcon image = new ImageIcon(getClass().getResource("../images/icons8-"+img+"-100.png"));
                 if(act[i][2] != null){
                     image = new ImageIcon(act[i][2]);
                 }
-                else{
-                    image = new ImageIcon(getClass().getResource("../images/icons8-"+img+"-100.png"));
-                    btnImagen.setHorizontalAlignment(SwingConstants.CENTER);
-                }
-                
+
                 Icon fondo = new ImageIcon(image.getImage().getScaledInstance(250, 150, Image.SCALE_DEFAULT));
                 btnImagen = new JButton(fondo);
                 
@@ -118,7 +115,6 @@ public class controlDetalleDestino implements ActionListener{
                 EmptyBorder border2 = new EmptyBorder(10, 5, 0, 0);
                 nombreD.setBorder(border2);
                 nombreD.setSize(250, 15);
-                
                 if(img.equals("museo")){
                     //id de la actividad
                     btnImagen.setName("A"+act[i][0]);
@@ -227,13 +223,10 @@ public class controlDetalleDestino implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-    
         try{
             JButton selectedButton = (JButton) e.getSource();
             String letra = selectedButton.getName().substring(0, 1);  
             String idA = selectedButton.getName().substring(1);  
-            System.out.println("a: " + letra);
-            System.out.println("b: " + idD);
         //Botón de detalles de actividad
             if(letra.equals("A")){
                 vistaActividadComentarios vActividadComentarios = new vistaActividadComentarios();
@@ -249,7 +242,8 @@ public class controlDetalleDestino implements ActionListener{
     {
         
         vistaActividades vActividades = new vistaActividades();
-        controlActividades cActividades = new controlActividades(vActividades, vistaPrincipal, idD);
+        modeloActividades mActividades = new modeloActividades();
+        controlActividades cActividades = new controlActividades(vActividades, vistaPrincipal, mActividades, idD);
         CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vActividades);
     }
     
