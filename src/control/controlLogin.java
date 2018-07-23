@@ -9,7 +9,7 @@ import control.administrador.acontrolMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import modelo.modelologin;
+import modelo.modeloLogin;
 import vistas.administrador.avistaMenu;
 import vistas.vistaLogin;
 import vistas.vistaPrincipal;
@@ -21,7 +21,7 @@ import vistas.vistaPrincipal;
 public class controlLogin implements ActionListener{
     
     vistaLogin vista;
-    private modelologin modelo;
+    private modeloLogin modelo;
     vistaPrincipal vistaPrincipal;
     avistaMenu avmMenu;
     public String usu="";
@@ -31,7 +31,7 @@ public class controlLogin implements ActionListener{
         this.usu="";
     }
   
-    public controlLogin(vistaLogin vista,modelologin modelo, vistaPrincipal vistaPrincipal, avistaMenu avMenu)
+    public controlLogin(vistaLogin vista,modeloLogin modelo, vistaPrincipal vistaPrincipal, avistaMenu avMenu)
     {
         this.vista=vista;
         this.modelo=modelo;

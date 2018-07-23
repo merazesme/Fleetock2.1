@@ -8,6 +8,7 @@ package control;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -82,7 +83,7 @@ public class controlDetalleDestino implements ActionListener{
                 principal.setLayout(new GridLayout( 2, 1, 0, 5));
                 principal.setBackground(new java.awt.Color(156,255,87));
                 principal.setSize(250,200);
-        
+                principal.setPreferredSize(new Dimension(250, 250));
                 //Imagen
                 ImageIcon image = new ImageIcon(getClass().getResource("../images/icons8-"+img+"-100.png"));
                 if(act[i][2] != null){
@@ -202,7 +203,6 @@ public class controlDetalleDestino implements ActionListener{
                 principal.add(informacion);
                 //Agregar el panel principal al scroll
                 p.add(principal);
-                principal.setSize(250,200);
                 //separación en blanco
                 JPanel separacion = new JPanel();
                 separacion.setBackground(new java.awt.Color(255,255,255));

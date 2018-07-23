@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  *
  * @author alfredo
  */
-public class modelologin {
+public class modeloLogin {
         private Conexion conexion = new Conexion();
     //En esta funcion se hace la consulta donde tenemos dos parametros donde lo usaremos para que el usuario escriba 
     //su usuario y contraseña
