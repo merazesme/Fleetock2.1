@@ -7,8 +7,13 @@ package control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import modelo.modeloInicio;
 import modelo.modeloLogin;
+import modelo.modeloPerfil;
 import vistas.vistaCalculadora;
 import vistas.vistaInicio;
 import vistas.vistaLogin;
@@ -20,7 +25,7 @@ import vistas.vistaPrincipal;
  *
  * @author Holi
  */
-public class controlPrincipal implements ActionListener{
+public class controlPrincipal implements ActionListener, WindowListener{
     
     private vistaPrincipal vista;
     public static String [] usuario;
@@ -35,6 +40,11 @@ public class controlPrincipal implements ActionListener{
         this.vista.btnCalculadora.addActionListener(this);
         this.vista.btnAyuda.addActionListener(this);
         this.vista.btnLogout.addActionListener(this);
+        this.vista.addWindowListener(this);
+        this.vista.setTitle("Fleetock");
+        this.vista.setIconImage(new ImageIcon(getClass().getResource("../images/logo_55px.png")).getImage());
+        this.vista.setSize(1035, 629);
+        this.vista.setResizable(false);
     }
     
     public void iniciarVista()
@@ -56,7 +66,8 @@ public class controlPrincipal implements ActionListener{
        if(this.vista.btnPerfil == e.getSource())
        {
            vistaPerfil vistaPerfil = new vistaPerfil();
-           controlPerfil controlPerfil = new controlPerfil(vistaPerfil, vista);
+           modeloPerfil modeloPerfil = new modeloPerfil();
+           controlPerfil controlPerfil = new controlPerfil(vistaPerfil, vista, modeloPerfil);
            CambiaPanel cambiar = new CambiaPanel(vista.panelCambiante, vistaPerfil);
        }
        
@@ -76,13 +87,56 @@ public class controlPrincipal implements ActionListener{
        
        if(this.vista.btnLogout == e.getSource())
        {
-           this.vista.setVisible(false);
-           vistaLogin vistaLogin = new vistaLogin();
-           modeloLogin modelologin = new modeloLogin();
-           controlLogin controLogin = new controlLogin(vistaLogin,modelologin, vista, null);
-           controLogin.iniciarVista();
+           if (JOptionPane.showConfirmDialog(vista,
+                "¿Estás seguro que deseas cerrar sesión?", "Fleetock",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+                this.vista.dispose();
+                vistaLogin vistaLogin = new vistaLogin();
+                modeloLogin modelologin = new modeloLogin();
+                controlLogin controLogin = new controlLogin(vistaLogin,modelologin, vista, null);
+                controLogin.iniciarVista();
+            }           
        }
     
+    }
+
+    @Override
+    public void windowOpened(WindowEvent e) {
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+        if (JOptionPane.showConfirmDialog(vista,
+                "¿Estás seguro que deseas cerrar sesión?", "Fleetock",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+            this.vista.dispose();
+            vistaLogin vistaLogin = new vistaLogin();
+            modeloLogin modelologin = new modeloLogin();
+            controlLogin controLogin = new controlLogin(vistaLogin,modelologin, vista, null);
+            controLogin.iniciarVista();
+        } 
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
     }
     
     

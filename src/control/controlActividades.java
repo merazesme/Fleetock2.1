@@ -206,8 +206,6 @@ public class controlActividades implements ActionListener, KeyListener{
             JButton selectedButton = (JButton) e.getSource();
             String letra = selectedButton.getName().substring(0, 1);  
             String idA = selectedButton.getName().substring(1);
-            System.out.println("letra: "+letra);
-            System.out.println("idA: "+idA);
             //Botón de detalles de actividad
             if(letra.equals("A")){
                 vistaActividadComentarios vActividadComentarios = new vistaActividadComentarios();
@@ -231,14 +229,7 @@ public class controlActividades implements ActionListener, KeyListener{
     public void keyReleased(KeyEvent e) {
         System.out.println("bus:"+vista.txtBusqueda.getText());
         if(!vista.txtBusqueda.getText().equals("")){
-            String b[][]=modelo.datosBusqueda(vista.txtBusqueda.getText(), idD);
-            System.out.println("---------------------------------------------------------");
-            for(int y=0; y<b.length; y++){
-                System.out.println("id: "+b[y][0]);
-                System.out.println("nombre: "+b[y][1]);
-                System.out.println("foto: "+b[y][2]);
-            }
-            act(b , vista.pnlBusqueda);
+            act(modelo.datosBusqueda(vista.txtBusqueda.getText(), idD) , vista.pnlBusqueda);
             vista.txtBusqueda.requestFocus();
         } 
         else{

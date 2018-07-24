@@ -8,6 +8,7 @@ package control;
 import java.awt.Button;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import modelo.modeloLogin;
 import vistas.vistaLogin;
 import vistas.vistaLoginRegistrarse;
@@ -25,6 +26,10 @@ public class controlLoginRegistrarse implements ActionListener{
     {
         this.vista=vista;
         vista.btnIniciarSesion.addActionListener(this);
+        this.vista.setTitle("Fleetock");
+        this.vista.setIconImage(new ImageIcon(getClass().getResource("../images/logo_55px.png")).getImage());
+        this.vista.setSize(916, 490);
+        this.vista.setResizable(false);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -38,8 +43,7 @@ public class controlLoginRegistrarse implements ActionListener{
             modeloLogin modelologin = new modeloLogin();
             controlLogin controlLogin = new controlLogin(vistaLogin,modelologin, vistaPrincipal, null);
         }
-        
-        }
+    }
     
     
 }

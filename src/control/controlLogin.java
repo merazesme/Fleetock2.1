@@ -8,6 +8,7 @@ package control;
 import control.administrador.acontrolMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modelo.modeloLogin;
 import vistas.administrador.avistaMenu;
@@ -41,6 +42,10 @@ public class controlLogin implements ActionListener{
         //this.vista.btnISLogin.addKeyListener(this);
         this.vistaPrincipal=vistaPrincipal;
         this.avmMenu=avMenu;
+        this.vista.setTitle("Fleetock: Inicio de sesión");
+        this.vista.setIconImage(new ImageIcon(getClass().getResource("../images/logo_55px.png")).getImage());
+        this.vista.setSize(916, 490);
+        this.vista.setResizable(false);
     }
     
     public void iniciarVista()

@@ -5,10 +5,35 @@
  */
 package control;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.BoxLayout;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import modelo.modeloDetalleDestino;
+import modelo.modeloEditarViaje;
+import modelo.modeloPerfil;
+import vistas.vistaAgregarViaje;
+import vistas.vistaDetallesDestino;
 import vistas.vistaEditarPerfil;
 import vistas.vistaEditarViaje;
+import vistas.vistaNuevoViajeSS;
 import vistas.vistaPerfil;
 import vistas.vistaPrincipal;
 
@@ -16,34 +41,208 @@ import vistas.vistaPrincipal;
  *
  * @author Holi
  */
-public class controlPerfil implements ActionListener{
+public class controlPerfil implements ActionListener, MouseListener{
 
-    vistaPerfil vista;
-    vistaPrincipal vistaPrincipal;
+    private vistaPerfil vista;
+    private vistaPrincipal vistaPrincipal;
+    private modeloPerfil modelo;
+    private JButton btnImagen;
+    private JLabel mensaje = new JLabel();
     
-    public controlPerfil(vistaPerfil vista, vistaPrincipal vistaPrincipal)
+    public controlPerfil(vistaPerfil vista, vistaPrincipal vistaPrincipal, modeloPerfil modelo)
     {
         this.vista=vista;
         this.vistaPrincipal=vistaPrincipal;
+        this.modelo=modelo;
         this.vista.btnEditarPerfil.addActionListener(this);
-        this.vista.btnModificarViaje.addActionListener(this);
+       // this.vista.btnModificarViaje.addActionListener(this);
+        datos();
+        this.vista.pnlViajes.setBorder(new EmptyBorder(5, 40, 0, 0));
+        viajes(modelo.datosDestinos(controlPrincipal.usuario[2]), this.vista.pnlViajes);
+    }
+    
+    public void datos(){
+        String [] uDatos=modelo.usuarioDatos(controlPrincipal.usuario[2]);
+        if(modelo.usuarioDatos(controlPrincipal.usuario[2])!=null) {
+            vista.lblNombre.setText(uDatos[0]+" "+uDatos[1]);
+            vista.lblUsuario.setText("@"+controlPrincipal.usuario[1]);
+            if (uDatos[2]!=null) {
+                ImageIcon image = new ImageIcon(uDatos[2]);                
+                Icon fondo = new ImageIcon(image.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
+                vista.lblImagen.setIcon(fondo);
+            }
+        }
+    }
+    
+    public void viajes(String [][] via, JPanel p){
+        //limpia el panel
+        p.removeAll();
+        p.revalidate();
+        p.repaint();
+        p.setLayout(new FlowLayout(FlowLayout.LEFT));
+        if(via.length > 0){
+            
+            String [][] temporal = new String [via.length][4];
+            temporal[0][0]= via[0][0];
+            temporal[0][1]= via[0][1];
+            temporal[0][2]= via[0][2];
+            temporal[0][3]= via[0][3];
+            int c=0;
+            for(int x=1; x< via.length; x++){
+                if(temporal[c][0].equals(via[x][0])){
+                    temporal[c][3]=temporal[c][3]+"|"+via[x][3];
+                }
+                else{
+                    c++;
+                    temporal[c][0]= via[x][0];
+                    temporal[c][1]= via[x][1];
+                    temporal[c][2]= via[x][2];
+                    temporal[c][3]= via[x][3];
+                }
+            }
+            
+            for(int i=0; temporal[i][0]!=null; i++){
+                System.out.println("id:"+temporal[i][0]);
+                System.out.println("nombre:"+temporal[i][1]);
+                System.out.println("foto:"+temporal[i][2]);
+                System.out.println("destino:"+temporal[i][3]);
+                System.out.println("-----------------------------------------");
+            }
+
+            for(int i=0; temporal[i][0]!=null; i++){
+                System.out.println("id: "+temporal[i][0]);
+
+                //Panel principal: verde
+                JPanel principal = new JPanel();
+                principal.setLayout(new GridLayout( 2, 1, 0, 5));
+                principal.setBackground(new java.awt.Color(156,255,87));
+                principal.setSize(250,200);
+        
+                //Imagen
+                ImageIcon image = new ImageIcon(getClass().getResource("../images/icons8-pais-100.png"));
+                if(via[i][2] != null){
+                    image = new ImageIcon(temporal[i][2]);
+                }
+                
+                Icon fondo = new ImageIcon(image.getImage().getScaledInstance(250, 150, Image.SCALE_DEFAULT));
+                btnImagen = new JButton(fondo);
+                    //id del viaje
+                btnImagen.setName("V"+temporal[i][0]);
+                
+                    //Para hacerlo invisible
+                btnImagen.setBorderPainted(false);
+                btnImagen.setContentAreaFilled(false);
+                btnImagen.setDefaultCapable(false);
+                btnImagen.setFocusPainted(false);
+                btnImagen.setFocusable(false);
+                btnImagen.setSize(250, 150);
+                btnImagen.addActionListener(this);
+                btnImagen.setCursor(new Cursor(Cursor.HAND_CURSOR));
+                btnImagen.setToolTipText("Ver Viaje");
+                    //Sin bordes
+                btnImagen.setBorder(new EmptyBorder(5, 0, 0, 0));
+                
+                
+                //Panel de información
+                JPanel informacion = new JPanel();
+                informacion.setLayout(new BoxLayout(informacion, BoxLayout.Y_AXIS));
+                informacion.setBackground(new java.awt.Color(156,255,87));
+                    //Nombre del viaje
+                JLabel nombreV = new JLabel(temporal[i][1]);
+                nombreV.setFont(new Font("Candara", Font.PLAIN, 14));
+                nombreV.setHorizontalAlignment(SwingConstants.CENTER);
+                nombreV.setBorder(new EmptyBorder(10, 5, 0, 0));
+                nombreV.setSize(250, 15);
+                    //Destino del viaje
+                JLabel nombreD = new JLabel(temporal[i][3]);
+                nombreD.setFont(new Font("Candara", Font.PLAIN, 12));
+                nombreD.setBorder(new EmptyBorder(10, 5, 0, 0));
+                nombreD.setHorizontalAlignment(SwingConstants.CENTER);
+                nombreD.setSize(250, 15);   
+                
+                        //añadir el jlabel al panel de información
+                informacion.add(nombreV);
+                informacion.add(nombreD); 
+                
+                //Agregar la imagen y la información
+                principal.add(btnImagen);
+                principal.add(informacion);
+                principal.setPreferredSize(new Dimension(250, 250));
+                //Agregar el panel principal al scroll
+                p.add(principal);
+                //separación en blanco
+                JPanel separacion = new JPanel();
+                separacion.setBackground(new java.awt.Color(255,255,255));
+                separacion.setSize(5,5);
+                p.add(separacion);
+            }
+        }
+        else
+        {
+            //Si no se encuentra un viaje
+            mensaje.setText("¡Crea tu Primer Viaje!");
+            mensaje.setForeground(new Color(76,2,131));
+            mensaje.setFont(new Font("Candara", Font.PLAIN, 20));
+            mensaje.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            mensaje.addMouseListener(this);
+            p.add(mensaje);
+            p.setLayout(new FlowLayout(FlowLayout.CENTER));
+        }
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
     
+         try{
+            JButton selectedButton = (JButton) e.getSource();
+            String letra = selectedButton.getName().substring(0, 1);  
+            String idV = selectedButton.getName().substring(1);  
+        //Botón de Modificar Viaje
+            if(letra.equals("V")){
+                vistaEditarViaje vistaEditarViaje = new vistaEditarViaje();
+                modeloEditarViaje modeloEditarViaje = new modeloEditarViaje();
+                controlEditarViaje controlEditarViaje= new controlEditarViaje(vistaEditarViaje, vistaPrincipal, modeloEditarViaje, idV);
+                CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaEditarViaje);
+            }
+        }
+        catch(NullPointerException ex){}
+         
         if(this.vista.btnEditarPerfil == e.getSource())
         {
             vistaEditarPerfil vistaEditarPerfil = new vistaEditarPerfil();
             controlEditarPerfil controlEditarPerfil = new controlEditarPerfil(vistaEditarPerfil, vistaPrincipal);
             CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaEditarPerfil);
         }
-        
-        if(this.vista.btnModificarViaje == e.getSource())
-        {
-            vistaEditarViaje vistaEditarViaje = new vistaEditarViaje();
-            controlEditarViaje controlEditarViaje= new controlEditarViaje(vistaEditarViaje, vistaPrincipal);
-            CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaEditarViaje);
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if(e.getSource()==mensaje){
+            vistaNuevoViajeSS vistaNuevoViajeSS = new vistaNuevoViajeSS();
+           controlNuevoViajeSS controlNuevoViajeSS = new controlNuevoViajeSS(vistaNuevoViajeSS, vistaPrincipal);
+           CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaNuevoViajeSS);
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        if(e.getSource()==mensaje){
+            mensaje.setForeground(new Color(156,255,87));
+        }
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+         if(e.getSource()==mensaje){
+            mensaje.setForeground(new Color(76,2,131));
         }
     }
     
