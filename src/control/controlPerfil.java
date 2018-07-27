@@ -5,7 +5,6 @@
  */
 package control;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -23,14 +22,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import modelo.modeloDetalleDestino;
+import modelo.modeloEditarPerfil;
 import modelo.modeloEditarViaje;
 import modelo.modeloPerfil;
-import vistas.vistaAgregarViaje;
-import vistas.vistaDetallesDestino;
 import vistas.vistaEditarPerfil;
 import vistas.vistaEditarViaje;
 import vistas.vistaNuevoViajeSS;
@@ -48,7 +44,6 @@ public class controlPerfil implements ActionListener, MouseListener{
     private modeloPerfil modelo;
     private JButton btnImagen;
     private JLabel mensaje = new JLabel();
-    
     public controlPerfil(vistaPerfil vista, vistaPrincipal vistaPrincipal, modeloPerfil modelo)
     {
         this.vista=vista;
@@ -63,7 +58,7 @@ public class controlPerfil implements ActionListener, MouseListener{
     
     public void datos(){
         String [] uDatos=modelo.usuarioDatos(controlPrincipal.usuario[2]);
-        if(modelo.usuarioDatos(controlPrincipal.usuario[2])!=null) {
+        if(uDatos!=null) {
             vista.lblNombre.setText(uDatos[0]+" "+uDatos[1]);
             vista.lblUsuario.setText("@"+controlPrincipal.usuario[1]);
             if (uDatos[2]!=null) {
@@ -82,13 +77,15 @@ public class controlPerfil implements ActionListener, MouseListener{
         p.setLayout(new FlowLayout(FlowLayout.LEFT));
         if(via.length > 0){
             
-            String [][] temporal = new String [via.length][4];
+            String [][] temporal = new String [via.length+1][4];
             temporal[0][0]= via[0][0];
             temporal[0][1]= via[0][1];
             temporal[0][2]= via[0][2];
             temporal[0][3]= via[0][3];
             int c=0;
-            for(int x=1; x< via.length; x++){
+            int x;
+
+            for(x=1; x<via.length; x++){
                 if(temporal[c][0].equals(via[x][0])){
                     temporal[c][3]=temporal[c][3]+"|"+via[x][3];
                 }
@@ -100,6 +97,8 @@ public class controlPerfil implements ActionListener, MouseListener{
                     temporal[c][3]= via[x][3];
                 }
             }
+            
+            temporal[x][0]= null;
             
             for(int i=0; temporal[i][0]!=null; i++){
                 System.out.println("id:"+temporal[i][0]);
@@ -193,7 +192,7 @@ public class controlPerfil implements ActionListener, MouseListener{
     @Override
     public void actionPerformed(ActionEvent e) {
     
-         try{
+        try{
             JButton selectedButton = (JButton) e.getSource();
             String letra = selectedButton.getName().substring(0, 1);  
             String idV = selectedButton.getName().substring(1);  
@@ -206,11 +205,13 @@ public class controlPerfil implements ActionListener, MouseListener{
             }
         }
         catch(NullPointerException ex){}
-         
+        
+        //Botón Modificar perfil 
         if(this.vista.btnEditarPerfil == e.getSource())
         {
             vistaEditarPerfil vistaEditarPerfil = new vistaEditarPerfil();
-            controlEditarPerfil controlEditarPerfil = new controlEditarPerfil(vistaEditarPerfil, vistaPrincipal);
+            modeloEditarPerfil modeloEditarPerfil = new modeloEditarPerfil();
+            controlEditarPerfil controlEditarPerfil = new controlEditarPerfil(vistaEditarPerfil, vistaPrincipal, modeloEditarPerfil);
             CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaEditarPerfil);
         }
     }

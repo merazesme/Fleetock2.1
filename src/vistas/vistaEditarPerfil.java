@@ -27,10 +27,11 @@ public class vistaEditarPerfil extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grupobotones = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        lblImagen = new javax.swing.JLabel();
+        lblNombreC = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
         btnEditarPerfil = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -66,16 +67,16 @@ public class vistaEditarPerfil extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Cat_Profile_100px.png"))); // NOI18N
-        jLabel12.setToolTipText("");
+        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Cat_Profile_100px.png"))); // NOI18N
+        lblImagen.setToolTipText("");
 
-        jLabel13.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel13.setText("Nombre completo");
+        lblNombreC.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
+        lblNombreC.setForeground(new java.awt.Color(102, 102, 102));
+        lblNombreC.setText("Nombre completo");
 
-        jLabel14.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel14.setText("@usuario");
+        lblUsuario.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(102, 102, 102));
+        lblUsuario.setText("@usuario");
 
         btnEditarPerfil.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
         btnEditarPerfil.setForeground(new java.awt.Color(102, 102, 102));
@@ -84,7 +85,6 @@ public class vistaEditarPerfil extends javax.swing.JPanel {
         btnEditarPerfil.setBorderPainted(false);
         btnEditarPerfil.setContentAreaFilled(false);
         btnEditarPerfil.setDefaultCapable(false);
-        btnEditarPerfil.setEnabled(false);
         btnEditarPerfil.setFocusPainted(false);
         btnEditarPerfil.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Settings_35px.png"))); // NOI18N
 
@@ -94,26 +94,26 @@ public class vistaEditarPerfil extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel12)
+                .addComponent(lblImagen)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblNombreC, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE)
                 .addComponent(btnEditarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(lblImagen, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnEditarPerfil)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel13)
+                        .addComponent(lblNombreC)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel14)))
+                        .addComponent(lblUsuario)))
                 .addContainerGap())
         );
 
@@ -269,7 +269,7 @@ public class vistaEditarPerfil extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnActualizar)
                         .addGap(22, 22, 22)))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 95, Short.MAX_VALUE)
                 .addComponent(jLabel6))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -356,10 +356,8 @@ public class vistaEditarPerfil extends javax.swing.JPanel {
     public javax.swing.JButton btnEditarPerfil;
     public javax.swing.JButton btnSeleccionar;
     public com.toedter.components.JSpinField dia;
+    public javax.swing.ButtonGroup grupobotones;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -376,6 +374,9 @@ public class vistaEditarPerfil extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator5;
     public javax.swing.JLabel lblFoto;
     public javax.swing.JLabel lblHora;
+    public javax.swing.JLabel lblImagen;
+    public javax.swing.JLabel lblNombreC;
+    public javax.swing.JLabel lblUsuario;
     public com.toedter.calendar.JMonthChooser mes;
     public javax.swing.JRadioButton rbHombre;
     public javax.swing.JRadioButton rbMujer;
