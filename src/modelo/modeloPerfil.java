@@ -48,7 +48,7 @@ public class modeloPerfil {
         }
     }
     //Datos Viaje
-    public String[][] datosDestinos(String idU)
+    public String[][] datosViajes(String idU)
     {
         ResultSet sql;       
          try {

@@ -27,9 +27,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import modelo.modeloAgregarViaje;
 import modelo.modeloDetalleDestino;
 import modelo.modeloInicio;
 import vistas.vistaAgregarViaje;
@@ -266,7 +266,7 @@ public class controlInicio implements ActionListener, KeyListener{
         try{
             JButton selectedButton = (JButton) e.getSource();
             String letra = selectedButton.getName().substring(0, 1);  
-            String idD = selectedButton.getName().substring(1);  
+            String idD = selectedButton.getName().substring(1); 
         //Botón de detalles de destino
             if(letra.equals("D")){
                 vistaDetallesDestino vDetallesDestino = new vistaDetallesDestino();
@@ -277,7 +277,8 @@ public class controlInicio implements ActionListener, KeyListener{
         //Botón de agregar a viaje    
             if(letra.equals("N")){
                 vistaAgregarViaje vAgregarViaje = new vistaAgregarViaje();
-                controlAgregarViaje cAgregarViaje = new controlAgregarViaje(vAgregarViaje, vPrincipal, idD);
+                modeloAgregarViaje mAgregarViaje = new modeloAgregarViaje();
+                controlAgregarViaje cAgregarViaje = new controlAgregarViaje(vAgregarViaje, vPrincipal, mAgregarViaje, idD);
                 CambiaPanel cambiar = new CambiaPanel(vPrincipal.panelCambiante, vAgregarViaje);
             }
         }

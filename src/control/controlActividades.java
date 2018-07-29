@@ -210,7 +210,7 @@ public class controlActividades implements ActionListener, KeyListener{
             if(letra.equals("A")){
                 vistaActividadComentarios vActividadComentarios = new vistaActividadComentarios();
                 modeloActividadComentarios mActividadComentarios = new modeloActividadComentarios();
-                controlActividadComentarios comentarios = new controlActividadComentarios(vActividadComentarios, vPrincipal, mActividadComentarios, idA);
+                controlActividadComentarios comentarios = new controlActividadComentarios(vActividadComentarios, vPrincipal, mActividadComentarios, idA, idD);
                 CambiaPanel cambiar = new CambiaPanel(vPrincipal.panelCambiante, vActividadComentarios);
             }
         }

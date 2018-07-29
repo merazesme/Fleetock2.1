@@ -19,6 +19,7 @@ import javax.swing.BoxLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -26,6 +27,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import modelo.modeloActividadComentarios;
 import modelo.modeloActividades;
+import modelo.modeloAgregarViaje;
 import modelo.modeloDetalleDestino;
 import vistas.vistaActividadComentarios;
 import vistas.vistaActividades;
@@ -43,7 +45,7 @@ public class controlDetalleDestino implements ActionListener{
     private vistaPrincipal vistaPrincipal;
     private modeloDetalleDestino modelo;
     private String idD;
-    JButton btnImagen;    
+    private JButton btnImagen;    
     
     public controlDetalleDestino(vistaDetallesDestino vista, vistaPrincipal vistaPrincipal, modeloDetalleDestino modelo, String idD)
     {
@@ -224,37 +226,35 @@ public class controlDetalleDestino implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         try{
-            JButton selectedButton = (JButton) e.getSource();
+            JComponent selectedButton = (JComponent) e.getSource();
             String letra = selectedButton.getName().substring(0, 1);  
             String idA = selectedButton.getName().substring(1);  
         //Botón de detalles de actividad
             if(letra.equals("A")){
                 vistaActividadComentarios vActividadComentarios = new vistaActividadComentarios();
                 modeloActividadComentarios mActividadComentarios = new modeloActividadComentarios();
-                controlActividadComentarios comentarios = new controlActividadComentarios(vActividadComentarios, vistaPrincipal, mActividadComentarios, idA);
+                controlActividadComentarios comentarios = new controlActividadComentarios(vActividadComentarios, vistaPrincipal, mActividadComentarios, idA, idD);
                 CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vActividadComentarios);
             }
         }
         catch(NullPointerException ex){}
         
-        
-    if(this.vista.btnActividades == e.getSource())
-    {
-        
-        vistaActividades vActividades = new vistaActividades();
-        modeloActividades mActividades = new modeloActividades();
-        controlActividades cActividades = new controlActividades(vActividades, vistaPrincipal, mActividades, idD);
-        CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vActividades);
+        if(this.vista.btnActividades == e.getSource())
+        {
+
+            vistaActividades vActividades = new vistaActividades();
+            modeloActividades mActividades = new modeloActividades();
+            controlActividades cActividades = new controlActividades(vActividades, vistaPrincipal, mActividades, idD);
+            CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vActividades);
+        }
+
+        if(this.vista.btnViaje == e.getSource())
+        {
+            vistaAgregarViaje vAgregarViaje = new vistaAgregarViaje();
+            modeloAgregarViaje mAgregarViaje = new modeloAgregarViaje();
+            controlAgregarViaje cAgregarViaje = new controlAgregarViaje(vAgregarViaje, vistaPrincipal, mAgregarViaje, idD);
+            CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vAgregarViaje);
+
+        }
     }
-    
-    if(this.vista.btnViaje == e.getSource())
-    {
-        vistaAgregarViaje vAgregarViaje = new vistaAgregarViaje();
-        controlAgregarViaje cAgregarViaje = new controlAgregarViaje(vAgregarViaje, vistaPrincipal, idD);
-        CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vAgregarViaje);
-        
-    }
-    
-    }
-    
 }

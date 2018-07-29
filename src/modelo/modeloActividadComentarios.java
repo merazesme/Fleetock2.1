@@ -18,15 +18,17 @@ import javax.swing.JOptionPane;
 public class modeloActividadComentarios {
     Conexion conexion = new Conexion();
     //Datos de las actividad
-    public String[] datosActividades(String idAc)
+    public String[] datosActividades(String idAc, String idD)
     {
         ResultSet sql;       
          try {
             Connection con = conexion.abrirConexion();
             Statement s = con.createStatement();
-            sql = s.executeQuery("SELECT actividad.nombre, tiene.foto, actividad.descripcion, tiene.localizacion FROM actividad " +
+            sql = s.executeQuery("SELECT actividad.nombre, tiene.foto, actividad.descripcion, tiene.localizacion, estiloviaje.tipo FROM actividad " +
                     "INNER JOIN tiene ON actividad.idActividad = tiene.Actividad_idActividad " +
-                    "where actividad.idActividad = " + idAc + ";");
+                    "INNER JOIN posee on posee.tiene_idTiene = tiene.idTiene " +
+                    "INNER JOIN estiloviaje ON estiloviaje.idEstiloViaje = posee.EstiloViaje_idEstiloViaje " +
+                    "where actividad.idActividad = " + idAc + " and tiene.Destino_idDestino="+idD+";");
                         //declaración del array
             String [] a = new String [5];
             //copiar del resultset al array
@@ -36,6 +38,7 @@ public class modeloActividadComentarios {
             a[1] = sql.getString(2);
             a[2] = sql.getString(3);
             a[3] = sql.getString(4);
+            a[4] = sql.getString(5);
 
            conexion.cerrarConexion(con);
            return a;

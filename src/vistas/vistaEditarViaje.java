@@ -31,20 +31,20 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         jSeparator7 = new javax.swing.JSeparator();
-        jTextField6 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jDateChooser5 = new com.toedter.calendar.JDateChooser();
-        jDateChooser6 = new com.toedter.calendar.JDateChooser();
+        fechaFin = new com.toedter.calendar.JDateChooser();
+        fechaInicio = new com.toedter.calendar.JDateChooser();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cmbEstiloViaje = new javax.swing.JComboBox<>();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
-        jTextField7 = new javax.swing.JTextField();
+        txtBusquedaAP = new javax.swing.JTextField();
         scrollActividadesPendientes1 = new javax.swing.JScrollPane();
-        jPanel26 = new javax.swing.JPanel();
+        pnlActividadesP = new javax.swing.JPanel();
         jPanel27 = new javax.swing.JPanel();
         jPanel28 = new javax.swing.JPanel();
         jLabel31 = new javax.swing.JLabel();
@@ -70,9 +70,9 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         jPanel66 = new javax.swing.JPanel();
         jButton13 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
-        jDateChooser7 = new com.toedter.calendar.JDateChooser();
+        txtFechaActividad = new com.toedter.calendar.JDateChooser();
         scrollActividadesRealizadas = new javax.swing.JScrollPane();
-        jPanel41 = new javax.swing.JPanel();
+        pnlActividadesR = new javax.swing.JPanel();
         jPanel44 = new javax.swing.JPanel();
         jPanel45 = new javax.swing.JPanel();
         jCheckBox17 = new javax.swing.JCheckBox();
@@ -101,14 +101,15 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         jLabel37 = new javax.swing.JLabel();
         jPanel70 = new javax.swing.JPanel();
         jButton10 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         jLabel38 = new javax.swing.JLabel();
         jSeparator9 = new javax.swing.JSeparator();
-        jTextField8 = new javax.swing.JTextField();
+        txtBusquedaAR = new javax.swing.JTextField();
         jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        lblEstado = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtDescripcion = new javax.swing.JTextArea();
+        btnGuardar = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -119,16 +120,16 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel3.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 89, 334, 3));
 
-        jTextField6.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(102, 102, 102));
-        jTextField6.setText("Mi viaje a Destino");
-        jTextField6.setBorder(null);
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        txtNombre.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        txtNombre.setForeground(new java.awt.Color(102, 102, 102));
+        txtNombre.setText("Mi viaje a Destino");
+        txtNombre.setBorder(null);
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                txtNombreActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 41, 334, 46));
+        jPanel3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 41, 334, 46));
 
         jLabel25.setBackground(new java.awt.Color(102, 102, 102));
         jLabel25.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
@@ -145,8 +146,8 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Todo_List_30px.png"))); // NOI18N
         jLabel26.setText("Actividades pendientes");
         jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 297, 249, -1));
-        jPanel3.add(jDateChooser5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 80, 110, -1));
-        jPanel3.add(jDateChooser6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 80, 110, -1));
+        jPanel3.add(fechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 80, 110, -1));
+        jPanel3.add(fechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 80, 110, -1));
 
         jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Briefcase_45px.png"))); // NOI18N
         jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 41, -1, 46));
@@ -158,8 +159,8 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         jLabel28.setText("Fecha inicio");
         jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 50, 110, -1));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Mochilero", "Promedio", "Lujoso" }));
-        jPanel3.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 166, 28));
+        cmbEstiloViaje.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Mochilero", "Promedio", "Lujoso" }));
+        jPanel3.add(cmbEstiloViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 166, 28));
 
         jLabel29.setBackground(new java.awt.Color(102, 102, 102));
         jLabel29.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
@@ -172,15 +173,15 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         jPanel3.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 290, -1, -1));
         jPanel3.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 320, 264, 20));
 
-        jTextField7.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jTextField7.setBorder(null);
-        jPanel3.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, 264, 27));
+        txtBusquedaAP.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        txtBusquedaAP.setBorder(null);
+        jPanel3.add(txtBusquedaAP, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, 264, 27));
 
         scrollActividadesPendientes1.setBackground(new java.awt.Color(255, 255, 255));
         scrollActividadesPendientes1.setBorder(null);
         scrollActividadesPendientes1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        jPanel26.setBackground(new java.awt.Color(255, 255, 255));
+        pnlActividadesP.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel27.setBackground(new java.awt.Color(156, 255, 87));
         jPanel27.setPreferredSize(new java.awt.Dimension(250, 200));
@@ -438,11 +439,11 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         jPanel39.add(jPanel66);
         jPanel66.setBounds(0, 0, 250, 160);
 
-        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
-        jPanel26.setLayout(jPanel26Layout);
-        jPanel26Layout.setHorizontalGroup(
-            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel26Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlActividadesPLayout = new javax.swing.GroupLayout(pnlActividadesP);
+        pnlActividadesP.setLayout(pnlActividadesPLayout);
+        pnlActividadesPLayout.setHorizontalGroup(
+            pnlActividadesPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlActividadesPLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -453,11 +454,11 @@ public class vistaEditarViaje extends javax.swing.JPanel {
                 .addComponent(jPanel39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(11, Short.MAX_VALUE))
         );
-        jPanel26Layout.setVerticalGroup(
-            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel26Layout.createSequentialGroup()
+        pnlActividadesPLayout.setVerticalGroup(
+            pnlActividadesPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlActividadesPLayout.createSequentialGroup()
                 .addGap(2, 2, 2)
-                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlActividadesPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel39, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel35, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -465,7 +466,7 @@ public class vistaEditarViaje extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        scrollActividadesPendientes1.setViewportView(jPanel26);
+        scrollActividadesPendientes1.setViewportView(pnlActividadesP);
 
         jPanel3.add(scrollActividadesPendientes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 840, 231));
 
@@ -477,14 +478,14 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         jLabel19.setEnabled(false);
         jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 590, 110, -1));
 
-        jDateChooser7.setEnabled(false);
-        jPanel3.add(jDateChooser7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 590, 110, 25));
+        txtFechaActividad.setEnabled(false);
+        jPanel3.add(txtFechaActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 590, 110, 25));
 
         scrollActividadesRealizadas.setBackground(new java.awt.Color(255, 255, 255));
         scrollActividadesRealizadas.setBorder(null);
         scrollActividadesRealizadas.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        jPanel41.setBackground(new java.awt.Color(255, 255, 255));
+        pnlActividadesR.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel44.setBackground(new java.awt.Color(156, 255, 87));
         jPanel44.setPreferredSize(new java.awt.Dimension(250, 200));
@@ -790,11 +791,11 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         jPanel33.add(jPanel70);
         jPanel70.setBounds(0, 0, 250, 160);
 
-        javax.swing.GroupLayout jPanel41Layout = new javax.swing.GroupLayout(jPanel41);
-        jPanel41.setLayout(jPanel41Layout);
-        jPanel41Layout.setHorizontalGroup(
-            jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel41Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlActividadesRLayout = new javax.swing.GroupLayout(pnlActividadesR);
+        pnlActividadesR.setLayout(pnlActividadesRLayout);
+        pnlActividadesRLayout.setHorizontalGroup(
+            pnlActividadesRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlActividadesRLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -804,11 +805,11 @@ public class vistaEditarViaje extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jPanel41Layout.setVerticalGroup(
-            jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel41Layout.createSequentialGroup()
+        pnlActividadesRLayout.setVerticalGroup(
+            pnlActividadesRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlActividadesRLayout.createSequentialGroup()
                 .addGap(3, 3, 3)
-                .addGroup(jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(pnlActividadesRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel31, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
                     .addComponent(jPanel29, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel44, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -816,20 +817,20 @@ public class vistaEditarViaje extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        scrollActividadesRealizadas.setViewportView(jPanel41);
+        scrollActividadesRealizadas.setViewportView(pnlActividadesR);
 
         jPanel3.add(scrollActividadesRealizadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 660, 840, 250));
 
-        jButton7.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Save_40px.png"))); // NOI18N
-        jButton7.setText("Guardar");
-        jButton7.setBorderPainted(false);
-        jButton7.setContentAreaFilled(false);
-        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton7.setDefaultCapable(false);
-        jButton7.setFocusPainted(false);
-        jButton7.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Save_35px.png"))); // NOI18N
-        jPanel3.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 930, -1, -1));
+        btnEliminar.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-basura-llena-40.png"))); // NOI18N
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setBorderPainted(false);
+        btnEliminar.setContentAreaFilled(false);
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminar.setDefaultCapable(false);
+        btnEliminar.setFocusPainted(false);
+        btnEliminar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-basura-llena-35.png"))); // NOI18N
+        jPanel3.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 930, -1, -1));
 
         jLabel38.setBackground(new java.awt.Color(102, 102, 102));
         jLabel38.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
@@ -839,36 +840,48 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         jPanel3.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 626, 249, -1));
         jPanel3.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 650, 264, 10));
 
-        jTextField8.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jTextField8.setBorder(null);
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        txtBusquedaAR.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        txtBusquedaAR.setBorder(null);
+        txtBusquedaAR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                txtBusquedaARActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 620, 264, 27));
+        jPanel3.add(txtBusquedaAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 620, 264, 27));
 
         jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Search_30px.png"))); // NOI18N
         jPanel3.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 620, -1, 38));
 
-        jLabel40.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel40.setFont(new java.awt.Font("Candara", 0, 16)); // NOI18N
-        jLabel40.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel40.setText("Próximo, En curso, Finalizado");
-        jPanel3.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+        lblEstado.setBackground(new java.awt.Color(102, 102, 102));
+        lblEstado.setFont(new java.awt.Font("Candara", 0, 16)); // NOI18N
+        lblEstado.setForeground(new java.awt.Color(102, 102, 102));
+        lblEstado.setText("Próximo, En curso, Finalizado");
+        jPanel3.add(lblEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(102, 102, 102));
-        jTextArea1.setRows(5);
-        jTextArea1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Descripción", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Candara", 0, 14), new java.awt.Color(102, 102, 102))); // NOI18N
-        jTextArea1.setCaretColor(new java.awt.Color(102, 102, 102));
-        jTextArea1.setEnabled(false);
-        jTextArea1.setFocusable(false);
-        jTextArea1.setRequestFocusEnabled(false);
-        jScrollPane4.setViewportView(jTextArea1);
+        txtDescripcion.setColumns(20);
+        txtDescripcion.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        txtDescripcion.setForeground(new java.awt.Color(102, 102, 102));
+        txtDescripcion.setRows(5);
+        txtDescripcion.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Descripción", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Candara", 0, 14), new java.awt.Color(102, 102, 102))); // NOI18N
+        jScrollPane1.setViewportView(txtDescripcion);
 
-        jPanel3.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 280, 130));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 280, 130));
+
+        btnGuardar.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Save_40px.png"))); // NOI18N
+        btnGuardar.setText("Guardar");
+        btnGuardar.setBorderPainted(false);
+        btnGuardar.setContentAreaFilled(false);
+        btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGuardar.setDefaultCapable(false);
+        btnGuardar.setFocusPainted(false);
+        btnGuardar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Save_35px.png"))); // NOI18N
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 930, -1, -1));
 
         jScrollPane3.setViewportView(jPanel3);
 
@@ -887,7 +900,7 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 910, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -897,9 +910,9 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_txtNombreActionPerformed
 
     private void jCheckBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox13ActionPerformed
         // TODO add your handling code here:
@@ -933,19 +946,27 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox20ActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void txtBusquedaARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusquedaARActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_txtBusquedaARActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnGuardar;
+    public javax.swing.JComboBox<String> cmbEstiloViaje;
+    public com.toedter.calendar.JDateChooser fechaFin;
+    public com.toedter.calendar.JDateChooser fechaInicio;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBox13;
@@ -956,10 +977,6 @@ public class vistaEditarViaje extends javax.swing.JPanel {
     private javax.swing.JCheckBox jCheckBox18;
     private javax.swing.JCheckBox jCheckBox19;
     private javax.swing.JCheckBox jCheckBox20;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private com.toedter.calendar.JDateChooser jDateChooser5;
-    private com.toedter.calendar.JDateChooser jDateChooser6;
-    private com.toedter.calendar.JDateChooser jDateChooser7;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -981,9 +998,7 @@ public class vistaEditarViaje extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel40;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel29;
@@ -998,7 +1013,6 @@ public class vistaEditarViaje extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel37;
     private javax.swing.JPanel jPanel38;
     private javax.swing.JPanel jPanel39;
-    private javax.swing.JPanel jPanel41;
     private javax.swing.JPanel jPanel44;
     private javax.swing.JPanel jPanel45;
     private javax.swing.JPanel jPanel62;
@@ -1010,16 +1024,20 @@ public class vistaEditarViaje extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel68;
     private javax.swing.JPanel jPanel69;
     private javax.swing.JPanel jPanel70;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    public javax.swing.JLabel lblEstado;
+    public javax.swing.JPanel pnlActividadesP;
+    public javax.swing.JPanel pnlActividadesR;
     private javax.swing.JScrollPane scrollActividadesPendientes1;
     private javax.swing.JScrollPane scrollActividadesRealizadas;
+    public javax.swing.JTextField txtBusquedaAP;
+    public javax.swing.JTextField txtBusquedaAR;
+    public javax.swing.JTextArea txtDescripcion;
+    public com.toedter.calendar.JDateChooser txtFechaActividad;
+    public javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

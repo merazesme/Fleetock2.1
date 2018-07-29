@@ -21,20 +21,21 @@ public class controlActividadComentarios {
     private vistaActividadComentarios vista;
     private vistaPrincipal vPrincipal;
     private modeloActividadComentarios modelo;
-    private String idA; 
+    private String idA, idD; 
        
-    public controlActividadComentarios(vistaActividadComentarios vActividadComentarios, vistaPrincipal vPrincipal, modeloActividadComentarios modelo, String idA)
+    public controlActividadComentarios(vistaActividadComentarios vActividadComentarios, vistaPrincipal vPrincipal, modeloActividadComentarios modelo, String idA, String idD)
     {
         this.vista=vActividadComentarios;
         this.vPrincipal=vPrincipal;
         this.modelo=modelo;
         this.idA=idA;
-        imagenN(idA);
+        this.idD=idD;
+        imagenN();
     }
     
-    public void imagenN(String idA){
+    public void imagenN(){
         String [] act;
-        act=modelo.datosActividades(idA);
+        act=modelo.datosActividades(idA, idD);
         if(act!=null){
             vista.lblNombre.setText(act[0]);
             ImageIcon imagen = new ImageIcon(act[1]);
@@ -42,6 +43,7 @@ public class controlActividadComentarios {
             vista.lblImagen.setIcon(fondo);
             vista.lblDescripcion.setText(act[2]);
             vista.lblLocalizacion.setText(act[3]);
+            vista.lblEstiloViaje.setText(act[4]);
         }
     }
 }

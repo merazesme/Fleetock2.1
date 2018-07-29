@@ -31,7 +31,7 @@ public class vistaPerfil extends javax.swing.JPanel {
         lblNombre = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
         btnEditarPerfil = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        scrollPerfil = new javax.swing.JScrollPane();
         pnlViajes = new javax.swing.JPanel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -90,9 +90,9 @@ public class vistaPerfil extends javax.swing.JPanel {
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane2.setBorder(null);
-        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPerfil.setBackground(new java.awt.Color(255, 255, 255));
+        scrollPerfil.setBorder(null);
+        scrollPerfil.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         pnlViajes.setBackground(new java.awt.Color(255, 255, 255));
         pnlViajes.setPreferredSize(new java.awt.Dimension(892, 800));
@@ -108,20 +108,20 @@ public class vistaPerfil extends javax.swing.JPanel {
             .addGap(0, 800, Short.MAX_VALUE)
         );
 
-        jScrollPane2.setViewportView(pnlViajes);
+        scrollPerfil.setViewportView(pnlViajes);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 910, 470));
+        add(scrollPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 910, 470));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnEditarPerfil;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JLabel lblImagen;
     public javax.swing.JLabel lblNombre;
     public javax.swing.JLabel lblUsuario;
     public javax.swing.JPanel pnlViajes;
+    public javax.swing.JScrollPane scrollPerfil;
     // End of variables declaration//GEN-END:variables
 
 }
