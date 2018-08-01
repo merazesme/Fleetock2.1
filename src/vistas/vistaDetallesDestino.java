@@ -164,6 +164,7 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
         btnViaje = new javax.swing.JButton();
         btnActividades = new javax.swing.JButton();
         lblNombre = new javax.swing.JLabel();
+        btnDeseos = new javax.swing.JButton();
 
         panelBase.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1623,6 +1624,20 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
         lblNombre.setText("Santiago, Chile.");
         lblNombre.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        btnDeseos.setBackground(new java.awt.Color(106, 27, 154));
+        btnDeseos.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        btnDeseos.setForeground(new java.awt.Color(255, 255, 255));
+        btnDeseos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_DeseoMorado.png"))); // NOI18N
+        btnDeseos.setBorder(null);
+        btnDeseos.setBorderPainted(false);
+        btnDeseos.setContentAreaFilled(false);
+        btnDeseos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDeseos.setDefaultCapable(false);
+        btnDeseos.setFocusPainted(false);
+        btnDeseos.setFocusable(false);
+        btnDeseos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnDeseos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_DeseosLila.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -1633,7 +1648,9 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
                     .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(715, 715, 715)
+                .addGap(555, 555, 555)
+                .addComponent(btnDeseos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnViaje))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
@@ -1680,11 +1697,14 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addComponent(btnViaje)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
+                        .addComponent(btnViaje))
+                    .addComponent(btnDeseos))
                 .addGap(9, 9, 9)
                 .addComponent(btnActividades, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
@@ -1957,6 +1977,7 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnActividades;
+    public javax.swing.JButton btnDeseos;
     public javax.swing.JButton btnViaje;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

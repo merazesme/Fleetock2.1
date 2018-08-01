@@ -241,8 +241,8 @@ public class controlPerfil implements ActionListener, MouseListener{
     public void mouseClicked(MouseEvent e) {
         if(e.getSource()==mensaje){
             vistaNuevoViajeSS vistaNuevoViajeSS = new vistaNuevoViajeSS();
-           controlNuevoViajeSS controlNuevoViajeSS = new controlNuevoViajeSS(vistaNuevoViajeSS, vistaPrincipal);
-           CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaNuevoViajeSS);
+            controlNuevoViajeSS controlNuevoViajeSS = new controlNuevoViajeSS(vistaNuevoViajeSS, vistaPrincipal);
+            CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaNuevoViajeSS);
         }
     }
 
@@ -257,7 +257,7 @@ public class controlPerfil implements ActionListener, MouseListener{
     @Override
     public void mouseEntered(MouseEvent e) {
         if(e.getSource()==mensaje){
-            mensaje.setForeground(new Color(156,255,87));
+            mensaje.setForeground(new Color(156,77,204));
         }
     }
 

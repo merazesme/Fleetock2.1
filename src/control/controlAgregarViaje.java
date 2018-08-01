@@ -64,6 +64,9 @@ public class controlAgregarViaje implements ActionListener, PropertyChangeListen
     //Declaración de un arraylist para los checkbox de las actividades seleccionadas
     List<String> actSelec = new ArrayList<>();
     
+    //formato yyyy-MM-dd
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    
     public controlAgregarViaje(vistaAgregarViaje vista, vistaPrincipal vPrincipal, modeloAgregarViaje modelo, String idD){
         this.vista=vista;
         this.modelo=modelo;
@@ -84,24 +87,25 @@ public class controlAgregarViaje implements ActionListener, PropertyChangeListen
             //Nombre del viaje
             vista.txtNombreViaje.setText(vista.txtNombreViaje.getText()+destino);
             //Límites de fechas
+                //fecha de inicio a partir de hoy
             vista.fechaInicio.setMinSelectableDate(new Date());
-            Calendar c = Calendar.getInstance(); 
-            c.setTime(new Date()); 
-            c.add(Calendar.DATE, 1);
-            vista.fechaFin.setMinSelectableDate(c.getTime());
+                //fecha fin igual a partir de hoy
+            vista.fechaFin.setMinSelectableDate(new Date());
+           
             //Se llena la lista de estilo de viaje
             estiloViaje = modelo.datosEstiloViaje();
             if(estiloViaje.length > 0){
                 vista.cmbEstiloViaje.removeAllItems();
-                for(int i=0; i<estiloViaje.length; i++){
-                    vista.cmbEstiloViaje.addItem(estiloViaje[i][1]);
+                for (String[] estiloViaje1 : estiloViaje) {
+                    vista.cmbEstiloViaje.addItem(estiloViaje1[1]);
                 }
             }
             else{
                 vista.cmbEstiloViaje.addItem("No se ha encontrado ningún estilo :(");
             }
+           
             //Cargar actividades
-            act(modelo.datosActividades("where tiene.Destino_idDestino = "+idD+estiloSeleccionado()+";"), vista.pnlActividades);            
+            act(modelo.datosActividades("where tiene.Destino_idDestino = "+idD+" and posee.EstiloViaje_idEstiloViaje = "+estiloSeleccionado()+";"), vista.pnlActividades);
         }
     }
     
@@ -112,23 +116,23 @@ public class controlAgregarViaje implements ActionListener, PropertyChangeListen
         p.repaint();
         p.setLayout(new FlowLayout(FlowLayout.LEFT));
         if(act.length > 0){
-            for(int i=0; i<act.length; i++){
+            for (String[] act1 : act) {
                 //Panel principal: verde
                 JPanel principal = new JPanel();
                 principal.setLayout(new GridLayout( 2, 1, 0, 5));
                 principal.setBackground(new java.awt.Color(156,255,87));
                 principal.setSize(250,200);
                 principal.setPreferredSize(new Dimension(250, 250));
-                //Imagen
-                ImageIcon image = new ImageIcon(getClass().getResource("../images/icons8-museo-100.png"));
-                if(act[i][2] != null){
-                    image = new ImageIcon(act[i][2]);
+                //Botón con la Imagen
+                    //imagen por defecto
+                ImageIcon image = new ImageIcon(getClass().getResource("../images/icons8-billete-con-estrella-100.png"));
+                if (act1[2] != null) {
+                    image = new ImageIcon(act1[2]);
                 }
-
                 Icon fondo = new ImageIcon(image.getImage().getScaledInstance(250, 150, Image.SCALE_DEFAULT));
                 btnImagen = new JButton(fondo);
-                
-                    //Para hacerlo invisible
+               
+                //Para hacer invisible el botón y sin bordes
                 btnImagen.setBorderPainted(false);
                 btnImagen.setContentAreaFilled(false);
                 btnImagen.setDefaultCapable(false);
@@ -136,33 +140,28 @@ public class controlAgregarViaje implements ActionListener, PropertyChangeListen
                 btnImagen.setFocusable(false);
                 btnImagen.setSize(250, 150);
                 btnImagen.addActionListener(this);
-                
-                    //Sin bordes
                 btnImagen.setBorder(new EmptyBorder(5, 0, 0, 0));
                 
-                
-                //Panel de información
+                //Panel de información: nombre de la actividad, calificación y checkbox
                 JPanel informacion = new JPanel(new BorderLayout(0, -70));
                 informacion.setBackground(new java.awt.Color(156,255,87));
-                    //Nombre del destino
-                JLabel nombreD = new JLabel(act[i][1]);
-                nombreD.setFont(new Font("Candara", Font.PLAIN, 14));
-                nombreD.setBorder(new EmptyBorder(10, 5, 0, 0));
-                nombreD.setSize(250, 15);
-
+               
+                //Nombre de la actividad
+                JLabel nombreA = new JLabel(act1[1]);
+                nombreA.setFont(new Font("Candara", Font.PLAIN, 14));
+                nombreA.setBorder(new EmptyBorder(10, 5, 0, 0));
+                nombreA.setSize(250, 15);
                 //id de la actividad
-                btnImagen.setName("A"+act[i][0]);
+                btnImagen.setName("A" + act1[0]);
                 btnImagen.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 btnImagen.setToolTipText("Ver Actividad");
-
-                 //Calificación
+                //Calificación
                 JPanel cal = new JPanel();
                 cal.setLayout(new BoxLayout(cal, BoxLayout.X_AXIS));
                 cal.setBackground(new java.awt.Color(156,255,87));
                 cal.setBorder(new EmptyBorder(10, 5, 0, 0));
-
-                    //si tiene calificación que cree los radiobutton 
-                String calN = modelo.actividadCal(act[i][0]);
+                //si tiene calificación que cree los radiobutton
+                String calN = modelo.actividadCal(act1[0]);
                 if(calN != null){
                     JRadioButton r1 = new JRadioButton();
                     JRadioButton r2 = new JRadioButton();
@@ -187,7 +186,7 @@ public class controlAgregarViaje implements ActionListener, PropertyChangeListen
                     cal.add(r3);
                     cal.add(r4);
                     cal.add(r5);
-                        //Rellenar los radiobutton
+                    //Rellenar los radiobutton
                     double c = Double.parseDouble(calN);
                     if(c<=1.99){
                         r1.setSelected(true);
@@ -215,7 +214,7 @@ public class controlAgregarViaje implements ActionListener, PropertyChangeListen
                         r5.setSelected(true);
                     }
                 }
-                    //Si no tiene calificación que aparezca el mensaje
+                //Si no tiene calificación que aparezca el mensaje
                 else{
                     JLabel mensajec = new JLabel("¡Sé el primero en calificarlo!");
                     mensajec.setForeground(new Color(76,2,131));
@@ -224,25 +223,23 @@ public class controlAgregarViaje implements ActionListener, PropertyChangeListen
                     mensajec.setBorder(new EmptyBorder(10, 5, 0, 0));
                     cal.add(mensajec);
                 }
-                    //checkbox para seleccionar actividad
+                //checkbox para seleccionar actividad
                 JCheckBox box = new JCheckBox();
-                box.setName(act[i][0]);//id actividad
+                box.setName(act1[0]); //id actividad
                 box.setBackground(new java.awt.Color(156,255,87));
                 box.setBorder(new EmptyBorder(10, 0, 0, 10));
                 box.addActionListener(this);
-                    //Para ver si ya se ha seleccionado una actividad
-                for(int z = 0; z < actSelec.size(); z++){
-                    if(actSelec.get(z).equals(act[i][0])){
+                //Para ver si ya se ha seleccionado una actividad
+                for (int z = 0; z < actSelec.size(); z++) {
+                    if (actSelec.get(z).equals(act1[0])) {
                         box.setSelected(true);
                     }
                 }
-                    //se agrega al List
+                //se agrega al List
                 jnombre.add(box);
-                
-                informacion.add(nombreD, BorderLayout.NORTH); 
+                informacion.add(nombreA, BorderLayout.NORTH); 
                 informacion.add(cal, BorderLayout.CENTER);
                 informacion.add(box, BorderLayout.EAST);
-                
                 //Agregar la imagen y la información
                 principal.add(btnImagen);
                 principal.add(informacion);
@@ -270,7 +267,7 @@ public class controlAgregarViaje implements ActionListener, PropertyChangeListen
     public void actionPerformed(ActionEvent e) {
         //combobox
         if(vista.cmbEstiloViaje==e.getSource()){
-            act(modelo.datosActividades("where tiene.Destino_idDestino = "+idD+estiloSeleccionado()+";"), vista.pnlActividades);
+            act(modelo.datosActividades("where tiene.Destino_idDestino = "+idD+" and posee.EstiloViaje_idEstiloViaje ="+estiloSeleccionado()+";"), vista.pnlActividades);
         }
         
         //Boton de las actividades
@@ -299,7 +296,6 @@ public class controlAgregarViaje implements ActionListener, PropertyChangeListen
                 JOptionPane.showMessageDialog(null, "No se han acompletado todos los datos.", "¡Atención!", JOptionPane.ERROR_MESSAGE);
             }
             else{
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 //Fecha actual
                 Date fechaA = new Date();
                 String estado = "";
@@ -317,16 +313,9 @@ public class controlAgregarViaje implements ActionListener, PropertyChangeListen
                 if(vista.fechaInicio.getDate().before(fechaA) && vista.fechaFin.getDate().after(fechaA)){
                     estado = "En Curso";
                 }
-                
-                String idEstilo = null;
-                for(int y=0; y<estiloViaje.length; y++){
-                    if(estiloViaje[y][1]==vista.cmbEstiloViaje.getSelectedItem()){
-                        idEstilo=estiloViaje[y][0];
-                    }
-                }
-                               
+                                               
                 //metodo para guardar
-                if(modelo.insertarViaje(vista.txtNombreViaje.getText(),sdf.format(vista.fechaInicio.getDate()), sdf.format(vista.fechaFin.getDate()), estado, idEstilo, controlPrincipal.usuario[2], idD, actSelec)){
+                if(modelo.insertarViaje(vista.txtNombreViaje.getText(),sdf.format(vista.fechaInicio.getDate()), sdf.format(vista.fechaFin.getDate()), estado, estiloSeleccionado(), controlPrincipal.usuario[2], idD, actSelec)){
                     JOptionPane.showMessageDialog(null, "Su viaje se ha guardado con éxito", "Viaje guardado", JOptionPane.INFORMATION_MESSAGE);
                     vistaPerfil vistaPerfil = new vistaPerfil();
                     modeloPerfil modeloPerfil = new modeloPerfil();
@@ -367,29 +356,27 @@ public class controlAgregarViaje implements ActionListener, PropertyChangeListen
     
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        //fecha limite de fecha fin
+        //fecha limite de fecha fin dependiendo de la fecha de inicio
         if(evt.getSource() == this.vista.fechaInicio){
-            //Specifying date format that matches the given date
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            //Especificas el formato de la fecha que coincide con el dado
             Calendar c = Calendar.getInstance();
             try{
-                try{
-                   //Setting the date to the given date
-                   c.setTime(sdf.parse(sdf.format(vista.fechaInicio.getDate())));
-                }catch(NullPointerException e){}
-            }catch (ParseException ev){}
+               //Configuras la fecha con la fecha dada
+               c.setTime(sdf.parse(sdf.format(vista.fechaInicio.getDate())));
+            }catch(NullPointerException | ParseException e){}
+            //se establece el limite de la fecha fin
             vista.fechaFin.setMinSelectableDate(c.getTime());
         }
     }
     
+    //te regresa la sentencia dependiendo del estilo seleccionado
     public String estiloSeleccionado(){
-        String estilo="";
-        for(int y=0; y<estiloViaje.length; y++){
-            if(estiloViaje[y][1]==vista.cmbEstiloViaje.getSelectedItem()){
-                estilo = " and posee.EstiloViaje_idEstiloViaje = "+estiloViaje[y][0];
+        for (String[] estiloViaje1 : estiloViaje) {
+            if (estiloViaje1[1] == vista.cmbEstiloViaje.getSelectedItem()) {
+                return estiloViaje1[0];
             }
         }
-        return estilo;
+        return null;
     }
 
     @Override
@@ -400,17 +387,19 @@ public class controlAgregarViaje implements ActionListener, PropertyChangeListen
     public void keyPressed(KeyEvent e) {
     }
 
+    //busquedas
     @Override
     public void keyReleased(KeyEvent e) {
         //busqueda por letra
         if(e.getSource()==vista.txtBusqueda){
             //si está vacío, consulta general
-            if(vista.txtBusqueda.equals("")){
-                //consulta por medio del combobox
-                act(modelo.datosActividades("where tiene.Destino_idDestino = "+idD+estiloSeleccionado()+";"), vista.pnlActividades);
+            if(vista.txtBusqueda.getText().equals("")){
+                //consulta normal por medio del combobox (estilo de viaje)
+                act(modelo.datosActividades("where tiene.Destino_idDestino = "+idD+" and posee.EstiloViaje_idEstiloViaje = "+estiloSeleccionado()+";"), vista.pnlActividades);
             }
             else{
-                act(modelo.datosActividades("WHERE actividad.nombre LIKE '%"+vista.txtBusqueda.getText()+"%' and tiene.Destino_idDestino = "+idD+estiloSeleccionado()+";"), vista.pnlActividades);
+                //consulta dependiendo de lo que escriba y el combobox (estilo de viaje)
+                act(modelo.datosActividades("WHERE actividad.nombre LIKE '%"+vista.txtBusqueda.getText()+"%' and tiene.Destino_idDestino = "+idD+" and posee.EstiloViaje_idEstiloViaje = "+estiloSeleccionado()+";"), vista.pnlActividades);
             }
         }
     }

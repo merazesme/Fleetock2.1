@@ -21,6 +21,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
@@ -45,7 +46,8 @@ public class controlDetalleDestino implements ActionListener{
     private vistaPrincipal vistaPrincipal;
     private modeloDetalleDestino modelo;
     private String idD;
-    private JButton btnImagen;    
+    private JButton btnImagen;   
+    private boolean banDeseos=false;
     
     public controlDetalleDestino(vistaDetallesDestino vista, vistaPrincipal vistaPrincipal, modeloDetalleDestino modelo, String idD)
     {
@@ -55,10 +57,27 @@ public class controlDetalleDestino implements ActionListener{
         this.idD = idD;
         this.vista.btnActividades.addActionListener(this);
         this.vista.btnViaje.addActionListener(this);
+        this.vista.btnDeseos.addActionListener(this);
         imagenN();
        
-        actTrans(modelo.datosTransportes(this.idD), vista.pnlTransportes, "autobus");
-        actTrans(modelo.datosActividades(this.idD), vista.pnlActividades, "museo");
+        actTrans(this.modelo.datosTransportes(this.idD), vista.pnlTransportes, "autobus");
+        actTrans(this.modelo.datosActividades(this.idD), vista.pnlActividades, "billete-con-estrella");
+        String [] des = modelo.deseosC(controlPrincipal.usuario[2]);
+        if(des!=null){
+            for(int i=0; i<des.length; i++){
+                if(des[i].equals(idD)){
+                    ImageIcon image = new ImageIcon(getClass().getResource("../images/btn_DeseoQuitarMorado.png"));
+                    Icon fondo = new ImageIcon(image.getImage().getScaledInstance(154, 31, Image.SCALE_DEFAULT));
+                    this.vista.btnDeseos.setIcon(fondo);
+                    
+                    //efecto del mouse
+                    ImageIcon image3 = new ImageIcon(getClass().getResource("../images/btn_DeseosQuitarLila.png"));
+                    Icon fondo3 = new ImageIcon(image3.getImage().getScaledInstance(154, 31, Image.SCALE_DEFAULT));
+                    this.vista.btnDeseos.setRolloverIcon(fondo3);
+                    banDeseos=true;
+                }
+            }
+        }
     }
     
     public void imagenN(){
@@ -105,8 +124,7 @@ public class controlDetalleDestino implements ActionListener{
                 btnImagen.addActionListener(this);
                 
                     //Sin bordes
-                EmptyBorder border1 = new EmptyBorder(5, 0, 0, 0);
-                btnImagen.setBorder(border1);
+                btnImagen.setBorder(new EmptyBorder(5, 0, 0, 0));
                 
                 
                 //Panel de información
@@ -115,10 +133,9 @@ public class controlDetalleDestino implements ActionListener{
                     //Nombre del destino
                 JLabel nombreD = new JLabel(act[i][1]);
                 nombreD.setFont(new Font("Candara", Font.PLAIN, 14));
-                EmptyBorder border2 = new EmptyBorder(10, 5, 0, 0);
-                nombreD.setBorder(border2);
+                nombreD.setBorder(new EmptyBorder(10, 5, 0, 0));
                 nombreD.setSize(250, 15);
-                if(img.equals("museo")){
+                if(!img.equals("autobus")){
                     //id de la actividad
                     btnImagen.setName("A"+act[i][0]);
                     btnImagen.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -128,7 +145,7 @@ public class controlDetalleDestino implements ActionListener{
                     JPanel cal = new JPanel();
                     cal.setLayout(new BoxLayout(cal, BoxLayout.X_AXIS));
                     cal.setBackground(new java.awt.Color(156,255,87));
-                    cal.setBorder(border2);
+                    cal.setBorder(new EmptyBorder(10, 5, 0, 0));
 
                         //si tiene calificación que cree los radiobutton              
                     if(modelo.actividadCal(act[i][0]) != null){
@@ -189,7 +206,7 @@ public class controlDetalleDestino implements ActionListener{
                         mensajec.setForeground(new Color(76,2,131));
                         mensajec.setFont(new Font("Candara", Font.PLAIN, 14));
                         mensajec.setHorizontalAlignment(SwingConstants.LEFT);
-                        mensajec.setBorder(border2);
+                        mensajec.setBorder(new EmptyBorder(10, 5, 0, 0));
                         cal.add(mensajec);
                     }
                     informacion.add(nombreD, BorderLayout.NORTH); 
@@ -197,7 +214,13 @@ public class controlDetalleDestino implements ActionListener{
                 }
                 else
                 {
-                     informacion.add(nombreD, BorderLayout.NORTH); 
+                    
+                    JLabel datosT = new JLabel("<html><p><b>Estilo de Viaje:</b> "+act[i][3]+"</p><p><b>Costo promedio:</b> "+act[i][4]+"</p></html>");
+                    datosT.setFont(new Font("Candara", Font.PLAIN, 14));
+                    datosT.setBorder(new EmptyBorder(10, 5, 0, 0));
+                    datosT.setSize(250, 15);
+                    informacion.add(nombreD, BorderLayout.NORTH); 
+                    informacion.add(datosT, BorderLayout.CENTER); 
                 }
                 
                 //Agregar la imagen y la información
@@ -239,6 +262,7 @@ public class controlDetalleDestino implements ActionListener{
         }
         catch(NullPointerException ex){}
         
+        //botón de más actividades
         if(this.vista.btnActividades == e.getSource())
         {
 
@@ -248,13 +272,45 @@ public class controlDetalleDestino implements ActionListener{
             CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vActividades);
         }
 
+        //botón de nuevo viaje
         if(this.vista.btnViaje == e.getSource())
         {
             vistaAgregarViaje vAgregarViaje = new vistaAgregarViaje();
             modeloAgregarViaje mAgregarViaje = new modeloAgregarViaje();
             controlAgregarViaje cAgregarViaje = new controlAgregarViaje(vAgregarViaje, vistaPrincipal, mAgregarViaje, idD);
             CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vAgregarViaje);
+        }
+        
+        //botón de lista de deseos
+        if(this.vista.btnDeseos == e.getSource()){
+            if(banDeseos){
+                if(modelo.deseosQ(controlPrincipal.usuario[2], idD)){
+                    JOptionPane.showMessageDialog(null, "¡Se ha quitado de tu lista de deseos! :(", "¡Atención!", JOptionPane.INFORMATION_MESSAGE);
+                    ImageIcon image = new ImageIcon(getClass().getResource("../images/btn_DeseoMorado.png"));
+                    Icon fondo = new ImageIcon(image.getImage().getScaledInstance(154, 31, Image.SCALE_DEFAULT));
+                    this.vista.btnDeseos.setIcon(fondo);
 
+                    //efecto del mouse
+                    ImageIcon image3 = new ImageIcon(getClass().getResource("../images/btn_DeseosLila.png"));
+                    Icon fondo3 = new ImageIcon(image3.getImage().getScaledInstance(154, 31, Image.SCALE_DEFAULT));
+                    this.vista.btnDeseos.setRolloverIcon(fondo3);
+                    banDeseos=false;
+                }
+            }else{
+                if(modelo.deseos(controlPrincipal.usuario[2], idD)){
+                    JOptionPane.showMessageDialog(null, "¡Se ha guardado en tu lista de deseos!", "¡Atención!", JOptionPane.INFORMATION_MESSAGE);
+                    ImageIcon image = new ImageIcon(getClass().getResource("../images/btn_DeseoQuitarMorado.png"));
+                    Icon fondo = new ImageIcon(image.getImage().getScaledInstance(154, 31, Image.SCALE_DEFAULT));
+                    this.vista.btnDeseos.setIcon(fondo);
+
+                    //efecto del mouse
+                    ImageIcon image3 = new ImageIcon(getClass().getResource("../images/btn_DeseosQuitarLila.png"));
+                    Icon fondo3 = new ImageIcon(image3.getImage().getScaledInstance(154, 31, Image.SCALE_DEFAULT));
+                    this.vista.btnDeseos.setRolloverIcon(fondo3);
+                    banDeseos=true;
+                }
+            }
+            
         }
     }
 }

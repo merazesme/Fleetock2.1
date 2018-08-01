@@ -58,22 +58,7 @@ public class controlInicio implements ActionListener, KeyListener{
     
     public void activarPrincipal(boolean b){
         vista.pnlBusqueda.setVisible(!b);
-        //label
-        this.vista.jLabel11.setVisible(b);
-        this.vista.jLabel3.setVisible(b);
-        this.vista.jLabel12.setVisible(b);
-        this.vista.jLabel18.setVisible(b);
-        this.vista.jLabel19.setVisible(b);
-        this.vista.jLabel20.setVisible(b);
-        this.vista.jLabel21.setVisible(b);
-        //scroll
-        this.vista.scrollMontania1.setVisible(b);
-        this.vista.scrollPlaya1.setVisible(b);
-        this.vista.scrollCiudad1.setVisible(b);
-        this.vista.scrollBosque1.setVisible(b);
-        this.vista.scrollSelva1.setVisible(b);
-        this.vista.scrollDesierto1.setVisible(b);
-        this.vista.scrollManglar1.setVisible(b);
+        vista.scrollDestinos1.setVisible(b);
     }
 
     public void principal(){ 
@@ -285,7 +270,9 @@ public class controlInicio implements ActionListener, KeyListener{
         catch(NullPointerException ex){}
 
         if(vista.btnTendencias == e.getSource()){
-            busquedas("select `idDestino`, `nombre`, `foto` from destino INNER JOIN pertenece on idDestino = Destino_idDestino GROUP BY nombre HAVING COUNT(*) > 1;");
+            busquedas("select `idDestino`, `nombre`, `foto` from destino "
+                    + "INNER JOIN pertenece on idDestino = Destino_idDestino "
+                    + "GROUP BY nombre HAVING COUNT(*) > 1;");
         }
         
         if(vista.btnSugerencias == e.getSource()){

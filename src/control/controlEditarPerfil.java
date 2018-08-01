@@ -70,7 +70,6 @@ public class controlEditarPerfil implements ActionListener{
         this.vista.btnActualizar.addActionListener(this);
         this.vista.btnSeleccionar.addActionListener(this);
         this.vista.btnEditarPerfil.addActionListener(this);
-        this.vista.btnEditarPerfil.setText("Regresar");
         datosU();
         ValidarCampos(vista.txtNombre);
         ValidarCampos(vista.txtApellidos);
@@ -79,14 +78,10 @@ public class controlEditarPerfil implements ActionListener{
     
     //Datos del usuario
     public void datosU(){
-        if(uDatos!=null) {
-            vista.lblNombreC.setText(uDatos[0]+" "+uDatos[1]);
-            vista.lblUsuario.setText("@"+controlPrincipal.usuario[1]);
-            if (uDatos[2]!=null) {
-                ImageIcon image = new ImageIcon(uDatos[7]);                
-                Icon fondo = new ImageIcon(image.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
-                vista.lblImagen.setIcon(fondo);
-            }
+        if (uDatos[2]!=null) {
+            ImageIcon image = new ImageIcon(uDatos[7]);                
+            Icon fondo = new ImageIcon(image.getImage().getScaledInstance(140, 140, Image.SCALE_DEFAULT));
+            vista.lblFoto.setIcon(fondo);
         }
     }
     
@@ -155,16 +150,16 @@ public class controlEditarPerfil implements ActionListener{
     //mensaje de la contraseña
     public int mensaje(String m, JPasswordField pass){
         JPanel panel = new JPanel();
-            JLabel label = new JLabel(m);
-            panel.add(label);
-            panel.add(pass);
-            pass.setText("");
-            pass.requestFocus();
-            String[] options = new String[]{"Aceptar", "Cancelar"};
-            int mensaje = JOptionPane.showOptionDialog(null, panel, "Cambiar Contraseña",
-                    JOptionPane.NO_OPTION, JOptionPane.PLAIN_MESSAGE,
-                    null, options, "");
-            return mensaje;
+        JLabel label = new JLabel(m);
+        panel.add(label);
+        panel.add(pass);
+        pass.setText("");
+        pass.requestFocus();
+        String[] options = new String[]{"Aceptar", "Cancelar"};
+        int mensaje = JOptionPane.showOptionDialog(null, panel, "Cambiar Contraseña",
+                JOptionPane.NO_OPTION, JOptionPane.PLAIN_MESSAGE,
+                null, options, "");
+        return mensaje;
     }
     
     //Metodo para crear un fichero en una direccion de la computadora.

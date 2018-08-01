@@ -33,7 +33,6 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         jSeparator7 = new javax.swing.JSeparator();
         txtNombre = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
         fechaFin = new com.toedter.calendar.JDateChooser();
         fechaInicio = new com.toedter.calendar.JDateChooser();
         jLabel27 = new javax.swing.JLabel();
@@ -69,7 +68,7 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         jCheckBox16 = new javax.swing.JCheckBox();
         jPanel66 = new javax.swing.JPanel();
         jButton13 = new javax.swing.JButton();
-        jLabel19 = new javax.swing.JLabel();
+        lblFechaI = new javax.swing.JLabel();
         txtFechaActividad = new com.toedter.calendar.JDateChooser();
         scrollActividadesRealizadas = new javax.swing.JScrollPane();
         pnlActividadesR = new javax.swing.JPanel();
@@ -110,6 +109,7 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescripcion = new javax.swing.JTextArea();
         btnGuardar = new javax.swing.JButton();
+        btnActividades = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -139,13 +139,6 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         jLabel25.setText("Fecha fin");
         jLabel25.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 50, 110, -1));
-
-        jLabel26.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel26.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Todo_List_30px.png"))); // NOI18N
-        jLabel26.setText("Actividades pendientes");
-        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 297, 249, -1));
         jPanel3.add(fechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 80, 110, -1));
         jPanel3.add(fechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 80, 110, -1));
 
@@ -470,13 +463,13 @@ public class vistaEditarViaje extends javax.swing.JPanel {
 
         jPanel3.add(scrollActividadesPendientes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 840, 231));
 
-        jLabel19.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel19.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Calendar_25px.png"))); // NOI18N
-        jLabel19.setText("Fecha");
-        jLabel19.setEnabled(false);
-        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 590, 110, -1));
+        lblFechaI.setBackground(new java.awt.Color(102, 102, 102));
+        lblFechaI.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        lblFechaI.setForeground(new java.awt.Color(102, 102, 102));
+        lblFechaI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Calendar_25px.png"))); // NOI18N
+        lblFechaI.setText("Fecha");
+        lblFechaI.setEnabled(false);
+        jPanel3.add(lblFechaI, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 590, 110, -1));
 
         txtFechaActividad.setEnabled(false);
         jPanel3.add(txtFechaActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 590, 110, 25));
@@ -835,7 +828,7 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         jLabel38.setBackground(new java.awt.Color(102, 102, 102));
         jLabel38.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         jLabel38.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_To_Do_30px.png"))); // NOI18N
+        jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_To_Do_35px.png"))); // NOI18N
         jLabel38.setText("Actividades realizadas");
         jPanel3.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 626, 249, -1));
         jPanel3.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 650, 264, 10));
@@ -882,6 +875,23 @@ public class vistaEditarViaje extends javax.swing.JPanel {
             }
         });
         jPanel3.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 930, -1, -1));
+
+        btnActividades.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        btnActividades.setForeground(new java.awt.Color(102, 102, 102));
+        btnActividades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Todo_List_35px.png"))); // NOI18N
+        btnActividades.setText("Actividades pendientes");
+        btnActividades.setBorder(null);
+        btnActividades.setBorderPainted(false);
+        btnActividades.setContentAreaFilled(false);
+        btnActividades.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnActividades.setDefaultCapable(false);
+        btnActividades.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Todo_List_30px.png"))); // NOI18N
+        btnActividades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActividadesActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnActividades, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 190, 40));
 
         jScrollPane3.setViewportView(jPanel3);
 
@@ -954,8 +964,13 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarActionPerformed
 
+    private void btnActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActividadesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActividadesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnActividades;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnGuardar;
     public javax.swing.JComboBox<String> cmbEstiloViaje;
@@ -977,14 +992,12 @@ public class vistaEditarViaje extends javax.swing.JPanel {
     private javax.swing.JCheckBox jCheckBox18;
     private javax.swing.JCheckBox jCheckBox19;
     private javax.swing.JCheckBox jCheckBox20;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
@@ -1030,6 +1043,7 @@ public class vistaEditarViaje extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     public javax.swing.JLabel lblEstado;
+    public javax.swing.JLabel lblFechaI;
     public javax.swing.JPanel pnlActividadesP;
     public javax.swing.JPanel pnlActividadesR;
     private javax.swing.JScrollPane scrollActividadesPendientes1;

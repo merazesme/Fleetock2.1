@@ -144,7 +144,7 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
                 principal.setSize(250,200);
                 principal.setPreferredSize(new Dimension(250, 250));
                 //Imagen
-                ImageIcon image = new ImageIcon(getClass().getResource("../images/icons8-museo-100.png"));
+                ImageIcon image = new ImageIcon(getClass().getResource("../images/icons8-billete-con-estrella-100.png"));
                 if(act[i][2] != null){
                     image = new ImageIcon(act[i][2]);
                 }
@@ -268,6 +268,7 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
             actR.clear();
             vista.txtFechaActividad.setDate(null);
             vista.txtFechaActividad.setEnabled(false);
+            vista.lblFechaI.setEnabled(false);
             act(vista.pnlActividadesP,modelo.actividadesViaje(this.idV," and contiene.fechaActividad IS NULL"));      
             act(vista.pnlActividadesR,modelo.actividadesViaje(this.idV," and NOT contiene.fechaActividad IS NULL"));
         }
@@ -334,6 +335,7 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
         for (int i = 0; i < actP.size(); i++) {
             if (actP.get(i) == e.getSource() && actP.get(i).isSelected()) {
                 vista.txtFechaActividad.setEnabled(true);
+                vista.lblFechaI.setEnabled(true);
                 actS="P"+actP.get(i).getName();
             }            
         }
