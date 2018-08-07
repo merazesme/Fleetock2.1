@@ -34,6 +34,7 @@ import modelo.modeloEditarPerfil;
 import modelo.modeloPerfil;
 import vistas.vistaEditarPerfil;
 import vistas.vistaPerfil;
+import vistas.vistaPreferencias;
 import vistas.vistaPrincipal;
 
 /**
@@ -70,6 +71,7 @@ public class controlEditarPerfil implements ActionListener{
         this.vista.btnActualizar.addActionListener(this);
         this.vista.btnSeleccionar.addActionListener(this);
         this.vista.btnEditarPerfil.addActionListener(this);
+        this.vista.btnPreferencias.addActionListener(this);
         datosU();
         ValidarCampos(vista.txtNombre);
         ValidarCampos(vista.txtApellidos);
@@ -195,6 +197,13 @@ public class controlEditarPerfil implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        //Cambiar preferencias
+        if(e.getSource() == vista.btnPreferencias){
+            vistaPreferencias vistaPreferencias = new vistaPreferencias();
+            controlPreferencias controlPreferencias = new controlPreferencias(vistaPreferencias, vistaPrincipal);
+            CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaPreferencias);
+        }
+        
         //Seleccionar una foto
         if(e.getSource()==vista.btnSeleccionar){
             FileNameExtensionFilter filtro = new FileNameExtensionFilter("Formato de archivo JPG", "jpg", "jpeg"); 

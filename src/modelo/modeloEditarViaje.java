@@ -152,7 +152,7 @@ public class modeloEditarViaje {
             Connection con= conexion.abrirConexion(); 
             Statement s= con.createStatement(); 
             int registro =s.executeUpdate("UPDATE `contiene` SET `fechaActividad`=  " + fecha
-                    + " WHERE `Viaje_idViaje` = "+idViaje+" and `Actividad_idActividad` = "+idActividad+";"); 
+                    + " WHERE `Viaje_idViaje` = "+idViaje+" and `Actividad_idActividad` = "+idActividad+";");
             conexion.cerrarConexion(con); 
             return true; 
         }

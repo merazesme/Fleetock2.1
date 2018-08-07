@@ -56,6 +56,9 @@ public class vistaInicio extends javax.swing.JPanel {
         jLabel21 = new javax.swing.JLabel();
         scrollManglar1 = new javax.swing.JScrollPane();
         pnlManglar1 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        scrollVolcan1 = new javax.swing.JScrollPane();
+        pnlVolcan1 = new javax.swing.JPanel();
         pnlBusqueda = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -223,11 +226,11 @@ public class vistaInicio extends javax.swing.JPanel {
         pnlSelva1.setLayout(pnlSelva1Layout);
         pnlSelva1Layout.setHorizontalGroup(
             pnlSelva1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1366, Short.MAX_VALUE)
+            .addGap(0, 1386, Short.MAX_VALUE)
         );
         pnlSelva1Layout.setVerticalGroup(
             pnlSelva1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 512, Short.MAX_VALUE)
         );
 
         scrollSelva1.setViewportView(pnlSelva1);
@@ -260,7 +263,7 @@ public class vistaInicio extends javax.swing.JPanel {
         jLabel21.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(102, 102, 102));
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel21.setText("Manglar");
+        jLabel21.setText("Zona Volcánica");
         jLabel21.setToolTipText("");
 
         scrollManglar1.setBackground(new java.awt.Color(255, 255, 255));
@@ -282,71 +285,128 @@ public class vistaInicio extends javax.swing.JPanel {
 
         scrollManglar1.setViewportView(pnlManglar1);
 
+        jLabel22.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel22.setText("Manglar");
+        jLabel22.setToolTipText("");
+
+        scrollVolcan1.setBackground(new java.awt.Color(255, 255, 255));
+        scrollVolcan1.setBorder(null);
+        scrollVolcan1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        pnlVolcan1.setBackground(new java.awt.Color(255, 255, 255));
+        pnlVolcan1.setMaximumSize(new java.awt.Dimension(1366, 300));
+
+        javax.swing.GroupLayout pnlVolcan1Layout = new javax.swing.GroupLayout(pnlVolcan1);
+        pnlVolcan1.setLayout(pnlVolcan1Layout);
+        pnlVolcan1Layout.setHorizontalGroup(
+            pnlVolcan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1366, Short.MAX_VALUE)
+        );
+        pnlVolcan1Layout.setVerticalGroup(
+            pnlVolcan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        scrollVolcan1.setViewportView(pnlVolcan1);
+
         javax.swing.GroupLayout scrollDestinos1Layout = new javax.swing.GroupLayout(scrollDestinos1);
         scrollDestinos1.setLayout(scrollDestinos1Layout);
         scrollDestinos1Layout.setHorizontalGroup(
             scrollDestinos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(scrollDestinos1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(scrollDestinos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scrollCiudad1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(scrollPlaya1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(scrollMontania1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(scrollBosque1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(scrollSelva1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(scrollDesierto1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(scrollManglar1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(scrollDestinos1Layout.createSequentialGroup()
                         .addGroup(scrollDestinos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 503, Short.MAX_VALUE)))
+                            .addGroup(scrollDestinos1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(scrollDestinos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(scrollMontania1, javax.swing.GroupLayout.PREFERRED_SIZE, 1346, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(scrollDestinos1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(scrollDestinos1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(scrollPlaya1, javax.swing.GroupLayout.PREFERRED_SIZE, 1346, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(scrollDestinos1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(scrollDestinos1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(scrollCiudad1, javax.swing.GroupLayout.PREFERRED_SIZE, 1346, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(scrollDestinos1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(scrollDestinos1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(scrollBosque1, javax.swing.GroupLayout.PREFERRED_SIZE, 1346, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(scrollDestinos1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(scrollDestinos1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(scrollSelva1, javax.swing.GroupLayout.PREFERRED_SIZE, 1346, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(scrollDestinos1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(scrollDestinos1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(scrollDesierto1, javax.swing.GroupLayout.PREFERRED_SIZE, 1346, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(scrollDestinos1Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(scrollDestinos1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(scrollManglar1, javax.swing.GroupLayout.PREFERRED_SIZE, 1346, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(scrollDestinos1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, scrollDestinos1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(scrollVolcan1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(scrollDestinos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(scrollDestinos1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(503, Short.MAX_VALUE)))
         );
         scrollDestinos1Layout.setVerticalGroup(
             scrollDestinos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(scrollDestinos1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(scrollMontania1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(21, 21, 21)
+                .addGroup(scrollDestinos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addGroup(scrollDestinos1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(scrollMontania1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(6, 6, 6)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(scrollPlaya1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(jLabel12)
                 .addGap(18, 18, 18)
                 .addComponent(scrollCiudad1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(jLabel18)
                 .addGap(18, 18, 18)
                 .addComponent(scrollBosque1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(jLabel19)
                 .addGap(18, 18, 18)
                 .addComponent(scrollSelva1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(jLabel20)
                 .addGap(18, 18, 18)
                 .addComponent(scrollDesierto1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel21)
-                .addGap(18, 18, 18)
+                .addGap(16, 16, 16)
+                .addComponent(jLabel22)
+                .addGap(8, 8, 8)
                 .addComponent(scrollManglar1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(scrollVolcan1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(scrollDestinos1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(scrollDestinos1Layout.createSequentialGroup()
-                    .addGap(21, 21, 21)
-                    .addComponent(jLabel11)
-                    .addContainerGap(2121, Short.MAX_VALUE)))
         );
 
         pnlBusqueda.setBackground(new java.awt.Color(255, 255, 255));
@@ -372,7 +432,7 @@ public class vistaInicio extends javax.swing.JPanel {
         );
         scrollDestinosLayout.setVerticalGroup(
             scrollDestinosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlBusqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 2164, Short.MAX_VALUE)
+            .addComponent(pnlBusqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 2479, Short.MAX_VALUE)
             .addComponent(scrollDestinos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
@@ -420,6 +480,7 @@ public class vistaInicio extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     public javax.swing.JLabel jLabel20;
     public javax.swing.JLabel jLabel21;
+    public javax.swing.JLabel jLabel22;
     public javax.swing.JLabel jLabel3;
     public javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator2;
@@ -431,6 +492,7 @@ public class vistaInicio extends javax.swing.JPanel {
     public javax.swing.JPanel pnlManglar1;
     public javax.swing.JPanel pnlPlaya1;
     public javax.swing.JPanel pnlSelva1;
+    public javax.swing.JPanel pnlVolcan1;
     public javax.swing.JPanel pnl_Montania1;
     public javax.swing.JScrollPane scrollBosque1;
     public javax.swing.JScrollPane scrollCiudad1;
@@ -441,6 +503,7 @@ public class vistaInicio extends javax.swing.JPanel {
     public javax.swing.JScrollPane scrollMontania1;
     public javax.swing.JScrollPane scrollPlaya1;
     public javax.swing.JScrollPane scrollSelva1;
+    public javax.swing.JScrollPane scrollVolcan1;
     public javax.swing.JTextField txtBusqueda;
     // End of variables declaration//GEN-END:variables
 }

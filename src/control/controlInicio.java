@@ -71,6 +71,7 @@ public class controlInicio implements ActionListener, KeyListener{
         destinos(this.modelo.datosDestinos(9), vista.pnlSelva1);
         destinos(this.modelo.datosDestinos(2), vista.pnlDesierto1);
         destinos(this.modelo.datosDestinos(13), vista.pnlManglar1);
+        destinos(this.modelo.datosDestinos(15), vista.pnlVolcan1);
     }
     
     public void busquedas(String sentencia){
