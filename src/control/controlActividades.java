@@ -43,13 +43,15 @@ public class controlActividades implements ActionListener, KeyListener{
     private modeloActividades modelo;
     private String idD;
     private JButton btnImagen, btnNuevoViaje;
+    public static String [] usuario;
     
-    public controlActividades(vistaActividades vista, vistaPrincipal vPrincipal, modeloActividades modelo, String idD)
+    public controlActividades(vistaActividades vista, vistaPrincipal vPrincipal, modeloActividades modelo, String idD, String usuario[])
     {
         this.vista=vista;
         this.vPrincipal=vPrincipal;
         this.modelo=modelo;
         this.idD=idD;
+        this.usuario = usuario;
         this.vista.txtBusqueda.addKeyListener(this);
         act(modelo.datosActividades(idD), vista.pnlBusqueda);
         vista.pnlBusqueda.setBorder(new EmptyBorder(5, 40, 0, 0));
@@ -210,7 +212,7 @@ public class controlActividades implements ActionListener, KeyListener{
             if(letra.equals("A")){
                 vistaActividadComentarios vActividadComentarios = new vistaActividadComentarios();
                 modeloActividadComentarios mActividadComentarios = new modeloActividadComentarios();
-                controlActividadComentarios comentarios = new controlActividadComentarios(vActividadComentarios, vPrincipal, mActividadComentarios, idA);
+                controlActividadComentarios comentarios = new controlActividadComentarios(vActividadComentarios, vPrincipal, mActividadComentarios, idA, usuario);
                 CambiaPanel cambiar = new CambiaPanel(vPrincipal.panelCambiante, vActividadComentarios);
             }
         }
