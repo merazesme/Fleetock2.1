@@ -116,7 +116,7 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         scrollOpiniones = new javax.swing.JScrollPane();
-        jPanel3 = new javax.swing.JPanel();
+        panel_comentarios = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -148,19 +148,19 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
         jRadioButton120 = new javax.swing.JRadioButton();
         jLabel34 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jRadioButton91 = new javax.swing.JRadioButton();
-        jRadioButton92 = new javax.swing.JRadioButton();
-        jRadioButton93 = new javax.swing.JRadioButton();
-        jRadioButton94 = new javax.swing.JRadioButton();
-        jRadioButton95 = new javax.swing.JRadioButton();
+        pesimo = new javax.swing.JRadioButton();
+        malo = new javax.swing.JRadioButton();
+        regular = new javax.swing.JRadioButton();
+        muybueno = new javax.swing.JRadioButton();
+        excelente = new javax.swing.JRadioButton();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        texto_titulo = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel19 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        texto_opinion = new javax.swing.JTextArea();
+        boton_enviar = new javax.swing.JButton();
         btnViaje = new javax.swing.JButton();
         btnActividades = new javax.swing.JButton();
         lblNombre = new javax.swing.JLabel();
@@ -1112,7 +1112,7 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
         scrollOpiniones.setBorder(null);
         scrollOpiniones.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        panel_comentarios.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Cat_Profile_50px_4.png"))); // NOI18N
         jLabel2.setToolTipText("");
@@ -1471,21 +1471,21 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout panel_comentariosLayout = new javax.swing.GroupLayout(panel_comentarios);
+        panel_comentarios.setLayout(panel_comentariosLayout);
+        panel_comentariosLayout.setHorizontalGroup(
+            panel_comentariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_comentariosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(panel_comentariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        panel_comentariosLayout.setVerticalGroup(
+            panel_comentariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_comentariosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -1495,7 +1495,7 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
-        scrollOpiniones.setViewportView(jPanel3);
+        scrollOpiniones.setViewportView(panel_comentarios);
 
         jLabel16.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(102, 102, 102));
@@ -1503,53 +1503,53 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
         jLabel16.setText("Danos tu opinón acerca de este lugar");
         jLabel16.setToolTipText("");
 
-        jRadioButton91.setBackground(new java.awt.Color(156, 255, 87));
-        jRadioButton91.setForeground(new java.awt.Color(56, 0, 107));
-        jRadioButton91.setContentAreaFilled(false);
-        jRadioButton91.setFocusPainted(false);
-        jRadioButton91.addActionListener(new java.awt.event.ActionListener() {
+        pesimo.setBackground(new java.awt.Color(156, 255, 87));
+        pesimo.setForeground(new java.awt.Color(56, 0, 107));
+        pesimo.setContentAreaFilled(false);
+        pesimo.setFocusPainted(false);
+        pesimo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton91ActionPerformed(evt);
+                pesimoActionPerformed(evt);
             }
         });
 
-        jRadioButton92.setBackground(new java.awt.Color(156, 255, 87));
-        jRadioButton92.setForeground(new java.awt.Color(56, 0, 107));
-        jRadioButton92.setContentAreaFilled(false);
-        jRadioButton92.setFocusPainted(false);
-        jRadioButton92.addActionListener(new java.awt.event.ActionListener() {
+        malo.setBackground(new java.awt.Color(156, 255, 87));
+        malo.setForeground(new java.awt.Color(56, 0, 107));
+        malo.setContentAreaFilled(false);
+        malo.setFocusPainted(false);
+        malo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton92ActionPerformed(evt);
+                maloActionPerformed(evt);
             }
         });
 
-        jRadioButton93.setBackground(new java.awt.Color(156, 255, 87));
-        jRadioButton93.setForeground(new java.awt.Color(56, 0, 107));
-        jRadioButton93.setContentAreaFilled(false);
-        jRadioButton93.setFocusPainted(false);
-        jRadioButton93.addActionListener(new java.awt.event.ActionListener() {
+        regular.setBackground(new java.awt.Color(156, 255, 87));
+        regular.setForeground(new java.awt.Color(56, 0, 107));
+        regular.setContentAreaFilled(false);
+        regular.setFocusPainted(false);
+        regular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton93ActionPerformed(evt);
+                regularActionPerformed(evt);
             }
         });
 
-        jRadioButton94.setBackground(new java.awt.Color(156, 255, 87));
-        jRadioButton94.setForeground(new java.awt.Color(56, 0, 107));
-        jRadioButton94.setContentAreaFilled(false);
-        jRadioButton94.setFocusPainted(false);
-        jRadioButton94.addActionListener(new java.awt.event.ActionListener() {
+        muybueno.setBackground(new java.awt.Color(156, 255, 87));
+        muybueno.setForeground(new java.awt.Color(56, 0, 107));
+        muybueno.setContentAreaFilled(false);
+        muybueno.setFocusPainted(false);
+        muybueno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton94ActionPerformed(evt);
+                muybuenoActionPerformed(evt);
             }
         });
 
-        jRadioButton95.setBackground(new java.awt.Color(156, 255, 87));
-        jRadioButton95.setForeground(new java.awt.Color(56, 0, 107));
-        jRadioButton95.setContentAreaFilled(false);
-        jRadioButton95.setFocusPainted(false);
-        jRadioButton95.addActionListener(new java.awt.event.ActionListener() {
+        excelente.setBackground(new java.awt.Color(156, 255, 87));
+        excelente.setForeground(new java.awt.Color(56, 0, 107));
+        excelente.setContentAreaFilled(false);
+        excelente.setFocusPainted(false);
+        excelente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton95ActionPerformed(evt);
+                excelenteActionPerformed(evt);
             }
         });
 
@@ -1565,8 +1565,8 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
         jLabel18.setText("Titulo");
         jLabel18.setToolTipText("");
 
-        jTextField1.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jTextField1.setBorder(null);
+        texto_titulo.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        texto_titulo.setBorder(null);
 
         jLabel19.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(102, 102, 102));
@@ -1574,18 +1574,18 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
         jLabel19.setText("Opinión");
         jLabel19.setToolTipText("");
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jTextArea2.setRows(5);
-        jScrollPane1.setViewportView(jTextArea2);
+        texto_opinion.setColumns(20);
+        texto_opinion.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        texto_opinion.setRows(5);
+        jScrollPane1.setViewportView(texto_opinion);
 
-        jButton1.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Sent_25px.png"))); // NOI18N
-        jButton1.setText("Enviar");
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setFocusPainted(false);
-        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Sent_30px.png"))); // NOI18N
+        boton_enviar.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        boton_enviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Sent_25px.png"))); // NOI18N
+        boton_enviar.setText("Enviar");
+        boton_enviar.setBorderPainted(false);
+        boton_enviar.setContentAreaFilled(false);
+        boton_enviar.setFocusPainted(false);
+        boton_enviar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Sent_30px.png"))); // NOI18N
 
         btnViaje.setBackground(new java.awt.Color(106, 27, 154));
         btnViaje.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
@@ -1672,24 +1672,24 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jRadioButton91)
+                        .addComponent(pesimo)
                         .addGap(0, 0, 0)
-                        .addComponent(jRadioButton92)
+                        .addComponent(malo)
                         .addGap(0, 0, 0)
-                        .addComponent(jRadioButton93)
+                        .addComponent(regular)
                         .addGap(0, 0, 0)
-                        .addComponent(jRadioButton94)
+                        .addComponent(muybueno)
                         .addGap(0, 0, 0)
-                        .addComponent(jRadioButton95))
+                        .addComponent(excelente))
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(texto_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(204, 204, 204)
-                        .addComponent(jButton1)))
+                        .addComponent(boton_enviar)))
                 .addGap(4, 4, 4)
                 .addComponent(scrollOpiniones, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1721,17 +1721,17 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
                         .addComponent(jLabel16)
                         .addGap(7, 7, 7)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton91)
-                            .addComponent(jRadioButton92)
-                            .addComponent(jRadioButton93)
-                            .addComponent(jRadioButton94)
-                            .addComponent(jRadioButton95))
+                            .addComponent(pesimo)
+                            .addComponent(malo)
+                            .addComponent(regular)
+                            .addComponent(muybueno)
+                            .addComponent(excelente))
                         .addGap(7, 7, 7)
                         .addComponent(jLabel17)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel18)
                         .addGap(6, 6, 6)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(texto_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(11, 11, 11)
@@ -1739,7 +1739,7 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
                         .addGap(6, 6, 6)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1))
+                        .addComponent(boton_enviar))
                     .addComponent(scrollOpiniones, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
@@ -1890,25 +1890,25 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton90ActionPerformed
 
-    private void jRadioButton91ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton91ActionPerformed
+    private void pesimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesimoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton91ActionPerformed
+    }//GEN-LAST:event_pesimoActionPerformed
 
-    private void jRadioButton92ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton92ActionPerformed
+    private void maloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maloActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton92ActionPerformed
+    }//GEN-LAST:event_maloActionPerformed
 
-    private void jRadioButton93ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton93ActionPerformed
+    private void regularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regularActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton93ActionPerformed
+    }//GEN-LAST:event_regularActionPerformed
 
-    private void jRadioButton94ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton94ActionPerformed
+    private void muybuenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muybuenoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton94ActionPerformed
+    }//GEN-LAST:event_muybuenoActionPerformed
 
-    private void jRadioButton95ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton95ActionPerformed
+    private void excelenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excelenteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton95ActionPerformed
+    }//GEN-LAST:event_excelenteActionPerformed
 
     private void jRadioButton96ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton96ActionPerformed
         // TODO add your handling code here:
@@ -1976,10 +1976,11 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton boton_enviar;
     public javax.swing.JButton btnActividades;
     public javax.swing.JButton btnDeseos;
     public javax.swing.JButton btnViaje;
-    private javax.swing.JButton jButton1;
+    public javax.swing.JRadioButton excelente;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton23;
     private javax.swing.JLabel jLabel10;
@@ -2027,7 +2028,6 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel40;
     private javax.swing.JPanel jPanel41;
@@ -2092,11 +2092,6 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
     private javax.swing.JRadioButton jRadioButton88;
     private javax.swing.JRadioButton jRadioButton89;
     private javax.swing.JRadioButton jRadioButton90;
-    private javax.swing.JRadioButton jRadioButton91;
-    private javax.swing.JRadioButton jRadioButton92;
-    private javax.swing.JRadioButton jRadioButton93;
-    private javax.swing.JRadioButton jRadioButton94;
-    private javax.swing.JRadioButton jRadioButton95;
     private javax.swing.JRadioButton jRadioButton96;
     private javax.swing.JRadioButton jRadioButton97;
     private javax.swing.JRadioButton jRadioButton98;
@@ -2104,15 +2099,20 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
     public javax.swing.JLabel lblImagen;
     public javax.swing.JLabel lblNombre;
+    public javax.swing.JRadioButton malo;
+    public javax.swing.JRadioButton muybueno;
     private javax.swing.JPanel panelBase;
+    public javax.swing.JPanel panel_comentarios;
+    public javax.swing.JRadioButton pesimo;
     public javax.swing.JPanel pnlActividades;
     public javax.swing.JPanel pnlTransportes;
+    public javax.swing.JRadioButton regular;
     private javax.swing.JScrollPane scrollActividades;
     private javax.swing.JScrollPane scrollOpiniones;
     private javax.swing.JScrollPane scrollTransportes;
+    public javax.swing.JTextArea texto_opinion;
+    public javax.swing.JTextField texto_titulo;
     // End of variables declaration//GEN-END:variables
 }

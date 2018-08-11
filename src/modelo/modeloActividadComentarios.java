@@ -58,4 +58,100 @@ public class modeloActividadComentarios {
             return null;
         }
     }
+    
+    public boolean insertarComentarios(String comentarios, int calificacion, String usuario, int actividad, String titulo, String fecha)
+    {
+        try
+        {
+            Connection con = conexion.abrirConexion();
+            Statement s = con.createStatement();
+            int registro = s.executeUpdate("insert into comentarios(comentario, calificacion, usuario_idUsuario, actividad_idActividad, destino_idDestino, titulo, fecha) values("
+                    + ""  
+                    + "'" + comentarios + "', "
+                    + "'" + calificacion + "', "
+                    + "'" + usuario + "', "
+                    + "'" + actividad + "', "
+                    + "NULL, "
+                    + "'" + titulo + "', "
+                    + "'" + fecha + "');");
+            conexion.cerrarConexion(con);
+            return true;
+        }
+        catch(SQLException e)
+        {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+    
+    public String[][] Comentarios(String sentencia)
+    {   
+       try
+        {
+            //abrir conexión
+            Connection con= conexion.abrirConexion(); 
+            //generar consultas
+            Statement s = con.createStatement(); 
+            //consulta
+            ResultSet rs = s.executeQuery(sentencia);
+            //número de registros obrenidos
+            int count = 0;
+            while (rs.next()) {
+                ++count;
+            }
+            //declaración del array
+            String [][] a = new String [count][9];
+            //se regresa al primero
+            rs.beforeFirst();
+            //contador para copiar del resultset al array
+            int i = 0;
+            //copiar del resultset al array
+            while (rs.next())
+            {
+                a[i][0] = rs.getString(1);
+                a[i][1] = rs.getString(2);
+                a[i][2] = rs.getString(3);
+                a[i][3] = rs.getString(4);
+                a[i][4] = rs.getString(5);
+                a[i][5] = rs.getString(6);
+                a[i][6] = rs.getString(7);
+                a[i][7] = rs.getString(8);
+                a[i][8] = rs.getString(9);
+                i++;
+            }  
+            //cerrar conexión
+            conexion.cerrarConexion(con); 
+            return a; 
+        }
+        catch(SQLException e)
+        {
+          return null;    
+        }
+    }
+    
+    public String ComentariosCalificacion(String id){   
+       try
+        {
+            //abrir conexión
+            Connection con= conexion.abrirConexion(); 
+            //generar consultas
+            Statement s = con.createStatement(); 
+            //consulta
+            ResultSet rs = s.executeQuery("SELECT avg(calificacion) FROM `comentarios` where comentarios.idComentarios = " + id + ";");
+        
+            //declaración del array
+            String  a;
+            rs.next();
+            //copiar del resultset al array
+            a = rs.getString(1);
+
+            //cerrar conexión
+            conexion.cerrarConexion(con); 
+            return a; 
+        }
+        catch(SQLException e)
+        {
+          return null;    
+        }
+    }
 }

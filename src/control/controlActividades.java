@@ -24,7 +24,6 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -60,8 +59,7 @@ public class controlActividades implements ActionListener, KeyListener{
     List<String> actSelecA = new ArrayList<>();
     
     //actSelec si viene null - viene de Detalles de Destino
-    
-    public controlActividades(vistaActividades vista, vistaPrincipal vPrincipal, modeloActividades modelo, String idD, List<String> actSelec)
+    public controlActividades(vistaActividades vista, vistaPrincipal vPrincipal, modeloActividades modelo, String idD,  List<String> actSelec)
     {
         this.vista=vista;
         this.vPrincipal=vPrincipal;
@@ -132,7 +130,7 @@ public class controlActividades implements ActionListener, KeyListener{
                 principal.setSize(250,250);
                 
                 //Imagen
-                ImageIcon image = new ImageIcon(getClass().getResource("../images/icons8-billete-con-estrella-100.png"));
+                ImageIcon image = new ImageIcon(getClass().getResource("../images/icons8-museo-100.png"));
                 if(act[i][2] != null){
                     image = new ImageIcon(act[i][2]);
                 }
@@ -308,7 +306,7 @@ public class controlActividades implements ActionListener, KeyListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         try{
-            JComponent selectedButton = (JComponent) e.getSource();
+            JButton selectedButton = (JButton) e.getSource();
             String letra = selectedButton.getName().substring(0, 1);  
             String idA = selectedButton.getName().substring(1);
             //Botón de detalles de actividad
@@ -392,6 +390,7 @@ public class controlActividades implements ActionListener, KeyListener{
 
     @Override
     public void keyReleased(KeyEvent e) {
+        System.out.println("bus:"+vista.txtBusqueda.getText());
         if(!vista.txtBusqueda.getText().equals("")){
             act(modelo.datosBusqueda(vista.txtBusqueda.getText(), idD) , vista.pnlBusqueda);
             vista.txtBusqueda.requestFocus();

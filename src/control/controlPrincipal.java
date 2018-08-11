@@ -16,6 +16,7 @@ import modelo.modeloInicio;
 import modelo.modeloLogin;
 import modelo.modeloNuevoViajeSS;
 import modelo.modeloPerfil;
+import modelo.modelocalculadora;
 import vistas.vistaCalculadora;
 import vistas.vistaInicio;
 import vistas.vistaLogin;
@@ -54,7 +55,7 @@ public class controlPrincipal implements ActionListener, WindowListener{
     {
         vistaInicio vistaInicio = new vistaInicio();
         modeloInicio modeloInicio = new modeloInicio();
-        controlInicio controlInicio = new controlInicio(vistaInicio, vista, modeloInicio);
+        controlInicio controlInicio = new controlInicio(vistaInicio, vista, modeloInicio, this.usuario);
         CambiaPanel cambiar = new CambiaPanel(vista.panelCambiante, vistaInicio);
     }
 
@@ -85,8 +86,11 @@ public class controlPrincipal implements ActionListener, WindowListener{
        if(this.vista.btnCalculadora == e.getSource())
        {
            vistaCalculadora vistaCalculadora = new vistaCalculadora();
-           controlCalculadora controlCalculadora = new controlCalculadora(vistaCalculadora, vista);
+           modelocalculadora modelocalculadora = new modelocalculadora();
+           controlCalculadora controlCalculadora = new controlCalculadora(vistaCalculadora, vista, modelocalculadora);
+            controlCalculadora.iniciarvista();
            CambiaPanel cambiar = new CambiaPanel(vista.panelCambiante, vistaCalculadora);
+          
        }
        
        if(this.vista.btnLogout == e.getSource())

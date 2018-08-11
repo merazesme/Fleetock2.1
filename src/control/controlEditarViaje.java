@@ -37,10 +37,10 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import modelo.modeloActividadComentarios;
 import modelo.modeloActividades;
-import modelo.modeloEditarViaje;
 import modelo.modeloPerfil;
 import vistas.vistaActividadComentarios;
 import vistas.vistaActividades;
+import modelo.modeloEditarViaje;
 import vistas.vistaEditarViaje;
 import vistas.vistaPerfil;
 import vistas.vistaPrincipal;
@@ -446,5 +446,6 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
            act(vista.pnlActividadesR,modelo.actividadesViaje(this.idV," and NOT contiene.fechaActividad IS NULL"));      
         }
     }
+   
     
 }

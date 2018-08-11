@@ -5,6 +5,7 @@
  */
 package control;
 
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -50,8 +51,7 @@ import vistas.vistaPrincipal;
  * @author Holi
  */
 public class controlAgregarViaje implements ActionListener, PropertyChangeListener, KeyListener{
-
-    private vistaAgregarViaje vista;
+  private vistaAgregarViaje vista;
     private vistaPrincipal vPrincipal;
     private modeloAgregarViaje modelo;
     private String idD;
