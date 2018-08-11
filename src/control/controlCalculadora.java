@@ -680,7 +680,7 @@ public class controlCalculadora implements ActionListener
                     resultadofinal=resultado+obtener;
                     System.out.println("El resutado de los transportes y actividades es: " + resultado);
                     System.out.println("el resultado final es: " + resultadofinal);
-                    if(resultadofinal == 0 && obtener == 0)
+                    if(resultadofinal == 0 || obtener == 0)
                     {
                         JOptionPane.showMessageDialog(null, "Selecciona al menos una actividad, transporte y dia", "¡Atención!", JOptionPane.ERROR_MESSAGE);                       
                     }
