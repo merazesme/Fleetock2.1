@@ -10,10 +10,11 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.BoxLayout;
@@ -34,33 +35,40 @@ import vistas.vistaPrincipal;
  *
  * @author Holi
  */
-public class controlActividadComentarios implements ActionListener{
+public class controlActividadComentarios implements ActionListener, MouseListener{
     
     private vistaActividadComentarios vista;
     private modeloActividadComentarios modelo;
     private vistaPrincipal vPrincipal;
     
-    private String idA; 
-    private int cali=0;
-    private int calificacion=0;
+    private int cali=0, calificacion=0;
     boolean bandera;
-    public static String [] usuario;
-    JButton btnImagen, imagen;   
+    JButton btnImagen, imagen;
+    //ID de la actividad y del destino
+    private String idA, idD; 
+    //Datos de las actividades
+    String [] act;
        
-    public controlActividadComentarios(vistaActividadComentarios vista, vistaPrincipal vPrincipal, modeloActividadComentarios modelo, String idA, String [] usuario)
+    public controlActividadComentarios(vistaActividadComentarios vista, vistaPrincipal vPrincipal, modeloActividadComentarios modelo, String idA, String idD)
     {
         this.vista=vista;
         this.vPrincipal=vPrincipal;
         this.modelo=modelo;
-        this.idA=idA;
-        this.usuario = usuario;
         this.vista.enviar.addActionListener(this);
         this.vista.pesimo.addActionListener(this);
         this.vista.malo.addActionListener(this);
         this.vista.regular.addActionListener(this);
         this.vista.muybueno.addActionListener(this);
         this.vista.excelente.addActionListener(this);
-        imagenN(idA);
+        //id de la actividad
+        this.idA=idA;
+        //id del destino
+        this.idD=idD;
+        //carga los datos de la actividad
+        datosA();
+        this.vista.lblEstilo.addMouseListener(this);
+        
+        this.vista.lblEstilo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         mostrarcomentarios("SELECT comentarios.comentario, usuario.nombre, usuario.foto, actividad.idActividad, "
                 + "comentarios.calificacion, comentarios.titulo, comentarios.fecha, comentarios.idComentarios, "
                 + "usuario.idUsuario FROM usuario INNER JOIN comentarios "
@@ -68,16 +76,24 @@ public class controlActividadComentarios implements ActionListener{
                 + "= comentarios.Actividad_idActividad WHERE comentarios.Actividad_idActividad = " + idA);
     }
     
-    public void imagenN(String idA){
-        String [] act;
-        act=modelo.datosActividades(idA);
+    public void datosA(){
+        //datos
+        act = modelo.datosActividades(idA, idD);
+        //Si trae datos
         if(act!=null){
+            //nombre de la actividad
             vista.lblNombre.setText(act[0]);
+            //imagen de la actividad
             ImageIcon imagen = new ImageIcon(act[1]);
             Icon fondo = new ImageIcon(imagen.getImage().getScaledInstance(827, 500, Image.SCALE_DEFAULT));
             vista.lblImagen.setIcon(fondo);
+            //descripcion de la actividad
             vista.lblDescripcion.setText(act[2]);
+            //localizacion dependiendo del destino
             vista.lblLocalizacion.setText(act[3]);
+            //estilo de viaje
+            vista.lblEstilo.setText(act[4]);
+            vista.lblEstiloPresupuesto.setText("Presupuesto entre "+act[6]+"-"+act[7]+" pesos mexicanos");
         }
     }
 
@@ -101,7 +117,7 @@ public class controlActividadComentarios implements ActionListener{
                 principal.setBackground(new java.awt.Color(240,240,240));
                 principal.setPreferredSize(new Dimension(390, 195));
 
-                ImageIcon image = new ImageIcon(getClass().getResource("../images/sin-foto-perfil.jpg"));
+                ImageIcon image = new ImageIcon(getClass().getResource("../images/icons8_Cat_Profile_50px_4.png"));
                 //ImageIcon image = new ImageIcon(getClass().getResource("C:\\Users\\alfredo\\Documents\\GitHub\\Fleetock\\Fleetock2.1\\src\\images\\sin-foto-perfil.jpg"));               
                 if(a[i][2] != null)
                 {
@@ -336,11 +352,11 @@ public class controlActividadComentarios implements ActionListener{
                 String date = sdf.format(new Date());   
                 System.out.println("La opinion:" + vista.texto_Opinion);
                 System.out.println("La cali: " + cali);
-                System.out.println("El usuario: " + usuario[0]);
+                System.out.println("El usuario: " + controlPrincipal.usuario[0]);
                 System.out.println("El id de la actividad: " + idA);
                 System.out.println("El titulo: " + vista.texto_titulo);
                 System.out.println("La fecha: "+ date);
-                if(modelo.insertarComentarios(vista.texto_Opinion.getText(), cali, usuario[0], Integer.parseInt(idA), vista.texto_titulo.getText(), date))    
+                if(modelo.insertarComentarios(vista.texto_Opinion.getText(), cali, controlPrincipal.usuario[0], Integer.parseInt(idA), vista.texto_titulo.getText(), date))    
                 {
                     JOptionPane.showMessageDialog(null, "Comentario agregado");
                     limpiar();
@@ -366,5 +382,50 @@ public class controlActividadComentarios implements ActionListener{
             }
         }
         
+    }
+
+    //Panel del estilo de viaje
+    private JPanel getPanel() {
+        JPanel panel = new JPanel();
+        JLabel label = new JLabel("<html>"
+                + "<center><h1>"+act[4]+"</h1><center>"
+                + "<p>"+act[5]+"</p>"
+                + "</html>");
+        ImageIcon image2 = new ImageIcon(act[8]);                
+        Icon fondo2 = new ImageIcon(image2.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
+       
+        label.setIcon(fondo2);
+        panel.add(label);
+
+        return panel;
+    }
+    
+     @Override
+    public void mouseClicked(MouseEvent e) {
+        if(e.getSource() == this.vista.lblEstilo){
+            JOptionPane.showMessageDialog(null,getPanel(),"Detalle de Estilo de Viaje", JOptionPane.DEFAULT_OPTION, null);
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        if(e.getSource()==this.vista.lblEstilo){
+            this.vista.lblEstilo.setForeground(new Color(76,2,131));
+        }
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        if(e.getSource()==this.vista.lblEstilo){
+            this.vista.lblEstilo.setForeground(new Color(102,102,102));
+        }
     }
 }

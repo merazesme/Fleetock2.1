@@ -17,19 +17,25 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.BoxLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import modelo.modeloActividadComentarios;
 import modelo.modeloActividades;
+import modelo.modeloEditarViaje;
 import vistas.vistaActividadComentarios;
 import vistas.vistaActividades;
+import vistas.vistaEditarViaje;
 import vistas.vistaPrincipal;
 
 /**
@@ -43,18 +49,70 @@ public class controlActividades implements ActionListener, KeyListener{
     private modeloActividades modelo;
     private String idD;
     private JButton btnImagen, btnNuevoViaje;
-    public static String [] usuario;
+    private String idV;
     
-    public controlActividades(vistaActividades vista, vistaPrincipal vPrincipal, modeloActividades modelo, String idD, String usuario[])
+    //Declaración de un arraylist para los checkbox de la actividad
+    List<JCheckBox> jnombre = new ArrayList<>();
+    //Declaración de un arraylist para los checkbox de las actividades seleccionadas
+    List<String> actSelec = new ArrayList<>();
+    //Declaración de un arraylist para los checkbox de las actividades seleccionadas
+    List<String> actSelecA = new ArrayList<>();
+    
+    //actSelec si viene null - viene de Detalles de Destino
+    public controlActividades(vistaActividades vista, vistaPrincipal vPrincipal, modeloActividades modelo, String idD,  List<String> actSelec)
     {
         this.vista=vista;
         this.vPrincipal=vPrincipal;
         this.modelo=modelo;
         this.idD=idD;
-        this.usuario = usuario;
+        this.actSelec=actSelec;
         this.vista.txtBusqueda.addKeyListener(this);
+        this.vista.btnRegresar.addActionListener(this);
         act(modelo.datosActividades(idD), vista.pnlBusqueda);
         vista.pnlBusqueda.setBorder(new EmptyBorder(5, 40, 0, 0));
+        
+        if(this.actSelec!=null){
+            idV = controlEditarViaje.idV;
+            //btn de regresar
+            vista.btnRegresar.setText("Regresar");
+            ImageIcon image2 = new ImageIcon(getClass().getResource("../images/icons8-deshacer-40.png"));
+            Icon fondo2 = new ImageIcon(image2.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT));
+            vista.btnRegresar.setIcon(fondo2);
+                    //efecto del mouse
+            ImageIcon image3 = new ImageIcon(getClass().getResource("../images/icons8-deshacer-35.png"));
+            Icon fondo3 = new ImageIcon(image3.getImage().getScaledInstance(35, 35, Image.SCALE_DEFAULT));
+            vista.btnRegresar.setRolloverIcon(fondo3);
+            for(int p = 0; p < this.actSelec.size(); p++){
+                try{
+                    //System.out.println(this.actSelec.get(p));
+                    actSelecA.add(actSelec.get(p));
+                }catch(IndexOutOfBoundsException event){
+                        System.out.println("j0");
+                }
+            }
+           imprimir();
+        }
+        
+    }
+    
+    public void imprimir(){
+                    System.out.println("Arraylist Seleccionados:");
+            for(int p = 0; p < this.actSelec.size(); p++){
+                try{
+                    System.out.println(this.actSelec.get(p));
+                }catch(IndexOutOfBoundsException event){
+                        System.out.println("j1");
+                }
+            }
+            
+            System.out.println("Arraylist SeleccionadosA:");
+            for(int p = 0; p < this.actSelecA.size(); p++){
+                try{
+                    System.out.println(this.actSelecA.get(p));
+                }catch(IndexOutOfBoundsException event){
+                        System.out.println("j2");
+                }
+            }
     }
     
     public void act(String [][] act, JPanel p){
@@ -174,8 +232,28 @@ public class controlActividades implements ActionListener, KeyListener{
                     mensajec.setSize(250,50);
                     cal.add(mensajec);
                 }
+                
+                if(actSelec!=null){              
+                     //checkbox para seleccionar actividad
+                    JCheckBox box = new JCheckBox();
+                    box.setName(act[i][0]); //id actividad
+                    box.setBackground(new java.awt.Color(156,255,87));
+                    box.setBorder(new EmptyBorder(10, 0, 0, 10));
+                    box.addActionListener(this);
+                    //Para ver si ya se ha seleccionado una actividad
+                    for (int z = 0; z < actSelec.size(); z++) {
+                        if (actSelec.get(z).equals(act[i][0])) {
+                            box.setSelected(true);
+                        }
+                    }
+                    //se agrega al List
+                    jnombre.add(box);
+                    informacion.add(box, BorderLayout.EAST);
+                }
+                
                 informacion.add(nombreD, BorderLayout.NORTH); 
                 informacion.add(cal, BorderLayout.CENTER);
+                
                 informacion.setSize(250,80);
                 
                 //Agregar la imagen y la información
@@ -201,6 +279,29 @@ public class controlActividades implements ActionListener, KeyListener{
         }
     }
     
+    public boolean comparacionSelec(String id){        
+        System.out.println("Comparación");
+        for(int i = 0; i < actSelecA.size(); i++){
+            System.out.println("ID SelecA: " + actSelecA.get(i));
+            System.out.println("ID Selec: " + id);
+            if(actSelecA.get(i).equals(id)){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean comparacionSelecA(String id){        
+        System.out.println("Comparación");
+        for(int i = 0; i < actSelec.size(); i++){
+            System.out.println("ID Selec: " + actSelec.get(i));
+            System.out.println("ID SelecA: " + id);
+            if(actSelec.get(i).equals(id)){
+                return true;
+            }
+        }
+        return false;
+    }
     
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -212,11 +313,71 @@ public class controlActividades implements ActionListener, KeyListener{
             if(letra.equals("A")){
                 vistaActividadComentarios vActividadComentarios = new vistaActividadComentarios();
                 modeloActividadComentarios mActividadComentarios = new modeloActividadComentarios();
-                controlActividadComentarios comentarios = new controlActividadComentarios(vActividadComentarios, vPrincipal, mActividadComentarios, idA, usuario);
+                controlActividadComentarios comentarios = new controlActividadComentarios(vActividadComentarios, vPrincipal, mActividadComentarios, idA, idD);
                 CambiaPanel cambiar = new CambiaPanel(vPrincipal.panelCambiante, vActividadComentarios);
             }
         }
-        catch(NullPointerException ex){}    
+        catch(NullPointerException ex){}
+        
+        
+        //Actividades seleccionadas que son nuevas
+        if(e.getSource() == vista.btnRegresar && actSelec!=null){  
+            imprimir();
+            boolean ban1=false, ban2=false;
+            for(int i=0; i<actSelec.size(); i++){
+                if(!comparacionSelec(actSelec.get(i))){
+                    System.out.println("AGREGAR Nuevo ID: "+actSelec.get(i));
+                    if(!modelo.insertarActividad(actSelec.get(i), idV, idD)){
+                        ban1=true;
+                    }
+                }
+                System.out.println("-------------------------------------------------");
+            }
+            
+             System.out.println("********************************************");
+            
+             //Actividades que estaban seleccionadas antes, pero ya no
+            for(int i=0; i<actSelecA.size(); i++){
+                if(!comparacionSelecA(actSelecA.get(i))){
+                    if(modelo.eliminarActividad(actSelecA.get(i), idV)){
+                        ban2=true;
+                    }
+                    System.out.println("ELIMINAR Seleccionado antes pero no ahora ID: "+actSelecA.get(i));
+                }
+                System.out.println("-------------------------------------------------");
+            }
+            
+            String m="";
+            if(ban1 && ban2){
+                m="No se ha podido guardar las actividades del viaje :(";
+            }
+            else{
+                m="¡Se han guardado las actividades correctamente!";
+               
+            }
+            
+            JOptionPane.showMessageDialog(null, m, "¡Atención!", JOptionPane.INFORMATION_MESSAGE);
+            vistaEditarViaje vistaEditarViaje = new vistaEditarViaje();
+            modeloEditarViaje modeloEditarViaje = new modeloEditarViaje();
+            controlEditarViaje controlEditarViaje= new controlEditarViaje(vistaEditarViaje, vPrincipal, modeloEditarViaje, idV);
+            CambiaPanel cambiar = new CambiaPanel(vPrincipal.panelCambiante, vistaEditarViaje);
+        }
+        
+        for (int i = 0; i < jnombre.size(); i++) {
+            if (jnombre.get(i) == e.getSource()) {
+                if(jnombre.get(i).isSelected()){
+                    System.out.println("id: " + jnombre.get(i).getName());
+                    actSelec.add(jnombre.get(i).getName());
+                }
+                else{
+                    for(int j = 0; j < actSelec.size(); j++){
+                        if(jnombre.get(i).getName().equals(actSelec.get(j))){
+                            actSelec.remove(j);
+                        }
+                    }
+                }
+            }            
+        }
     }
 
     @Override

@@ -117,7 +117,42 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         scrollOpiniones = new javax.swing.JScrollPane();
         panel_comentarios = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jRadioButton96 = new javax.swing.JRadioButton();
+        jRadioButton97 = new javax.swing.JRadioButton();
+        jRadioButton98 = new javax.swing.JRadioButton();
+        jRadioButton99 = new javax.swing.JRadioButton();
+        jRadioButton100 = new javax.swing.JRadioButton();
+        jLabel22 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jRadioButton111 = new javax.swing.JRadioButton();
+        jRadioButton112 = new javax.swing.JRadioButton();
+        jRadioButton113 = new javax.swing.JRadioButton();
+        jRadioButton114 = new javax.swing.JRadioButton();
+        jRadioButton115 = new javax.swing.JRadioButton();
+        jLabel31 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jRadioButton116 = new javax.swing.JRadioButton();
+        jRadioButton117 = new javax.swing.JRadioButton();
+        jRadioButton118 = new javax.swing.JRadioButton();
+        jRadioButton119 = new javax.swing.JRadioButton();
+        jRadioButton120 = new javax.swing.JRadioButton();
+        jLabel34 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        pesimo = new javax.swing.JRadioButton();
+        malo = new javax.swing.JRadioButton();
+        regular = new javax.swing.JRadioButton();
+        muybueno = new javax.swing.JRadioButton();
+        excelente = new javax.swing.JRadioButton();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         texto_titulo = new javax.swing.JTextField();
@@ -129,11 +164,7 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
         btnViaje = new javax.swing.JButton();
         btnActividades = new javax.swing.JButton();
         lblNombre = new javax.swing.JLabel();
-        pesimo = new javax.swing.JRadioButton();
-        malo = new javax.swing.JRadioButton();
-        regular = new javax.swing.JRadioButton();
-        muybueno = new javax.swing.JRadioButton();
-        excelente = new javax.swing.JRadioButton();
+        btnDeseos = new javax.swing.JButton();
 
         panelBase.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1082,7 +1113,388 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
         scrollOpiniones.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         panel_comentarios.setBackground(new java.awt.Color(255, 255, 255));
-        panel_comentarios.setLayout(new java.awt.GridBagLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Cat_Profile_50px_4.png"))); // NOI18N
+        jLabel2.setToolTipText("");
+
+        jLabel20.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel20.setText("Titulo");
+        jLabel20.setToolTipText("");
+
+        jLabel21.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel21.setText("Opinión");
+        jLabel21.setToolTipText("");
+        jLabel21.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        jRadioButton96.setBackground(new java.awt.Color(156, 255, 87));
+        jRadioButton96.setForeground(new java.awt.Color(56, 0, 107));
+        jRadioButton96.setContentAreaFilled(false);
+        jRadioButton96.setFocusPainted(false);
+        jRadioButton96.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton96ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton97.setBackground(new java.awt.Color(156, 255, 87));
+        jRadioButton97.setForeground(new java.awt.Color(56, 0, 107));
+        jRadioButton97.setContentAreaFilled(false);
+        jRadioButton97.setFocusPainted(false);
+        jRadioButton97.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton97ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton98.setBackground(new java.awt.Color(156, 255, 87));
+        jRadioButton98.setForeground(new java.awt.Color(56, 0, 107));
+        jRadioButton98.setContentAreaFilled(false);
+        jRadioButton98.setFocusPainted(false);
+        jRadioButton98.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton98ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton99.setBackground(new java.awt.Color(156, 255, 87));
+        jRadioButton99.setForeground(new java.awt.Color(56, 0, 107));
+        jRadioButton99.setContentAreaFilled(false);
+        jRadioButton99.setFocusPainted(false);
+        jRadioButton99.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton99ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton100.setBackground(new java.awt.Color(156, 255, 87));
+        jRadioButton100.setForeground(new java.awt.Color(56, 0, 107));
+        jRadioButton100.setContentAreaFilled(false);
+        jRadioButton100.setFocusPainted(false);
+        jRadioButton100.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton100ActionPerformed(evt);
+            }
+        });
+
+        jLabel22.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel22.setText("dd-mm-yyyy");
+        jLabel22.setToolTipText("");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jRadioButton96)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton98)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton99)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton100)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton97)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jRadioButton96)
+                                .addComponent(jRadioButton98)
+                                .addComponent(jRadioButton99)
+                                .addComponent(jRadioButton100)
+                                .addComponent(jRadioButton97))
+                            .addComponent(jLabel22))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Cat_Profile_50px_4.png"))); // NOI18N
+        jLabel5.setToolTipText("");
+
+        jLabel29.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel29.setText("Titulo");
+        jLabel29.setToolTipText("");
+
+        jLabel30.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel30.setText("Opinión");
+        jLabel30.setToolTipText("");
+        jLabel30.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        jRadioButton111.setBackground(new java.awt.Color(156, 255, 87));
+        jRadioButton111.setForeground(new java.awt.Color(56, 0, 107));
+        jRadioButton111.setContentAreaFilled(false);
+        jRadioButton111.setFocusPainted(false);
+        jRadioButton111.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton111ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton112.setBackground(new java.awt.Color(156, 255, 87));
+        jRadioButton112.setForeground(new java.awt.Color(56, 0, 107));
+        jRadioButton112.setContentAreaFilled(false);
+        jRadioButton112.setFocusPainted(false);
+        jRadioButton112.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton112ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton113.setBackground(new java.awt.Color(156, 255, 87));
+        jRadioButton113.setForeground(new java.awt.Color(56, 0, 107));
+        jRadioButton113.setContentAreaFilled(false);
+        jRadioButton113.setFocusPainted(false);
+        jRadioButton113.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton113ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton114.setBackground(new java.awt.Color(156, 255, 87));
+        jRadioButton114.setForeground(new java.awt.Color(56, 0, 107));
+        jRadioButton114.setContentAreaFilled(false);
+        jRadioButton114.setFocusPainted(false);
+        jRadioButton114.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton114ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton115.setBackground(new java.awt.Color(156, 255, 87));
+        jRadioButton115.setForeground(new java.awt.Color(56, 0, 107));
+        jRadioButton115.setContentAreaFilled(false);
+        jRadioButton115.setFocusPainted(false);
+        jRadioButton115.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton115ActionPerformed(evt);
+            }
+        });
+
+        jLabel31.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel31.setText("dd-mm-yyyy");
+        jLabel31.setToolTipText("");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jRadioButton111)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton113)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton114)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton115)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton112)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel29)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jRadioButton111)
+                                .addComponent(jRadioButton113)
+                                .addComponent(jRadioButton114)
+                                .addComponent(jRadioButton115)
+                                .addComponent(jRadioButton112))
+                            .addComponent(jLabel31))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Cat_Profile_50px_4.png"))); // NOI18N
+        jLabel6.setToolTipText("");
+
+        jLabel32.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel32.setText("Titulo");
+        jLabel32.setToolTipText("");
+
+        jLabel33.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel33.setText("Opinión");
+        jLabel33.setToolTipText("");
+        jLabel33.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        jRadioButton116.setBackground(new java.awt.Color(156, 255, 87));
+        jRadioButton116.setForeground(new java.awt.Color(56, 0, 107));
+        jRadioButton116.setContentAreaFilled(false);
+        jRadioButton116.setFocusPainted(false);
+        jRadioButton116.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton116ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton117.setBackground(new java.awt.Color(156, 255, 87));
+        jRadioButton117.setForeground(new java.awt.Color(56, 0, 107));
+        jRadioButton117.setContentAreaFilled(false);
+        jRadioButton117.setFocusPainted(false);
+        jRadioButton117.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton117ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton118.setBackground(new java.awt.Color(156, 255, 87));
+        jRadioButton118.setForeground(new java.awt.Color(56, 0, 107));
+        jRadioButton118.setContentAreaFilled(false);
+        jRadioButton118.setFocusPainted(false);
+        jRadioButton118.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton118ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton119.setBackground(new java.awt.Color(156, 255, 87));
+        jRadioButton119.setForeground(new java.awt.Color(56, 0, 107));
+        jRadioButton119.setContentAreaFilled(false);
+        jRadioButton119.setFocusPainted(false);
+        jRadioButton119.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton119ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton120.setBackground(new java.awt.Color(156, 255, 87));
+        jRadioButton120.setForeground(new java.awt.Color(56, 0, 107));
+        jRadioButton120.setContentAreaFilled(false);
+        jRadioButton120.setFocusPainted(false);
+        jRadioButton120.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton120ActionPerformed(evt);
+            }
+        });
+
+        jLabel34.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel34.setText("dd-mm-yyyy");
+        jLabel34.setToolTipText("");
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jRadioButton116)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton118)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton119)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton120)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton117)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel32)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jRadioButton116)
+                                .addComponent(jRadioButton118)
+                                .addComponent(jRadioButton119)
+                                .addComponent(jRadioButton120)
+                                .addComponent(jRadioButton117))
+                            .addComponent(jLabel34))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout panel_comentariosLayout = new javax.swing.GroupLayout(panel_comentarios);
+        panel_comentarios.setLayout(panel_comentariosLayout);
+        panel_comentariosLayout.setHorizontalGroup(
+            panel_comentariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_comentariosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel_comentariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+        panel_comentariosLayout.setVerticalGroup(
+            panel_comentariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_comentariosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+
         scrollOpiniones.setViewportView(panel_comentarios);
 
         jLabel16.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
@@ -1090,6 +1502,56 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel16.setText("Danos tu opinón acerca de este lugar");
         jLabel16.setToolTipText("");
+
+        pesimo.setBackground(new java.awt.Color(156, 255, 87));
+        pesimo.setForeground(new java.awt.Color(56, 0, 107));
+        pesimo.setContentAreaFilled(false);
+        pesimo.setFocusPainted(false);
+        pesimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesimoActionPerformed(evt);
+            }
+        });
+
+        malo.setBackground(new java.awt.Color(156, 255, 87));
+        malo.setForeground(new java.awt.Color(56, 0, 107));
+        malo.setContentAreaFilled(false);
+        malo.setFocusPainted(false);
+        malo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maloActionPerformed(evt);
+            }
+        });
+
+        regular.setBackground(new java.awt.Color(156, 255, 87));
+        regular.setForeground(new java.awt.Color(56, 0, 107));
+        regular.setContentAreaFilled(false);
+        regular.setFocusPainted(false);
+        regular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regularActionPerformed(evt);
+            }
+        });
+
+        muybueno.setBackground(new java.awt.Color(156, 255, 87));
+        muybueno.setForeground(new java.awt.Color(56, 0, 107));
+        muybueno.setContentAreaFilled(false);
+        muybueno.setFocusPainted(false);
+        muybueno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                muybuenoActionPerformed(evt);
+            }
+        });
+
+        excelente.setBackground(new java.awt.Color(156, 255, 87));
+        excelente.setForeground(new java.awt.Color(56, 0, 107));
+        excelente.setContentAreaFilled(false);
+        excelente.setFocusPainted(false);
+        excelente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excelenteActionPerformed(evt);
+            }
+        });
 
         jLabel17.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(102, 102, 102));
@@ -1162,6 +1624,20 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
         lblNombre.setText("Santiago, Chile.");
         lblNombre.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        btnDeseos.setBackground(new java.awt.Color(106, 27, 154));
+        btnDeseos.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        btnDeseos.setForeground(new java.awt.Color(255, 255, 255));
+        btnDeseos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_DeseoMorado.png"))); // NOI18N
+        btnDeseos.setBorder(null);
+        btnDeseos.setBorderPainted(false);
+        btnDeseos.setContentAreaFilled(false);
+        btnDeseos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDeseos.setDefaultCapable(false);
+        btnDeseos.setFocusPainted(false);
+        btnDeseos.setFocusable(false);
+        btnDeseos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnDeseos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_DeseosLila.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -1172,7 +1648,9 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
                     .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(715, 715, 715)
+                .addGap(555, 555, 555)
+                .addComponent(btnDeseos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnViaje))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
@@ -1193,6 +1671,16 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
                 .addGap(42, 42, 42)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(pesimo)
+                        .addGap(0, 0, 0)
+                        .addComponent(malo)
+                        .addGap(0, 0, 0)
+                        .addComponent(regular)
+                        .addGap(0, 0, 0)
+                        .addComponent(muybueno)
+                        .addGap(0, 0, 0)
+                        .addComponent(excelente))
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(texto_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1201,17 +1689,7 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(204, 204, 204)
-                        .addComponent(boton_enviar))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(pesimo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(malo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(regular)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(muybueno)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(excelente)))
+                        .addComponent(boton_enviar)))
                 .addGap(4, 4, 4)
                 .addComponent(scrollOpiniones, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1219,11 +1697,14 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addComponent(btnViaje)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
+                        .addComponent(btnViaje))
+                    .addComponent(btnDeseos))
                 .addGap(9, 9, 9)
                 .addComponent(btnActividades, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
@@ -1238,15 +1719,14 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(pesimo)
-                                .addComponent(malo))
+                        .addGap(7, 7, 7)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pesimo)
+                            .addComponent(malo)
                             .addComponent(regular)
                             .addComponent(muybueno)
                             .addComponent(excelente))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(7, 7, 7)
                         .addComponent(jLabel17)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel18)
@@ -1410,6 +1890,86 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton90ActionPerformed
 
+    private void pesimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesimoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pesimoActionPerformed
+
+    private void maloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_maloActionPerformed
+
+    private void regularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_regularActionPerformed
+
+    private void muybuenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muybuenoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_muybuenoActionPerformed
+
+    private void excelenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excelenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_excelenteActionPerformed
+
+    private void jRadioButton96ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton96ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton96ActionPerformed
+
+    private void jRadioButton97ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton97ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton97ActionPerformed
+
+    private void jRadioButton98ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton98ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton98ActionPerformed
+
+    private void jRadioButton99ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton99ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton99ActionPerformed
+
+    private void jRadioButton100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton100ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton100ActionPerformed
+
+    private void jRadioButton111ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton111ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton111ActionPerformed
+
+    private void jRadioButton112ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton112ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton112ActionPerformed
+
+    private void jRadioButton113ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton113ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton113ActionPerformed
+
+    private void jRadioButton114ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton114ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton114ActionPerformed
+
+    private void jRadioButton115ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton115ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton115ActionPerformed
+
+    private void jRadioButton116ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton116ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton116ActionPerformed
+
+    private void jRadioButton117ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton117ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton117ActionPerformed
+
+    private void jRadioButton118ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton118ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton118ActionPerformed
+
+    private void jRadioButton119ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton119ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton119ActionPerformed
+
+    private void jRadioButton120ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton120ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton120ActionPerformed
+
     private void btnActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActividadesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnActividadesActionPerformed
@@ -1418,6 +1978,7 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton boton_enviar;
     public javax.swing.JButton btnActividades;
+    public javax.swing.JButton btnDeseos;
     public javax.swing.JButton btnViaje;
     public javax.swing.JRadioButton excelente;
     private javax.swing.JButton jButton2;
@@ -1431,6 +1992,16 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel41;
@@ -1442,6 +2013,7 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
@@ -1450,11 +2022,13 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel40;
     private javax.swing.JPanel jPanel41;
     private javax.swing.JPanel jPanel42;
@@ -1475,6 +2049,19 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel57;
     private javax.swing.JPanel jPanel58;
     private javax.swing.JPanel jPanel59;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JRadioButton jRadioButton100;
+    private javax.swing.JRadioButton jRadioButton111;
+    private javax.swing.JRadioButton jRadioButton112;
+    private javax.swing.JRadioButton jRadioButton113;
+    private javax.swing.JRadioButton jRadioButton114;
+    private javax.swing.JRadioButton jRadioButton115;
+    private javax.swing.JRadioButton jRadioButton116;
+    private javax.swing.JRadioButton jRadioButton117;
+    private javax.swing.JRadioButton jRadioButton118;
+    private javax.swing.JRadioButton jRadioButton119;
+    private javax.swing.JRadioButton jRadioButton120;
     private javax.swing.JRadioButton jRadioButton61;
     private javax.swing.JRadioButton jRadioButton62;
     private javax.swing.JRadioButton jRadioButton63;
@@ -1505,6 +2092,10 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
     private javax.swing.JRadioButton jRadioButton88;
     private javax.swing.JRadioButton jRadioButton89;
     private javax.swing.JRadioButton jRadioButton90;
+    private javax.swing.JRadioButton jRadioButton96;
+    private javax.swing.JRadioButton jRadioButton97;
+    private javax.swing.JRadioButton jRadioButton98;
+    private javax.swing.JRadioButton jRadioButton99;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator3;

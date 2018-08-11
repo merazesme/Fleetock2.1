@@ -32,6 +32,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import modelo.modeloAgregarViaje;
 import modelo.modeloDetalleDestino;
 import modelo.modeloInicio;
 import vistas.vistaAgregarViaje;
@@ -90,6 +91,7 @@ public class controlInicio implements ActionListener, KeyListener{
         destinos(this.modelo.datosDestinos(9), vista.pnlSelva1);
         destinos(this.modelo.datosDestinos(2), vista.pnlDesierto1);
         destinos(this.modelo.datosDestinos(13), vista.pnlManglar1);
+        destinos(this.modelo.datosDestinos(15), vista.pnlVolcan1);
     }
     
     public void busquedas(String sentencia){
@@ -297,8 +299,8 @@ public class controlInicio implements ActionListener, KeyListener{
         //Botón de agregar a viaje    
             if(letra.equals("N")){
                 vistaAgregarViaje vAgregarViaje = new vistaAgregarViaje();
-                System.out.println("El id Destino es: " + idD);
-                controlAgregarViaje cAgregarViaje = new controlAgregarViaje(vAgregarViaje, vPrincipal, idD);
+                modeloAgregarViaje mAgregarViaje = new modeloAgregarViaje();
+                controlAgregarViaje cAgregarViaje = new controlAgregarViaje(vAgregarViaje, vPrincipal, mAgregarViaje, idD);
                 CambiaPanel cambiar = new CambiaPanel(vPrincipal.panelCambiante, vAgregarViaje);
             }
         }

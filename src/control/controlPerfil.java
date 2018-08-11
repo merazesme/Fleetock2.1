@@ -28,6 +28,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import modelo.modeloEditarPerfil;
 import modelo.modeloEditarViaje;
+import modelo.modeloNuevoViajeSS;
 import modelo.modeloPerfil;
 import vistas.vistaEditarPerfil;
 import vistas.vistaEditarViaje;
@@ -241,7 +242,8 @@ public class controlPerfil implements ActionListener, MouseListener{
     public void mouseClicked(MouseEvent e) {
         if(e.getSource()==mensaje){
             vistaNuevoViajeSS vistaNuevoViajeSS = new vistaNuevoViajeSS();
-            controlNuevoViajeSS controlNuevoViajeSS = new controlNuevoViajeSS(vistaNuevoViajeSS, vistaPrincipal);
+            modeloNuevoViajeSS modNuevoViajeSS = new modeloNuevoViajeSS();
+            controlNuevoViajeSS controlNuevoViajeSS = new controlNuevoViajeSS(vistaNuevoViajeSS, vistaPrincipal, modNuevoViajeSS);
             CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaNuevoViajeSS);
         }
     }
