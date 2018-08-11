@@ -290,7 +290,7 @@ public class controlDetalleDestino implements ActionListener{
                 principal.setBackground(new java.awt.Color(240,240,240));
                 principal.setPreferredSize(new Dimension(390, 195));
 
-                ImageIcon image = new ImageIcon(getClass().getResource("../images/sin-foto-perfil.jpg"));
+                ImageIcon image = new ImageIcon(getClass().getResource("../images/icons8_Cat_Profile_50px_4.png"));
                 //ImageIcon image = new ImageIcon(getClass().getResource("C:\\Users\\alfredo\\Documents\\GitHub\\Fleetock\\Fleetock2.1\\src\\images\\sin-foto-perfil.jpg"));               
                 if(a[i][2] != null)
                 {
