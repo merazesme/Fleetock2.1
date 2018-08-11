@@ -71,7 +71,7 @@ public class controlPrincipal implements ActionListener, WindowListener{
        {
            vistaPerfil vistaPerfil = new vistaPerfil();
            modeloPerfil modeloPerfil = new modeloPerfil();
-           controlPerfil controlPerfil = new controlPerfil(vistaPerfil, vista, modeloPerfil);
+           controlPerfil controlPerfil = new controlPerfil(vistaPerfil, vista, modeloPerfil, null);
            CambiaPanel cambiar = new CambiaPanel(vista.panelCambiante, vistaPerfil);
        }
        

@@ -31,6 +31,8 @@ public class vistaPerfil extends javax.swing.JPanel {
         lblNombre = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
         btnEditarPerfil = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtareaDescripcion = new javax.swing.JTextArea();
         scrollPerfil = new javax.swing.JScrollPane();
         pnlViajes = new javax.swing.JPanel();
 
@@ -59,33 +61,48 @@ public class vistaPerfil extends javax.swing.JPanel {
         btnEditarPerfil.setFocusPainted(false);
         btnEditarPerfil.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Settings_35px.png"))); // NOI18N
 
+        jScrollPane1.setBorder(null);
+
+        txtareaDescripcion.setEditable(false);
+        txtareaDescripcion.setColumns(20);
+        txtareaDescripcion.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        txtareaDescripcion.setRows(3);
+        jScrollPane1.setViewportView(txtareaDescripcion);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(10, 10, 10)
                 .addComponent(lblImagen)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(258, 258, 258)
                 .addComponent(btnEditarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64))
+                .addContainerGap(210, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblImagen, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnEditarPerfil)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblImagen)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblNombre)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnEditarPerfil))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(lblUsuario))
+                            .addComponent(lblNombre))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblUsuario)))
-                .addContainerGap())
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -110,18 +127,20 @@ public class vistaPerfil extends javax.swing.JPanel {
 
         scrollPerfil.setViewportView(pnlViajes);
 
-        add(scrollPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 910, 470));
+        add(scrollPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 910, 420));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnEditarPerfil;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JLabel lblImagen;
     public javax.swing.JLabel lblNombre;
     public javax.swing.JLabel lblUsuario;
     public javax.swing.JPanel pnlViajes;
     public javax.swing.JScrollPane scrollPerfil;
+    public javax.swing.JTextArea txtareaDescripcion;
     // End of variables declaration//GEN-END:variables
 
 }
