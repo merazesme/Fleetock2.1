@@ -123,8 +123,11 @@ public class modeloDetalleDestino {
          try {
             Connection con = conexion.abrirConexion();
             Statement s = con.createStatement();
-            sql = s.executeQuery("SELECT transporte.idTransporte, transporte.tipo, transporte.foto FROM `transporte` " +
-                    "INNER JOIN sedesplazaen ON transporte.idTransporte = sedesplazaen.Transporte_idTransporte\n" +
+            sql = s.executeQuery("SELECT transporte.idTransporte, transporte.tipo, transporte.foto, estiloviaje.tipo, " + 
+                    "corresponde.costo FROM `transporte` " +
+                    "INNER JOIN sedesplazaen ON transporte.idTransporte = sedesplazaen.Transporte_idTransporte " +
+                    "INNER JOIN corresponde ON corresponde.sedesplazaen_idSeDesplazaEn = sedesplazaen.idSeDesplazaEn " +
+                    "INNER JOIN estiloviaje ON estiloviaje.idEstiloViaje = corresponde.EstiloViaje_idEstiloViaje " +
                     "WHERE sedesplazaen.Destino_idDestino = " + idDes + ";");
             //número de registros obrenidos
             int count = 0;
@@ -132,7 +135,7 @@ public class modeloDetalleDestino {
                 ++count;
             }
             //declaración del array
-            String [][] a = new String [count][4];
+            String [][] a = new String [count][6];
             //se regresa al primero
             sql.beforeFirst();
             //contador para copiar del resultset al array
@@ -143,6 +146,86 @@ public class modeloDetalleDestino {
                 a[i][0] = sql.getString(1);
                 a[i][1] = sql.getString(2);
                 a[i][2] = sql.getString(3);
+                a[i][3] = sql.getString(4);
+                a[i][4] = sql.getString(5);
+                i++;
+            } 
+           conexion.cerrarConexion(con);
+           return a;
+        }
+        catch (SQLException ex)
+        {
+            return null;
+        }
+         catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Error al intentar conectar con el servidor.");
+            return null;
+        }
+    }
+    
+    //Agregar deseo
+    public boolean deseos(String idU, String idD){
+        try{
+            //abrir la conexion a la BD
+            Connection con = conexion.abrirConexion();
+            //Para ejecutar la consulta
+            Statement s = con.createStatement();
+            int registro = s.executeUpdate("INSERT INTO `deseos`(`usuario_idUsuario`, `destino_idDestino`) "
+                    + "VALUES ("+idU+","+idD+");");
+            conexion.cerrarConexion(con); 
+            return true;
+        }catch(SQLException e){
+            return false;
+        }
+    }
+    
+    //Quitar deseo
+    public boolean deseosQ(String idU, String idD){
+        try {
+            Connection con = conexion.abrirConexion();
+            
+            //Para ejecutar la consulta
+            Statement s = con.createStatement();
+            
+            //Delete en la tabla pertenece
+            int registro = s.executeUpdate("DELETE FROM `deseos` WHERE `usuario_idUsuario` = "+idU+" "
+                    + "and `destino_idDestino` = "+idD+";");
+            
+            conexion.cerrarConexion(con);
+            return true;
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al intentar abrir la base de datos.");
+            return false;
+        }catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Error al intentar conectar con el servidor.");
+            return false;
+        }
+    }
+    
+    //consultar deseo
+    public String [] deseosC(String idU)
+    {
+        ResultSet sql;       
+         try {
+            Connection con = conexion.abrirConexion();
+            Statement s = con.createStatement();
+            sql = s.executeQuery("SELECT `destino_idDestino` FROM `deseos` WHERE `usuario_idUsuario` = "+idU+";");
+            //declaración del array
+            //número de registros obrenidos
+            int count = 0;
+            while (sql.next()) {
+                ++count;
+            }
+            //declaración del array
+            String [] a = new String [count];
+            //se regresa al primero
+            sql.beforeFirst();
+            //contador para copiar del resultset al array
+            int i = 0;
+            //copiar del resultset al array
+            while (sql.next())
+            {
+                a[i] = sql.getString(1);
                 i++;
             } 
            conexion.cerrarConexion(con);

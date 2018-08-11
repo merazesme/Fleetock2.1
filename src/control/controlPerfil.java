@@ -17,20 +17,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import javax.swing.BoxLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import modelo.modeloDetalleDestino;
+import modelo.modeloEditarPerfil;
 import modelo.modeloEditarViaje;
 import modelo.modeloPerfil;
-import vistas.vistaAgregarViaje;
-import vistas.vistaDetallesDestino;
 import vistas.vistaEditarPerfil;
 import vistas.vistaEditarViaje;
 import vistas.vistaNuevoViajeSS;
@@ -48,7 +46,6 @@ public class controlPerfil implements ActionListener, MouseListener{
     private modeloPerfil modelo;
     private JButton btnImagen;
     private JLabel mensaje = new JLabel();
-    
     public controlPerfil(vistaPerfil vista, vistaPrincipal vistaPrincipal, modeloPerfil modelo)
     {
         this.vista=vista;
@@ -58,12 +55,18 @@ public class controlPerfil implements ActionListener, MouseListener{
        // this.vista.btnModificarViaje.addActionListener(this);
         datos();
         this.vista.pnlViajes.setBorder(new EmptyBorder(5, 40, 0, 0));
-        viajes(modelo.datosDestinos(controlPrincipal.usuario[2]), this.vista.pnlViajes);
+        viajes(modelo.datosViajes(controlPrincipal.usuario[2]), this.vista.pnlViajes);
+                //Manda para arriba el scroll
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+        public void run() { 
+            vista.scrollPerfil.getVerticalScrollBar().setValue(0);
+        }
+        });
     }
     
     public void datos(){
         String [] uDatos=modelo.usuarioDatos(controlPrincipal.usuario[2]);
-        if(modelo.usuarioDatos(controlPrincipal.usuario[2])!=null) {
+        if(uDatos!=null) {
             vista.lblNombre.setText(uDatos[0]+" "+uDatos[1]);
             vista.lblUsuario.setText("@"+controlPrincipal.usuario[1]);
             if (uDatos[2]!=null) {
@@ -82,15 +85,19 @@ public class controlPerfil implements ActionListener, MouseListener{
         p.setLayout(new FlowLayout(FlowLayout.LEFT));
         if(via.length > 0){
             
-            String [][] temporal = new String [via.length][4];
+            String [][] temporal = new String [via.length+1][5];
             temporal[0][0]= via[0][0];
             temporal[0][1]= via[0][1];
             temporal[0][2]= via[0][2];
             temporal[0][3]= via[0][3];
+            temporal[0][4]= "U" ;
             int c=0;
-            for(int x=1; x< via.length; x++){
+            int x;
+
+            for(x=1; x<via.length; x++){
                 if(temporal[c][0].equals(via[x][0])){
-                    temporal[c][3]=temporal[c][3]+"|"+via[x][3];
+                    temporal[c][3]=temporal[c][3]+" | "+via[x][3];
+                    temporal[c][4]= "M";
                 }
                 else{
                     c++;
@@ -98,20 +105,22 @@ public class controlPerfil implements ActionListener, MouseListener{
                     temporal[c][1]= via[x][1];
                     temporal[c][2]= via[x][2];
                     temporal[c][3]= via[x][3];
+                    temporal[c][4]= "U";
                 }
             }
+            
+            temporal[x][0]= null;
             
             for(int i=0; temporal[i][0]!=null; i++){
                 System.out.println("id:"+temporal[i][0]);
                 System.out.println("nombre:"+temporal[i][1]);
                 System.out.println("foto:"+temporal[i][2]);
                 System.out.println("destino:"+temporal[i][3]);
+                System.out.println("Cuantos:"+temporal[i][4]);
                 System.out.println("-----------------------------------------");
             }
 
             for(int i=0; temporal[i][0]!=null; i++){
-                System.out.println("id: "+temporal[i][0]);
-
                 //Panel principal: verde
                 JPanel principal = new JPanel();
                 principal.setLayout(new GridLayout( 2, 1, 0, 5));
@@ -127,7 +136,7 @@ public class controlPerfil implements ActionListener, MouseListener{
                 Icon fondo = new ImageIcon(image.getImage().getScaledInstance(250, 150, Image.SCALE_DEFAULT));
                 btnImagen = new JButton(fondo);
                     //id del viaje
-                btnImagen.setName("V"+temporal[i][0]);
+                btnImagen.setName("V"+temporal[i][4]+temporal[i][0]);
                 
                     //Para hacerlo invisible
                 btnImagen.setBorderPainted(false);
@@ -145,7 +154,7 @@ public class controlPerfil implements ActionListener, MouseListener{
                 
                 //Panel de información
                 JPanel informacion = new JPanel();
-                informacion.setLayout(new BoxLayout(informacion, BoxLayout.Y_AXIS));
+                informacion.setLayout(new BorderLayout());
                 informacion.setBackground(new java.awt.Color(156,255,87));
                     //Nombre del viaje
                 JLabel nombreV = new JLabel(temporal[i][1]);
@@ -154,15 +163,21 @@ public class controlPerfil implements ActionListener, MouseListener{
                 nombreV.setBorder(new EmptyBorder(10, 5, 0, 0));
                 nombreV.setSize(250, 15);
                     //Destino del viaje
-                JLabel nombreD = new JLabel(temporal[i][3]);
-                nombreD.setFont(new Font("Candara", Font.PLAIN, 12));
-                nombreD.setBorder(new EmptyBorder(10, 5, 0, 0));
-                nombreD.setHorizontalAlignment(SwingConstants.CENTER);
-                nombreD.setSize(250, 15);   
+                
+                JTextArea nombreDA = new JTextArea(temporal[i][3]);
+                nombreDA.setFont(new Font("Candara", Font.PLAIN, 12));
+                nombreDA.setBorder(new EmptyBorder(10, 5, 0, 0));
+                nombreDA.setSize(250, 15); 
+                nombreDA.setLineWrap(true);
+                nombreDA.setWrapStyleWord(true);
+                nombreDA.setOpaque(false);
+                nombreDA.setEditable(false);
+                nombreDA.setBackground(new java.awt.Color(156,255,87));
+                nombreDA.setOpaque(true);
                 
                         //añadir el jlabel al panel de información
-                informacion.add(nombreV);
-                informacion.add(nombreD); 
+                informacion.add(nombreV, BorderLayout.NORTH);
+                informacion.add(nombreDA, BorderLayout.CENTER); 
                 
                 //Agregar la imagen y la información
                 principal.add(btnImagen);
@@ -193,24 +208,31 @@ public class controlPerfil implements ActionListener, MouseListener{
     @Override
     public void actionPerformed(ActionEvent e) {
     
-         try{
-            JButton selectedButton = (JButton) e.getSource();
-            String letra = selectedButton.getName().substring(0, 1);  
-            String idV = selectedButton.getName().substring(1);  
-        //Botón de Modificar Viaje
-            if(letra.equals("V")){
-                vistaEditarViaje vistaEditarViaje = new vistaEditarViaje();
-                modeloEditarViaje modeloEditarViaje = new modeloEditarViaje();
-                controlEditarViaje controlEditarViaje= new controlEditarViaje(vistaEditarViaje, vistaPrincipal, modeloEditarViaje, idV);
-                CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaEditarViaje);
+        try{
+            JComponent selectedButton = (JComponent) e.getSource();
+            String letra = selectedButton.getName().substring(0, 2);
+            System.out.println("cant: "+letra);
+            String idV = selectedButton.getName().substring(2);  
+        //Botón de Modificar Viaje de un destino
+            if(letra.equals("VU")){
+               vistaEditarViaje vistaEditarViaje = new vistaEditarViaje();
+               modeloEditarViaje modeloEditarViaje = new modeloEditarViaje();
+               controlEditarViaje controlEditarViaje= new controlEditarViaje(vistaEditarViaje, vistaPrincipal, modeloEditarViaje, idV);
+               CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaEditarViaje);
+            }
+            //Botón de Modificar Viaje de varios destinos
+            if(letra.equals("VM")){
+                
             }
         }
         catch(NullPointerException ex){}
-         
+        
+        //Botón Modificar perfil 
         if(this.vista.btnEditarPerfil == e.getSource())
         {
             vistaEditarPerfil vistaEditarPerfil = new vistaEditarPerfil();
-            controlEditarPerfil controlEditarPerfil = new controlEditarPerfil(vistaEditarPerfil, vistaPrincipal);
+            modeloEditarPerfil modeloEditarPerfil = new modeloEditarPerfil();
+            controlEditarPerfil controlEditarPerfil = new controlEditarPerfil(vistaEditarPerfil, vistaPrincipal, modeloEditarPerfil);
             CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaEditarPerfil);
         }
     }
@@ -219,8 +241,8 @@ public class controlPerfil implements ActionListener, MouseListener{
     public void mouseClicked(MouseEvent e) {
         if(e.getSource()==mensaje){
             vistaNuevoViajeSS vistaNuevoViajeSS = new vistaNuevoViajeSS();
-           controlNuevoViajeSS controlNuevoViajeSS = new controlNuevoViajeSS(vistaNuevoViajeSS, vistaPrincipal);
-           CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaNuevoViajeSS);
+            controlNuevoViajeSS controlNuevoViajeSS = new controlNuevoViajeSS(vistaNuevoViajeSS, vistaPrincipal);
+            CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaNuevoViajeSS);
         }
     }
 
@@ -235,7 +257,7 @@ public class controlPerfil implements ActionListener, MouseListener{
     @Override
     public void mouseEntered(MouseEvent e) {
         if(e.getSource()==mensaje){
-            mensaje.setForeground(new Color(156,255,87));
+            mensaje.setForeground(new Color(156,77,204));
         }
     }
 

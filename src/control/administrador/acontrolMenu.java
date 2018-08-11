@@ -90,11 +90,11 @@ public class acontrolMenu implements ActionListener{
         
         if(this.vista.btnSalir == e.getSource())
         {
-            vistaLogin vLogin = new vistaLogin();
+            this.vista.dispose();
+            vistaLogin vistaLogin = new vistaLogin();
             modeloLogin modelologin = new modeloLogin();
-            controlLogin cLogin = new controlLogin(vLogin,modelologin, null, vista);
-            this.vista.setVisible(false);
-            cLogin.iniciarVista();
+            controlLogin controLogin = new controlLogin(vistaLogin,modelologin, null, vista);
+            controLogin.iniciarVista();
         }
     
     }

@@ -70,13 +70,17 @@ public class controlLogin implements ActionListener{
                     vista.setVisible(false);
                     vistaPrincipal.setVisible(true);
                     vistaPrincipal.setLocationRelativeTo(null);
-                                   
+                    this.vista.dispose();               
                     controlPrincipal controlPrincipal = new controlPrincipal(vistaPrincipal, modelo.jalarIdUsuario(usu, contra));
                     controlPrincipal.iniciarVista();
                     break;
                 case 2:
                     //SI ES ADMINISTRADOR SE ABRE ESTE PANEL
                     JOptionPane.showMessageDialog(null, "Administrador " + usu);
+                    this.vista.dispose();
+                    avistaMenu avMenu = new avistaMenu();
+                    acontrolMenu acMenu = new acontrolMenu(avMenu);
+                    acMenu.iniciarVista();
                     break;
                 case 3:
                     //MENSAJE 

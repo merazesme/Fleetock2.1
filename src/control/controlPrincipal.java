@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelo.modeloInicio;
 import modelo.modeloLogin;
@@ -46,6 +47,7 @@ public class controlPrincipal implements ActionListener, WindowListener{
         this.vista.setIconImage(new ImageIcon(getClass().getResource("../images/logo_55px.png")).getImage());
         this.vista.setSize(1035, 629);
         this.vista.setResizable(false);
+        vista.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     }
     
     public void iniciarVista()
@@ -91,10 +93,8 @@ public class controlPrincipal implements ActionListener, WindowListener{
        
        if(this.vista.btnLogout == e.getSource())
        {
-           if (JOptionPane.showConfirmDialog(vista,
-                "¿Estás seguro que deseas cerrar sesión?", "Fleetock",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+           if (JOptionPane.showConfirmDialog(vista,"¿Estás seguro que deseas cerrar sesión?", "Fleetock",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION)
+           {
                 this.vista.dispose();
                 vistaLogin vistaLogin = new vistaLogin();
                 modeloLogin modelologin = new modeloLogin();
