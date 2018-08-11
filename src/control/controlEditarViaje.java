@@ -36,9 +36,11 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import modelo.modeloActividadComentarios;
+import modelo.modeloActividades;
 import modelo.modeloEditarViaje;
 import modelo.modeloPerfil;
 import vistas.vistaActividadComentarios;
+import vistas.vistaActividades;
 import vistas.vistaEditarViaje;
 import vistas.vistaPerfil;
 import vistas.vistaPrincipal;
@@ -53,7 +55,7 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
     private vistaPrincipal vistaPrincipal;
     private modeloEditarViaje modelo;
     //ID del viaje
-    private String idV;
+    public static String idV;
     //Datos del viaje
     private String [] uDatosV;
     //estado del viaje
@@ -67,6 +69,8 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
     //ACTIVIDADES PENDIENTES
         //Declaración de un arraylist para los checkbox de la actividad 
     private List<JCheckBox> actP = new ArrayList<>();
+         //Declaración de un arraylist para el String de la actividad 
+    private List<String> actPS = new ArrayList<>();
     //ACTIVIDADES REALIZADAS
         //Declaración de un arraylist para los checkbox de la actividad
     List<JCheckBox> actR = new ArrayList<>();
@@ -78,14 +82,15 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
         this.modelo=modelo;
         this.idV=idV;
         datosViaje();
-        vista.cmbEstiloViaje.addActionListener(this);
-        vista.fechaInicio.addPropertyChangeListener(this);
-        vista.fechaFin.addPropertyChangeListener(this);
-        vista.btnEliminar.addActionListener(this);
-        vista.btnGuardar.addActionListener(this);
-        vista.txtBusquedaAP.addKeyListener(this);
-        vista.txtBusquedaAR.addKeyListener(this);
-        vista.txtFechaActividad.addPropertyChangeListener(this);
+        this.vista.cmbEstiloViaje.addActionListener(this);
+        this.vista.fechaInicio.addPropertyChangeListener(this);
+        this.vista.fechaFin.addPropertyChangeListener(this);
+        this.vista.btnEliminar.addActionListener(this);
+        this.vista.btnGuardar.addActionListener(this);
+        this.vista.txtBusquedaAP.addKeyListener(this);
+        this.vista.txtBusquedaAR.addKeyListener(this);
+        this.vista.txtFechaActividad.addPropertyChangeListener(this);
+        this.vista.btnActividades.addActionListener(this);
         //Actividades 
         act(vista.pnlActividadesP,modelo.actividadesViaje(this.idV," and contiene.fechaActividad IS NULL"));      
         act(vista.pnlActividadesR,modelo.actividadesViaje(this.idV," and NOT contiene.fechaActividad IS NULL"));    
@@ -128,12 +133,7 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
         p.revalidate();
         p.repaint();
         p.setLayout(new FlowLayout(FlowLayout.LEFT));
-        
-        JLabel mensaje = new JLabel("<html><p>No tienes actividades</p></html>");
-        mensaje.setForeground(new Color(76,2,131));
-        mensaje.setFont(new Font("Candara", Font.PLAIN, 14));
-        p.add(mensaje);
-        
+                
         if(act.length > 0){
            for(int i=0; i<act.length; i++){
                
@@ -201,6 +201,7 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
                     }
                         //se agrega al List
                     actP.add(box);
+                    actPS.add(act[i][0]);
                     
                     nombreCB.setText("Marcar como realizada");
                     informacion.add(nombreD, BorderLayout.NORTH); 
@@ -216,6 +217,7 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
                     }
                         //se agrega al List
                     actR.add(box);
+                    actPS.add(act[i][0]);
 
                     nombreCB.setText("Marcar como pendientes");
                     String[] parts = act[i][3].split("-");
@@ -248,6 +250,12 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
                 p.add(separacion);
             }
         }
+        else{
+            JLabel mensaje = new JLabel("<html><p>No tienes actividades</p></html>");
+            mensaje.setForeground(new Color(76,2,131));
+            mensaje.setFont(new Font("Candara", Font.PLAIN, 14));
+            p.add(mensaje);
+        }
     }
     
     //id del estilo de viaje seleccionado
@@ -265,7 +273,10 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
         if(modelo.actualizarActividad(idV, idA, fecha)){
             actS=null;
             actP.clear();
+            actPS.clear();
             actR.clear();
+            vista.txtBusquedaAP.setText("");
+            vista.txtBusquedaAR.setText("");
             vista.txtFechaActividad.setDate(null);
             vista.txtFechaActividad.setEnabled(false);
             vista.lblFechaI.setEnabled(false);
@@ -276,6 +287,16 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
     
     @Override
     public void actionPerformed(ActionEvent e) {   
+        
+        //botón de más actividades
+        if(this.vista.btnActividades == e.getSource())
+        {
+            vistaActividades vActividades = new vistaActividades();
+            modeloActividades mActividades = new modeloActividades();
+            controlActividades cActividades = new controlActividades(vActividades, vistaPrincipal, mActividades, uDatosV[6], actPS);
+            CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vActividades);
+        }
+        
         //botón de guardar
         if(e.getSource() == vista.btnGuardar){
             if(vista.txtNombre.getText().equals("") || vista.txtDescripcion.getText().equals("") || 
@@ -333,11 +354,16 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
         
         //Actividades Pendientes
         for (int i = 0; i < actP.size(); i++) {
-            if (actP.get(i) == e.getSource() && actP.get(i).isSelected()) {
+            if(actP.get(i) == e.getSource() && actP.get(i).isSelected()){
                 vista.txtFechaActividad.setEnabled(true);
                 vista.lblFechaI.setEnabled(true);
                 actS="P"+actP.get(i).getName();
-            }            
+                System.out.println("b");
+            }
+            else{
+                //deseleccionar los demás
+                actP.get(i).setSelected(false);
+            }
         }
         
         //Actividades Realizadas
@@ -404,7 +430,21 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
 
     @Override
     public void keyReleased(KeyEvent e) {
-    
+        if(!vista.txtBusquedaAP.getText().equals("")){
+            act(vista.pnlActividadesP,modelo.actividadesViaje(this.idV," and contiene.fechaActividad IS NULL and actividad.nombre LIKE '%"+vista.txtBusquedaAP.getText()+"%'"));      
+            vista.txtBusquedaAP.requestFocus();
+        } 
+        else{
+           act(vista.pnlActividadesP,modelo.actividadesViaje(this.idV," and contiene.fechaActividad IS NULL"));      
+        }
+        
+        if(!vista.txtBusquedaAR.getText().equals("")){
+            act(vista.pnlActividadesR,modelo.actividadesViaje(this.idV," and NOT contiene.fechaActividad IS NULL and actividad.nombre LIKE '%"+vista.txtBusquedaAR.getText()+"%'"));      
+            vista.txtBusquedaAR.requestFocus();
+        } 
+        else{
+           act(vista.pnlActividadesR,modelo.actividadesViaje(this.idV," and NOT contiene.fechaActividad IS NULL"));      
+        }
     }
     
 }

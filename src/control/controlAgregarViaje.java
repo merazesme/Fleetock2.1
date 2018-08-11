@@ -328,12 +328,15 @@ public class controlAgregarViaje implements ActionListener, PropertyChangeListen
             }
         }
         
+        //Actividades
         for (int i = 0; i < jnombre.size(); i++) {
+            //Actividades selecciondas
             if (jnombre.get(i) == e.getSource()) {
                 if(jnombre.get(i).isSelected()){
 //                    System.out.println("id: " + jnombre.get(i).getName());
                     actSelec.add(jnombre.get(i).getName());
                 }
+                //Actividades no seleccionadas
                 else{
                     for(int j = 0; j < actSelec.size(); j++){
                         if(jnombre.get(i).getName().equals(actSelec.get(j))){

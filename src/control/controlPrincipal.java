@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import modelo.modeloInicio;
 import modelo.modeloLogin;
+import modelo.modeloNuevoViajeSS;
 import modelo.modeloPerfil;
 import vistas.vistaCalculadora;
 import vistas.vistaInicio;
@@ -76,7 +77,8 @@ public class controlPrincipal implements ActionListener, WindowListener{
        if(this.vista.btnViaje == e.getSource())
        {
            vistaNuevoViajeSS vistaNuevoViajeSS = new vistaNuevoViajeSS();
-           controlNuevoViajeSS controlNuevoViajeSS = new controlNuevoViajeSS(vistaNuevoViajeSS, vista);
+           modeloNuevoViajeSS modNuevoViajeSS = new modeloNuevoViajeSS();
+           controlNuevoViajeSS controlNuevoViajeSS = new controlNuevoViajeSS(vistaNuevoViajeSS, vista, modNuevoViajeSS);
            CambiaPanel cambiar = new CambiaPanel(vista.panelCambiante, vistaNuevoViajeSS);
        }
        

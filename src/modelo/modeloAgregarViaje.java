@@ -181,8 +181,8 @@ public class modeloAgregarViaje {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             //Inserta un registro en la tabla contiene.
             for(int i=0; i<actSelec.size(); i++){
-                int registroContiene = s.executeUpdate("INSERT INTO `contiene`(`Viaje_idViaje`, `Actividad_idActividad`) "
-                        + "VALUES ("+idViaje+","+actSelec.get(i)+")");
+                int registroContiene = s.executeUpdate("INSERT INTO `contiene`(`Viaje_idViaje`, `Actividad_idActividad`, `destino_idDestino`) "
+                        + "VALUES ("+idViaje+","+actSelec.get(i)+", "+idDestino+")");
             }
                         
             conexion.cerrarConexion(con);
