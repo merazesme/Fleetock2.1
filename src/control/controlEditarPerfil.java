@@ -233,7 +233,7 @@ public class controlEditarPerfil implements ActionListener{
                 JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
                     vistaPerfil vistaPerfil = new vistaPerfil();
                     modeloPerfil modeloPerfil = new modeloPerfil();
-                    controlPerfil controlPerfil = new controlPerfil(vistaPerfil, vistaPrincipal, modeloPerfil);
+                    controlPerfil controlPerfil = new controlPerfil(vistaPerfil, vistaPrincipal, modeloPerfil, null);
                     CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaPerfil);
             } 
         }
@@ -316,7 +316,7 @@ public class controlEditarPerfil implements ActionListener{
                     //se va al perfil
                     vistaPerfil vistaPerfil = new vistaPerfil();
                     modeloPerfil modeloPerfil = new modeloPerfil();
-                    controlPerfil controlPerfil = new controlPerfil(vistaPerfil, vistaPrincipal, modeloPerfil);
+                    controlPerfil controlPerfil = new controlPerfil(vistaPerfil, vistaPrincipal, modeloPerfil, null);
                     CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaPerfil);
                 }
             

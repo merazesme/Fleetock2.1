@@ -319,7 +319,7 @@ public class controlAgregarViaje implements ActionListener, PropertyChangeListen
                     JOptionPane.showMessageDialog(null, "Su viaje se ha guardado con éxito", "Viaje guardado", JOptionPane.INFORMATION_MESSAGE);
                     vistaPerfil vistaPerfil = new vistaPerfil();
                     modeloPerfil modeloPerfil = new modeloPerfil();
-                    controlPerfil controlPerfil = new controlPerfil(vistaPerfil, vPrincipal, modeloPerfil);
+                    controlPerfil controlPerfil = new controlPerfil(vistaPerfil, vPrincipal, modeloPerfil, null);
                     CambiaPanel cambiar = new CambiaPanel(vPrincipal.panelCambiante, vistaPerfil);
                 }
                 else{

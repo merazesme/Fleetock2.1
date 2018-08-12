@@ -309,7 +309,7 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
                     JOptionPane.showMessageDialog(null, "Su viaje se ha actualizado con éxito", "Viaje guardado", JOptionPane.INFORMATION_MESSAGE);
                     vistaPerfil vistaPerfil = new vistaPerfil();
                     modeloPerfil modeloPerfil = new modeloPerfil();
-                    controlPerfil controlPerfil = new controlPerfil(vistaPerfil, vistaPrincipal, modeloPerfil);
+                    controlPerfil controlPerfil = new controlPerfil(vistaPerfil, vistaPrincipal, modeloPerfil, null);
                     CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaPerfil);
                 }
                 else{
@@ -328,7 +328,7 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
                     JOptionPane.showMessageDialog(null, "El viaje se ha eliminado.", "¡Atención!", JOptionPane.INFORMATION_MESSAGE);
                     vistaPerfil vistaPerfil = new vistaPerfil();
                     modeloPerfil modeloPerfil = new modeloPerfil();
-                    controlPerfil controlPerfil = new controlPerfil(vistaPerfil, vistaPrincipal, modeloPerfil);
+                    controlPerfil controlPerfil = new controlPerfil(vistaPerfil, vistaPrincipal, modeloPerfil, null);
                     CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaPerfil);
                 }
                 else{

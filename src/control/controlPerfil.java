@@ -47,16 +47,26 @@ public class controlPerfil implements ActionListener, MouseListener{
     private modeloPerfil modelo;
     private JButton btnImagen;
     private JLabel mensaje = new JLabel();
-    public controlPerfil(vistaPerfil vista, vistaPrincipal vistaPrincipal, modeloPerfil modelo)
+    private String idU;
+    private boolean pC=false;
+    public controlPerfil(vistaPerfil vista, vistaPrincipal vistaPrincipal, modeloPerfil modelo, String idU)
     {
         this.vista=vista;
+        this.idU=idU;
         this.vistaPrincipal=vistaPrincipal;
         this.modelo=modelo;
-        this.vista.btnEditarPerfil.addActionListener(this);
-       // this.vista.btnModificarViaje.addActionListener(this);
-        datos();
+        
+        if(idU==null){
+            this.vista.btnEditarPerfil.addActionListener(this);
+            pC=false;
+        }else{
+            pC=true;
+            this.vista.btnEditarPerfil.setVisible(false);
+        }
+        
         this.vista.pnlViajes.setBorder(new EmptyBorder(5, 40, 0, 0));
-        viajes(modelo.datosViajes(controlPrincipal.usuario[2]), this.vista.pnlViajes);
+        datos();
+        viajes(modelo.datosViajes(usuarioA()), this.vista.pnlViajes);
                 //Manda para arriba el scroll
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
         public void run() { 
@@ -65,16 +75,26 @@ public class controlPerfil implements ActionListener, MouseListener{
         });
     }
     
+    public String usuarioA(){
+        String a = controlPrincipal.usuario[2];
+        String b = idU;
+        if(pC){
+            return b;
+        }
+        return a;
+    }
+    
     public void datos(){
-        String [] uDatos=modelo.usuarioDatos(controlPrincipal.usuario[2]);
+        String [] uDatos=modelo.usuarioDatos(usuarioA());
         if(uDatos!=null) {
             vista.lblNombre.setText(uDatos[0]+" "+uDatos[1]);
-            vista.lblUsuario.setText("@"+controlPrincipal.usuario[1]);
+            vista.lblUsuario.setText("@"+uDatos[3]);
             if (uDatos[2]!=null) {
                 ImageIcon image = new ImageIcon(uDatos[2]);                
                 Icon fondo = new ImageIcon(image.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
                 vista.lblImagen.setIcon(fondo);
             }
+            vista.txtareaDescripcion.setText(uDatos[4]);
         }
     }
     
@@ -127,7 +147,7 @@ public class controlPerfil implements ActionListener, MouseListener{
                 principal.setLayout(new GridLayout( 2, 1, 0, 5));
                 principal.setBackground(new java.awt.Color(156,255,87));
                 principal.setSize(250,200);
-        
+       
                 //Imagen
                 ImageIcon image = new ImageIcon(getClass().getResource("../images/icons8-pais-100.png"));
                 if(via[i][2] != null){
@@ -146,12 +166,8 @@ public class controlPerfil implements ActionListener, MouseListener{
                 btnImagen.setFocusPainted(false);
                 btnImagen.setFocusable(false);
                 btnImagen.setSize(250, 150);
-                btnImagen.addActionListener(this);
-                btnImagen.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                btnImagen.setToolTipText("Ver Viaje");
                     //Sin bordes
                 btnImagen.setBorder(new EmptyBorder(5, 0, 0, 0));
-                
                 
                 //Panel de información
                 JPanel informacion = new JPanel();
@@ -191,12 +207,24 @@ public class controlPerfil implements ActionListener, MouseListener{
                 separacion.setBackground(new java.awt.Color(255,255,255));
                 separacion.setSize(5,5);
                 p.add(separacion);
+                if(!pC){
+                    btnImagen.addActionListener(this);
+                    btnImagen.setCursor(new Cursor(Cursor.HAND_CURSOR));
+                    btnImagen.setToolTipText("Ver Viaje");
+                }
             }
         }
         else
         {
             //Si no se encuentra un viaje
-            mensaje.setText("¡Crea tu Primer Viaje!");
+            String m;
+            if(pC){
+                m="El usuario no tiene viajes :( Pero, ¡tú puedes crear uno!";
+            }
+            else{
+                m="¡Crea tu Primer Viaje!";
+            }
+            mensaje.setText(m);
             mensaje.setForeground(new Color(76,2,131));
             mensaje.setFont(new Font("Candara", Font.PLAIN, 20));
             mensaje.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

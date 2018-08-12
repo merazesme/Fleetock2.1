@@ -33,11 +33,13 @@ import modelo.modeloActividadComentarios;
 import modelo.modeloActividades;
 import modelo.modeloAgregarViaje;
 import modelo.modeloDetalleDestino;
+import modelo.modeloPerfil;
 import vistas.vistaActividadComentarios;
 import vistas.vistaActividades;
 import vistas.vistaAgregarViaje;
 import vistas.vistaPrincipal;
 import vistas.vistaDetallesDestino;
+import vistas.vistaPerfil;
 
 /**
  *
@@ -264,14 +266,7 @@ public class controlDetalleDestino implements ActionListener{
     }
     
     public void mostrarcomentarios(String sentencia)
-    {
-        GridBagConstraints g1 = new GridBagConstraints();
-        GridBagConstraints g2 = new GridBagConstraints();
-        GridBagConstraints g3 = new GridBagConstraints();
-        GridBagConstraints g4 = new GridBagConstraints();
-        GridBagConstraints g5 = new GridBagConstraints();
-        GridBagConstraints g6 = new GridBagConstraints();
-        
+    {       
         vista.panel_comentarios.removeAll();
         vista.panel_comentarios.revalidate();
         vista.panel_comentarios.repaint();
@@ -442,7 +437,7 @@ public class controlDetalleDestino implements ActionListener{
         else
         {
             //Si no se encuentra 
-            JLabel mensaje = new JLabel("<html><p>No se ha encontrado nada :(</p></html>");
+            JLabel mensaje = new JLabel("<html><p>¡Sé el primero en calificarlo!</p></html>");
             mensaje.setForeground(new Color(76,2,131));
             mensaje.setFont(new Font("Candara", Font.PLAIN, 14));
             vista.panel_comentarios.add(mensaje);
@@ -596,6 +591,10 @@ public class controlDetalleDestino implements ActionListener{
             }
             if(letra.equals("u")){
                 System.out.println("Entra al perfil del usuario: " + idA);
+                vistaPerfil vistaPerfil = new vistaPerfil();
+                modeloPerfil modeloPerfil = new modeloPerfil();
+                controlPerfil controlPerfil = new controlPerfil(vistaPerfil, vistaPrincipal, modeloPerfil, idA);
+                CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaPerfil);
             }
         }
         catch(NullPointerException ex){}

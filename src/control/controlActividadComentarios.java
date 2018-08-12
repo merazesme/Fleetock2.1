@@ -118,7 +118,6 @@ public class controlActividadComentarios implements ActionListener, MouseListene
                 principal.setPreferredSize(new Dimension(390, 195));
 
                 ImageIcon image = new ImageIcon(getClass().getResource("../images/icons8_Cat_Profile_50px_4.png"));
-                //ImageIcon image = new ImageIcon(getClass().getResource("C:\\Users\\alfredo\\Documents\\GitHub\\Fleetock\\Fleetock2.1\\src\\images\\sin-foto-perfil.jpg"));               
                 if(a[i][2] != null)
                 {
                     //se le pasa la foto
@@ -341,8 +340,6 @@ public class controlActividadComentarios implements ActionListener, MouseListene
             vista.muybueno.setSelected(true);
             vista.excelente.setSelected(true);
         }
-        
-        System.out.println("cali : " + cali);
         
         if(vista.enviar == e.getSource())
         {

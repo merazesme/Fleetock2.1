@@ -26,18 +26,20 @@ public class modeloPerfil {
             //generar consultas
             Statement s = con.createStatement(); 
             //consulta
-            ResultSet rs = s.executeQuery("SELECT usuario.nombre, usuario.apellidos, usuario.foto from usuario " +
+            ResultSet rs = s.executeQuery("SELECT usuario.nombre, usuario.apellidos, usuario.foto, login.usuario, usuario.descripcion from usuario " +
                     "INNER JOIN login ON login.Usuario_idUsuario = usuario.idUsuario " +
                     "where usuario.idUsuario = " + id + ";");
         
             //declaración del array
-            String [] a = new String[4];
+            String [] a = new String[6];
             rs.next();
             //copiar del resultset al array
             a[0] = rs.getString(1);
             a[1] = rs.getString(2);
             a[2] = rs.getString(3);
-
+            a[3] = rs.getString(4);
+            a[4] = rs.getString(5);
+            
             //cerrar conexión
             conexion.cerrarConexion(con); 
             return a; 
