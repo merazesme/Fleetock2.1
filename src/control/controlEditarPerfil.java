@@ -32,6 +32,7 @@ import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import modelo.modeloEditarPerfil;
 import modelo.modeloPerfil;
+import modelo.modeloPreferencias;
 import vistas.vistaEditarPerfil;
 import vistas.vistaPerfil;
 import vistas.vistaPreferencias;
@@ -200,7 +201,8 @@ public class controlEditarPerfil implements ActionListener{
         //Cambiar preferencias
         if(e.getSource() == vista.btnPreferencias){
             vistaPreferencias vistaPreferencias = new vistaPreferencias();
-            controlPreferencias controlPreferencias = new controlPreferencias(vistaPreferencias, vistaPrincipal);
+            modeloPreferencias modeloPreferencias = new modeloPreferencias();
+            controlPreferencias controlPreferencias = new controlPreferencias(vistaPreferencias, vistaPrincipal, modeloPreferencias);
             CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaPreferencias);
         }
         
