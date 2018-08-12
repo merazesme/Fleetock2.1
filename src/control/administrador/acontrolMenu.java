@@ -9,12 +9,23 @@ import control.CambiaPanel;
 import control.controlLogin;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import modelo.administrador.modeloActividad;
+import modelo.administrador.modeloDestino;
+import modelo.administrador.modeloEstiloViaje;
+import modelo.administrador.modeloSitioTuristico;
+import modelo.administrador.modeloTransporte;
+import modelo.administrador.modeloUsuario;
 import modelo.modeloLogin;
 import vistas.administrador.avistaActividades;
 import vistas.administrador.avistaDestino;
+import vistas.administrador.avistaDestinoActividades;
+import vistas.administrador.avistaDestinoTipoSitio;
+import vistas.administrador.avistaDestinoTransportes;
 import vistas.administrador.avistaEstiloViaje;
 import vistas.administrador.avistaMenu;
-import vistas.administrador.avistaSitiosTuristicos;
+import vistas.administrador.avistaTipoSitio;
 import vistas.administrador.avistaTransporte;
 import vistas.administrador.avistaUsuarios;
 import vistas.vistaLogin;
@@ -42,59 +53,81 @@ public class acontrolMenu implements ActionListener{
     {
         this.vista.setVisible(true);
         this.vista.setLocationRelativeTo(null);
+        this.vista.setTitle("Fleetock");
+         this.vista.setIconImage(new ImageIcon(getClass().getResource("../../images/logo_55px.png")).getImage());
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         
         if(this.vista.btnActividad == e.getSource())
         {
+            modeloActividad modelo = new modeloActividad();
             avistaActividades avActividades = new avistaActividades();
-            acontrolActividades actividades = new acontrolActividades(avActividades, vista);
+            acontrolActividad actividades = new acontrolActividad(modelo, avActividades);
             CambiaPanel cambiar = new CambiaPanel(vista.panelCambiante, avActividades);
+            actividades.iniciarVista();
         }
         
         if(this.vista.btnDestino == e.getSource())
         {
             avistaDestino avDestinos = new avistaDestino();
-            acontrolDestinos acDestinos = new acontrolDestinos(avDestinos, vista);
+            avistaDestinoTipoSitio avDestinosTipoSitio = new avistaDestinoTipoSitio();
+            avistaDestinoActividades avDestinosActividades = new avistaDestinoActividades();
+            avistaDestinoTransportes avDestinosTransportes = new avistaDestinoTransportes();
+            modeloDestino modelo = new modeloDestino();
+            acontrolDestinos acDestinos = new acontrolDestinos(modelo, avDestinos, vista, avDestinosTipoSitio, avDestinosActividades, avDestinosTransportes);
             CambiaPanel cambiar = new CambiaPanel(vista.panelCambiante, avDestinos);
+            acDestinos.iniciarVistaDestino();
         }
         
         if(this.vista.btnEstiloViaje == e.getSource())
         {
+            modeloEstiloViaje modelo = new modeloEstiloViaje();
             avistaEstiloViaje avEstiloViaje = new avistaEstiloViaje();
-            acontrolEstiloViaje acEstiloViaje = new acontrolEstiloViaje(avEstiloViaje, vista);
+            acontrolEstiloViaje acEstiloViaje = new acontrolEstiloViaje(modelo, avEstiloViaje);
             CambiaPanel cambiar = new CambiaPanel(vista.panelCambiante, avEstiloViaje);
+            acEstiloViaje.iniciarVista();
         }
         
         if(this.vista.btnTransporte == e.getSource())
         {
             avistaTransporte avTransporte = new avistaTransporte();
-            acontrolTransportes acTransportes = new acontrolTransportes(avTransporte, vista);
+            modeloTransporte modelo = new modeloTransporte();
+            acontrolTransportes acTransportes = new acontrolTransportes(modelo, avTransporte);
             CambiaPanel cambiar = new CambiaPanel(vista.panelCambiante, avTransporte);
+            acTransportes.iniciarVista();
         }
         
         if(this.vista.btnSitios == e.getSource())
         {
-            avistaSitiosTuristicos avSitiosTuristicos = new avistaSitiosTuristicos();
-            acontrolSitioTuristico acSitioTuristico = new acontrolSitioTuristico(avSitiosTuristicos, vista);
+            modeloSitioTuristico modelo = new modeloSitioTuristico();
+            avistaTipoSitio avSitiosTuristicos = new avistaTipoSitio();
+            acontrolSitioTuristico acSitioTuristico = new acontrolSitioTuristico(modelo, avSitiosTuristicos);
             CambiaPanel cambiar = new CambiaPanel(vista.panelCambiante, avSitiosTuristicos);
+            acSitioTuristico.iniciarVista();
         }
         
         if(this.vista.btnUsuarios == e.getSource())
         {
             avistaUsuarios avUsuarios = new avistaUsuarios();
-            acontrolUsuarios acUsuarios = new acontrolUsuarios(avUsuarios, vista);
+            modeloUsuario modelo = new modeloUsuario();
+            acontrolUsuarios acUsuarios = new acontrolUsuarios(modelo, avUsuarios);
             CambiaPanel cambiar = new CambiaPanel(vista.panelCambiante, avUsuarios);
+            acUsuarios.iniciarVista();
         }
         
         if(this.vista.btnSalir == e.getSource())
         {
-            vistaLogin vLogin = new vistaLogin();
-            modeloLogin modelologin = new modeloLogin();
-            controlLogin cLogin = new controlLogin(vLogin,modelologin, null, vista);
-            this.vista.setVisible(false);
-            cLogin.iniciarVista();
+            if (JOptionPane.showConfirmDialog(vista,
+                "¿Estás seguro que deseas cerrar sesión?", "Fleetock",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+                vistaLogin vLogin = new vistaLogin();
+                modeloLogin modelologin = new modeloLogin();
+                controlLogin cLogin = new controlLogin(vLogin,modelologin, null, vista);
+                this.vista.setVisible(false);
+                cLogin.iniciarVista();
+            } 
         }
     
     }

@@ -63,9 +63,8 @@ public class controlLogin implements ActionListener{
         {
               switch (modelo.ingresar(usu, contra)) 
             {
-                //SI ES USUARIO SE ABRE ESTE PANEL
                 case 1:
-                    System.out.println("hola");
+                    //SI ES USUARIO SE ABRE ESTE PANEL
                     JOptionPane.showMessageDialog(null, "Bienvenido " + usu);
                     vista.setVisible(false);
                     vistaPrincipal.setVisible(true);
@@ -77,6 +76,12 @@ public class controlLogin implements ActionListener{
                 case 2:
                     //SI ES ADMINISTRADOR SE ABRE ESTE PANEL
                     JOptionPane.showMessageDialog(null, "Administrador " + usu);
+                    vista.setTitle("Administrador"); 
+                    vista.setVisible(false);
+                    
+                    avistaMenu nuevoPanel = new  avistaMenu(); 
+                    acontrolMenu con = new acontrolMenu(nuevoPanel);
+                    con.iniciarVista();
                     break;
                 case 3:
                     //MENSAJE 
@@ -86,13 +91,6 @@ public class controlLogin implements ActionListener{
 
                     break;
             }
-            
-//            acontrolMenu acMenu = new acontrolMenu(avmMenu);
-//            acMenu.iniciarVista();
         }
-        
         }
-    
-    
-    
 }
