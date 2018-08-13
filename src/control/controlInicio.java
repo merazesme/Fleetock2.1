@@ -79,14 +79,14 @@ public class controlInicio implements ActionListener, KeyListener{
     public void principal(){ 
         activarPrincipal(true);
          
-        destinos(this.modelo.datosDestinos(4), vista.pnl_Montania1);
         destinos(this.modelo.datosDestinos(1), vista.pnlPlaya1);
-        destinos(this.modelo.datosDestinos(14), vista.pnlCiudad1);
-        destinos(this.modelo.datosDestinos(3), vista.pnlBosque1);
-        destinos(this.modelo.datosDestinos(9), vista.pnlSelva1);
         destinos(this.modelo.datosDestinos(2), vista.pnlDesierto1);
-        destinos(this.modelo.datosDestinos(13), vista.pnlManglar1);
-        destinos(this.modelo.datosDestinos(15), vista.pnlVolcan1);
+        destinos(this.modelo.datosDestinos(3), vista.pnlBosque1);
+        destinos(this.modelo.datosDestinos(4), vista.pnl_Montania1);
+        destinos(this.modelo.datosDestinos(5), vista.pnlSelva1);
+        destinos(this.modelo.datosDestinos(6), vista.pnlManglar1);
+        destinos(this.modelo.datosDestinos(7), vista.pnlCiudad1);
+        destinos(this.modelo.datosDestinos(8), vista.pnlVolcan1);
     }
     
     public void busquedas(String sentencia){
