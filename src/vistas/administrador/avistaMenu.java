@@ -43,6 +43,7 @@ public class avistaMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(55, 0, 106));
         jPanel1.setPreferredSize(new java.awt.Dimension(1000, 600));
 
         Cabecera.setBackground(new java.awt.Color(100, 221, 23));
@@ -78,7 +79,7 @@ public class avistaMenu extends javax.swing.JFrame {
         btnEstiloViaje.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnEstiloViaje.setBorderPainted(false);
         btnEstiloViaje.setContentAreaFilled(false);
-        btnEstiloViaje.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEstiloViaje.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnEstiloViaje.setFocusPainted(false);
         btnEstiloViaje.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_estiloviajemorado.png"))); // NOI18N
         btnEstiloViaje.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +95,7 @@ public class avistaMenu extends javax.swing.JFrame {
         btnActividad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnActividad.setBorderPainted(false);
         btnActividad.setContentAreaFilled(false);
-        btnActividad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnActividad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnActividad.setFocusPainted(false);
         btnActividad.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_actividadesmorado.png"))); // NOI18N
         btnActividad.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +110,7 @@ public class avistaMenu extends javax.swing.JFrame {
         btnDestino.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnDestino.setBorderPainted(false);
         btnDestino.setContentAreaFilled(false);
-        btnDestino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDestino.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnDestino.setFocusPainted(false);
         btnDestino.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_destinosmorado.png"))); // NOI18N
 
@@ -119,7 +120,7 @@ public class avistaMenu extends javax.swing.JFrame {
         btnSitios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnSitios.setBorderPainted(false);
         btnSitios.setContentAreaFilled(false);
-        btnSitios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSitios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnSitios.setFocusPainted(false);
         btnSitios.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_sitiosturisticosmorado.png"))); // NOI18N
 
@@ -129,7 +130,7 @@ public class avistaMenu extends javax.swing.JFrame {
         btnUsuarios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnUsuarios.setBorderPainted(false);
         btnUsuarios.setContentAreaFilled(false);
-        btnUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnUsuarios.setFocusPainted(false);
         btnUsuarios.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_usuariosmorado.png"))); // NOI18N
 
@@ -139,7 +140,7 @@ public class avistaMenu extends javax.swing.JFrame {
         btnTransporte.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnTransporte.setBorderPainted(false);
         btnTransporte.setContentAreaFilled(false);
-        btnTransporte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnTransporte.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnTransporte.setFocusPainted(false);
         btnTransporte.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_transportesmorado.png"))); // NOI18N
 
@@ -149,7 +150,7 @@ public class avistaMenu extends javax.swing.JFrame {
         btnSalir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         btnSalir.setBorderPainted(false);
         btnSalir.setContentAreaFilled(false);
-        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnSalir.setFocusPainted(false);
         btnSalir.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn_logoutmorado.png"))); // NOI18N
 
@@ -204,16 +205,14 @@ public class avistaMenu extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(Cabecera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(panelCambiante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(panelCambiante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(1021, 1021, 1021))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

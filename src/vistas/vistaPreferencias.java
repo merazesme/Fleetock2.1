@@ -35,33 +35,33 @@ public class vistaPreferencias extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        playa = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        bosque = new javax.swing.JCheckBox();
         jPanel3 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jCheckBox3 = new javax.swing.JCheckBox();
+        jungla = new javax.swing.JCheckBox();
         jPanel4 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jCheckBox4 = new javax.swing.JCheckBox();
+        ciudad = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        jCheckBox5 = new javax.swing.JCheckBox();
+        montaña = new javax.swing.JCheckBox();
         jPanel6 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jCheckBox6 = new javax.swing.JCheckBox();
+        desierto = new javax.swing.JCheckBox();
         jPanel7 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
-        jCheckBox7 = new javax.swing.JCheckBox();
+        zonavolcanica = new javax.swing.JCheckBox();
         jPanel8 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        jCheckBox8 = new javax.swing.JCheckBox();
-        jButton7 = new javax.swing.JButton();
+        manglar = new javax.swing.JCheckBox();
+        guardar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -89,12 +89,12 @@ public class vistaPreferencias extends javax.swing.JPanel {
         jLabel7.setText("Playa");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jCheckBox1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        playa.setBackground(new java.awt.Color(255, 255, 255));
+        playa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        playa.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        playa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                playaActionPerformed(evt);
             }
         });
 
@@ -105,13 +105,13 @@ public class vistaPreferencias extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(playa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(playa, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -121,12 +121,12 @@ public class vistaPreferencias extends javax.swing.JPanel {
         jLabel8.setText("Bosque");
         jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jCheckBox2.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jCheckBox2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        bosque.setBackground(new java.awt.Color(255, 255, 255));
+        bosque.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        bosque.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bosque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                bosqueActionPerformed(evt);
             }
         });
 
@@ -137,13 +137,13 @@ public class vistaPreferencias extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(bosque, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jCheckBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(bosque, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -153,12 +153,12 @@ public class vistaPreferencias extends javax.swing.JPanel {
         jLabel10.setText("Jungla");
         jLabel10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jCheckBox3.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jCheckBox3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+        jungla.setBackground(new java.awt.Color(255, 255, 255));
+        jungla.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jungla.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jungla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
+                junglaActionPerformed(evt);
             }
         });
 
@@ -169,13 +169,13 @@ public class vistaPreferencias extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox3, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
+                .addComponent(jungla, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jCheckBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jungla, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -185,12 +185,12 @@ public class vistaPreferencias extends javax.swing.JPanel {
         jLabel11.setText("Ciudad");
         jLabel11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jCheckBox4.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jCheckBox4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
+        ciudad.setBackground(new java.awt.Color(255, 255, 255));
+        ciudad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ciudad.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ciudad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox4ActionPerformed(evt);
+                ciudadActionPerformed(evt);
             }
         });
 
@@ -201,13 +201,13 @@ public class vistaPreferencias extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(ciudad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jCheckBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(ciudad, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/peaks.png"))); // NOI18N
@@ -228,12 +228,12 @@ public class vistaPreferencias extends javax.swing.JPanel {
         jLabel14.setText("Montaña");
         jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jCheckBox5.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jCheckBox5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+        montaña.setBackground(new java.awt.Color(255, 255, 255));
+        montaña.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        montaña.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        montaña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox5ActionPerformed(evt);
+                montañaActionPerformed(evt);
             }
         });
 
@@ -244,13 +244,13 @@ public class vistaPreferencias extends javax.swing.JPanel {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(montaña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jCheckBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(montaña, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -260,12 +260,12 @@ public class vistaPreferencias extends javax.swing.JPanel {
         jLabel15.setText("Desierto");
         jLabel15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jCheckBox6.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jCheckBox6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
+        desierto.setBackground(new java.awt.Color(255, 255, 255));
+        desierto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        desierto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        desierto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox6ActionPerformed(evt);
+                desiertoActionPerformed(evt);
             }
         });
 
@@ -276,13 +276,13 @@ public class vistaPreferencias extends javax.swing.JPanel {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox6, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
+                .addComponent(desierto, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jCheckBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(desierto, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
@@ -292,12 +292,12 @@ public class vistaPreferencias extends javax.swing.JPanel {
         jLabel16.setText("Zona volcanica");
         jLabel16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jCheckBox7.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jCheckBox7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
+        zonavolcanica.setBackground(new java.awt.Color(255, 255, 255));
+        zonavolcanica.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        zonavolcanica.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        zonavolcanica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox7ActionPerformed(evt);
+                zonavolcanicaActionPerformed(evt);
             }
         });
 
@@ -308,13 +308,13 @@ public class vistaPreferencias extends javax.swing.JPanel {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox7, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
+                .addComponent(zonavolcanica, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jCheckBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(zonavolcanica, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
@@ -324,12 +324,12 @@ public class vistaPreferencias extends javax.swing.JPanel {
         jLabel17.setText("Manglar");
         jLabel17.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jCheckBox8.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jCheckBox8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jCheckBox8.addActionListener(new java.awt.event.ActionListener() {
+        manglar.setBackground(new java.awt.Color(255, 255, 255));
+        manglar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        manglar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        manglar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox8ActionPerformed(evt);
+                manglarActionPerformed(evt);
             }
         });
 
@@ -340,25 +340,25 @@ public class vistaPreferencias extends javax.swing.JPanel {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox8, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE))
+                .addComponent(manglar, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jCheckBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(manglar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jButton7.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Save_40px.png"))); // NOI18N
-        jButton7.setText("Guardar");
-        jButton7.setBorderPainted(false);
-        jButton7.setContentAreaFilled(false);
-        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton7.setDefaultCapable(false);
-        jButton7.setFocusPainted(false);
-        jButton7.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jButton7.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Save_35px.png"))); // NOI18N
+        guardar.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Save_40px.png"))); // NOI18N
+        guardar.setText("Guardar");
+        guardar.setBorderPainted(false);
+        guardar.setContentAreaFilled(false);
+        guardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        guardar.setDefaultCapable(false);
+        guardar.setFocusPainted(false);
+        guardar.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        guardar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Save_35px.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -372,7 +372,7 @@ public class vistaPreferencias extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton7))
+                        .addComponent(guardar))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -415,7 +415,7 @@ public class vistaPreferencias extends javax.swing.JPanel {
                     .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton7)))
+                        .addComponent(guardar)))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -445,49 +445,44 @@ public class vistaPreferencias extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void playaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_playaActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void bosqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bosqueActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_bosqueActionPerformed
 
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+    private void junglaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_junglaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
+    }//GEN-LAST:event_junglaActionPerformed
 
-    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
+    private void ciudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ciudadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox4ActionPerformed
+    }//GEN-LAST:event_ciudadActionPerformed
 
-    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+    private void montañaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_montañaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox5ActionPerformed
+    }//GEN-LAST:event_montañaActionPerformed
 
-    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
+    private void desiertoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_desiertoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox6ActionPerformed
+    }//GEN-LAST:event_desiertoActionPerformed
 
-    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
+    private void zonavolcanicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zonavolcanicaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox7ActionPerformed
+    }//GEN-LAST:event_zonavolcanicaActionPerformed
 
-    private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox8ActionPerformed
+    private void manglarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manglarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox8ActionPerformed
+    }//GEN-LAST:event_manglarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton7;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
+    public javax.swing.JCheckBox bosque;
+    public javax.swing.JCheckBox ciudad;
+    public javax.swing.JCheckBox desierto;
+    public javax.swing.JButton guardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -514,5 +509,10 @@ public class vistaPreferencias extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    public javax.swing.JCheckBox jungla;
+    public javax.swing.JCheckBox manglar;
+    public javax.swing.JCheckBox montaña;
+    public javax.swing.JCheckBox playa;
+    public javax.swing.JCheckBox zonavolcanica;
     // End of variables declaration//GEN-END:variables
 }

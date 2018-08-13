@@ -269,7 +269,7 @@ public class controlCalculadora implements ActionListener
         }
     }
     
-     public void mostraractividades(String sentencia)
+    public void mostraractividades(String sentencia)
     {
         bandera=false;
         nombres.clear();
@@ -444,7 +444,7 @@ public class controlCalculadora implements ActionListener
         }
     }
     
-     public void mostrartransportes(String sentencia)
+    public void mostrartransportes(String sentencia)
     {
         bandera2=false;
         transporte.clear();
