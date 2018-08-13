@@ -445,11 +445,11 @@ public class controlEditarViajeMN implements ActionListener, PropertyChangeListe
             String letra = selectedButton.getName().substring(0, 1);  
             String id = selectedButton.getName().substring(1);
             System.out.println("id"+id);
-            if(!id.equals("")){
-                idD=id;
-            }
             //Botón de ver actividades del destino
             if(letra.equals("D")){
+                 if(!id.equals("")){
+                    idD=id;
+                }
                 actS=null;
                 actP.clear();
                 actSS.clear();

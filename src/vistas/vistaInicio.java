@@ -109,7 +109,7 @@ public class vistaInicio extends javax.swing.JPanel {
         scrollDestinos.setBackground(new java.awt.Color(255, 255, 255));
 
         scrollDestinos1.setBackground(new java.awt.Color(255, 255, 255));
-        scrollDestinos1.setPreferredSize(new java.awt.Dimension(892, 2163));
+        scrollDestinos1.setPreferredSize(new java.awt.Dimension(892, 2500));
 
         jLabel3.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
@@ -415,7 +415,7 @@ public class vistaInicio extends javax.swing.JPanel {
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(scrollVolcan1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pnlBusqueda.setBackground(new java.awt.Color(255, 255, 255));

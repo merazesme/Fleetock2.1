@@ -549,13 +549,14 @@ public class controlDetalleDestino implements ActionListener{
             vista.lblCalificacion.setText("¡Excelente!");
         }      
         System.out.println("cali : " + cali);
+        
         if(vista.boton_enviar == e.getSource())
         {
-            if(cali >=1 && bandera)
+            if(cali >=1 && bandera==true && vista.texto_opinion.getText()=="" && vista.texto_titulo.getText()=="")
             {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String date = sdf.format(new Date());             
-                if(modelo.insertarComentarios(vista.texto_titulo.getText(), cali, controlPrincipal.usuario[2], Integer.parseInt(idD), vista.texto_titulo.getText(), date))    
+                if(modelo.insertarComentarios(vista.texto_opinion.getText(), cali, controlPrincipal.usuario[2], Integer.parseInt(idD), vista.texto_titulo.getText(), date))    
                 {
                     JOptionPane.showMessageDialog(null, "Comentario agregado");
                     limpiar();
@@ -572,8 +573,8 @@ public class controlDetalleDestino implements ActionListener{
             }
             else
             {
-                JOptionPane.showMessageDialog(null, "Selecciona una calificacion", "¡Atención!", JOptionPane.ERROR_MESSAGE);
-                limpiar();
+                JOptionPane.showMessageDialog(null, "Favor de llenar todos los campos", "¡Atención!", JOptionPane.ERROR_MESSAGE);
+                //limpiar();
                 cali=0;
             }
         }

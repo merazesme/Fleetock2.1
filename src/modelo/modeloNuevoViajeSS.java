@@ -27,6 +27,7 @@ public class modeloNuevoViajeSS {
          try {
             Connection con = conexion.abrirConexion();
             Statement s = con.createStatement();
+            
             sql = s.executeQuery("SELECT `idEstiloViaje`, `tipo` FROM `estiloviaje` ;");
             //número de registros obrenidos
             int count = 0;

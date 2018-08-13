@@ -310,11 +310,12 @@ public class controlNuevoViajeSS implements ActionListener, PropertyChangeListen
             String letra = selectedButton.getName().substring(0, 1);  
             String id = selectedButton.getName().substring(1);
             System.out.println("id"+id);
-            if(!id.equals("")){
-                idD=id;
-            }
+            
             //Botón de ver actividades del destino
             if(letra.equals("D")){
+                if(!id.equals("")){
+                    idD=id;
+                }
                destinos(modelo.datosActividades("where tiene.Destino_idDestino = "+id+" and posee.EstiloViaje_idEstiloViaje ="+estiloSeleccionado()+";"), vista.pnlActividades, "billete-con-estrella");
             }
             
