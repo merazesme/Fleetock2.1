@@ -78,7 +78,7 @@ public class vistaActividadComentarios extends javax.swing.JPanel {
         enviar = new javax.swing.JButton();
         lblImagen = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
+        lblCalificacion = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         lblDescripcion = new javax.swing.JTextArea();
@@ -594,11 +594,11 @@ public class vistaActividadComentarios extends javax.swing.JPanel {
         jLabel13.setText("Descripción");
         jLabel13.setToolTipText("");
 
-        jLabel20.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel20.setText("(Pésimo, Malo, Regular,  Muy bueno, Excelente)");
-        jLabel20.setToolTipText("");
+        lblCalificacion.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        lblCalificacion.setForeground(new java.awt.Color(102, 102, 102));
+        lblCalificacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblCalificacion.setText("(Pésimo, Malo, Regular,  Muy bueno, Excelente)");
+        lblCalificacion.setToolTipText("");
 
         jLabel14.setFont(new java.awt.Font("Candara", 1, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(102, 102, 102));
@@ -715,7 +715,7 @@ public class vistaActividadComentarios extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(210, 210, 210)
                                 .addComponent(enviar))
-                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblCalificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(scrollOpiniones1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -760,7 +760,7 @@ public class vistaActividadComentarios extends javax.swing.JPanel {
                             .addComponent(muybueno)
                             .addComponent(regular))
                         .addGap(13, 13, 13)
-                        .addComponent(jLabel20)
+                        .addComponent(lblCalificacion)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel18)
                         .addGap(2, 2, 2)
@@ -884,7 +884,6 @@ public class vistaActividadComentarios extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
@@ -919,6 +918,7 @@ public class vistaActividadComentarios extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator3;
+    public javax.swing.JLabel lblCalificacion;
     public javax.swing.JTextArea lblDescripcion;
     public javax.swing.JLabel lblEstilo;
     public javax.swing.JLabel lblEstiloPresupuesto;

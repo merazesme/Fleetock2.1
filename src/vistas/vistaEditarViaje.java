@@ -110,6 +110,7 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         txtDescripcion = new javax.swing.JTextArea();
         btnGuardar = new javax.swing.JButton();
         btnActividades = new javax.swing.JButton();
+        lblDestino = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -893,6 +894,12 @@ public class vistaEditarViaje extends javax.swing.JPanel {
         });
         jPanel3.add(btnActividades, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 190, 40));
 
+        lblDestino.setBackground(new java.awt.Color(102, 102, 102));
+        lblDestino.setFont(new java.awt.Font("Candara", 0, 16)); // NOI18N
+        lblDestino.setForeground(new java.awt.Color(102, 102, 102));
+        lblDestino.setText("Destino");
+        jPanel3.add(lblDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, 20));
+
         jScrollPane3.setViewportView(jPanel3);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -1042,6 +1049,7 @@ public class vistaEditarViaje extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
+    public javax.swing.JLabel lblDestino;
     public javax.swing.JLabel lblEstado;
     public javax.swing.JLabel lblFechaI;
     public javax.swing.JPanel pnlActividadesP;

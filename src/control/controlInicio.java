@@ -20,8 +20,6 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.BoxLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -29,7 +27,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import modelo.modeloAgregarViaje;
@@ -45,11 +42,10 @@ public class controlInicio implements ActionListener, KeyListener{
     private vistaInicio vista;
     private vistaPrincipal vPrincipal;
     private modeloInicio modelo;
-    public static String [] usuario;
     //Boton de la imagen del destino
     JButton btnImagen, btnNuevoViaje;
     
-    public controlInicio(vistaInicio vista, vistaPrincipal vPrincipal, modeloInicio modelo, String [] usuario)
+    public controlInicio(vistaInicio vista, vistaPrincipal vPrincipal, modeloInicio modelo)
     {
         this.vista = vista;
         this.vPrincipal=vPrincipal;
@@ -57,7 +53,6 @@ public class controlInicio implements ActionListener, KeyListener{
         this.vista.txtBusqueda.addKeyListener(this);  
         this.vista.btnSugerencias.addActionListener(this);
         this.vista.btnTendencias.addActionListener(this);
-        this.usuario = usuario;
         principal();
     }
     
@@ -288,12 +283,10 @@ public class controlInicio implements ActionListener, KeyListener{
             String idD = selectedButton.getName().substring(1);  
         //Botón de detalles de destino
             if(letra.equals("D"))
-            {                             
-                System.out.println("El id del usuario es: " + usuario[0]);
-                System.out.println("El id Destino es: " + idD);
+            {
                 vistaDetallesDestino vDetallesDestino = new vistaDetallesDestino();
                 modeloDetalleDestino mDetallesDestino = new modeloDetalleDestino();
-                controlDetalleDestino cDetalleDestino = new controlDetalleDestino(vDetallesDestino, vPrincipal, mDetallesDestino, idD, this.usuario);
+                controlDetalleDestino cDetalleDestino = new controlDetalleDestino(vDetallesDestino, vPrincipal, mDetallesDestino, idD);
                 CambiaPanel cambiar = new CambiaPanel(vPrincipal.panelCambiante, vDetallesDestino);
             }
         //Botón de agregar a viaje    

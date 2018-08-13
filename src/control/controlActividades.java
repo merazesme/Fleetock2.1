@@ -55,7 +55,7 @@ public class controlActividades implements ActionListener, KeyListener{
     List<JCheckBox> jnombre = new ArrayList<>();
     //Declaración de un arraylist para los checkbox de las actividades seleccionadas
     List<String> actSelec = new ArrayList<>();
-    //Declaración de un arraylist para los checkbox de las actividades seleccionadas
+    //Declaración de un arraylist para los checkbox de las primeras actividades seleccionadas
     List<String> actSelecA = new ArrayList<>();
     
     //actSelec si viene null - viene de Detalles de Destino
@@ -68,7 +68,7 @@ public class controlActividades implements ActionListener, KeyListener{
         this.actSelec=actSelec;
         this.vista.txtBusqueda.addKeyListener(this);
         this.vista.btnRegresar.addActionListener(this);
-        act(modelo.datosActividades(idD), vista.pnlBusqueda);
+        act(this.modelo.datosActividades(idD), vista.pnlBusqueda);
         vista.pnlBusqueda.setBorder(new EmptyBorder(5, 40, 0, 0));
         
         if(this.actSelec!=null){
@@ -321,42 +321,44 @@ public class controlActividades implements ActionListener, KeyListener{
         
         
         //Actividades seleccionadas que son nuevas
-        if(e.getSource() == vista.btnRegresar && actSelec!=null){  
-            imprimir();
-            boolean ban1=false, ban2=false;
-            for(int i=0; i<actSelec.size(); i++){
-                if(!comparacionSelec(actSelec.get(i))){
-                    System.out.println("AGREGAR Nuevo ID: "+actSelec.get(i));
-                    if(!modelo.insertarActividad(actSelec.get(i), idV, idD)){
-                        ban1=true;
+        if(e.getSource() == vista.btnRegresar && actSelec!=null){ 
+            if(!actSelec.isEmpty() || !actSelecA.isEmpty()){
+                imprimir();
+                boolean ban1=false, ban2=false;
+                for(int i=0; i<actSelec.size(); i++){
+                    if(!comparacionSelec(actSelec.get(i))){
+                        System.out.println("AGREGAR Nuevo ID: "+actSelec.get(i));
+                        if(!modelo.insertarActividad(actSelec.get(i), idV, idD)){
+                            ban1=true;
+                        }
                     }
+                    System.out.println("-------------------------------------------------");
                 }
-                System.out.println("-------------------------------------------------");
-            }
-            
-             System.out.println("********************************************");
-            
-             //Actividades que estaban seleccionadas antes, pero ya no
-            for(int i=0; i<actSelecA.size(); i++){
-                if(!comparacionSelecA(actSelecA.get(i))){
-                    if(modelo.eliminarActividad(actSelecA.get(i), idV)){
-                        ban2=true;
+
+                 System.out.println("********************************************");
+
+                 //Actividades que estaban seleccionadas antes, pero ya no
+                for(int i=0; i<actSelecA.size(); i++){
+                    if(!comparacionSelecA(actSelecA.get(i))){
+                        if(modelo.eliminarActividad(actSelecA.get(i), idV)){
+                            ban2=true;
+                        }
+                        System.out.println("ELIMINAR Seleccionado antes pero no ahora ID: "+actSelecA.get(i));
                     }
-                    System.out.println("ELIMINAR Seleccionado antes pero no ahora ID: "+actSelecA.get(i));
+                    System.out.println("-------------------------------------------------");
                 }
-                System.out.println("-------------------------------------------------");
+
+                String m="";
+                if(ban1 && ban2){
+                    m="No se ha podido guardar las actividades del viaje :(";
+                }
+                else{
+                    m="¡Se han guardado las actividades correctamente!";
+
+                }
+
+                JOptionPane.showMessageDialog(null, m, "¡Atención!", JOptionPane.INFORMATION_MESSAGE);
             }
-            
-            String m="";
-            if(ban1 && ban2){
-                m="No se ha podido guardar las actividades del viaje :(";
-            }
-            else{
-                m="¡Se han guardado las actividades correctamente!";
-               
-            }
-            
-            JOptionPane.showMessageDialog(null, m, "¡Atención!", JOptionPane.INFORMATION_MESSAGE);
             vistaEditarViaje vistaEditarViaje = new vistaEditarViaje();
             modeloEditarViaje modeloEditarViaje = new modeloEditarViaje();
             controlEditarViaje controlEditarViaje= new controlEditarViaje(vistaEditarViaje, vPrincipal, modeloEditarViaje, idV);

@@ -114,7 +114,7 @@
                                       <EmptySpace min="210" pref="210" max="-2" attributes="0"/>
                                       <Component id="enviar" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jLabel20" alignment="0" min="-2" pref="361" max="-2" attributes="0"/>
+                                  <Component id="lblCalificacion" alignment="0" min="-2" pref="361" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="scrollOpiniones1" min="-2" pref="429" max="-2" attributes="0"/>
@@ -172,7 +172,7 @@
                                   <Component id="regular" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                              <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCalificacion" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
@@ -1056,7 +1056,7 @@
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel20">
+            <Component class="javax.swing.JLabel" name="lblCalificacion">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Candara" size="14" style="0"/>
@@ -1068,6 +1068,9 @@
                 <Property name="text" type="java.lang.String" value="(P&#xe9;simo, Malo, Regular,  Muy bueno, Excelente)"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel14">
               <Properties>

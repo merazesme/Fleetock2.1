@@ -31,52 +31,27 @@ public class vistaEditarViajeMN extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         jSeparator7 = new javax.swing.JSeparator();
-        jTextField6 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
-        jDateChooser5 = new com.toedter.calendar.JDateChooser();
-        jDateChooser6 = new com.toedter.calendar.JDateChooser();
+        fechaFin = new com.toedter.calendar.JDateChooser();
+        fechaInicio = new com.toedter.calendar.JDateChooser();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cmbEstiloViaje = new javax.swing.JComboBox<>();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
-        jTextField7 = new javax.swing.JTextField();
+        txtBusquedaA = new javax.swing.JTextField();
         scrollActividadesPendientes1 = new javax.swing.JScrollPane();
-        jPanel26 = new javax.swing.JPanel();
-        jPanel27 = new javax.swing.JPanel();
-        jPanel28 = new javax.swing.JPanel();
-        jLabel31 = new javax.swing.JLabel();
-        jCheckBox13 = new javax.swing.JCheckBox();
-        jPanel62 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
-        jPanel35 = new javax.swing.JPanel();
-        jPanel36 = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
-        jCheckBox14 = new javax.swing.JCheckBox();
-        jPanel63 = new javax.swing.JPanel();
-        jButton11 = new javax.swing.JButton();
-        jPanel37 = new javax.swing.JPanel();
-        jPanel38 = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
-        jCheckBox15 = new javax.swing.JCheckBox();
-        jPanel64 = new javax.swing.JPanel();
-        jButton12 = new javax.swing.JButton();
-        jPanel39 = new javax.swing.JPanel();
-        jPanel65 = new javax.swing.JPanel();
-        jLabel24 = new javax.swing.JLabel();
-        jCheckBox16 = new javax.swing.JCheckBox();
-        jPanel66 = new javax.swing.JPanel();
-        jButton13 = new javax.swing.JButton();
-        jLabel19 = new javax.swing.JLabel();
-        jDateChooser7 = new com.toedter.calendar.JDateChooser();
-        jButton7 = new javax.swing.JButton();
-        jLabel40 = new javax.swing.JLabel();
+        pnlActividadesP = new javax.swing.JPanel();
+        lblFecha = new javax.swing.JLabel();
+        fechaActividad = new com.toedter.calendar.JDateChooser();
+        btnGuardar = new javax.swing.JButton();
+        lblEstado = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jLabel5 = new javax.swing.JLabel();
+        txtDescripcion = new javax.swing.JTextArea();
         scrollDestinos = new javax.swing.JScrollPane();
-        jPanel19 = new javax.swing.JPanel();
+        pnlDestinos = new javax.swing.JPanel();
         jPanel52 = new javax.swing.JPanel();
         jLabel49 = new javax.swing.JLabel();
         jPanel23 = new javax.swing.JPanel();
@@ -113,39 +88,14 @@ public class vistaEditarViajeMN extends javax.swing.JPanel {
         jCheckBox23 = new javax.swing.JCheckBox();
         jTextField3 = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
-        jTextField8 = new javax.swing.JTextField();
+        txtBusquedaD = new javax.swing.JTextField();
         jSeparator9 = new javax.swing.JSeparator();
         jLabel38 = new javax.swing.JLabel();
         scrollActividadesRealizadas = new javax.swing.JScrollPane();
-        jPanel41 = new javax.swing.JPanel();
-        jPanel44 = new javax.swing.JPanel();
-        jPanel45 = new javax.swing.JPanel();
-        jCheckBox17 = new javax.swing.JCheckBox();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jPanel67 = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
-        jPanel29 = new javax.swing.JPanel();
-        jPanel30 = new javax.swing.JPanel();
-        jLabel32 = new javax.swing.JLabel();
-        jCheckBox18 = new javax.swing.JCheckBox();
-        jLabel33 = new javax.swing.JLabel();
-        jPanel68 = new javax.swing.JPanel();
-        jButton8 = new javax.swing.JButton();
-        jPanel31 = new javax.swing.JPanel();
-        jPanel32 = new javax.swing.JPanel();
-        jLabel34 = new javax.swing.JLabel();
-        jCheckBox19 = new javax.swing.JCheckBox();
-        jLabel35 = new javax.swing.JLabel();
-        jPanel69 = new javax.swing.JPanel();
-        jButton9 = new javax.swing.JButton();
-        jPanel33 = new javax.swing.JPanel();
-        jPanel34 = new javax.swing.JPanel();
-        jLabel36 = new javax.swing.JLabel();
-        jCheckBox20 = new javax.swing.JCheckBox();
-        jLabel37 = new javax.swing.JLabel();
-        jPanel70 = new javax.swing.JPanel();
-        jButton10 = new javax.swing.JButton();
+        pnlActividadesR = new javax.swing.JPanel();
+        lblDestinos = new javax.swing.JButton();
+        btnActividades = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -153,19 +103,16 @@ public class vistaEditarViajeMN extends javax.swing.JPanel {
         jScrollPane3.setBorder(null);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel3.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 89, 334, 3));
 
-        jTextField6.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(102, 102, 102));
-        jTextField6.setText("Mi viaje a ...");
-        jTextField6.setBorder(null);
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        txtNombre.setFont(new java.awt.Font("Candara", 1, 24)); // NOI18N
+        txtNombre.setForeground(new java.awt.Color(102, 102, 102));
+        txtNombre.setText("Mi viaje a ...");
+        txtNombre.setBorder(null);
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                txtNombreActionPerformed(evt);
             }
         });
-        jPanel3.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 41, 334, 46));
 
         jLabel25.setBackground(new java.awt.Color(102, 102, 102));
         jLabel25.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
@@ -174,389 +121,92 @@ public class vistaEditarViajeMN extends javax.swing.JPanel {
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Back_25px.png"))); // NOI18N
         jLabel25.setText("Fecha fin");
         jLabel25.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 50, 110, -1));
-        jPanel3.add(jDateChooser5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 80, 110, -1));
-        jPanel3.add(jDateChooser6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 80, 110, -1));
 
         jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Briefcase_45px.png"))); // NOI18N
-        jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 41, -1, 46));
 
         jLabel28.setBackground(new java.awt.Color(102, 102, 102));
         jLabel28.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(102, 102, 102));
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Forward_25px.png"))); // NOI18N
         jLabel28.setText("Fecha inicio");
-        jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 50, 110, -1));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Mochilero", "Promedio", "Lujoso" }));
-        jPanel3.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 166, 28));
+        cmbEstiloViaje.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Mochilero", "Promedio", "Lujoso" }));
 
         jLabel29.setBackground(new java.awt.Color(102, 102, 102));
         jLabel29.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(102, 102, 102));
         jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Money_Bag_30px.png"))); // NOI18N
         jLabel29.setText("Estilo de viaje");
-        jPanel3.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 166, -1));
 
         jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Search_30px.png"))); // NOI18N
-        jPanel3.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 620, -1, -1));
-        jPanel3.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 640, 230, 20));
 
-        jTextField7.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jTextField7.setBorder(null);
-        jPanel3.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 610, 230, 27));
+        txtBusquedaA.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        txtBusquedaA.setBorder(null);
+        txtBusquedaA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBusquedaAActionPerformed(evt);
+            }
+        });
 
         scrollActividadesPendientes1.setBackground(new java.awt.Color(255, 255, 255));
         scrollActividadesPendientes1.setBorder(null);
         scrollActividadesPendientes1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         scrollActividadesPendientes1.setViewportBorder(javax.swing.BorderFactory.createTitledBorder(null, "Actividades pendientes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Candara", 0, 14), new java.awt.Color(102, 102, 102))); // NOI18N
 
-        jPanel26.setBackground(new java.awt.Color(255, 255, 255));
+        pnlActividadesP.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel27.setBackground(new java.awt.Color(156, 255, 87));
-        jPanel27.setPreferredSize(new java.awt.Dimension(250, 200));
-        jPanel27.setLayout(null);
-
-        jPanel28.setBackground(new java.awt.Color(156, 255, 87));
-
-        jLabel31.setBackground(new java.awt.Color(156, 255, 87));
-        jLabel31.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel31.setText("Actividad");
-
-        jCheckBox13.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
-        jCheckBox13.setText("Marcar como realizada");
-        jCheckBox13.setContentAreaFilled(false);
-        jCheckBox13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jCheckBox13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox13ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
-        jPanel28.setLayout(jPanel28Layout);
-        jPanel28Layout.setHorizontalGroup(
-            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel28Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel31, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
-                .addComponent(jCheckBox13, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+        javax.swing.GroupLayout pnlActividadesPLayout = new javax.swing.GroupLayout(pnlActividadesP);
+        pnlActividadesP.setLayout(pnlActividadesPLayout);
+        pnlActividadesPLayout.setHorizontalGroup(
+            pnlActividadesPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 398, Short.MAX_VALUE)
         );
-        jPanel28Layout.setVerticalGroup(
-            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel31)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox13)
-                .addGap(11, 11, 11))
+        pnlActividadesPLayout.setVerticalGroup(
+            pnlActividadesPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 243, Short.MAX_VALUE)
         );
 
-        jPanel27.add(jPanel28);
-        jPanel28.setBounds(0, 160, 250, 50);
+        scrollActividadesPendientes1.setViewportView(pnlActividadesP);
 
-        jPanel62.setBackground(new java.awt.Color(156, 255, 87));
-        jPanel62.setPreferredSize(new java.awt.Dimension(250, 200));
-        jPanel62.setLayout(null);
+        lblFecha.setBackground(new java.awt.Color(102, 102, 102));
+        lblFecha.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        lblFecha.setForeground(new java.awt.Color(102, 102, 102));
+        lblFecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Calendar_25px.png"))); // NOI18N
+        lblFecha.setText("Fecha");
+        lblFecha.setEnabled(false);
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chile.png"))); // NOI18N
-        jButton5.setBorderPainted(false);
-        jButton5.setContentAreaFilled(false);
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton5.setDefaultCapable(false);
-        jButton5.setFocusPainted(false);
-        jButton5.setFocusable(false);
-        jPanel62.add(jButton5);
-        jButton5.setBounds(0, 0, 250, 160);
+        fechaActividad.setEnabled(false);
 
-        jPanel27.add(jPanel62);
-        jPanel62.setBounds(0, 0, 250, 160);
+        btnGuardar.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Save_40px.png"))); // NOI18N
+        btnGuardar.setText("Guardar");
+        btnGuardar.setBorderPainted(false);
+        btnGuardar.setContentAreaFilled(false);
+        btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGuardar.setDefaultCapable(false);
+        btnGuardar.setFocusPainted(false);
+        btnGuardar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Save_35px.png"))); // NOI18N
 
-        jPanel35.setBackground(new java.awt.Color(156, 255, 87));
-        jPanel35.setPreferredSize(new java.awt.Dimension(250, 200));
-        jPanel35.setLayout(null);
+        lblEstado.setBackground(new java.awt.Color(102, 102, 102));
+        lblEstado.setFont(new java.awt.Font("Candara", 0, 16)); // NOI18N
+        lblEstado.setForeground(new java.awt.Color(102, 102, 102));
+        lblEstado.setText("Próximo, En curso, Finalizado");
 
-        jPanel36.setBackground(new java.awt.Color(156, 255, 87));
-
-        jLabel22.setBackground(new java.awt.Color(156, 255, 87));
-        jLabel22.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("Actividad");
-
-        jCheckBox14.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
-        jCheckBox14.setText("Marcar como realizada");
-        jCheckBox14.setContentAreaFilled(false);
-        jCheckBox14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jCheckBox14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox14ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel36Layout = new javax.swing.GroupLayout(jPanel36);
-        jPanel36.setLayout(jPanel36Layout);
-        jPanel36Layout.setHorizontalGroup(
-            jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel36Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel36Layout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
-                .addComponent(jCheckBox14, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
-        );
-        jPanel36Layout.setVerticalGroup(
-            jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel36Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel22)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox14)
-                .addGap(11, 11, 11))
-        );
-
-        jPanel35.add(jPanel36);
-        jPanel36.setBounds(0, 160, 250, 50);
-
-        jPanel63.setBackground(new java.awt.Color(156, 255, 87));
-        jPanel63.setPreferredSize(new java.awt.Dimension(250, 200));
-        jPanel63.setLayout(null);
-
-        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chile.png"))); // NOI18N
-        jButton11.setBorderPainted(false);
-        jButton11.setContentAreaFilled(false);
-        jButton11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton11.setDefaultCapable(false);
-        jButton11.setFocusPainted(false);
-        jButton11.setFocusable(false);
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
-        jPanel63.add(jButton11);
-        jButton11.setBounds(0, 0, 250, 160);
-
-        jPanel35.add(jPanel63);
-        jPanel63.setBounds(0, 0, 250, 160);
-
-        jPanel37.setBackground(new java.awt.Color(156, 255, 87));
-        jPanel37.setPreferredSize(new java.awt.Dimension(250, 200));
-        jPanel37.setLayout(null);
-
-        jPanel38.setBackground(new java.awt.Color(156, 255, 87));
-
-        jLabel23.setBackground(new java.awt.Color(156, 255, 87));
-        jLabel23.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText("Actividad");
-
-        jCheckBox15.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
-        jCheckBox15.setText("Marcar como realizada");
-        jCheckBox15.setContentAreaFilled(false);
-        jCheckBox15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jCheckBox15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox15ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel38Layout = new javax.swing.GroupLayout(jPanel38);
-        jPanel38.setLayout(jPanel38Layout);
-        jPanel38Layout.setHorizontalGroup(
-            jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel38Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel38Layout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
-                .addComponent(jCheckBox15, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
-        );
-        jPanel38Layout.setVerticalGroup(
-            jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel38Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel23)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox15)
-                .addGap(11, 11, 11))
-        );
-
-        jPanel37.add(jPanel38);
-        jPanel38.setBounds(0, 160, 250, 50);
-
-        jPanel64.setBackground(new java.awt.Color(156, 255, 87));
-        jPanel64.setPreferredSize(new java.awt.Dimension(250, 200));
-        jPanel64.setLayout(null);
-
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chile.png"))); // NOI18N
-        jButton12.setBorderPainted(false);
-        jButton12.setContentAreaFilled(false);
-        jButton12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton12.setDefaultCapable(false);
-        jButton12.setFocusPainted(false);
-        jButton12.setFocusable(false);
-        jPanel64.add(jButton12);
-        jButton12.setBounds(0, 0, 250, 160);
-
-        jPanel37.add(jPanel64);
-        jPanel64.setBounds(0, 0, 250, 160);
-
-        jPanel39.setBackground(new java.awt.Color(156, 255, 87));
-        jPanel39.setPreferredSize(new java.awt.Dimension(250, 200));
-        jPanel39.setLayout(null);
-
-        jPanel65.setBackground(new java.awt.Color(156, 255, 87));
-
-        jLabel24.setBackground(new java.awt.Color(156, 255, 87));
-        jLabel24.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel24.setText("Actividad");
-
-        jCheckBox16.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
-        jCheckBox16.setText("Marcar como realizada");
-        jCheckBox16.setContentAreaFilled(false);
-        jCheckBox16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jCheckBox16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox16ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel65Layout = new javax.swing.GroupLayout(jPanel65);
-        jPanel65.setLayout(jPanel65Layout);
-        jPanel65Layout.setHorizontalGroup(
-            jPanel65Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel65Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel65Layout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
-                .addComponent(jCheckBox16, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
-        );
-        jPanel65Layout.setVerticalGroup(
-            jPanel65Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel65Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel24)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox16)
-                .addGap(11, 11, 11))
-        );
-
-        jPanel39.add(jPanel65);
-        jPanel65.setBounds(0, 160, 250, 50);
-
-        jPanel66.setBackground(new java.awt.Color(156, 255, 87));
-        jPanel66.setPreferredSize(new java.awt.Dimension(250, 200));
-        jPanel66.setLayout(null);
-
-        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chile.png"))); // NOI18N
-        jButton13.setBorderPainted(false);
-        jButton13.setContentAreaFilled(false);
-        jButton13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton13.setDefaultCapable(false);
-        jButton13.setFocusPainted(false);
-        jButton13.setFocusable(false);
-        jPanel66.add(jButton13);
-        jButton13.setBounds(0, 0, 250, 160);
-
-        jPanel39.add(jPanel66);
-        jPanel66.setBounds(0, 0, 250, 160);
-
-        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
-        jPanel26.setLayout(jPanel26Layout);
-        jPanel26Layout.setHorizontalGroup(
-            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel26Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel26Layout.setVerticalGroup(
-            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel26Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel39, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel35, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-
-        scrollActividadesPendientes1.setViewportView(jPanel26);
-
-        jPanel3.add(scrollActividadesPendientes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 670, 410, 270));
-
-        jLabel19.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel19.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Calendar_25px.png"))); // NOI18N
-        jLabel19.setText("Fecha");
-        jLabel19.setEnabled(false);
-        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 620, 110, -1));
-
-        jDateChooser7.setEnabled(false);
-        jPanel3.add(jDateChooser7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 620, 110, 25));
-
-        jButton7.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Save_40px.png"))); // NOI18N
-        jButton7.setText("Guardar");
-        jButton7.setBorderPainted(false);
-        jButton7.setContentAreaFilled(false);
-        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton7.setDefaultCapable(false);
-        jButton7.setFocusPainted(false);
-        jButton7.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Save_35px.png"))); // NOI18N
-        jPanel3.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 950, -1, -1));
-
-        jLabel40.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel40.setFont(new java.awt.Font("Candara", 0, 16)); // NOI18N
-        jLabel40.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel40.setText("Próximo, En curso, Finalizado");
-        jPanel3.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(102, 102, 102));
-        jTextArea1.setRows(5);
-        jTextArea1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Descripción", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Candara", 0, 14), new java.awt.Color(102, 102, 102))); // NOI18N
-        jTextArea1.setCaretColor(new java.awt.Color(102, 102, 102));
-        jTextArea1.setEnabled(false);
-        jTextArea1.setFocusable(false);
-        jTextArea1.setRequestFocusEnabled(false);
-        jScrollPane4.setViewportView(jTextArea1);
-
-        jPanel3.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 140, 280, 130));
-
-        jLabel5.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel5.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Map_Marker_30px.png"))); // NOI18N
-        jLabel5.setText("Destinos");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+        txtDescripcion.setColumns(20);
+        txtDescripcion.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        txtDescripcion.setForeground(new java.awt.Color(102, 102, 102));
+        txtDescripcion.setRows(5);
+        txtDescripcion.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Descripción", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Candara", 0, 14), new java.awt.Color(102, 102, 102))); // NOI18N
+        txtDescripcion.setCaretColor(new java.awt.Color(102, 102, 102));
+        txtDescripcion.setFocusable(false);
+        txtDescripcion.setRequestFocusEnabled(false);
+        jScrollPane4.setViewportView(txtDescripcion);
 
         scrollDestinos.setBackground(new java.awt.Color(255, 255, 255));
         scrollDestinos.setBorder(null);
         scrollDestinos.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        jPanel19.setBackground(new java.awt.Color(255, 255, 255));
+        pnlDestinos.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel52.setBackground(new java.awt.Color(156, 255, 87));
         jPanel52.setPreferredSize(new java.awt.Dimension(250, 200));
@@ -914,11 +564,11 @@ public class vistaEditarViajeMN extends javax.swing.JPanel {
         jPanel60.add(jPanel25);
         jPanel25.setBounds(0, 160, 250, 50);
 
-        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
-        jPanel19.setLayout(jPanel19Layout);
-        jPanel19Layout.setHorizontalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel19Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlDestinosLayout = new javax.swing.GroupLayout(pnlDestinos);
+        pnlDestinos.setLayout(pnlDestinosLayout);
+        pnlDestinosLayout.setHorizontalGroup(
+            pnlDestinosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDestinosLayout.createSequentialGroup()
                 .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel56, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -929,11 +579,11 @@ public class vistaEditarViajeMN extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel60, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jPanel19Layout.setVerticalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel19Layout.createSequentialGroup()
+        pnlDestinosLayout.setVerticalGroup(
+            pnlDestinosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDestinosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pnlDestinosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel56, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                     .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel52, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -942,363 +592,222 @@ public class vistaEditarViajeMN extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        scrollDestinos.setViewportView(jPanel19);
-
-        jPanel3.add(scrollDestinos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 830, 240));
+        scrollDestinos.setViewportView(pnlDestinos);
 
         jTextField3.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         jTextField3.setBorder(null);
-        jPanel3.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
-        jPanel3.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
 
-        jTextField8.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jTextField8.setBorder(null);
-        jPanel3.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 300, 240, 27));
-        jPanel3.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, 240, 20));
+        txtBusquedaD.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        txtBusquedaD.setBorder(null);
 
         jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Search_30px.png"))); // NOI18N
-        jPanel3.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, -1, -1));
 
         scrollActividadesRealizadas.setBackground(new java.awt.Color(255, 255, 255));
         scrollActividadesRealizadas.setBorder(null);
         scrollActividadesRealizadas.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         scrollActividadesRealizadas.setViewportBorder(javax.swing.BorderFactory.createTitledBorder(null, "Actividades realizadas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Candara", 0, 14), new java.awt.Color(102, 102, 102))); // NOI18N
 
-        jPanel41.setBackground(new java.awt.Color(255, 255, 255));
+        pnlActividadesR.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel44.setBackground(new java.awt.Color(156, 255, 87));
-        jPanel44.setPreferredSize(new java.awt.Dimension(250, 200));
-        jPanel44.setLayout(null);
+        javax.swing.GroupLayout pnlActividadesRLayout = new javax.swing.GroupLayout(pnlActividadesR);
+        pnlActividadesR.setLayout(pnlActividadesRLayout);
+        pnlActividadesRLayout.setHorizontalGroup(
+            pnlActividadesRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 388, Short.MAX_VALUE)
+        );
+        pnlActividadesRLayout.setVerticalGroup(
+            pnlActividadesRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 243, Short.MAX_VALUE)
+        );
 
-        jPanel45.setBackground(new java.awt.Color(156, 255, 87));
+        scrollActividadesRealizadas.setViewportView(pnlActividadesR);
 
-        jCheckBox17.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
-        jCheckBox17.setText("Marcar como pendiente");
-        jCheckBox17.setContentAreaFilled(false);
-        jCheckBox17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jCheckBox17.addActionListener(new java.awt.event.ActionListener() {
+        lblDestinos.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        lblDestinos.setForeground(new java.awt.Color(102, 102, 102));
+        lblDestinos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Map_Marker_30px.png"))); // NOI18N
+        lblDestinos.setText("Destinos");
+        lblDestinos.setBorder(null);
+        lblDestinos.setBorderPainted(false);
+        lblDestinos.setContentAreaFilled(false);
+        lblDestinos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblDestinos.setDefaultCapable(false);
+        lblDestinos.setFocusPainted(false);
+        lblDestinos.setFocusable(false);
+        lblDestinos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblDestinos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox17ActionPerformed(evt);
+                lblDestinosActionPerformed(evt);
             }
         });
 
-        jLabel20.setBackground(new java.awt.Color(156, 255, 87));
-        jLabel20.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("Actividad");
-
-        jLabel21.setBackground(new java.awt.Color(156, 255, 87));
-        jLabel21.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setText("dd-mm-yyyy");
-
-        javax.swing.GroupLayout jPanel45Layout = new javax.swing.GroupLayout(jPanel45);
-        jPanel45.setLayout(jPanel45Layout);
-        jPanel45Layout.setHorizontalGroup(
-            jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel45Layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
-                .addGroup(jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel45Layout.createSequentialGroup()
-                        .addComponent(jCheckBox17, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel45Layout.createSequentialGroup()
-                        .addGroup(jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(55, 55, 55))))
-        );
-        jPanel45Layout.setVerticalGroup(
-            jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel45Layout.createSequentialGroup()
-                .addComponent(jLabel20)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel21)
-                .addGap(1, 1, 1)
-                .addComponent(jCheckBox17)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel44.add(jPanel45);
-        jPanel45.setBounds(0, 160, 250, 70);
-
-        jPanel67.setBackground(new java.awt.Color(156, 255, 87));
-        jPanel67.setPreferredSize(new java.awt.Dimension(250, 200));
-        jPanel67.setLayout(null);
-
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chile.png"))); // NOI18N
-        jButton6.setBorderPainted(false);
-        jButton6.setContentAreaFilled(false);
-        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton6.setDefaultCapable(false);
-        jButton6.setFocusPainted(false);
-        jButton6.setFocusable(false);
-        jPanel67.add(jButton6);
-        jButton6.setBounds(0, 0, 250, 160);
-
-        jPanel44.add(jPanel67);
-        jPanel67.setBounds(0, 0, 250, 160);
-
-        jPanel29.setBackground(new java.awt.Color(156, 255, 87));
-        jPanel29.setPreferredSize(new java.awt.Dimension(250, 200));
-        jPanel29.setLayout(null);
-
-        jPanel30.setBackground(new java.awt.Color(156, 255, 87));
-
-        jLabel32.setBackground(new java.awt.Color(156, 255, 87));
-        jLabel32.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel32.setText("Actividad");
-
-        jCheckBox18.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
-        jCheckBox18.setText("Marcar como pendiente");
-        jCheckBox18.setContentAreaFilled(false);
-        jCheckBox18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jCheckBox18.addActionListener(new java.awt.event.ActionListener() {
+        btnActividades.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        btnActividades.setForeground(new java.awt.Color(102, 102, 102));
+        btnActividades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-billete-con-estrella-30.png"))); // NOI18N
+        btnActividades.setText("Actividades");
+        btnActividades.setBorder(null);
+        btnActividades.setBorderPainted(false);
+        btnActividades.setContentAreaFilled(false);
+        btnActividades.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnActividades.setDefaultCapable(false);
+        btnActividades.setFocusPainted(false);
+        btnActividades.setFocusable(false);
+        btnActividades.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnActividades.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-billete-con-estrella-35.png"))); // NOI18N
+        btnActividades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox18ActionPerformed(evt);
+                btnActividadesActionPerformed(evt);
             }
         });
 
-        jLabel33.setBackground(new java.awt.Color(156, 255, 87));
-        jLabel33.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
-        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel33.setText("dd-mm-yyyy");
+        btnEliminar.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-basura-llena-40.png"))); // NOI18N
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setBorderPainted(false);
+        btnEliminar.setContentAreaFilled(false);
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminar.setDefaultCapable(false);
+        btnEliminar.setFocusPainted(false);
+        btnEliminar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-basura-llena-35.png"))); // NOI18N
 
-        javax.swing.GroupLayout jPanel30Layout = new javax.swing.GroupLayout(jPanel30);
-        jPanel30.setLayout(jPanel30Layout);
-        jPanel30Layout.setHorizontalGroup(
-            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel30Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel30Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jCheckBox18, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
-            .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel30Layout.createSequentialGroup()
-                    .addGap(59, 59, 59)
-                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(60, Short.MAX_VALUE)))
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel27)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(153, 153, 153)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(60, 60, 60)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblEstado)
+                            .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbEstiloViaje, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(352, 352, 352)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(580, 580, 580)
+                        .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(540, 540, 540)
+                        .addComponent(jLabel38))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(580, 580, 580)
+                        .addComponent(txtBusquedaD, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(scrollDestinos, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDestinos, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnActividades, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(fechaActividad, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(330, 330, 330)
+                        .addComponent(jLabel30)
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtBusquedaA, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(scrollActividadesPendientes1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(scrollActividadesRealizadas, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnEliminar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnGuardar)))
+                .addGap(23, 23, 23))
         );
-        jPanel30Layout.setVerticalGroup(
-            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel30Layout.createSequentialGroup()
-                .addComponent(jLabel32)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addComponent(jCheckBox18))
-            .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel30Layout.createSequentialGroup()
-                    .addGap(22, 22, 22)
-                    .addComponent(jLabel33)
-                    .addContainerGap(23, Short.MAX_VALUE)))
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel28)
+                                .addGap(5, 5, 5)
+                                .addComponent(fechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel25)
+                                .addGap(5, 5, 5)
+                                .addComponent(fechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(lblEstado)
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel29)
+                        .addGap(10, 10, 10)
+                        .addComponent(cmbEstiloViaje, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel38)
+                    .addComponent(txtBusquedaD, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(scrollDestinos, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblDestinos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnActividades, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblFecha)
+                            .addComponent(fechaActividad, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel30))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(txtBusquedaA, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3)
+                        .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scrollActividadesPendientes1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scrollActividadesRealizadas, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGuardar)
+                    .addComponent(btnEliminar)))
         );
-
-        jPanel29.add(jPanel30);
-        jPanel30.setBounds(0, 160, 250, 60);
-
-        jPanel68.setBackground(new java.awt.Color(156, 255, 87));
-        jPanel68.setPreferredSize(new java.awt.Dimension(250, 200));
-        jPanel68.setLayout(null);
-
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chile.png"))); // NOI18N
-        jButton8.setBorderPainted(false);
-        jButton8.setContentAreaFilled(false);
-        jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton8.setDefaultCapable(false);
-        jButton8.setFocusPainted(false);
-        jButton8.setFocusable(false);
-        jPanel68.add(jButton8);
-        jButton8.setBounds(0, 0, 250, 160);
-
-        jPanel29.add(jPanel68);
-        jPanel68.setBounds(0, 0, 250, 160);
-
-        jPanel31.setBackground(new java.awt.Color(156, 255, 87));
-        jPanel31.setPreferredSize(new java.awt.Dimension(250, 200));
-        jPanel31.setLayout(null);
-
-        jPanel32.setBackground(new java.awt.Color(156, 255, 87));
-
-        jLabel34.setBackground(new java.awt.Color(156, 255, 87));
-        jLabel34.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel34.setText("Actividad");
-
-        jCheckBox19.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
-        jCheckBox19.setText("Marcar como pendiente");
-        jCheckBox19.setContentAreaFilled(false);
-        jCheckBox19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jCheckBox19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox19ActionPerformed(evt);
-            }
-        });
-
-        jLabel35.setBackground(new java.awt.Color(156, 255, 87));
-        jLabel35.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
-        jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel35.setText("dd-mm-yyyy");
-
-        javax.swing.GroupLayout jPanel32Layout = new javax.swing.GroupLayout(jPanel32);
-        jPanel32.setLayout(jPanel32Layout);
-        jPanel32Layout.setHorizontalGroup(
-            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel32Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel32Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jCheckBox19, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
-            .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel32Layout.createSequentialGroup()
-                    .addGap(59, 59, 59)
-                    .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(60, Short.MAX_VALUE)))
-        );
-        jPanel32Layout.setVerticalGroup(
-            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel32Layout.createSequentialGroup()
-                .addComponent(jLabel34)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addComponent(jCheckBox19))
-            .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel32Layout.createSequentialGroup()
-                    .addGap(22, 22, 22)
-                    .addComponent(jLabel35)
-                    .addContainerGap(23, Short.MAX_VALUE)))
-        );
-
-        jPanel31.add(jPanel32);
-        jPanel32.setBounds(0, 160, 250, 60);
-
-        jPanel69.setBackground(new java.awt.Color(156, 255, 87));
-        jPanel69.setPreferredSize(new java.awt.Dimension(250, 200));
-        jPanel69.setLayout(null);
-
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chile.png"))); // NOI18N
-        jButton9.setBorderPainted(false);
-        jButton9.setContentAreaFilled(false);
-        jButton9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton9.setDefaultCapable(false);
-        jButton9.setFocusPainted(false);
-        jButton9.setFocusable(false);
-        jPanel69.add(jButton9);
-        jButton9.setBounds(0, 0, 250, 160);
-
-        jPanel31.add(jPanel69);
-        jPanel69.setBounds(0, 0, 250, 160);
-
-        jPanel33.setBackground(new java.awt.Color(156, 255, 87));
-        jPanel33.setPreferredSize(new java.awt.Dimension(250, 200));
-        jPanel33.setLayout(null);
-
-        jPanel34.setBackground(new java.awt.Color(156, 255, 87));
-
-        jLabel36.setBackground(new java.awt.Color(156, 255, 87));
-        jLabel36.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel36.setText("Actividad");
-
-        jCheckBox20.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
-        jCheckBox20.setText("Marcar como pendiente");
-        jCheckBox20.setContentAreaFilled(false);
-        jCheckBox20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jCheckBox20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox20ActionPerformed(evt);
-            }
-        });
-
-        jLabel37.setBackground(new java.awt.Color(156, 255, 87));
-        jLabel37.setFont(new java.awt.Font("Candara", 0, 12)); // NOI18N
-        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel37.setText("dd-mm-yyyy");
-
-        javax.swing.GroupLayout jPanel34Layout = new javax.swing.GroupLayout(jPanel34);
-        jPanel34.setLayout(jPanel34Layout);
-        jPanel34Layout.setHorizontalGroup(
-            jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel34Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel34Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jCheckBox20, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel34Layout.createSequentialGroup()
-                    .addGap(59, 59, 59)
-                    .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(60, Short.MAX_VALUE)))
-        );
-        jPanel34Layout.setVerticalGroup(
-            jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel34Layout.createSequentialGroup()
-                .addComponent(jLabel36)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addComponent(jCheckBox20))
-            .addGroup(jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel34Layout.createSequentialGroup()
-                    .addGap(22, 22, 22)
-                    .addComponent(jLabel37)
-                    .addContainerGap(23, Short.MAX_VALUE)))
-        );
-
-        jPanel33.add(jPanel34);
-        jPanel34.setBounds(0, 160, 250, 60);
-
-        jPanel70.setBackground(new java.awt.Color(156, 255, 87));
-        jPanel70.setPreferredSize(new java.awt.Dimension(250, 200));
-        jPanel70.setLayout(null);
-
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/chile.png"))); // NOI18N
-        jButton10.setBorderPainted(false);
-        jButton10.setContentAreaFilled(false);
-        jButton10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton10.setDefaultCapable(false);
-        jButton10.setFocusPainted(false);
-        jButton10.setFocusable(false);
-        jPanel70.add(jButton10);
-        jButton10.setBounds(0, 0, 250, 160);
-
-        jPanel33.add(jPanel70);
-        jPanel70.setBounds(0, 0, 250, 160);
-
-        javax.swing.GroupLayout jPanel41Layout = new javax.swing.GroupLayout(jPanel41);
-        jPanel41.setLayout(jPanel41Layout);
-        jPanel41Layout.setHorizontalGroup(
-            jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel41Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel41Layout.setVerticalGroup(
-            jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel41Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addGroup(jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel31, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
-                    .addComponent(jPanel29, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel44, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel33, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(127, Short.MAX_VALUE))
-        );
-
-        scrollActividadesRealizadas.setViewportView(jPanel41);
-
-        jPanel3.add(scrollActividadesRealizadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 670, 400, 270));
 
         jScrollPane3.setViewportView(jPanel3);
 
@@ -1327,9 +836,9 @@ public class vistaEditarViajeMN extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_txtNombreActionPerformed
 
     private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox8ActionPerformed
         // TODO add your handling code here:
@@ -1371,144 +880,64 @@ public class vistaEditarViajeMN extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox23ActionPerformed
 
-    private void jCheckBox16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox16ActionPerformed
+    private void lblDestinosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblDestinosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox16ActionPerformed
+    }//GEN-LAST:event_lblDestinosActionPerformed
 
-    private void jCheckBox15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox15ActionPerformed
+    private void btnActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActividadesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox15ActionPerformed
+    }//GEN-LAST:event_btnActividadesActionPerformed
 
-    private void jCheckBox14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox14ActionPerformed
+    private void txtBusquedaAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusquedaAActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox14ActionPerformed
-
-    private void jCheckBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox13ActionPerformed
-
-    private void jCheckBox17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox17ActionPerformed
-
-    private void jCheckBox18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox18ActionPerformed
-
-    private void jCheckBox19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox19ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox19ActionPerformed
-
-    private void jCheckBox20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox20ActionPerformed
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
+    }//GEN-LAST:event_txtBusquedaAActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
+    public javax.swing.JButton btnActividades;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnGuardar;
+    public javax.swing.JComboBox<String> cmbEstiloViaje;
+    public com.toedter.calendar.JDateChooser fechaActividad;
+    public com.toedter.calendar.JDateChooser fechaFin;
+    public com.toedter.calendar.JDateChooser fechaInicio;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBox12;
-    private javax.swing.JCheckBox jCheckBox13;
-    private javax.swing.JCheckBox jCheckBox14;
-    private javax.swing.JCheckBox jCheckBox15;
-    private javax.swing.JCheckBox jCheckBox16;
-    private javax.swing.JCheckBox jCheckBox17;
-    private javax.swing.JCheckBox jCheckBox18;
-    private javax.swing.JCheckBox jCheckBox19;
-    private javax.swing.JCheckBox jCheckBox20;
     private javax.swing.JCheckBox jCheckBox21;
     private javax.swing.JCheckBox jCheckBox22;
     private javax.swing.JCheckBox jCheckBox23;
     private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private com.toedter.calendar.JDateChooser jDateChooser5;
-    private com.toedter.calendar.JDateChooser jDateChooser6;
-    private com.toedter.calendar.JDateChooser jDateChooser7;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel49;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
-    private javax.swing.JPanel jPanel26;
-    private javax.swing.JPanel jPanel27;
-    private javax.swing.JPanel jPanel28;
-    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel30;
-    private javax.swing.JPanel jPanel31;
-    private javax.swing.JPanel jPanel32;
-    private javax.swing.JPanel jPanel33;
-    private javax.swing.JPanel jPanel34;
-    private javax.swing.JPanel jPanel35;
-    private javax.swing.JPanel jPanel36;
-    private javax.swing.JPanel jPanel37;
-    private javax.swing.JPanel jPanel38;
-    private javax.swing.JPanel jPanel39;
-    private javax.swing.JPanel jPanel41;
-    private javax.swing.JPanel jPanel44;
-    private javax.swing.JPanel jPanel45;
     private javax.swing.JPanel jPanel52;
     private javax.swing.JPanel jPanel54;
     private javax.swing.JPanel jPanel55;
     private javax.swing.JPanel jPanel56;
     private javax.swing.JPanel jPanel58;
     private javax.swing.JPanel jPanel60;
-    private javax.swing.JPanel jPanel62;
-    private javax.swing.JPanel jPanel63;
-    private javax.swing.JPanel jPanel64;
-    private javax.swing.JPanel jPanel65;
-    private javax.swing.JPanel jPanel66;
-    private javax.swing.JPanel jPanel67;
-    private javax.swing.JPanel jPanel68;
-    private javax.swing.JPanel jPanel69;
-    private javax.swing.JPanel jPanel70;
     private javax.swing.JRadioButton jRadioButton106;
     private javax.swing.JRadioButton jRadioButton107;
     private javax.swing.JRadioButton jRadioButton108;
@@ -1520,13 +949,19 @@ public class vistaEditarViajeMN extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JScrollPane scrollActividadesPendientes1;
-    private javax.swing.JScrollPane scrollActividadesRealizadas;
-    private javax.swing.JScrollPane scrollDestinos;
+    public javax.swing.JButton lblDestinos;
+    public javax.swing.JLabel lblEstado;
+    public javax.swing.JLabel lblFecha;
+    public javax.swing.JPanel pnlActividadesP;
+    public javax.swing.JPanel pnlActividadesR;
+    public javax.swing.JPanel pnlDestinos;
+    public javax.swing.JScrollPane scrollActividadesPendientes1;
+    public javax.swing.JScrollPane scrollActividadesRealizadas;
+    public javax.swing.JScrollPane scrollDestinos;
+    public javax.swing.JTextField txtBusquedaA;
+    public javax.swing.JTextField txtBusquedaD;
+    public javax.swing.JTextArea txtDescripcion;
+    public javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
