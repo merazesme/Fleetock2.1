@@ -297,7 +297,7 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
             System.out.println("id"+uDatosV[6]);
             vistaActividades vActividades = new vistaActividades();
             modeloActividades mActividades = new modeloActividades();
-            controlActividades cActividades = new controlActividades(vActividades, vistaPrincipal, mActividades, uDatosV[6], actSS);
+            controlActividades cActividades = new controlActividades(vActividades, vistaPrincipal, mActividades, uDatosV[6], null, actSS);
             CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vActividades);
         }
         

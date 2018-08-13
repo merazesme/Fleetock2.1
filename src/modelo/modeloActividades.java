@@ -51,9 +51,6 @@ public class modeloActividades {
          try {
             Connection con = conexion.abrirConexion();
             Statement s = con.createStatement();
-             System.out.println("SELECT actividad.idActividad, actividad.nombre, tiene.foto FROM actividad " +
-                    "INNER JOIN tiene ON actividad.idActividad = tiene.Actividad_idActividad " +
-                    "where tiene.Destino_idDestino = " + idDes +";");
             sql = s.executeQuery("SELECT actividad.idActividad, actividad.nombre, tiene.foto FROM actividad " +
                     "INNER JOIN tiene ON actividad.idActividad = tiene.Actividad_idActividad " +
                     "where tiene.Destino_idDestino = " + idDes +";");

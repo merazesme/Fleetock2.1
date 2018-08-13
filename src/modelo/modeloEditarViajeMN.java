@@ -244,4 +244,132 @@ public class modeloEditarViajeMN {
             return false;
         }
     }
+    
+    //Eliminar viaje
+    public boolean viajeEliminar(String idViaje) {                                         
+        try {
+            Connection con = conexion.abrirConexion();
+            
+            //Para ejecutar la consulta
+            Statement s = con.createStatement();
+            
+            //Delete en la tabla pertenece
+            int registroPertenece = s.executeUpdate("delete from pertenece where Viaje_idViaje = " + idViaje + ";");
+            int registroContiene = s.executeUpdate("delete from contiene where Viaje_idViaje = " + idViaje + ";");
+            int registroViaje = s.executeUpdate("delete from viaje where idViaje = " + idViaje + ";");
+            
+            conexion.cerrarConexion(con);
+            return true;
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al intentar abrir la base de datos.");
+            return false;
+        }catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Error al intentar conectar con el servidor.");
+            return false;
+        }
+    }
+    
+    //Actualizar viaje
+    public boolean actualizarViaje(String idViaje, String nombre, String descripcion, String estado, String estilo, String fechai, String fechaf)
+    {   try
+        {
+            Connection con= conexion.abrirConexion(); 
+            Statement s= con.createStatement(); 
+            int registro =s.executeUpdate("UPDATE `viaje` SET `nombre`='"+nombre+"',`descripcion`='"+descripcion+"',"
+                    + "`fecha_inicio`='"+fechai+"',`fecha_fin`='"+fechaf+"',`estadoDelViaje`='"+estado+"',"
+                    + "`EstiloViaje_idEstiloViaje`= " + estilo
+                    + " WHERE idViaje = " + idViaje); 
+            conexion.cerrarConexion(con); 
+            return true; 
+        }
+        catch(SQLException e)
+        {
+            JOptionPane.showMessageDialog(null, "Error al intentar abrir la base de datos.");
+            return false; 
+        }catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Error al intentar conectar con el servidor.");
+            return false;
+        }
+    }
+    
+    //Verificar actividades de un viaje no seleccionado
+    public String[] actRV(String idV)
+    {
+        ResultSet sql;       
+         try {
+            Connection con = conexion.abrirConexion();
+            Statement s = con.createStatement();
+            sql = s.executeQuery("SELECT contiene.destino_idDestino FROM `contiene` WHERE contiene.Viaje_idViaje = "+idV+";");
+            //número de registros obrenidos
+            int count = 0;
+            while (sql.next()) {
+                ++count;
+            }
+            //declaración del array
+            String [] a = new String [count];
+            //se regresa al primero
+            sql.beforeFirst();
+            //contador para copiar del resultset al array
+            int i = 0;
+            //copiar del resultset al array
+            while (sql.next())
+            {
+                a[i] = sql.getString(1);
+                i++;
+            } 
+           conexion.cerrarConexion(con);
+           return a;
+        }
+        catch (SQLException ex)
+        {
+            return null;
+        }
+         catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Error al intentar conectar con el servidor.");
+            return null;
+        }
+    }
+    
+    //Agregar actividades a un viaje
+    public boolean insertarDestino(String idD, String idV){
+         try{
+            //Se abre la conexion con la bd.
+            Connection con = conexion.abrirConexion();
+            //Permite crear consultas
+            Statement s = con.createStatement();
+            int registroContiene = s.executeUpdate("INSERT INTO `pertenece`(`Viaje_idViaje`, `Destino_idDestino`) "
+                    + "VALUES ("+idV+","+idD+")");
+            conexion.cerrarConexion(con); 
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al intentar abrir la base de datos.");
+            return false;
+        }catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Error al intentar conectar con el servidor.");
+            return false;
+        }
+    }
+    
+    //Eliminar actividad de un viaje
+    public boolean eliminarDestino(String idD, String idV) {                                         
+        try {
+            Connection con = conexion.abrirConexion();
+            
+            //Para ejecutar la consulta
+            Statement s = con.createStatement();
+            
+            //Delete en la tabla pertenece
+            int registroPertenece = s.executeUpdate("DELETE FROM `pertenece` "
+                    + "WHERE `Viaje_idViaje` = "+idV+" and `Destino_idDestino` = "+idD+";");
+            
+            conexion.cerrarConexion(con);
+            return true;
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al intentar abrir la base de datos.");
+            return false;
+        }catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Error al intentar conectar con el servidor.");
+            return false;
+        }
+    }
 }
