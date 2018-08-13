@@ -5,6 +5,7 @@
  */
 package fleetock;
 
+
 import control.administrador.acontrolMenu;
 import control.controlLogin;
 import control.controlLoginRegistrarse;
@@ -15,7 +16,7 @@ import vistas.vistaPrincipal;
 
 /**
  *
- * @author Holi
+ * @author LOS MAS GUAPOS♥
  */
 public class Fleetock 
 {
@@ -29,5 +30,5 @@ public class Fleetock
         controlLoginRegistrarse control = new controlLoginRegistrarse(vista);
         vista.setVisible(true);
         vista.setLocationRelativeTo(null);
-    }   
+    }
 }

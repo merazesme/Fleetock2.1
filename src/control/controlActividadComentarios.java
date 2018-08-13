@@ -21,6 +21,7 @@ import javax.swing.BoxLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -28,7 +29,9 @@ import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import modelo.modeloActividadComentarios;
+import modelo.modeloPerfil;
 import vistas.vistaActividadComentarios;
+import vistas.vistaPerfil;
 import vistas.vistaPrincipal;
 
 /**
@@ -67,8 +70,8 @@ public class controlActividadComentarios implements ActionListener, MouseListene
         //carga los datos de la actividad
         datosA();
         this.vista.lblEstilo.addMouseListener(this);
-        
         this.vista.lblEstilo.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        vista.lblCalificacion.setText("");
         mostrarcomentarios("SELECT comentarios.comentario, usuario.nombre, usuario.foto, actividad.idActividad, "
                 + "comentarios.calificacion, comentarios.titulo, comentarios.fecha, comentarios.idComentarios, "
                 + "usuario.idUsuario FROM usuario INNER JOIN comentarios "
@@ -279,17 +282,35 @@ public class controlActividadComentarios implements ActionListener, MouseListene
     {
         vista.texto_Opinion.setText("");
         vista.texto_titulo.setText("");
-        vista.pesimo.setSelected(true);
-        vista.malo.setSelected(true);
-        vista.regular.setSelected(true);
-        vista.muybueno.setSelected(true);
-        vista.excelente.setSelected(true);
+        vista.lblCalificacion.setText("");
+        vista.pesimo.setSelected(false);
+        vista.malo.setSelected(false);
+        vista.regular.setSelected(false);
+        vista.muybueno.setSelected(false);
+        vista.excelente.setSelected(false);
 
     }
     
     @Override
     public void actionPerformed(ActionEvent e) 
     {
+        
+         try
+        {    
+            JComponent selectedButton = (JComponent) e.getSource();
+            String letra = selectedButton.getName().substring(0, 1);  
+            String id = selectedButton.getName().substring(1);
+            //Ir al usuario
+            if(letra.equals("u")){
+                System.out.println("Entra al perfil del usuario: " + id);
+                vistaPerfil vistaPerfil = new vistaPerfil();
+                modeloPerfil modeloPerfil = new modeloPerfil();
+                controlPerfil controlPerfil = new controlPerfil(vistaPerfil, vPrincipal, modeloPerfil, id);
+                CambiaPanel cambiar = new CambiaPanel(vPrincipal.panelCambiante, vistaPerfil);
+            }
+        }
+        catch(NullPointerException ex){}
+        
         if(vista.pesimo == e.getSource())
         {           
             cali=1;
@@ -299,6 +320,7 @@ public class controlActividadComentarios implements ActionListener, MouseListene
             vista.regular.setSelected(false);
             vista.muybueno.setSelected(false);
             vista.excelente.setSelected(false);
+            vista.lblCalificacion.setText("Pésimo");
         }
         if(vista.malo == e.getSource())
         {
@@ -309,6 +331,7 @@ public class controlActividadComentarios implements ActionListener, MouseListene
             vista.regular.setSelected(false);
             vista.muybueno.setSelected(false);
             vista.excelente.setSelected(false);
+            vista.lblCalificacion.setText("Malo");
         }
         if(vista.regular == e.getSource())
         {
@@ -329,6 +352,7 @@ public class controlActividadComentarios implements ActionListener, MouseListene
             vista.regular.setSelected(true);
             vista.muybueno.setSelected(true);
             vista.excelente.setSelected(false);
+            vista.lblCalificacion.setText("Muy bueno");
         }
         if(vista.excelente == e.getSource())
         {
@@ -339,6 +363,7 @@ public class controlActividadComentarios implements ActionListener, MouseListene
             vista.regular.setSelected(true);
             vista.muybueno.setSelected(true);
             vista.excelente.setSelected(true);
+            vista.lblCalificacion.setText("¡Excelente!");
         }
         
         if(vista.enviar == e.getSource())
@@ -349,11 +374,11 @@ public class controlActividadComentarios implements ActionListener, MouseListene
                 String date = sdf.format(new Date());   
                 System.out.println("La opinion:" + vista.texto_Opinion);
                 System.out.println("La cali: " + cali);
-                System.out.println("El usuario: " + controlPrincipal.usuario[0]);
+                System.out.println("El usuario: " + controlPrincipal.usuario[2]);
                 System.out.println("El id de la actividad: " + idA);
                 System.out.println("El titulo: " + vista.texto_titulo);
                 System.out.println("La fecha: "+ date);
-                if(modelo.insertarComentarios(vista.texto_Opinion.getText(), cali, controlPrincipal.usuario[0], Integer.parseInt(idA), vista.texto_titulo.getText(), date))    
+                if(modelo.insertarComentarios(vista.texto_Opinion.getText(), cali, controlPrincipal.usuario[2], Integer.parseInt(idA), vista.texto_titulo.getText(), date))    
                 {
                     JOptionPane.showMessageDialog(null, "Comentario agregado");
                     limpiar();
@@ -369,13 +394,8 @@ public class controlActividadComentarios implements ActionListener, MouseListene
             else
             {
                 JOptionPane.showMessageDialog(null, "Selecciona una calificacion", "¡Atención!", JOptionPane.ERROR_MESSAGE);
-                 limpiar();
+                limpiar();
                 cali=0;
-                vista.pesimo.setSelected(false);
-                vista.malo.setSelected(false);
-                vista.regular.setSelected(false);
-                vista.muybueno.setSelected(false);
-                vista.excelente.setSelected(false);
             }
         }
         

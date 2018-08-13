@@ -69,11 +69,13 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
     //ACTIVIDADES PENDIENTES
         //Declaración de un arraylist para los checkbox de la actividad 
     private List<JCheckBox> actP = new ArrayList<>();
-         //Declaración de un arraylist para el String de la actividad 
-    private List<String> actPS = new ArrayList<>();
     //ACTIVIDADES REALIZADAS
         //Declaración de un arraylist para los checkbox de la actividad
-    List<JCheckBox> actR = new ArrayList<>();
+    private List<JCheckBox> actR = new ArrayList<>();
+        //TODAS LAS ACTIVIDADES SELECCIONADAS PARA EL VIAJE
+    private List<String> actSS = new ArrayList<>();
+    
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     
     public controlEditarViaje(vistaEditarViaje vista, vistaPrincipal vistaPrincipal, modeloEditarViaje modelo, String idV)
     {
@@ -92,8 +94,8 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
         this.vista.txtFechaActividad.addPropertyChangeListener(this);
         this.vista.btnActividades.addActionListener(this);
         //Actividades 
-        act(vista.pnlActividadesP,modelo.actividadesViaje(this.idV," and contiene.fechaActividad IS NULL"));      
-        act(vista.pnlActividadesR,modelo.actividadesViaje(this.idV," and NOT contiene.fechaActividad IS NULL"));    
+        act(vista.pnlActividadesP,modelo.actividadesViaje(this.idV,uDatosV[6]," and contiene.fechaActividad IS NULL"));      
+        act(vista.pnlActividadesR,modelo.actividadesViaje(this.idV,uDatosV[6]," and NOT contiene.fechaActividad IS NULL"));    
     }
     
     //datos iniciales del viaje
@@ -110,6 +112,7 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
                 vista.lblEstado.setText(uDatosV[4]);
                 JOptionPane.showMessageDialog(null, "No se pudo cargar las fechas.", "¡Atención!", JOptionPane.ERROR_MESSAGE);
             }
+            vista.lblDestino.setText(uDatosV[7]);
 
             //Se llena la lista de estilo de viaje
             estiloViaje = modelo.datosEstiloViaje();
@@ -201,7 +204,7 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
                     }
                         //se agrega al List
                     actP.add(box);
-                    actPS.add(act[i][0]);
+                    actSS.add(act[i][0]);
                     
                     nombreCB.setText("Marcar como realizada");
                     informacion.add(nombreD, BorderLayout.NORTH); 
@@ -217,7 +220,7 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
                     }
                         //se agrega al List
                     actR.add(box);
-                    actPS.add(act[i][0]);
+                    actSS.add(act[i][0]);
 
                     nombreCB.setText("Marcar como pendientes");
                     String[] parts = act[i][3].split("-");
@@ -251,7 +254,7 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
             }
         }
         else{
-            JLabel mensaje = new JLabel("<html><p>No tienes actividades</p></html>");
+            JLabel mensaje = new JLabel("<html><p>No tienes actividades :(</p></html>");
             mensaje.setForeground(new Color(76,2,131));
             mensaje.setFont(new Font("Candara", Font.PLAIN, 14));
             p.add(mensaje);
@@ -273,15 +276,15 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
         if(modelo.actualizarActividad(idV, idA, fecha)){
             actS=null;
             actP.clear();
-            actPS.clear();
+            actSS.clear();
             actR.clear();
             vista.txtBusquedaAP.setText("");
             vista.txtBusquedaAR.setText("");
             vista.txtFechaActividad.setDate(null);
             vista.txtFechaActividad.setEnabled(false);
             vista.lblFechaI.setEnabled(false);
-            act(vista.pnlActividadesP,modelo.actividadesViaje(this.idV," and contiene.fechaActividad IS NULL"));      
-            act(vista.pnlActividadesR,modelo.actividadesViaje(this.idV," and NOT contiene.fechaActividad IS NULL"));
+            act(vista.pnlActividadesP,modelo.actividadesViaje(this.idV,uDatosV[6]," and contiene.fechaActividad IS NULL"));      
+            act(vista.pnlActividadesR,modelo.actividadesViaje(this.idV,uDatosV[6]," and NOT contiene.fechaActividad IS NULL"));
         }
     }
     
@@ -291,9 +294,10 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
         //botón de más actividades
         if(this.vista.btnActividades == e.getSource())
         {
+            System.out.println("id"+uDatosV[6]);
             vistaActividades vActividades = new vistaActividades();
             modeloActividades mActividades = new modeloActividades();
-            controlActividades cActividades = new controlActividades(vActividades, vistaPrincipal, mActividades, uDatosV[6], actPS);
+            controlActividades cActividades = new controlActividades(vActividades, vistaPrincipal, mActividades, uDatosV[6], null, actSS);
             CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vActividades);
         }
         
@@ -304,7 +308,6 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
                 JOptionPane.showMessageDialog(null, "No se han acompletado todos los datos.", "¡Atención!", JOptionPane.ERROR_MESSAGE); 
             }
             else{
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 if(modelo.actualizarViaje(idV, vista.txtNombre.getText(), vista.txtDescripcion.getText(), estado, estiloSeleccionado(), sdf.format(vista.fechaInicio.getDate()), sdf.format(vista.fechaFin.getDate()))){
                     JOptionPane.showMessageDialog(null, "Su viaje se ha actualizado con éxito", "Viaje guardado", JOptionPane.INFORMATION_MESSAGE);
                     vistaPerfil vistaPerfil = new vistaPerfil();
@@ -413,7 +416,6 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
                 String letra = actS.substring(0, 1);  
                 String idA = actS.substring(1);  
                 if(actS!=null && letra.equals("P")){
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                     actividades(idA, "'"+sdf.format(vista.txtFechaActividad.getDate())+"'");
                 }
             }catch(NullPointerException ex){}
@@ -431,19 +433,19 @@ public class controlEditarViaje implements ActionListener, PropertyChangeListene
     @Override
     public void keyReleased(KeyEvent e) {
         if(!vista.txtBusquedaAP.getText().equals("")){
-            act(vista.pnlActividadesP,modelo.actividadesViaje(this.idV," and contiene.fechaActividad IS NULL and actividad.nombre LIKE '%"+vista.txtBusquedaAP.getText()+"%'"));      
+            act(vista.pnlActividadesP,modelo.actividadesViaje(this.idV, uDatosV[6]," and contiene.fechaActividad IS NULL and actividad.nombre LIKE '%"+vista.txtBusquedaAP.getText()+"%'"));      
             vista.txtBusquedaAP.requestFocus();
         } 
         else{
-           act(vista.pnlActividadesP,modelo.actividadesViaje(this.idV," and contiene.fechaActividad IS NULL"));      
+           act(vista.pnlActividadesP,modelo.actividadesViaje(this.idV,uDatosV[6]," and contiene.fechaActividad IS NULL"));      
         }
         
         if(!vista.txtBusquedaAR.getText().equals("")){
-            act(vista.pnlActividadesR,modelo.actividadesViaje(this.idV," and NOT contiene.fechaActividad IS NULL and actividad.nombre LIKE '%"+vista.txtBusquedaAR.getText()+"%'"));      
+            act(vista.pnlActividadesR,modelo.actividadesViaje(this.idV,uDatosV[6]," and NOT contiene.fechaActividad IS NULL and actividad.nombre LIKE '%"+vista.txtBusquedaAR.getText()+"%'"));      
             vista.txtBusquedaAR.requestFocus();
         } 
         else{
-           act(vista.pnlActividadesR,modelo.actividadesViaje(this.idV," and NOT contiene.fechaActividad IS NULL"));      
+           act(vista.pnlActividadesR,modelo.actividadesViaje(this.idV,uDatosV[6]," and NOT contiene.fechaActividad IS NULL"));      
         }
     }
    

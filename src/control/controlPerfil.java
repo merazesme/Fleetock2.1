@@ -23,15 +23,20 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
+import static javax.swing.Spring.width;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import modelo.modeloEditarPerfil;
 import modelo.modeloEditarViaje;
+import modelo.modeloEditarViajeMN;
 import modelo.modeloNuevoViajeSS;
 import modelo.modeloPerfil;
 import vistas.vistaEditarPerfil;
 import vistas.vistaEditarViaje;
+import vistas.vistaEditarViajeMN;
 import vistas.vistaNuevoViajeSS;
 import vistas.vistaPerfil;
 import vistas.vistaPrincipal;
@@ -56,7 +61,7 @@ public class controlPerfil implements ActionListener, MouseListener{
         this.vistaPrincipal=vistaPrincipal;
         this.modelo=modelo;
         
-        if(idU==null){
+        if(idU==null || idU.equals(controlPrincipal.usuario[2])){
             this.vista.btnEditarPerfil.addActionListener(this);
             pC=false;
         }else{
@@ -142,6 +147,17 @@ public class controlPerfil implements ActionListener, MouseListener{
             }
 
             for(int i=0; temporal[i][0]!=null; i++){
+                if(i%3==0){
+//                    System.out.println("a");
+                    //[909, 900]
+//////                    vista.pnlViajes.setPreferredSize(new Dimension(vista.pnlViajes.getWidth(), vista.pnlViajes.getHeight()+100));
+//                    vista.pnlViajes.setSize(900, vista.pnlViajes.getHeight()+100);
+////                    vista.pnlViajes.setLayout(new FlowLayout(FlowLayout.LEFT));
+//                    vista.pnlViajes.setPreferredSize(vista.pnlViajes.getSize());
+//                    vista.pnlViajes.setVerifyInputWhenFocusTarget(false);
+//                    vista.scrollPerfil.setViewportView(vista.pnlViajes);
+////                    vista.scrollPerfil.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                }
                 //Panel principal: verde
                 JPanel principal = new JPanel();
                 principal.setLayout(new GridLayout( 2, 1, 0, 5));
@@ -251,7 +267,10 @@ public class controlPerfil implements ActionListener, MouseListener{
             }
             //Botón de Modificar Viaje de varios destinos
             if(letra.equals("VM")){
-                
+                vistaEditarViajeMN vistaEditarViaje = new vistaEditarViajeMN();
+                modeloEditarViajeMN modeloEditarViaje = new modeloEditarViajeMN();
+                controlEditarViajeMN controlEditarViaje= new controlEditarViajeMN(vistaEditarViaje, vistaPrincipal, modeloEditarViaje, idV);
+                CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaEditarViaje);
             }
         }
         catch(NullPointerException ex){}

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Usuarios" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a4e2b8b5-c5c3-418e-8486-4f673d5698ef">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#AB5FBE">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#E1CFE6">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="fa8e713c-6740-48ef-9f3e-cbac211eca0f"/>
+	<queryString>
+		<![CDATA[SELECT
+     estiloviaje.`tipo` AS estiloviaje_tipo,
+     estiloviaje.`descripcion` AS estiloviaje_descripcion,
+     estiloviaje.`presupuesto_max` AS estiloviaje_presupuesto_max,
+     estiloviaje.`presupuesto_min` AS estiloviaje_presupuesto_min
+FROM
+     `estiloviaje` estiloviaje]]>
+	</queryString>
+	<field name="estiloviaje_tipo" class="java.lang.String"/>
+	<field name="estiloviaje_descripcion" class="java.lang.String"/>
+	<field name="estiloviaje_presupuesto_max" class="java.lang.Double"/>
+	<field name="estiloviaje_presupuesto_min" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="168" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="572" height="80" forecolor="#37006A" backcolor="#37006A" uuid="cef0ef92-c29d-4742-b32d-3a641e5448dc"/>
+				<image>
+					<reportElement x="12" y="0" width="83" height="80" uuid="4621b9a5-e697-42ed-b826-178444057251"/>
+					<imageExpression><![CDATA["C:\\Users\\CHAFI\\Documents\\NetBeansProjects\\Fleetock2.1\\src\\images\\logo_100px_light.png"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement mode="Transparent" x="108" y="0" width="247" height="80" forecolor="#FFFFFF" uuid="bc627316-58a8-4e50-9404-d8b1ae45dd4b"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Candara" size="40"/>
+					</textElement>
+					<text><![CDATA[Fleetock]]></text>
+				</staticText>
+			</frame>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="442" y="110" width="175" height="23" uuid="19b33c28-dec5-4c35-a292-940663ee2430"/>
+				<textElement>
+					<font fontName="Candara" size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="22" y="99" width="50" height="50" uuid="e2db72b2-5dc6-48dd-a218-3a3f980dc487"/>
+				<imageExpression><![CDATA["C:\\Users\\CHAFI\\Documents\\NetBeansProjects\\Fleetock2.1\\src\\images\\icons8_To_Do_50px.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="82" y="99" width="154" height="44" uuid="ba54f0a4-d1af-468b-a4a9-57f4d3a5902c"/>
+				<box>
+					<pen lineColor="#3333FF"/>
+					<topPen lineColor="#3333FF"/>
+					<leftPen lineColor="#3333FF"/>
+					<bottomPen lineColor="#3333FF"/>
+					<rightPen lineColor="#3333FF"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Candara" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estilos de Viaje]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<line>
+				<reportElement x="56" y="20" width="448" height="1" uuid="c805eb91-0a06-4f02-a8fa-df1b72476e5d"/>
+			</line>
+			<staticText>
+				<reportElement x="156" y="0" width="100" height="20" uuid="2d92d2c8-c839-4a02-8c90-9e9303b8f93f"/>
+				<textElement>
+					<font fontName="Candara" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="1" width="100" height="20" uuid="0eaac507-7dae-4c95-a14f-32305daf973c"/>
+				<textElement>
+					<font fontName="Candara" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="1" width="117" height="20" uuid="24e545b2-378a-4acb-9cac-5728d69f3d7a"/>
+				<textElement>
+					<font fontName="Candara" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Presupuesto Min.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="398" y="0" width="113" height="20" uuid="016a5192-dcfa-476f-a90a-73cbcecf76de"/>
+				<textElement>
+					<font fontName="Candara" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Presupuesto  Max.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="48" splitType="Stretch">
+			<textField>
+				<reportElement x="66" y="0" width="100" height="20" uuid="7c9d0a04-dede-40a3-ad1e-d82816d53142"/>
+				<textFieldExpression><![CDATA[$F{estiloviaje_tipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="166" y="0" width="108" height="44" uuid="35ac30e2-d124-47e2-ae54-ba15c5ec7fa8"/>
+				<textFieldExpression><![CDATA[$F{estiloviaje_descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="0" width="87" height="20" uuid="067c2118-5e26-45fd-a8ef-d0f3dad13949"/>
+				<textFieldExpression><![CDATA[$F{estiloviaje_presupuesto_min}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="426" y="0" width="85" height="20" uuid="a81910b1-c839-4223-bd57-1bbe55203a81"/>
+				<textFieldExpression><![CDATA[$F{estiloviaje_presupuesto_max}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="44" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="23" width="572" height="21" forecolor="#000000" backcolor="#66FF00" uuid="adc7085f-6774-4d5c-a0c5-9892e0590bc5"/>
+				<textField>
+					<reportElement x="223" y="1" width="80" height="20" uuid="46d1a795-2b17-45cd-bcec-9015b07822d8"/>
+					<textElement textAlignment="Right">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement x="303" y="1" width="40" height="20" uuid="97fe128d-58f2-42ad-8333-432abb771107"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

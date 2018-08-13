@@ -66,7 +66,10 @@ public class vistaPerfil extends javax.swing.JPanel {
         txtareaDescripcion.setEditable(false);
         txtareaDescripcion.setColumns(20);
         txtareaDescripcion.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        txtareaDescripcion.setForeground(new java.awt.Color(102, 102, 102));
         txtareaDescripcion.setRows(3);
+        txtareaDescripcion.setSelectedTextColor(new java.awt.Color(102, 102, 102));
+        txtareaDescripcion.setSelectionColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(txtareaDescripcion);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -83,7 +86,7 @@ public class vistaPerfil extends javax.swing.JPanel {
                     .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(258, 258, 258)
                 .addComponent(btnEditarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addGap(210, 210, 210))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,32 +105,25 @@ public class vistaPerfil extends javax.swing.JPanel {
                             .addComponent(lblNombre))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 130));
 
         scrollPerfil.setBackground(new java.awt.Color(255, 255, 255));
         scrollPerfil.setBorder(null);
         scrollPerfil.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPerfil.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         pnlViajes.setBackground(new java.awt.Color(255, 255, 255));
-        pnlViajes.setPreferredSize(new java.awt.Dimension(892, 800));
-
-        javax.swing.GroupLayout pnlViajesLayout = new javax.swing.GroupLayout(pnlViajes);
-        pnlViajes.setLayout(pnlViajesLayout);
-        pnlViajesLayout.setHorizontalGroup(
-            pnlViajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 893, Short.MAX_VALUE)
-        );
-        pnlViajesLayout.setVerticalGroup(
-            pnlViajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
-
+        pnlViajes.setMaximumSize(new java.awt.Dimension(900, 32767));
+        pnlViajes.setMinimumSize(new java.awt.Dimension(900, 10));
+        pnlViajes.setPreferredSize(new java.awt.Dimension(900, 909));
+        pnlViajes.setVerifyInputWhenFocusTarget(false);
+        pnlViajes.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
         scrollPerfil.setViewportView(pnlViajes);
 
-        add(scrollPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 910, 420));
+        add(scrollPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 910, 440));
     }// </editor-fold>//GEN-END:initComponents
 
 

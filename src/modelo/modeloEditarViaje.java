@@ -25,9 +25,10 @@ public class modeloEditarViaje {
             Connection con = conexion.abrirConexion();
             Statement s = con.createStatement();
             sql = s.executeQuery("SELECT viaje.nombre, viaje.descripcion, viaje.fecha_inicio, viaje.fecha_fin, "
-                    + "viaje.estadoDelViaje, estiloviaje.tipo, pertenece.Destino_idDestino from viaje " +
+                    + "viaje.estadoDelViaje, estiloviaje.tipo, pertenece.Destino_idDestino, destino.nombre from viaje " +
                     "INNER JOIN estiloviaje on estiloviaje.idEstiloViaje = viaje.EstiloViaje_idEstiloViaje " +
                     "INNER JOIN pertenece ON pertenece.Viaje_idViaje = viaje.idViaje " +
+                    "INNER JOIN destino ON destino.idDestino = pertenece.Destino_idDestino " +
                     "where viaje.idViaje = "+idV+";");
             //declaración del array
             String [] a = new String [8];
@@ -40,6 +41,7 @@ public class modeloEditarViaje {
             a[4] = sql.getString(5);
             a[5] = sql.getString(6);
             a[6] = sql.getString(7);
+            a[7] = sql.getString(8);
            conexion.cerrarConexion(con);
            return a;
         }
@@ -95,7 +97,7 @@ public class modeloEditarViaje {
     }
     
     //Actividades del viaje
-    public String[][] actividadesViaje(String idViaje, String where){   
+    public String[][] actividadesViaje(String idViaje, String idD, String where){   
        try
         {
             //abrir conexión
@@ -108,8 +110,10 @@ public class modeloEditarViaje {
                     + "INNER JOIN contiene on contiene.Actividad_idActividad = actividad.idActividad "
                     + "INNER JOIN tiene on tiene.Actividad_idActividad = contiene.Actividad_idActividad "
                     + "INNER JOIN pertenece on pertenece.Viaje_idViaje = contiene.Viaje_idViaje "
-                    + "WHERE contiene.Viaje_idViaje = "+idViaje+" and "
-                    + "tiene.Destino_idDestino = pertenece.Destino_idDestino"
+                    + "WHERE contiene.Viaje_idViaje = "+idViaje
+                    + " and tiene.Destino_idDestino = contiene.destino_idDestino "
+                    + "and pertenece.Destino_idDestino=tiene.Destino_idDestino "
+                    + "and tiene.Destino_idDestino = " + idD
                     + where+";");
             //número de registros obrenidos
             int count = 0;

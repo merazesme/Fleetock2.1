@@ -153,7 +153,7 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
         regular = new javax.swing.JRadioButton();
         muybueno = new javax.swing.JRadioButton();
         excelente = new javax.swing.JRadioButton();
-        jLabel17 = new javax.swing.JLabel();
+        lblCalificacion = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         texto_titulo = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
@@ -1553,11 +1553,11 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
             }
         });
 
-        jLabel17.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel17.setText("(Pésimo, Malo, Regular,  Muy bueno, Excelente)");
-        jLabel17.setToolTipText("");
+        lblCalificacion.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        lblCalificacion.setForeground(new java.awt.Color(102, 102, 102));
+        lblCalificacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblCalificacion.setText("(Pésimo, Malo, Regular,  Muy bueno, Excelente)");
+        lblCalificacion.setToolTipText("");
 
         jLabel18.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(102, 102, 102));
@@ -1681,7 +1681,7 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
                         .addComponent(muybueno)
                         .addGap(0, 0, 0)
                         .addComponent(excelente))
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCalificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(texto_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1727,7 +1727,7 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
                             .addComponent(muybueno)
                             .addComponent(excelente))
                         .addGap(7, 7, 7)
-                        .addComponent(jLabel17)
+                        .addComponent(lblCalificacion)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel18)
                         .addGap(6, 6, 6)
@@ -1740,7 +1740,8 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(boton_enviar))
-                    .addComponent(scrollOpiniones, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(scrollOpiniones, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(jPanel2);
@@ -1989,7 +1990,6 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -2099,6 +2099,7 @@ public class vistaDetallesDestino extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator3;
+    public javax.swing.JLabel lblCalificacion;
     public javax.swing.JLabel lblImagen;
     public javax.swing.JLabel lblNombre;
     public javax.swing.JRadioButton malo;

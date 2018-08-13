@@ -5,12 +5,10 @@
  */
 package modelo;
 
-import control.controlEditarViaje;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
