@@ -38,9 +38,13 @@ import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import modelo.modeloActividadComentarios;
+import modelo.modeloActividades;
 import modelo.modeloEditarViajeMN;
+import modelo.modeloPerfil;
 import vistas.vistaActividadComentarios;
+import vistas.vistaActividades;
 import vistas.vistaEditarViajeMN;
+import vistas.vistaPerfil;
 import vistas.vistaPrincipal;
 
 /**
@@ -66,8 +70,10 @@ public class controlEditarViajeMN implements ActionListener, PropertyChangeListe
     //DESTINOS
     //Declaración de un arraylist para los checkbox 
     List<JCheckBox> dnombre = new ArrayList<>();
-    //Declaración de un arraylist para los checkbox seleccionadas
+    //Declaración de un arraylist para los checkbox seleccionados
     List<String> desSelec = new ArrayList<>();
+    //Antiguos - Declaración de un arraylist para los checkbox seleccionados
+    List<String> desSelecA = new ArrayList<>();
     
     //ACTIVIDADES PENDIENTES
         //Declaración de un arraylist para los checkbox de la actividad 
@@ -132,7 +138,9 @@ public class controlEditarViajeMN implements ActionListener, PropertyChangeListe
             a=modelo.destinosViaje(idV);
             for(int i=0; i<a.length; i++){
                 desSelec.add(a[i]);
+                desSelecA.add(a[i]);
             }
+            
             destinos(modelo.datosDestinos(""), vista.pnlDestinos, "pais");
         }
     }
@@ -237,7 +245,8 @@ public class controlEditarViajeMN implements ActionListener, PropertyChangeListe
                             //se agrega al List
                         actP.add(box);
                         actSS.add(des[i][0]);
-
+                        
+                        nombreD.setHorizontalAlignment(SwingConstants.CENTER);
                         nombreCB.setText("Marcar como realizada");
                         informacion.add(nombreD, BorderLayout.NORTH); 
                         informacion.add(nombreCB, BorderLayout.CENTER);
@@ -308,10 +317,130 @@ public class controlEditarViajeMN implements ActionListener, PropertyChangeListe
         return null;
     }
     
+    public boolean comparacionSelec(String id){        
+        System.out.println("Comparación");
+        for(int i = 0; i < desSelecA.size(); i++){
+            System.out.println("ID SelecA: " + desSelecA.get(i));
+            System.out.println("ID Selec: " + id);
+            if(desSelecA.get(i).equals(id)){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean comparacionSelecA(String id){        
+        System.out.println("Comparación");
+        for(int i = 0; i < desSelec.size(); i++){
+            System.out.println("ID Selec: " + desSelec.get(i));
+            System.out.println("ID SelecA: " + id);
+            if(desSelec.get(i).equals(id)){
+                return true;
+            }
+        }
+        return false;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-             try{
+        //boton de más actividades
+        if(this.vista.btnActividades == e.getSource())
+        {
+            System.out.println("id"+idD);
+            if(idD==null){
+                JOptionPane.showMessageDialog(null, "Selecciona un destino", "¡Atención!", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else{
+                vistaActividades vActividades = new vistaActividades();
+                modeloActividades mActividades = new modeloActividades();
+                controlActividades cActividades = new controlActividades(vActividades, vistaPrincipal, mActividades, idD, idV, actSS);
+                CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vActividades);
+            }
+        }
+        
+        //botón eliminar
+        if(e.getSource()==vista.btnEliminar){
+            String[] options = {"Sí", "No"};
+            int x = JOptionPane.showOptionDialog(null, "¿Estás seguro que deseas eliminar el viaje?","¡Atención!",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+            if (x == JOptionPane.YES_OPTION){
+                if(modelo.viajeEliminar(idV)){
+                    JOptionPane.showMessageDialog(null, "El viaje se ha eliminado.", "¡Atención!", JOptionPane.INFORMATION_MESSAGE);
+                    vistaPerfil vistaPerfil = new vistaPerfil();
+                    modeloPerfil modeloPerfil = new modeloPerfil();
+                    controlPerfil controlPerfil = new controlPerfil(vistaPerfil, vistaPrincipal, modeloPerfil, null);
+                    CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaPerfil);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "El viaje no se ha eliminado.", "¡Atención!", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        }
+        
+        //botón de guardar
+        if(e.getSource() == vista.btnGuardar){
+            if(vista.txtNombre.getText().equals("") || vista.txtDescripcion.getText().equals("") || 
+                    vista.fechaFin.getDate().equals("") || vista.fechaInicio.getDate().equals("") ||
+                    desSelec.isEmpty()){
+                JOptionPane.showMessageDialog(null, "No se han acompletado todos los datos.", "¡Atención!", JOptionPane.ERROR_MESSAGE); 
+            }
+            else{
+                String a="";
+                String [] b = modelo.actRV(idV);
+                for(int j=0; j<desSelec.size(); j++){                
+                    if(!desSelec.contains(b[j])){
+                        a="Has seleccionado actividades de un destino no seleccionado";
+                    }
+                }
+                
+                if(!a.equals("")){
+                    JOptionPane.showMessageDialog(null, "<html><h3>¡Cuidado!</h3><p>"+a+"</p></html>", "Error", JOptionPane.ERROR_MESSAGE);
+                }else{
+                    boolean ban1=false, ban2=false;
+                    for(int i=0; i<desSelec.size(); i++){
+                        if(!comparacionSelec(desSelec.get(i))){
+                            System.out.println("AGREGAR Nuevo ID: "+desSelec.get(i));
+                            if(!modelo.insertarDestino(desSelec.get(i), idV)){
+                                ban1=true;
+                            }
+                        }
+                        System.out.println("-------------------------------------------------");
+                    }
+
+                     System.out.println("********************************************");
+
+                     //Actividades que estaban seleccionadas antes, pero ya no
+                    for(int i=0; i<desSelecA.size(); i++){
+                        if(!comparacionSelecA(desSelecA.get(i))){
+                            if(modelo.eliminarDestino(desSelecA.get(i), idV)){
+                                ban2=true;
+                            }
+                            System.out.println("ELIMINAR Seleccionado antes pero no ahora ID: "+desSelecA.get(i));
+                        }
+                        System.out.println("-------------------------------------------------");
+                    }
+
+                    if(ban1 && ban2){
+                        JOptionPane.showMessageDialog(null, "No se ha podido guardar los destinos del viaje :(", "¡Atención!", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    else{
+                        System.out.println("aa");
+                        if(modelo.actualizarViaje(idV, vista.txtNombre.getText(), vista.txtDescripcion.getText(), estado, estiloSeleccionado(), sdf.format(vista.fechaInicio.getDate()), sdf.format(vista.fechaFin.getDate()))){
+                            JOptionPane.showMessageDialog(null, "Su viaje se ha actualizado con éxito", "Viaje guardado", JOptionPane.INFORMATION_MESSAGE);
+                            vistaPerfil vistaPerfil = new vistaPerfil();
+                            modeloPerfil modeloPerfil = new modeloPerfil();
+                            controlPerfil controlPerfil = new controlPerfil(vistaPerfil, vistaPrincipal, modeloPerfil, null);
+                            CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaPerfil);
+                        }
+                        else{
+                           JOptionPane.showMessageDialog(null, "No se ha podido actualizar el viaje. Vuelve a intentarlo", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                }
+            }
+        }
+        
+        try{
             JComponent selectedButton = (JComponent) e.getSource();
             String letra = selectedButton.getName().substring(0, 1);  
             String id = selectedButton.getName().substring(1);
@@ -469,7 +598,7 @@ public class controlEditarViajeMN implements ActionListener, PropertyChangeListe
                 String letra = actS.substring(0, 1);  
                 String idA = actS.substring(1);  
                 if(actS!=null && letra.equals("P")){
-//                    actividades(idA, "'"+sdf.format(vista.fechaActividad.getDate())+"'");
+                    actividades(idA, "'"+sdf.format(vista.fechaActividad.getDate())+"'");
                 }
             }catch(NullPointerException ex){}
         }

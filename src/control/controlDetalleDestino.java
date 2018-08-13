@@ -607,7 +607,7 @@ public class controlDetalleDestino implements ActionListener{
 
             vistaActividades vActividades = new vistaActividades();
             modeloActividades mActividades = new modeloActividades();
-            controlActividades cActividades = new controlActividades(vActividades, vistaPrincipal, mActividades, idD, null);
+            controlActividades cActividades = new controlActividades(vActividades, vistaPrincipal, mActividades, idD, null, null);
             CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vActividades);
         }
 

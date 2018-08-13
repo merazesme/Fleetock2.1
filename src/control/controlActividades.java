@@ -24,6 +24,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -33,9 +34,11 @@ import javax.swing.border.EmptyBorder;
 import modelo.modeloActividadComentarios;
 import modelo.modeloActividades;
 import modelo.modeloEditarViaje;
+import modelo.modeloEditarViajeMN;
 import vistas.vistaActividadComentarios;
 import vistas.vistaActividades;
 import vistas.vistaEditarViaje;
+import vistas.vistaEditarViajeMN;
 import vistas.vistaPrincipal;
 
 /**
@@ -50,6 +53,8 @@ public class controlActividades implements ActionListener, KeyListener{
     private String idD;
     private JButton btnImagen, btnNuevoViaje;
     private String idV;
+    //agregar actividades de un viaje de un destino
+    private boolean vU=false;
     
     //Declaración de un arraylist para los checkbox de la actividad
     List<JCheckBox> jnombre = new ArrayList<>();
@@ -59,7 +64,7 @@ public class controlActividades implements ActionListener, KeyListener{
     List<String> actSelecA = new ArrayList<>();
     
     //actSelec si viene null - viene de Detalles de Destino
-    public controlActividades(vistaActividades vista, vistaPrincipal vPrincipal, modeloActividades modelo, String idD,  List<String> actSelec)
+    public controlActividades(vistaActividades vista, vistaPrincipal vPrincipal, modeloActividades modelo, String idD, String idV,  List<String> actSelec)
     {
         this.vista=vista;
         this.vPrincipal=vPrincipal;
@@ -72,7 +77,13 @@ public class controlActividades implements ActionListener, KeyListener{
         vista.pnlBusqueda.setBorder(new EmptyBorder(5, 40, 0, 0));
         
         if(this.actSelec!=null){
-            idV = controlEditarViaje.idV;
+            if(idV==null){
+                this.idV=controlEditarViaje.idV;
+                vU=true;
+            }
+            else{
+                this.idV = idV;
+            }
             //btn de regresar
             vista.btnRegresar.setText("Regresar");
             ImageIcon image2 = new ImageIcon(getClass().getResource("../images/icons8-deshacer-40.png"));
@@ -96,7 +107,7 @@ public class controlActividades implements ActionListener, KeyListener{
     }
     
     public void imprimir(){
-                    System.out.println("Arraylist Seleccionados:");
+            System.out.println("Arraylist Seleccionados:");
             for(int p = 0; p < this.actSelec.size(); p++){
                 try{
                     System.out.println(this.actSelec.get(p));
@@ -306,7 +317,7 @@ public class controlActividades implements ActionListener, KeyListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         try{
-            JButton selectedButton = (JButton) e.getSource();
+            JComponent selectedButton = (JComponent) e.getSource();
             String letra = selectedButton.getName().substring(0, 1);  
             String idA = selectedButton.getName().substring(1);
             //Botón de detalles de actividad
@@ -359,10 +370,19 @@ public class controlActividades implements ActionListener, KeyListener{
 
                 JOptionPane.showMessageDialog(null, m, "¡Atención!", JOptionPane.INFORMATION_MESSAGE);
             }
-            vistaEditarViaje vistaEditarViaje = new vistaEditarViaje();
-            modeloEditarViaje modeloEditarViaje = new modeloEditarViaje();
-            controlEditarViaje controlEditarViaje= new controlEditarViaje(vistaEditarViaje, vPrincipal, modeloEditarViaje, idV);
-            CambiaPanel cambiar = new CambiaPanel(vPrincipal.panelCambiante, vistaEditarViaje);
+            if(vU){
+                vistaEditarViaje vistaEditarViaje = new vistaEditarViaje();
+                modeloEditarViaje modeloEditarViaje = new modeloEditarViaje();
+                controlEditarViaje controlEditarViaje= new controlEditarViaje(vistaEditarViaje, vPrincipal, modeloEditarViaje, idV);
+                CambiaPanel cambiar = new CambiaPanel(vPrincipal.panelCambiante, vistaEditarViaje);
+            }
+            else{
+                vistaEditarViajeMN vistaEditarViaje = new vistaEditarViajeMN();
+                modeloEditarViajeMN modeloEditarViaje = new modeloEditarViajeMN();
+                controlEditarViajeMN controlEditarViaje= new controlEditarViajeMN(vistaEditarViaje, vPrincipal, modeloEditarViaje, idV);
+                CambiaPanel cambiar = new CambiaPanel(vPrincipal.panelCambiante, vistaEditarViaje);
+            }
+            
         }
         
         for (int i = 0; i < jnombre.size(); i++) {
