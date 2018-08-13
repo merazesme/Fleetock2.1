@@ -55,7 +55,7 @@ public class controlPrincipal implements ActionListener, WindowListener{
     {
         vistaInicio vistaInicio = new vistaInicio();
         modeloInicio modeloInicio = new modeloInicio();
-        controlInicio controlInicio = new controlInicio(vistaInicio, vista, modeloInicio, this.usuario);
+        controlInicio controlInicio = new controlInicio(vistaInicio, vista, modeloInicio);
         CambiaPanel cambiar = new CambiaPanel(vista.panelCambiante, vistaInicio);
     }
 

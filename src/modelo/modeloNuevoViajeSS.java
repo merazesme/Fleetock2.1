@@ -6,9 +6,12 @@
 package modelo;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -57,13 +60,13 @@ public class modeloNuevoViajeSS {
     }
     
     //Datos del detino
-    public String[][] datosDestinos()
+    public String[][] datosDestinos(String where)
     {
         ResultSet sql;       
          try {
             Connection con = conexion.abrirConexion();
             Statement s = con.createStatement();
-            sql = s.executeQuery("SELECT `idDestino`, `nombre`, `foto` from destino;");
+            sql = s.executeQuery("SELECT `idDestino`, `nombre`, `foto` from destino "+where+";");
             //número de registros obrenidos
             int count = 0;
             while (sql.next()) {
@@ -191,6 +194,46 @@ public class modeloNuevoViajeSS {
          catch(NullPointerException e){
             JOptionPane.showMessageDialog(null, "Error al intentar conectar con el servidor.");
             return null;
+        }
+    }
+    
+    //Insertar un viaje
+    public boolean insertarViaje(String nombre, String finicio, String ffin, String estado, String idEstilo, String idUsuario,  List<String> desSelec, List<String> actSelec,  List<String> actSelecD){
+        try{
+            //Se abre la conexion con la bd.
+            Connection con = conexion.abrirConexion();
+            //Permite crear consultas
+            Statement s = con.createStatement();
+            int idViaje=0;
+            //Inserta un registro en la tabla Viaje.            
+            PreparedStatement p = con.prepareStatement("INSERT INTO `viaje`(`nombre`, `fecha_inicio`, `fecha_fin`, "
+                            + "`estadoDelViaje`, `Usuario_idUsuario`, `EstiloViaje_idEstiloViaje`) VALUES "
+                            + "('"+nombre+"', '"+finicio+"', '"+ffin+"','"+estado+"',"+idUsuario+","+idEstilo+")", PreparedStatement.RETURN_GENERATED_KEYS);
+            p.executeUpdate();
+            ResultSet gK = p.getGeneratedKeys();
+            if (gK.next())
+                idViaje = gK.getInt(1);
+            //Inserta un registro en la tabla pertenece.
+            for(int i=0; i<desSelec.size(); i++){
+                int registroPertenece = s.executeUpdate("INSERT INTO `pertenece`(`Viaje_idViaje`, `Destino_idDestino`) "
+                    + "VALUES ("+idViaje+","+desSelec.get(i)+")");
+            }
+            
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            //Inserta un registro en la tabla contiene.
+            for(int i=0; i<actSelec.size(); i++){
+                int registroContiene = s.executeUpdate("INSERT INTO `contiene`(`Viaje_idViaje`, `Actividad_idActividad`, `destino_idDestino`) "
+                        + "VALUES ("+idViaje+","+actSelec.get(i)+", "+actSelecD.get(i)+")");
+            }
+                        
+            conexion.cerrarConexion(con);
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al intentar abrir la base de datos.");
+            return false;
+        }catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Error al intentar conectar con el servidor.");
+            return false;
         }
     }
 }

@@ -17,6 +17,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.text.ParseException;
@@ -30,20 +32,26 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import modelo.modeloActividadComentarios;
 import modelo.modeloNuevoViajeSS;
+import modelo.modeloPerfil;
+import vistas.vistaActividadComentarios;
 import vistas.vistaNuevoViajeSS;
+import vistas.vistaPerfil;
 import vistas.vistaPrincipal;
 
 /**
  *
  * @author Holi
  */
-public class controlNuevoViajeSS implements ActionListener, PropertyChangeListener, ItemListener{
+public class controlNuevoViajeSS implements ActionListener, PropertyChangeListener, ItemListener, KeyListener{
 
     private vistaNuevoViajeSS vista;
     private vistaPrincipal vistaPrincipal;
@@ -59,15 +67,16 @@ public class controlNuevoViajeSS implements ActionListener, PropertyChangeListen
     //Declaración de un arraylist para los checkbox seleccionadas
     List<String> desSelec = new ArrayList<>();
 
-
     //ACTIVIDADES
     //Declaración de un arraylist para los checkbox de la actividad
     List<JCheckBox> anombre = new ArrayList<>();
     //Declaración de un arraylist para los checkbox de las actividades seleccionadas
     List<String> actSelec = new ArrayList<>();
+    //Declaración de un arraylist para los checkbox de las actividades seleccionadas
+    List<String> actSelecD = new ArrayList<>();
     
         //formato yyyy-MM-dd
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     
     public controlNuevoViajeSS(vistaNuevoViajeSS vista, vistaPrincipal vistaPrincipal, modeloNuevoViajeSS modelo)
     {
@@ -77,6 +86,9 @@ public class controlNuevoViajeSS implements ActionListener, PropertyChangeListen
         this.vista.cmbEstiloViaje.addItemListener(this);
         vista.fechaInicio.addPropertyChangeListener(this);
         vista.fechaFin.addPropertyChangeListener(this); 
+        vista.txtBusquedaA.addKeyListener(this);
+        vista.txtBusquedaD.addKeyListener(this);
+        vista.btnGuardar.addActionListener(this);
         inicio();
     }
     
@@ -97,7 +109,7 @@ public class controlNuevoViajeSS implements ActionListener, PropertyChangeListen
         else{
             vista.cmbEstiloViaje.addItem("No se ha encontrado ningún estilo :(");
         }
-        destinos(modelo.datosDestinos(), vista.pnlDestinos, "pais");
+        destinos(modelo.datosDestinos(""), vista.pnlDestinos, "pais");
     }
     
     public void destinos(String [][] des, JPanel p, String m){
@@ -172,13 +184,13 @@ public class controlNuevoViajeSS implements ActionListener, PropertyChangeListen
                     dnombre.add(box);
                 }
                 else{
-                        //id del destino
+                        //id de la actividad
                     btnImagen.setName("A"+des[i][0]);
                     btnImagen.setToolTipText("Ver Actividad");
                     nCalif=modelo.actividadCal(des[i][0]);
                     //Para ver si ya se ha seleccionado una actividad
                     for (int z = 0; z < actSelec.size(); z++) {
-                        if (actSelec.get(z).equals(des[i][0])) {
+                        if (actSelec.get(z).equals(des[i][0]) && actSelecD.get(z).equals(idD)) {
                             box.setSelected(true);
                         }
                     }
@@ -294,16 +306,133 @@ public class controlNuevoViajeSS implements ActionListener, PropertyChangeListen
     @Override
     public void actionPerformed(ActionEvent e) {
         try{
-            JButton selectedButton = (JButton) e.getSource();
+            JComponent selectedButton = (JComponent) e.getSource();
             String letra = selectedButton.getName().substring(0, 1);  
-            String id = selectedButton.getName().substring(1);  
-            idD=id;
-        //Botón de detalles de actividad
+            String id = selectedButton.getName().substring(1);
+            System.out.println("id"+id);
+            if(!id.equals("")){
+                idD=id;
+            }
+            //Botón de ver actividades del destino
             if(letra.equals("D")){
                destinos(modelo.datosActividades("where tiene.Destino_idDestino = "+id+" and posee.EstiloViaje_idEstiloViaje ="+estiloSeleccionado()+";"), vista.pnlActividades, "billete-con-estrella");
             }
+            
+            //Botón de detalles de actividad
+            if(letra.equals("A")){
+                vistaActividadComentarios vActividadComentarios = new vistaActividadComentarios();
+                modeloActividadComentarios mActividadComentarios = new modeloActividadComentarios();
+                controlActividadComentarios comentarios = new controlActividadComentarios(vActividadComentarios, vistaPrincipal, mActividadComentarios, id, idD);
+                CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vActividadComentarios);
+            }
         }
-        catch(NullPointerException ex){}    
+        catch(NullPointerException ex){}   
+        
+        //Botón de guardar
+        if(e.getSource() == vista.btnGuardar){
+            if(vista.txtNombre.equals("") || vista.fechaInicio.getDate()==null || vista.fechaFin.getDate()==null 
+                    || actSelec.isEmpty() || actSelecD.isEmpty() || desSelec.isEmpty()){
+                JOptionPane.showMessageDialog(null, "No se han acompletado todos los datos.", "¡Atención!", JOptionPane.ERROR_MESSAGE);
+            }
+            else{                
+                String a="";
+                for(int j=0; j<desSelec.size(); j++){                
+                    if(!actSelecD.contains(desSelec.get(j))){
+                        a="No se han seleccionado actividades para un destino";
+                    }
+                }
+                
+                String b="";
+                for(int j=0; j<actSelecD.size(); j++){                
+                    if(!desSelec.contains(actSelecD.get(j))){
+                        b="Has seleccionado actividades de un destino no seleccionado";
+                    }
+                }
+                
+                if(!a.equals("") || !b.equals("")){
+                    JOptionPane.showMessageDialog(null, "<html><h3>¡Cuidado!</h3><p>"+a+"</p><p>"+b+"</p></html>", "Error", JOptionPane.ERROR_MESSAGE);
+                } else{
+                    //Fecha actual
+                    Date fechaA = new Date();
+                    String estado = "";
+                    //Fecha inicio y Fecha fin después
+                    if(vista.fechaInicio.getDate().after(fechaA) && vista.fechaFin.getDate().after(fechaA)){
+                        estado = "Por Realizar";
+                    }
+
+                    //Fecha inicio y Fecha fin antes
+                    if(vista.fechaInicio.getDate().before(fechaA) && vista.fechaFin.getDate().before(fechaA)){
+                        estado = "Terminado";
+                    }
+
+                    //Fecha inicio antes y fecha fin después
+                    if(vista.fechaInicio.getDate().before(fechaA) && vista.fechaFin.getDate().after(fechaA)){
+                        estado = "En Curso";
+                    }
+                     //metodo para guardar
+                    if(modelo.insertarViaje(vista.txtNombre.getText(),sdf.format(vista.fechaInicio.getDate()), 
+                            sdf.format(vista.fechaFin.getDate()), estado, estiloSeleccionado(), controlPrincipal.usuario[2], 
+                            desSelec, actSelec, actSelecD)){
+
+                        JOptionPane.showMessageDialog(null, "Su viaje se ha guardado con éxito", "Viaje guardado", JOptionPane.INFORMATION_MESSAGE);
+                        vistaPerfil vistaPerfil = new vistaPerfil();
+                        modeloPerfil modeloPerfil = new modeloPerfil();
+                        controlPerfil controlPerfil = new controlPerfil(vistaPerfil, vistaPrincipal, modeloPerfil, null);
+                        CambiaPanel cambiar = new CambiaPanel(vistaPrincipal.panelCambiante, vistaPerfil);
+                    }
+                    else{
+                       JOptionPane.showMessageDialog(null, "No se ha podido guardar el viaje. Vuelve a intentarlo", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
+        }
+        
+                //Destinos
+        for (int i = 0; i < dnombre.size(); i++) {
+            //Actividades selecciondas
+            if (dnombre.get(i) == e.getSource()) {
+                if(dnombre.get(i).isSelected()){
+//                    System.out.println("id: " + jnombre.get(i).getName());
+                    desSelec.add(dnombre.get(i).getName());
+                    idD=dnombre.get(i).getName();
+                    destinos(modelo.datosActividades("where tiene.Destino_idDestino = "+idD+" and posee.EstiloViaje_idEstiloViaje ="+estiloSeleccionado()+";"), vista.pnlActividades, "billete-con-estrella");
+                }
+                //Actividades no seleccionadas
+                else{
+                    for(int j = 0; j < desSelec.size(); j++){
+                        if(dnombre.get(i).getName().equals(desSelec.get(j))){
+                            desSelec.remove(j);
+                            vista.pnlActividades.removeAll();
+                            vista.pnlActividades.revalidate();
+                            vista.pnlActividades.repaint();
+                        }
+                    }
+                }
+            }            
+        }
+        
+                //Actividades
+        for (int i = 0; i < anombre.size(); i++) {
+            //Actividades selecciondas
+            if (anombre.get(i) == e.getSource()) {
+                if(anombre.get(i).isSelected()){
+                    System.out.println("idA: " + anombre.get(i).getName());
+                    System.out.println("idD: " + idD);
+                    actSelec.add(anombre.get(i).getName());
+                    actSelecD.add(idD);
+                }
+                //Actividades no seleccionadas
+                else{
+                    for(int j = 0; j < actSelec.size(); j++){
+                        if(anombre.get(i).getName().equals(actSelec.get(j))){
+                            actSelec.remove(j);
+                            actSelecD.remove(j);
+                        }
+                    }
+                }
+            }            
+        }
+
     }
 
     @Override
@@ -326,6 +455,42 @@ public class controlNuevoViajeSS implements ActionListener, PropertyChangeListen
         //Combobox
         if(e.getSource()==vista.cmbEstiloViaje && idD!=null){
             destinos(modelo.datosActividades("where tiene.Destino_idDestino = "+idD+" and posee.EstiloViaje_idEstiloViaje ="+estiloSeleccionado()+";"), vista.pnlActividades, "billete-con-estrella");
+        }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+     //busqueda por letra
+        if(e.getSource()==vista.txtBusquedaD){
+            //si está vacío, consulta general
+            if(vista.txtBusquedaD.getText().equals("")){
+                //consulta normal por medio del combobox (estilo de viaje)
+                 destinos(modelo.datosDestinos(""), vista.pnlDestinos, "pais");
+            }
+            else{
+                //consulta dependiendo de lo que escriba y el combobox (estilo de viaje)
+                destinos(modelo.datosDestinos("where destino.nombre LIKE '%"+vista.txtBusquedaD.getText()+"%'"), vista.pnlDestinos, "pais");
+            }
+        }
+        
+        if(e.getSource()==vista.txtBusquedaA){
+            //si está vacío, consulta general
+            if(vista.txtBusquedaA.getText().equals("")){
+                //consulta normal por medio del combobox (estilo de viaje)
+                destinos(modelo.datosActividades("where tiene.Destino_idDestino = "+idD+" and posee.EstiloViaje_idEstiloViaje ="+estiloSeleccionado()+";"), vista.pnlActividades, "billete-con-estrella");
+            }
+            else{
+                //consulta dependiendo de lo que escriba y el combobox (estilo de viaje)
+                destinos(modelo.datosActividades("where actividad.nombre LIKE '%"+vista.txtBusquedaA.getText()+"%' and tiene.Destino_idDestino = "+idD+" and posee.EstiloViaje_idEstiloViaje ="+estiloSeleccionado()+";"), vista.pnlActividades, "billete-con-estrella");
+            }
         }
     }
 }

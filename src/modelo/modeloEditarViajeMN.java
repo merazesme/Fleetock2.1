@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author ITZEL
  */
-public class modeloEditarViaje {
+public class modeloEditarViajeMN {
     Conexion conexion = new Conexion();
     //Datos Viaje
     public String[] datosViajes(String idV)
@@ -25,13 +25,12 @@ public class modeloEditarViaje {
             Connection con = conexion.abrirConexion();
             Statement s = con.createStatement();
             sql = s.executeQuery("SELECT viaje.nombre, viaje.descripcion, viaje.fecha_inicio, viaje.fecha_fin, "
-                    + "viaje.estadoDelViaje, estiloviaje.tipo, pertenece.Destino_idDestino, destino.nombre from viaje " +
+                    + "viaje.estadoDelViaje, estiloviaje.tipo from viaje " +
                     "INNER JOIN estiloviaje on estiloviaje.idEstiloViaje = viaje.EstiloViaje_idEstiloViaje " +
                     "INNER JOIN pertenece ON pertenece.Viaje_idViaje = viaje.idViaje " +
-                    "INNER JOIN destino ON destino.idDestino = pertenece.Destino_idDestino " +
                     "where viaje.idViaje = "+idV+";");
             //declaración del array
-            String [] a = new String [8];
+            String [] a = new String [6];
             sql.next();
             //copiar del resultset al array
             a[0] = sql.getString(1);
@@ -40,8 +39,6 @@ public class modeloEditarViaje {
             a[3] = sql.getString(4);
             a[4] = sql.getString(5);
             a[5] = sql.getString(6);
-            a[6] = sql.getString(7);
-            a[7] = sql.getString(8);
            conexion.cerrarConexion(con);
            return a;
         }
@@ -91,6 +88,84 @@ public class modeloEditarViaje {
             return null;
         }
         catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Error al intentar conectar con el servidor.");
+            return null;
+        }
+    }
+    
+    //Datos del detino
+    public String[][] datosDestinos(String where)
+    {
+        ResultSet sql;       
+         try {
+            Connection con = conexion.abrirConexion();
+            Statement s = con.createStatement();
+            sql = s.executeQuery("SELECT `idDestino`, `nombre`, `foto` from destino "+where+";");
+            //número de registros obrenidos
+            int count = 0;
+            while (sql.next()) {
+                ++count;
+            }
+            //declaración del array
+            String [][] a = new String [count][4];
+            //se regresa al primero
+            sql.beforeFirst();
+            //contador para copiar del resultset al array
+            int i = 0;
+            //copiar del resultset al array
+            while (sql.next())
+            {
+                a[i][0] = sql.getString(1);
+                a[i][1] = sql.getString(2);
+                a[i][2] = sql.getString(3);
+                i++;
+            } 
+           conexion.cerrarConexion(con);
+           return a;
+        }
+        catch (SQLException ex)
+        {
+            return null;
+        }
+         catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null, "Error al intentar conectar con el servidor.");
+            return null;
+        }
+    }
+    
+    //Datos del detino
+    public String[] destinosViaje(String idV)
+    {
+        ResultSet sql;       
+         try {
+            Connection con = conexion.abrirConexion();
+            Statement s = con.createStatement();
+            sql = s.executeQuery("SELECT `Destino_idDestino` FROM `pertenece` WHERE `Viaje_idViaje` = "+idV+";");
+            //número de registros obrenidos
+            int count = 0;
+            while (sql.next()) {
+                ++count;
+            }
+            //declaración del array
+            String [] a = new String [count];
+            //se regresa al primero
+            sql.beforeFirst();
+            //contador para copiar del resultset al array
+            int i = 0;
+            //copiar del resultset al array
+            while (sql.next())
+            {
+                a[i] = sql.getString(1);
+                i++;
+            } 
+           conexion.cerrarConexion(con);
+           return a;
+        }
+        catch (SQLException ex)
+        {
+            return null;
+        }
+         catch(NullPointerException e){
             JOptionPane.showMessageDialog(null, "Error al intentar conectar con el servidor.");
             return null;
         }
@@ -164,53 +239,6 @@ public class modeloEditarViaje {
         {
             JOptionPane.showMessageDialog(null, "Error al intentar abrir la base de datos.");
             return false; 
-        }catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, "Error al intentar conectar con el servidor.");
-            return false;
-        }
-    }
-    
-    //Actualizar viaje
-    public boolean actualizarViaje(String idViaje, String nombre, String descripcion, String estado, String estilo, String fechai, String fechaf)
-    {   try
-        {
-            Connection con= conexion.abrirConexion(); 
-            Statement s= con.createStatement(); 
-            int registro =s.executeUpdate("UPDATE `viaje` SET `nombre`='"+nombre+"',`descripcion`='"+descripcion+"',"
-                    + "`fecha_inicio`='"+fechai+"',`fecha_fin`='"+fechaf+"',`estadoDelViaje`='"+estado+"',"
-                    + "`EstiloViaje_idEstiloViaje`= " + estilo
-                    + " WHERE idViaje = " + idViaje); 
-            conexion.cerrarConexion(con); 
-            return true; 
-        }
-        catch(SQLException e)
-        {
-            JOptionPane.showMessageDialog(null, "Error al intentar abrir la base de datos.");
-            return false; 
-        }catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, "Error al intentar conectar con el servidor.");
-            return false;
-        }
-    }
-    
-    //Eliminar viaje
-    public boolean viajeEliminar(String idViaje) {                                         
-        try {
-            Connection con = conexion.abrirConexion();
-            
-            //Para ejecutar la consulta
-            Statement s = con.createStatement();
-            
-            //Delete en la tabla pertenece
-            int registroPertenece = s.executeUpdate("delete from pertenece where Viaje_idViaje = " + idViaje + ";");
-            int registroContiene = s.executeUpdate("delete from contiene where Viaje_idViaje = " + idViaje + ";");
-            int registroViaje = s.executeUpdate("delete from viaje where idViaje = " + idViaje + ";");
-            
-            conexion.cerrarConexion(con);
-            return true;
-        }catch (SQLException e){
-            JOptionPane.showMessageDialog(null, "Error al intentar abrir la base de datos.");
-            return false;
         }catch(NullPointerException e){
             JOptionPane.showMessageDialog(null, "Error al intentar conectar con el servidor.");
             return false;

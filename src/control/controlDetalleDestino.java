@@ -58,13 +58,12 @@ public class controlDetalleDestino implements ActionListener{
     JButton btnImagen, imagen; 
     private boolean banDeseos=false;
     
-    public controlDetalleDestino(vistaDetallesDestino vista, vistaPrincipal vistaPrincipal, modeloDetalleDestino modelo, String idD, String [] usuario)
+    public controlDetalleDestino(vistaDetallesDestino vista, vistaPrincipal vistaPrincipal, modeloDetalleDestino modelo, String idD)
     {
         this.vista=vista;
         this.modelo=modelo;
         this.vistaPrincipal=vistaPrincipal;
         this.idD = idD;
-        this.usuario = usuario;
         this.vista.btnActividades.addActionListener(this);
         this.vista.btnViaje.addActionListener(this);
         this.vista.boton_enviar.addActionListener(this);
@@ -73,9 +72,10 @@ public class controlDetalleDestino implements ActionListener{
         this.vista.regular.addActionListener(this);
         this.vista.muybueno.addActionListener(this);
         this.vista.excelente.addActionListener(this);
+        this.vista.btnDeseos.addActionListener(this);
         imagenN();
        
-       actTrans(this.modelo.datosTransportes(this.idD), vista.pnlTransportes, "autobus");
+        actTrans(this.modelo.datosTransportes(this.idD), vista.pnlTransportes, "autobus");
         actTrans(this.modelo.datosActividades(this.idD), vista.pnlActividades, "billete-con-estrella");
         String [] des = modelo.deseosC(controlPrincipal.usuario[2]);
         if(des!=null){
@@ -93,6 +93,7 @@ public class controlDetalleDestino implements ActionListener{
                 }
             }
         }
+        vista.lblCalificacion.setText("");
         mostrarcomentarios("SELECT comentarios.comentario, usuario.nombre, usuario.foto, destino.idDestino, "
                 + "comentarios.calificacion, comentarios.titulo, comentarios.fecha, comentarios.idComentarios, "
                 + "usuario.idUsuario FROM usuario INNER JOIN comentarios "
@@ -447,12 +448,13 @@ public class controlDetalleDestino implements ActionListener{
     public void limpiar()
     {
         vista.texto_titulo.setText("");
-        vista.texto_titulo.setText("");
-        vista.pesimo.setSelected(true);
-        vista.malo.setSelected(true);
-        vista.regular.setSelected(true);
-        vista.muybueno.setSelected(true);
-        vista.excelente.setSelected(true);
+        vista.texto_opinion.setText("");
+        vista.lblCalificacion.setText("");
+        vista.pesimo.setSelected(false);
+        vista.malo.setSelected(false);
+        vista.regular.setSelected(false);
+        vista.muybueno.setSelected(false);
+        vista.excelente.setSelected(false);
 
     }
     
@@ -500,6 +502,7 @@ public class controlDetalleDestino implements ActionListener{
             vista.regular.setSelected(false);
             vista.muybueno.setSelected(false);
             vista.excelente.setSelected(false);
+            vista.lblCalificacion.setText("Pésimo");
         }
         if(vista.malo == e.getSource())
         {
@@ -510,6 +513,7 @@ public class controlDetalleDestino implements ActionListener{
             vista.regular.setSelected(false);
             vista.muybueno.setSelected(false);
             vista.excelente.setSelected(false);
+            vista.lblCalificacion.setText("Malo");
         }
         if(vista.regular == e.getSource())
         {
@@ -520,6 +524,7 @@ public class controlDetalleDestino implements ActionListener{
             vista.regular.setSelected(true);
             vista.muybueno.setSelected(false);
             vista.excelente.setSelected(false);
+            vista.lblCalificacion.setText("Regular");
         }
         if(vista.muybueno == e.getSource())
         {
@@ -530,6 +535,7 @@ public class controlDetalleDestino implements ActionListener{
             vista.regular.setSelected(true);
             vista.muybueno.setSelected(true);
             vista.excelente.setSelected(false);
+            vista.lblCalificacion.setText("Muy bueno");
         }
         if(vista.excelente == e.getSource())
         {
@@ -540,6 +546,7 @@ public class controlDetalleDestino implements ActionListener{
             vista.regular.setSelected(true);
             vista.muybueno.setSelected(true);
             vista.excelente.setSelected(true);
+            vista.lblCalificacion.setText("¡Excelente!");
         }      
         System.out.println("cali : " + cali);
         if(vista.boton_enviar == e.getSource())
@@ -548,7 +555,7 @@ public class controlDetalleDestino implements ActionListener{
             {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String date = sdf.format(new Date());             
-                if(modelo.insertarComentarios(vista.texto_titulo.getText(), cali, usuario[0], Integer.parseInt(idD), vista.texto_titulo.getText(), date))    
+                if(modelo.insertarComentarios(vista.texto_titulo.getText(), cali, controlPrincipal.usuario[2], Integer.parseInt(idD), vista.texto_titulo.getText(), date))    
                 {
                     JOptionPane.showMessageDialog(null, "Comentario agregado");
                     limpiar();
@@ -566,13 +573,8 @@ public class controlDetalleDestino implements ActionListener{
             else
             {
                 JOptionPane.showMessageDialog(null, "Selecciona una calificacion", "¡Atención!", JOptionPane.ERROR_MESSAGE);
-                 limpiar();
+                limpiar();
                 cali=0;
-                vista.pesimo.setSelected(false);
-                vista.malo.setSelected(false);
-                vista.regular.setSelected(false);
-                vista.muybueno.setSelected(false);
-                vista.excelente.setSelected(false);
             }
         }
      
