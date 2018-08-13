@@ -155,7 +155,7 @@ public class acontrolSitioTuristico implements ActionListener, MouseListener, Ke
                     Connection con = conexion.abrirConexion();
                     if( con != null)
                     {   JasperReport reporte= null; 
-                        String path="src\\Reportes\\reporteTipoSitio.jasper"; 
+                        String path="src\\Reportes\\TipoSitio.jasper"; 
                         reporte = (JasperReport) JRLoader.loadObjectFromFile(path); 
                         JasperPrint jprint = JasperFillManager.fillReport(reporte, null,con); 
                         JasperViewer view = new JasperViewer(jprint, false); 

@@ -41,7 +41,7 @@ public class avistaTransporte extends javax.swing.JPanel {
         btn_Seleccionar = new javax.swing.JButton();
         btn_Cancelar = new javax.swing.JButton();
         btnActividades = new javax.swing.JButton();
-        btnGenerarR1 = new javax.swing.JButton();
+        btn_GenerarReporte = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbl_Transporte = new javax.swing.JTable();
         txt_Id = new javax.swing.JTextField();
@@ -133,8 +133,8 @@ public class avistaTransporte extends javax.swing.JPanel {
             }
         });
 
-        btnGenerarR1.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        btnGenerarR1.setText("Generar reporte");
+        btn_GenerarReporte.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
+        btn_GenerarReporte.setText("Generar reporte");
 
         tbl_Transporte = new javax.swing.JTable()
         {   public boolean isCellEditable( int rowIndex, int colIndex)
@@ -214,7 +214,7 @@ public class avistaTransporte extends javax.swing.JPanel {
                 .addGap(147, 147, 147)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_Cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGenerarR1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_GenerarReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_Insertar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_Actualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_Eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -256,7 +256,7 @@ public class avistaTransporte extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btn_Eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnGenerarR1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_GenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btn_Cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
@@ -318,10 +318,10 @@ public class avistaTransporte extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnActividades;
     public javax.swing.JButton btnGenerarR;
-    public javax.swing.JButton btnGenerarR1;
     public javax.swing.JButton btn_Actualizar;
     public javax.swing.JButton btn_Cancelar;
     public javax.swing.JButton btn_Eliminar;
+    public javax.swing.JButton btn_GenerarReporte;
     public javax.swing.JButton btn_Insertar;
     public javax.swing.JButton btn_Seleccionar;
     private javax.swing.JPanel jPanel6;
