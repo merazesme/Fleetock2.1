@@ -151,7 +151,7 @@ public class acontrolActividad implements ActionListener, MouseListener, KeyList
                         Connection con = conexion.abrirConexion();
                         if( con != null)
                         {   JasperReport reporte= null; 
-                            String path="src\\reportes\\reporteActividad.jasper"; 
+                            String path="src\\Reportes\\Actividades.jasper"; 
                             reporte = (JasperReport) JRLoader.loadObjectFromFile(path); 
                             JasperPrint jprint = JasperFillManager.fillReport(reporte, null,con); 
                             JasperViewer view = new JasperViewer(jprint, false); 

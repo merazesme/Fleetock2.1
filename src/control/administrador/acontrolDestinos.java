@@ -19,11 +19,20 @@ import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.*;
 
 import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import modelo.Conexion;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import vistas.administrador.avistaDestinoActividades;
 import vistas.administrador.avistaMenu;
 import vistas.administrador.avistaDestinoTipoSitio;
@@ -468,9 +477,30 @@ public class acontrolDestinos implements ActionListener, MouseListener, KeyListe
              }
         }
         else if(vista.btnGenerarReporte == evento.getSource()) {
-            JOptionPane.showMessageDialog(null, "Generar Reporte"); 
             LimpiarVistaDestino();
-            idDestino=0;
+            desabilitarVista();
+            try 
+            {
+                try 
+                {
+                    Conexion con = new Conexion();
+                    Connection conn = con.abrirConexion();
+                    if(con != null) 
+                    {
+                        JasperReport reporte = null;
+                        String path = ("src\\Reportes\\Destinos.jasper");
+                        reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+                        JasperPrint jprint = JasperFillManager.fillReport(reporte, null, conn);
+                        JasperViewer view = new JasperViewer(jprint, false);
+                        view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                        view.setVisible(true);
+                    }
+                } catch (JRException ex) {
+                    JOptionPane.showMessageDialog(null, "Error al intentar generar el reporte");
+                } 
+            }catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Error en la conexion");
+            } 
         }
         else if(vistaTipoSitio.btn_AgregarTipoSitio == evento.getSource()) {
             if (vistaTipoSitio.jcb_TipoSitio.getSelectedItem() == null) {

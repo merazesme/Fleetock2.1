@@ -19,11 +19,21 @@ import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.sql.Connection;
+import java.sql.SQLException;
 import javax.swing.*;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import modelo.Conexion;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class acontrolTransportes implements ActionListener, MouseListener, KeyListener{
     private modeloTransporte modelo;
@@ -49,6 +59,7 @@ public class acontrolTransportes implements ActionListener, MouseListener, KeyLi
         this.vista.btn_Seleccionar.addActionListener(this);
         this.vista.btn_Cancelar.addActionListener(this);
         this.vista.txt_Buscar.addKeyListener(this);
+        this.vista.btn_GenerarReporte.addActionListener(this);
         desabilitar();
      }
     
@@ -252,6 +263,32 @@ public class acontrolTransportes implements ActionListener, MouseListener, KeyLi
                 bandera=true; }
             }
         }
+        else if(vista.btn_GenerarReporte == evento.getSource()) {
+            Limpiar();
+            desabilitar();
+            try 
+            {
+                try 
+            {
+                Conexion con = new Conexion();
+                Connection conn = con.abrirConexion();
+                if(con != null) 
+                {
+                    JasperReport reporte = null;
+                    String path = ("src\\Reportes\\Transportes.jasper");
+                    reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+                    JasperPrint jprint = JasperFillManager.fillReport(reporte, null, conn);
+                    JasperViewer view = new JasperViewer(jprint, false);
+                    view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                    view.setVisible(true);
+                }
+            } catch (JRException ex) {
+                JOptionPane.showMessageDialog(null, "Error al intentar generar el reporte");
+            } 
+            }catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Error en la conexion");
+            } 
+        } 
     }
       
     private static String getFileExtension(File file) {

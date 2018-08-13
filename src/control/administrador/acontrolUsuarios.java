@@ -128,21 +128,26 @@ public class acontrolUsuarios implements ActionListener, MouseListener, KeyListe
         else if(vista.btn_GenerarReporte == evento.getSource()) {
             Limpiar();
             desabilitar();
-            try {
+            try 
+            {
+                try 
+            {
                 Conexion con = new Conexion();
                 Connection conn = con.abrirConexion();
-
-                JasperReport reporte = null;
-                String path = ("src\\Reportes\\Usuarios.jasper");
-                reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
-                JasperPrint jprint = JasperFillManager.fillReport(reporte, null, conn);
-                JasperViewer view = new JasperViewer(jprint, false);
-                view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-                view.setVisible(true);
-            
+                if(con != null) 
+                {
+                    JasperReport reporte = null;
+                    String path = ("src\\Reportes\\Usuarios.jasper");
+                    reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
+                    JasperPrint jprint = JasperFillManager.fillReport(reporte, null, conn);
+                    JasperViewer view = new JasperViewer(jprint, false);
+                    view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                    view.setVisible(true);
+                }
             } catch (JRException ex) {
-                Logger.getLogger(acontrolUsuarios.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Error al intentar generar el reporte");
+            } 
+            }catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "Error en la conexion");
             } 
         } 

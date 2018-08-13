@@ -226,32 +226,32 @@ public class acontrolEstiloViaje implements ActionListener, MouseListener, KeyLi
                             }
                         }
                     }
-                    else if(vista.btnCancelar == evento.getSource())
-                        {   this.limpiar();
-                            this.desabilitar();
-                        }
-                        else if(vista.btnReporte == evento.getSource()) 
-                        {   try
-                            {   try
-                                {   Conexion conexion = new Conexion(); 
-                                    Connection con = conexion.abrirConexion();
-                                    if( con != null)
-                                    {   JasperReport reporte= null; 
-                                        String path="src\\reportes\\reporteEstiloViaje.jasper"; 
-                                        reporte = (JasperReport) JRLoader.loadObjectFromFile(path); 
-                                        JasperPrint jprint = JasperFillManager.fillReport(reporte, null,con); 
-                                        JasperViewer view = new JasperViewer(jprint, false); 
-                                        view.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
-                                        view.setVisible(true);
-                                    }
-                                }
-                                catch(SQLException e)
-                                {   JOptionPane.showMessageDialog(null, "Error al intentar generar el reporte");
-                                }
-                            }catch(JRException ex)
-                            {   JOptionPane.showMessageDialog(null, "Error al intentar generar el reporte"); 
+                else if(vista.btnCancelar == evento.getSource())
+                {   this.limpiar();
+                    this.desabilitar();
+                }
+                else if(vista.btnReporte == evento.getSource()) 
+                {   try
+                    {   try
+                        {   Conexion conexion = new Conexion(); 
+                            Connection con = conexion.abrirConexion();
+                            if( con != null)
+                            {   JasperReport reporte= null; 
+                                String path="src\\reportes\\EstiloViaje.jasper"; 
+                                reporte = (JasperReport) JRLoader.loadObjectFromFile(path); 
+                                JasperPrint jprint = JasperFillManager.fillReport(reporte, null,con); 
+                                JasperViewer view = new JasperViewer(jprint, false); 
+                                view.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
+                                view.setVisible(true);
                             }
-                        }      
+                        }
+                        catch(SQLException e)
+                        {   JOptionPane.showMessageDialog(null, "Error al intentar generar el reporte");
+                        }
+                    }catch(JRException ex)
+                    {   JOptionPane.showMessageDialog(null, "Error al intentar generar el reporte"); 
+                    }
+                }      
     }
     public static void copyFile_Java(String origen, String destino) // Guarda la imagen en la ruta del servidor
     {   try 
