@@ -129,7 +129,5 @@ public class acontrolMenu implements ActionListener{
                 cLogin.iniciarVista();
             } 
         }
-    
     }
-    
 }

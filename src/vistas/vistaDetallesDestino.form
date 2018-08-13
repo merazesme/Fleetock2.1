@@ -76,7 +76,9 @@
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
-                          <EmptySpace min="715" pref="715" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="555" max="-2" attributes="0"/>
+                          <Component id="btnDeseos" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnViaje" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
@@ -104,25 +106,25 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel16" min="-2" pref="361" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <Component id="jRadioButton91" min="-2" max="-2" attributes="0"/>
+                                  <Component id="pesimo" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton92" min="-2" max="-2" attributes="0"/>
+                                  <Component id="malo" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton93" min="-2" max="-2" attributes="0"/>
+                                  <Component id="regular" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton94" min="-2" max="-2" attributes="0"/>
+                                  <Component id="muybueno" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton95" min="-2" max="-2" attributes="0"/>
+                                  <Component id="excelente" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel17" min="-2" pref="361" max="-2" attributes="0"/>
                               <Component id="jLabel18" min="-2" pref="394" max="-2" attributes="0"/>
-                              <Component id="jTextField1" min="-2" pref="300" max="-2" attributes="0"/>
+                              <Component id="texto_titulo" min="-2" pref="300" max="-2" attributes="0"/>
                               <Component id="jSeparator3" min="-2" pref="300" max="-2" attributes="0"/>
                               <Component id="jLabel19" min="-2" pref="394" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" pref="302" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="204" pref="204" max="-2" attributes="0"/>
-                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="boton_enviar" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
@@ -133,13 +135,18 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblNombre" min="-2" pref="257" max="-2" attributes="0"/>
-                              <Component id="lblImagen" min="-2" pref="257" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblNombre" min="-2" pref="257" max="-2" attributes="0"/>
+                                      <Component id="lblImagen" min="-2" pref="257" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
+                                  <Component id="btnViaje" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="btnDeseos" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="8" pref="8" max="-2" attributes="0"/>
-                          <Component id="btnViaje" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="9" pref="9" max="-2" attributes="0"/>
                           <Component id="btnActividades" min="-2" pref="42" max="-2" attributes="0"/>
                           <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
@@ -156,18 +163,18 @@
                                   <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jRadioButton91" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton92" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton93" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton94" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton95" min="-2" max="-2" attributes="0"/>
+                                      <Component id="pesimo" min="-2" max="-2" attributes="0"/>
+                                      <Component id="malo" min="-2" max="-2" attributes="0"/>
+                                      <Component id="regular" min="-2" max="-2" attributes="0"/>
+                                      <Component id="muybueno" min="-2" max="-2" attributes="0"/>
+                                      <Component id="excelente" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
                                   <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                                   <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                  <Component id="jTextField1" min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="texto_titulo" min="-2" pref="20" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                   <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
                                   <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
@@ -175,7 +182,7 @@
                                   <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                                   <Component id="jScrollPane1" min="-2" pref="112" max="-2" attributes="0"/>
                                   <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="boton_enviar" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="scrollOpiniones" min="-2" pref="338" max="-2" attributes="0"/>
                           </Group>
@@ -1868,12 +1875,15 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Container class="javax.swing.JPanel" name="jPanel3">
+                    <Container class="javax.swing.JPanel" name="panel_comentarios">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
 
                       <Layout>
                         <DimensionLayout dim="0">
@@ -2473,7 +2483,7 @@
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton91">
+                <Component class="javax.swing.JRadioButton" name="pesimo">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="57" green="ff" red="9c" type="rgb"/>
@@ -2485,10 +2495,13 @@
                     <Property name="focusPainted" type="boolean" value="false"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton91ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pesimoActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton92">
+                <Component class="javax.swing.JRadioButton" name="malo">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="57" green="ff" red="9c" type="rgb"/>
@@ -2500,10 +2513,13 @@
                     <Property name="focusPainted" type="boolean" value="false"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton92ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maloActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton93">
+                <Component class="javax.swing.JRadioButton" name="regular">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="57" green="ff" red="9c" type="rgb"/>
@@ -2515,10 +2531,13 @@
                     <Property name="focusPainted" type="boolean" value="false"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton93ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regularActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton94">
+                <Component class="javax.swing.JRadioButton" name="muybueno">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="57" green="ff" red="9c" type="rgb"/>
@@ -2530,10 +2549,13 @@
                     <Property name="focusPainted" type="boolean" value="false"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton94ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="muybuenoActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton95">
+                <Component class="javax.swing.JRadioButton" name="excelente">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="57" green="ff" red="9c" type="rgb"/>
@@ -2545,8 +2567,11 @@
                     <Property name="focusPainted" type="boolean" value="false"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton95ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="excelenteActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel17">
                   <Properties>
@@ -2574,7 +2599,7 @@
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField1">
+                <Component class="javax.swing.JTextField" name="texto_titulo">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Candara" size="14" style="0"/>
@@ -2583,6 +2608,9 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator3">
                 </Component>
@@ -2606,7 +2634,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="jTextArea2">
+                    <Component class="javax.swing.JTextArea" name="texto_opinion">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -2614,10 +2642,13 @@
                         </Property>
                         <Property name="rows" type="int" value="5"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="jButton1">
+                <Component class="javax.swing.JButton" name="boton_enviar">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Candara" size="14" style="0"/>
@@ -2633,6 +2664,9 @@
                       <Image iconType="3" name="/images/icons8_Sent_30px.png"/>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnViaje">
                   <Properties>
@@ -2714,6 +2748,40 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Santiago, Chile."/>
                     <Property name="horizontalTextPosition" type="int" value="0"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnDeseos">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="9a" green="1b" red="6a" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Candara" size="14" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/images/btn_DeseoMorado.png"/>
+                    </Property>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Cursor de Mano"/>
+                    </Property>
+                    <Property name="defaultCapable" type="boolean" value="false"/>
+                    <Property name="focusPainted" type="boolean" value="false"/>
+                    <Property name="focusable" type="boolean" value="false"/>
+                    <Property name="horizontalTextPosition" type="int" value="0"/>
+                    <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/images/btn_DeseosLila.png"/>
+                    </Property>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

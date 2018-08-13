@@ -18,17 +18,17 @@ import vistas.vistaPrincipal;
  *
  * @author LOS MAS GUAPOS♥
  */
-public class Fleetock {
-
+public class Fleetock 
+{
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         // TODO code application logic here
         vistaLoginRegistrarse vista = new vistaLoginRegistrarse();
         controlLoginRegistrarse control = new controlLoginRegistrarse(vista);
         vista.setVisible(true);
         vista.setLocationRelativeTo(null);
     }
-    
 }

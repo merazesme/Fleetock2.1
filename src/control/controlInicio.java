@@ -20,6 +20,8 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.BoxLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -30,6 +32,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import modelo.modeloAgregarViaje;
 import modelo.modeloDetalleDestino;
 import modelo.modeloInicio;
 import vistas.vistaAgregarViaje;
@@ -42,10 +45,11 @@ public class controlInicio implements ActionListener, KeyListener{
     private vistaInicio vista;
     private vistaPrincipal vPrincipal;
     private modeloInicio modelo;
+    public static String [] usuario;
     //Boton de la imagen del destino
     JButton btnImagen, btnNuevoViaje;
     
-    public controlInicio(vistaInicio vista, vistaPrincipal vPrincipal, modeloInicio modelo)
+    public controlInicio(vistaInicio vista, vistaPrincipal vPrincipal, modeloInicio modelo, String [] usuario)
     {
         this.vista = vista;
         this.vPrincipal=vPrincipal;
@@ -53,6 +57,7 @@ public class controlInicio implements ActionListener, KeyListener{
         this.vista.txtBusqueda.addKeyListener(this);  
         this.vista.btnSugerencias.addActionListener(this);
         this.vista.btnTendencias.addActionListener(this);
+        this.usuario = usuario;
         principal();
     }
     
@@ -86,6 +91,7 @@ public class controlInicio implements ActionListener, KeyListener{
         destinos(this.modelo.datosDestinos(9), vista.pnlSelva1);
         destinos(this.modelo.datosDestinos(2), vista.pnlDesierto1);
         destinos(this.modelo.datosDestinos(13), vista.pnlManglar1);
+        destinos(this.modelo.datosDestinos(15), vista.pnlVolcan1);
     }
     
     public void busquedas(String sentencia){
@@ -95,14 +101,18 @@ public class controlInicio implements ActionListener, KeyListener{
         vista.txtBusqueda.requestFocus();
     }
     
-    public void destinos(String [][] des, JPanel p){
+    public void destinos(String [][] des, JPanel p)
+    {
         //limpia el panel
         p.removeAll();
         p.revalidate();
         p.repaint();
         p.setLayout(new FlowLayout(FlowLayout.LEFT));
-        if(des.length > 0){
-            for(int i=0; i<des.length; i++){
+        if(des.length > 0)
+        {
+            for(int i=0; i<des.length; i++)
+            {
+                
                 //Panel principal: verde
                 JPanel principal = new JPanel();
                 principal.setLayout(new GridLayout( 2, 1, 0, 5));
@@ -111,16 +121,17 @@ public class controlInicio implements ActionListener, KeyListener{
         
                 //Imagen
                 ImageIcon image = new ImageIcon(getClass().getResource("../images/icons8-pais-100.png"));
-                if(des[i][2] != null){
+                if(des[i][2] != null)
+                {
                     image = new ImageIcon(des[i][2]);
                 }
                 
                 Icon fondo = new ImageIcon(image.getImage().getScaledInstance(250, 150, Image.SCALE_DEFAULT));
                 btnImagen = new JButton(fondo);
-                    //id del destino
+                //id del destino
                 btnImagen.setName("D"+des[i][0]);
                 
-                    //Para hacerlo invisible
+                //Para hacerlo invisible
                 btnImagen.setBorderPainted(false);
                 btnImagen.setContentAreaFilled(false);
                 btnImagen.setDefaultCapable(false);
@@ -130,27 +141,29 @@ public class controlInicio implements ActionListener, KeyListener{
                 btnImagen.addActionListener(this);
                 btnImagen.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 btnImagen.setToolTipText("Ver Destino");
-                    //Sin bordes
+                //Sin bordes
                 btnImagen.setBorder(new EmptyBorder(5, 0, 0, 0));
                 
                 
                 //Panel de información
                 JPanel informacion = new JPanel(new BorderLayout(0, -70));
                 informacion.setBackground(new java.awt.Color(156,255,87));
-                    //Nombre del destino
+                
+                //Nombre del destino
                 JLabel nombreD = new JLabel(des[i][1]);
                 nombreD.setFont(new Font("Candara", Font.PLAIN, 14));
                 nombreD.setBorder(new EmptyBorder(10, 5, 0, 0));
                 nombreD.setSize(250, 15);
                 
-                    //Calificación
+                //Calificación
                 JPanel cal = new JPanel();
                 cal.setLayout(new BoxLayout(cal, BoxLayout.X_AXIS));
                 cal.setBackground(new java.awt.Color(156,255,87));
                 cal.setBorder(new EmptyBorder(10, 5, 0, 0));
                 
-                    //si tiene calificación que cree los radiobutton              
-                if(modelo.destinoCal(des[i][0]) != null){
+                //si tiene calificación que cree los radiobutton              
+                if(modelo.destinoCal(des[i][0]) != null)
+                {
                     JRadioButton r1 = new JRadioButton();
                     JRadioButton r2 = new JRadioButton();
                     JRadioButton r3 = new JRadioButton();
@@ -174,7 +187,8 @@ public class controlInicio implements ActionListener, KeyListener{
                     cal.add(r3);
                     cal.add(r4);
                     cal.add(r5);
-                        //Rellenar los radiobutton
+                    
+                    //Rellenar los radiobutton
                     double c = Double.parseDouble(modelo.destinoCal(des[i][0]));
                     if(c<=1.99){
                         r1.setSelected(true);
@@ -202,8 +216,9 @@ public class controlInicio implements ActionListener, KeyListener{
                         r5.setSelected(true);
                     }
                 }
-                    //Si no tiene calificación que aparezca el mensaje
-                else{
+                //Si no tiene calificación que aparezca el mensaje
+                else
+                {
                     JLabel mensajec = new JLabel("¡Sé el primero en calificarlo!");
                     mensajec.setForeground(new Color(76,2,131));
                     mensajec.setFont(new Font("Candara", Font.PLAIN, 14));
@@ -212,18 +227,20 @@ public class controlInicio implements ActionListener, KeyListener{
                     cal.add(mensajec);
                 }
                 
-                    //Añadir Nuevo viaje
-                        //Imagen
+                //Añadir Nuevo viaje
+                //Imagen
                 ImageIcon image2 = new ImageIcon(getClass().getResource("../images/icons8_Plus_Math_30px_2.png"));
                 Icon fondo2 = new ImageIcon(image2.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
                 btnNuevoViaje = new JButton(fondo2);
-                        //efecto del mouse
+                
+                //efecto del mouse
                 ImageIcon image3 = new ImageIcon(getClass().getResource("../images/icons8_Plus_Math_32px.png"));
                 Icon fondo3 = new ImageIcon(image3.getImage().getScaledInstance(32, 32, Image.SCALE_DEFAULT));
                 btnNuevoViaje.setRolloverIcon(fondo3);
-                        //id del destino
+                
+                //id del destino
                 btnNuevoViaje.setName("N"+des[i][0]);
-                        //Para hacerlo invisible
+                //Para hacerlo invisible
                 btnNuevoViaje.setBorderPainted(false);
                 btnNuevoViaje.setContentAreaFilled(false);
                 btnNuevoViaje.setDefaultCapable(false);
@@ -233,7 +250,8 @@ public class controlInicio implements ActionListener, KeyListener{
                 btnNuevoViaje.addActionListener(this);
                 btnNuevoViaje.setToolTipText("Nuevo Viaje");
                 btnNuevoViaje.setCursor(new Cursor(Cursor.HAND_CURSOR));
-                        //añadir el jlabel al panel de información
+                
+                //añadir el jlabel al panel de información
                 informacion.add(nombreD, BorderLayout.NORTH); 
                 informacion.add(cal, BorderLayout.CENTER);
                 informacion.add(btnNuevoViaje, BorderLayout.EAST);
@@ -244,6 +262,7 @@ public class controlInicio implements ActionListener, KeyListener{
                 principal.setPreferredSize(new Dimension(250, 250));
                 //Agregar el panel principal al scroll
                 p.add(principal);
+                
                 //separación en blanco
                 JPanel separacion = new JPanel();
                 separacion.setBackground(new java.awt.Color(255,255,255));
@@ -268,16 +287,20 @@ public class controlInicio implements ActionListener, KeyListener{
             String letra = selectedButton.getName().substring(0, 1);  
             String idD = selectedButton.getName().substring(1);  
         //Botón de detalles de destino
-            if(letra.equals("D")){
+            if(letra.equals("D"))
+            {                             
+                System.out.println("El id del usuario es: " + usuario[0]);
+                System.out.println("El id Destino es: " + idD);
                 vistaDetallesDestino vDetallesDestino = new vistaDetallesDestino();
                 modeloDetalleDestino mDetallesDestino = new modeloDetalleDestino();
-                controlDetalleDestino cDetalleDestino = new controlDetalleDestino(vDetallesDestino, vPrincipal, mDetallesDestino, idD);
+                controlDetalleDestino cDetalleDestino = new controlDetalleDestino(vDetallesDestino, vPrincipal, mDetallesDestino, idD, this.usuario);
                 CambiaPanel cambiar = new CambiaPanel(vPrincipal.panelCambiante, vDetallesDestino);
             }
         //Botón de agregar a viaje    
             if(letra.equals("N")){
                 vistaAgregarViaje vAgregarViaje = new vistaAgregarViaje();
-                controlAgregarViaje cAgregarViaje = new controlAgregarViaje(vAgregarViaje, vPrincipal, idD);
+                modeloAgregarViaje mAgregarViaje = new modeloAgregarViaje();
+                controlAgregarViaje cAgregarViaje = new controlAgregarViaje(vAgregarViaje, vPrincipal, mAgregarViaje, idD);
                 CambiaPanel cambiar = new CambiaPanel(vPrincipal.panelCambiante, vAgregarViaje);
             }
         }
