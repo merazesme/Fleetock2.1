@@ -124,7 +124,7 @@ public class acontrolMenu implements ActionListener{
                 JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
                 vistaLogin vLogin = new vistaLogin();
                 modeloLogin modelologin = new modeloLogin();
-                controlLogin cLogin = new controlLogin(vLogin,modelologin, null, vista);
+                controlLogin cLogin = new controlLogin(vLogin,modelologin);
                 this.vista.setVisible(false);
                 cLogin.iniciarVista();
             } 

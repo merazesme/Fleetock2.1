@@ -5,7 +5,6 @@
  */
 package control;
 
-import java.awt.Button;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -41,7 +40,7 @@ public class controlLoginRegistrarse implements ActionListener{
             vistaLogin.setLocationRelativeTo(null);
             vistaPrincipal vistaPrincipal = new vistaPrincipal();
             modeloLogin modelologin = new modeloLogin();
-            controlLogin controlLogin = new controlLogin(vistaLogin,modelologin, vistaPrincipal, null);
+            controlLogin controlLogin = new controlLogin(vistaLogin,modelologin);
         }
     }
     

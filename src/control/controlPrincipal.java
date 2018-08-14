@@ -49,6 +49,8 @@ public class controlPrincipal implements ActionListener, WindowListener{
         this.vista.setSize(1035, 629);
         this.vista.setResizable(false);
         vista.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        this.vista.setVisible(true);
+        this.vista.setLocationRelativeTo(null);
     }
     
     public void iniciarVista()
@@ -95,12 +97,14 @@ public class controlPrincipal implements ActionListener, WindowListener{
        
        if(this.vista.btnLogout == e.getSource())
        {
-           if (JOptionPane.showConfirmDialog(vista,"¿Estás seguro que deseas cerrar sesión?", "Fleetock",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION)
+           if (JOptionPane.showConfirmDialog(null,
+                   "¿Estás seguro que deseas cerrar sesión?", "Fleetock",
+                   JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION)
            {
                 this.vista.dispose();
                 vistaLogin vistaLogin = new vistaLogin();
                 modeloLogin modelologin = new modeloLogin();
-                controlLogin controLogin = new controlLogin(vistaLogin,modelologin, vista, null);
+                controlLogin controLogin = new controlLogin(vistaLogin,modelologin);
                 controLogin.iniciarVista();
             }           
        }
@@ -113,14 +117,14 @@ public class controlPrincipal implements ActionListener, WindowListener{
 
     @Override
     public void windowClosing(WindowEvent e) {
-        if (JOptionPane.showConfirmDialog(vista,
+        if (JOptionPane.showConfirmDialog(null,
                 "¿Estás seguro que deseas cerrar sesión?", "Fleetock",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
             this.vista.dispose();
             vistaLogin vistaLogin = new vistaLogin();
             modeloLogin modelologin = new modeloLogin();
-            controlLogin controLogin = new controlLogin(vistaLogin,modelologin, vista, null);
+            controlLogin controLogin = new controlLogin(vistaLogin,modelologin);
             controLogin.iniciarVista();
         } 
     }

@@ -309,7 +309,8 @@ public class controlNuevoViajeSS implements ActionListener, PropertyChangeListen
             JComponent selectedButton = (JComponent) e.getSource();
             String letra = selectedButton.getName().substring(0, 1);  
             String id = selectedButton.getName().substring(1);
-            System.out.println("id"+id);
+            System.out.println("id: "+id);
+            System.out.println("letra: "+letra);
             
             //Botón de ver actividades del destino
             if(letra.equals("D")){
@@ -371,6 +372,13 @@ public class controlNuevoViajeSS implements ActionListener, PropertyChangeListen
                         estado = "En Curso";
                     }
                      //metodo para guardar
+
+                    for (int i = 0; i < actSelec.size(); i++) {
+                        System.out.println("idA: " + actSelec.get(i));
+                        System.out.println("idD: " + actSelecD.get(i));
+                        System.out.println("--------------------------------------");
+                    }
+                     
                     if(modelo.insertarViaje(vista.txtNombre.getText(),sdf.format(vista.fechaInicio.getDate()), 
                             sdf.format(vista.fechaFin.getDate()), estado, estiloSeleccionado(), controlPrincipal.usuario[2], 
                             desSelec, actSelec, actSelecD)){
@@ -393,7 +401,7 @@ public class controlNuevoViajeSS implements ActionListener, PropertyChangeListen
             //Actividades selecciondas
             if (dnombre.get(i) == e.getSource()) {
                 if(dnombre.get(i).isSelected()){
-//                    System.out.println("id: " + jnombre.get(i).getName());
+                    System.out.println("id: " + dnombre.get(i).getName());
                     desSelec.add(dnombre.get(i).getName());
                     idD=dnombre.get(i).getName();
                     destinos(modelo.datosActividades("where tiene.Destino_idDestino = "+idD+" and posee.EstiloViaje_idEstiloViaje ="+estiloSeleccionado()+";"), vista.pnlActividades, "billete-con-estrella");

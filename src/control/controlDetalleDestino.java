@@ -552,7 +552,7 @@ public class controlDetalleDestino implements ActionListener{
         
         if(vista.boton_enviar == e.getSource())
         {
-            if(cali >=1 && bandera==true && vista.texto_opinion.getText()=="" && vista.texto_titulo.getText()=="")
+            if(cali >=1 && bandera)
             {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String date = sdf.format(new Date());             

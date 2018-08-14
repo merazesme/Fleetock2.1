@@ -21,10 +21,8 @@ import vistas.vistaPrincipal;
  */
 public class controlLogin implements ActionListener{
     
-    vistaLogin vista;
+    private vistaLogin vista;
     private modeloLogin modelo;
-    vistaPrincipal vistaPrincipal;
-    avistaMenu avmMenu;
     public String usu="";
         
     public controlLogin()
@@ -32,7 +30,7 @@ public class controlLogin implements ActionListener{
         this.usu="";
     }
   
-    public controlLogin(vistaLogin vista,modeloLogin modelo, vistaPrincipal vistaPrincipal, avistaMenu avMenu)
+    public controlLogin(vistaLogin vista, modeloLogin modelo)
     {
         this.vista=vista;
         this.modelo=modelo;
@@ -40,8 +38,6 @@ public class controlLogin implements ActionListener{
         this.vista.texto_usuario.addActionListener(this);
         this.vista.texto_contra.addActionListener(this);
         //this.vista.btnISLogin.addKeyListener(this);
-        this.vistaPrincipal=vistaPrincipal;
-        this.avmMenu=avMenu;
         this.vista.setTitle("Fleetock: Inicio de sesión");
         this.vista.setIconImage(new ImageIcon(getClass().getResource("../images/logo_55px.png")).getImage());
         this.vista.setSize(916, 490);
@@ -66,11 +62,10 @@ public class controlLogin implements ActionListener{
                 case 1:
                     //SI ES USUARIO SE ABRE ESTE PANEL
                     JOptionPane.showMessageDialog(null, "Bienvenido " + usu);
-                    vista.setVisible(false);
-                    vistaPrincipal.setVisible(true);
-                    vistaPrincipal.setLocationRelativeTo(null);
                     this.vista.dispose();               
-                    controlPrincipal controlPrincipal = new controlPrincipal(vistaPrincipal, modelo.jalarIdUsuario(usu, contra));
+                    
+                    vistaPrincipal vistaPrincipa1 = new vistaPrincipal();
+                    controlPrincipal controlPrincipal = new controlPrincipal(vistaPrincipa1, modelo.jalarIdUsuario(usu, contra));
                     controlPrincipal.iniciarVista();
                     break;
                 case 2:
